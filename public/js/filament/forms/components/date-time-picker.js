@@ -10,10 +10,7 @@ var mi = (n, t, s, i) => {
         for (let e of _i(t))
             !fi.call(n, e) &&
                 e !== s &&
-                en(n, e, {
-                    get: () => t[e],
-                    enumerable: !(i = di(t, e)) || i.enumerable,
-                });
+                en(n, e, { get: () => t[e], enumerable: !(i = di(t, e)) || i.enumerable });
     return n;
 };
 var le = (n, t, s) => (
@@ -502,9 +499,7 @@ var yn = H((He, je) => {
             var d = o.startOf;
             (o.startOf = function (l, y) {
                 if (!this.$x || !this.$x.$timezone) return d.call(this, l, y);
-                var f = e(this.format('YYYY-MM-DD HH:mm:ss:SSS'), {
-                    locale: this.$L,
-                });
+                var f = e(this.format('YYYY-MM-DD HH:mm:ss:SSS'), { locale: this.$L });
                 return d.call(f, l, y).tz(this.$x.$timezone, !0);
             }),
                 (e.tz = function (l, y, f) {
@@ -708,18 +703,7 @@ var j = H(($e, Ce) => {
                 },
                 p: function (L) {
                     return (
-                        {
-                            M: d,
-                            y,
-                            w: o,
-                            d: r,
-                            D: f,
-                            h: u,
-                            m: a,
-                            s: e,
-                            ms: i,
-                            Q: l,
-                        }[L] ||
+                        { M: d, y, w: o, d: r, D: f, h: u, m: a, s: e, ms: i, Q: l }[L] ||
                         String(L || '')
                             .toLowerCase()
                             .replace(/s$/, '')
@@ -759,12 +743,7 @@ var j = H(($e, Ce) => {
         (k.l = q),
             (k.i = I),
             (k.w = function (L, M) {
-                return w(L, {
-                    locale: M.$L,
-                    utc: M.$u,
-                    x: M.$x,
-                    $offset: M.$offset,
-                });
+                return w(L, { locale: M.$L, utc: M.$u, x: M.$x, $offset: M.$offset });
             });
         var U = (function () {
                 function L(m) {
@@ -3880,18 +3859,7 @@ var Le = function (t, s, i) {
         return t < 0 ? Math.ceil(t) || 0 : Math.floor(t);
     },
     Yi = function (t) {
-        var s = {
-            M: R,
-            y: B,
-            w: oe,
-            d: K,
-            D: re,
-            h: se,
-            m: ie,
-            s: ne,
-            ms: de,
-            Q: me,
-        };
+        var s = { M: R, y: B, w: oe, d: K, D: re, h: se, m: ie, s: ne, ms: de, Q: me };
         return (
             s[t] ||
             String(t || '')

@@ -26,7 +26,7 @@ class Login extends Page
     protected function getCredentialsFromFormData(array $data): array
     {
         $input = $data['login'];
-        $login_type = filter_var($input, FILTER_VALIDATE_EMAIL) ? 'email' : 'name';
+        $login_type = filter_var($input, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
 
         return [
             $login_type => $input,

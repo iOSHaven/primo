@@ -970,11 +970,7 @@ var Di = class {
                 (this.hoverBorderColor = (e, s) => ki(s.borderColor)),
                 (this.hoverColor = (e, s) => ki(s.color)),
                 (this.indexAxis = 'x'),
-                (this.interaction = {
-                    mode: 'nearest',
-                    intersect: !0,
-                    includeInvisible: !1,
-                }),
+                (this.interaction = { mode: 'nearest', intersect: !0, includeInvisible: !1 }),
                 (this.maintainAspectRatio = !0),
                 (this.onHover = null),
                 (this.onClick = null),
@@ -1883,12 +1879,7 @@ function yn(i) {
         : { between: lt, compare: (t, e) => t - e, normalize: (t) => t };
 }
 function Vs({ start: i, end: t, count: e, loop: s, style: n }) {
-    return {
-        start: i % e,
-        end: t % e,
-        loop: s && (t - i + 1) % e === 0,
-        style: n,
-    };
+    return { start: i % e, end: t % e, loop: s && (t - i + 1) % e === 0, style: n };
 }
 function Va(i, t, e) {
     let { property: s, start: n, end: o } = e,
@@ -1928,16 +1919,7 @@ function ss(i, t, e) {
                     m === null && M() && (m = r(b, n) === 0 ? S : k),
                     m !== null &&
                         w() &&
-                        (g.push(
-                            Vs({
-                                start: m,
-                                end: S,
-                                loop: u,
-                                count: a,
-                                style: f,
-                            }),
-                        ),
-                        (m = null)),
+                        (g.push(Vs({ start: m, end: S, loop: u, count: a, style: f })), (m = null)),
                     (k = S),
                     (v = b)));
     return m !== null && g.push(Vs({ start: m, end: d, loop: u, count: a, style: f })), g;
@@ -2263,10 +2245,7 @@ O.set('transitions', {
     active: { animation: { duration: 400 } },
     resize: { animation: { duration: 0 } },
     show: {
-        animations: {
-            colors: { from: 'transparent' },
-            visible: { type: 'boolean', duration: 0 },
-        },
+        animations: { colors: { from: 'transparent' }, visible: { type: 'boolean', duration: 0 } },
     },
     hide: {
         animations: {
@@ -2429,10 +2408,7 @@ function Qa(i, t, e) {
 }
 function tr(i) {
     let { min: t, max: e, minDefined: s, maxDefined: n } = i.getUserBounds();
-    return {
-        min: s ? t : Number.NEGATIVE_INFINITY,
-        max: n ? e : Number.POSITIVE_INFINITY,
-    };
+    return { min: s ? t : Number.NEGATIVE_INFINITY, max: n ? e : Number.POSITIVE_INFINITY };
 }
 function er(i, t, e) {
     let s = i[t] || (i[t] = {});
@@ -2644,11 +2620,7 @@ var as = (i) => i === 'reset' || i === 'none',
                 f,
                 g;
             for (u = 0, f = n; u < f; ++u)
-                (g = u + s),
-                    (d[u] = {
-                        [r]: h || o.parse(c[g], g),
-                        [l]: a.parse(e[g], g),
-                    });
+                (g = u + s), (d[u] = { [r]: h || o.parse(c[g], g), [l]: a.parse(e[g], g) });
             return d;
         }
         parseArrayData(t, e, s, n) {
@@ -2673,10 +2645,7 @@ var as = (i) => i === 'reset' || i === 'none',
             for (h = 0, d = n; h < d; ++h)
                 (u = h + s),
                     (f = e[u]),
-                    (c[h] = {
-                        x: o.parse(gt(f, r), u),
-                        y: a.parse(gt(f, l), u),
-                    });
+                    (c[h] = { x: o.parse(gt(f, r), u), y: a.parse(gt(f, l), u) });
             return c;
         }
         getParsed(t) {
@@ -2707,10 +2676,7 @@ var as = (i) => i === 'reset' || i === 'none',
                 a = n.length,
                 r = this._getOtherScale(t),
                 l = nr(e, s, this.chart),
-                c = {
-                    min: Number.POSITIVE_INFINITY,
-                    max: Number.NEGATIVE_INFINITY,
-                },
+                c = { min: Number.POSITIVE_INFINITY, max: Number.NEGATIVE_INFINITY },
                 { min: h, max: d } = tr(r),
                 u,
                 f;
@@ -2981,11 +2947,7 @@ function lr(i, t, e, s) {
         l = e.categoryPercentage;
     a === null && (a = o - (r === null ? t.end - t.start : r - o)), r === null && (r = o + o - a);
     let c = o - ((o - Math.min(a, r)) / 2) * l;
-    return {
-        chunk: ((Math.abs(r - a) / 2) * l) / s,
-        ratio: e.barPercentage,
-        start: c,
-    };
+    return { chunk: ((Math.abs(r - a) / 2) * l) / s, ratio: e.barPercentage, start: c };
 }
 function cr(i, t, e, s) {
     let n = e.parse(i[0], s),
@@ -2996,14 +2958,7 @@ function cr(i, t, e, s) {
         c = r;
     Math.abs(a) > Math.abs(r) && ((l = r), (c = a)),
         (t[e.axis] = c),
-        (t._custom = {
-            barStart: l,
-            barEnd: c,
-            start: n,
-            end: o,
-            min: a,
-            max: r,
-        });
+        (t._custom = { barStart: l, barEnd: c, start: n, end: o, min: a, max: r });
 }
 function po(i, t, e, s) {
     return I(i) ? cr(i, t, e, s) : (t[e.axis] = e.parse(i, s)), t;
@@ -3272,12 +3227,7 @@ ee.defaults = {
     categoryPercentage: 0.8,
     barPercentage: 0.9,
     grouped: !0,
-    animations: {
-        numbers: {
-            type: 'number',
-            properties: ['x', 'y', 'base', 'width', 'height'],
-        },
-    },
+    animations: { numbers: { type: 'number', properties: ['x', 'y', 'base', 'width', 'height'] } },
 };
 ee.overrides = {
     scales: {
@@ -3325,10 +3275,7 @@ var ie = class extends et {
             a = s.getLabelForValue(o.x),
             r = n.getLabelForValue(o.y),
             l = o._custom;
-        return {
-            label: e.label,
-            value: '(' + a + ', ' + r + (l ? ', ' + l : '') + ')',
-        };
+        return { label: e.label, value: '(' + a + ', ' + r + (l ? ', ' + l : '') + ')' };
     }
     update(t) {
         let e = this._cachedMeta.data;
@@ -3365,12 +3312,7 @@ ie.id = 'bubble';
 ie.defaults = {
     datasetElementType: !1,
     dataElementType: 'point',
-    animations: {
-        numbers: {
-            type: 'number',
-            properties: ['x', 'y', 'borderWidth', 'radius'],
-        },
-    },
+    animations: { numbers: { type: 'number', properties: ['x', 'y', 'borderWidth', 'radius'] } },
 };
 ie.overrides = {
     scales: { x: { type: 'linear' }, y: { type: 'linear' } },
@@ -3611,10 +3553,7 @@ Ot.defaults = {
     spacing: 0,
     indexAxis: 'r',
 };
-Ot.descriptors = {
-    _scriptable: (i) => i !== 'spacing',
-    _indexable: (i) => i !== 'spacing',
-};
+Ot.descriptors = { _scriptable: (i) => i !== 'spacing', _indexable: (i) => i !== 'spacing' };
 Ot.overrides = {
     aspectRatio: 1,
     plugins: {
@@ -3726,15 +3665,8 @@ var se = class extends et {
     }
 };
 se.id = 'line';
-se.defaults = {
-    datasetElementType: 'line',
-    dataElementType: 'point',
-    showLine: !0,
-    spanGaps: !1,
-};
-se.overrides = {
-    scales: { _index_: { type: 'category' }, _value_: { type: 'linear' } },
-};
+se.defaults = { datasetElementType: 'line', dataElementType: 'point', showLine: !0, spanGaps: !1 };
+se.overrides = { scales: { _index_: { type: 'category' }, _value_: { type: 'linear' } } };
 var ne = class extends et {
     constructor(t, e) {
         super(t, e), (this.innerRadius = void 0), (this.outerRadius = void 0);
@@ -3755,10 +3687,7 @@ var ne = class extends et {
     }
     getMinMax() {
         let t = this._cachedMeta,
-            e = {
-                min: Number.POSITIVE_INFINITY,
-                max: Number.NEGATIVE_INFINITY,
-            };
+            e = { min: Number.POSITIVE_INFINITY, max: Number.NEGATIVE_INFINITY };
         return (
             t.data.forEach((s, n) => {
                 let o = this.getParsed(n).r;
@@ -3900,10 +3829,7 @@ var oe = class extends et {
     getLabelAndValue(t) {
         let e = this._cachedMeta.vScale,
             s = this.getParsed(t);
-        return {
-            label: e.getLabels()[t],
-            value: '' + e.getLabelForValue(s[e.axis]),
-        };
+        return { label: e.getLabels()[t], value: '' + e.getLabelForValue(s[e.axis]) };
     }
     parseObjectData(t, e, s, n) {
         return Zi.bind(this)(t, e, s, n);
@@ -3930,13 +3856,7 @@ var oe = class extends et {
                 h = o.getPointPositionForValue(r, this.getParsed(r).r),
                 d = a ? o.xCenter : h.x,
                 u = a ? o.yCenter : h.y,
-                f = {
-                    x: d,
-                    y: u,
-                    angle: h.angle,
-                    skip: isNaN(d) || isNaN(u),
-                    options: c,
-                };
+                f = { x: d, y: u, angle: h.angle, skip: isNaN(d) || isNaN(u), options: c };
             this.updateElement(l, r, f, n);
         }
     }
@@ -3994,11 +3914,7 @@ var mo = {
         }
         let a = tt(Math.abs(o)),
             r = Math.max(Math.min(-1 * Math.floor(a), 20), 0),
-            l = {
-                notation: n,
-                minimumFractionDigits: r,
-                maximumFractionDigits: r,
-            };
+            l = { notation: n, minimumFractionDigits: r, maximumFractionDigits: r };
         return Object.assign(l, this.options.ticks.format), Jt(i, s, l);
     },
     logarithmic(i, t, e) {
@@ -4293,12 +4209,7 @@ var _t = class extends it {
                 (e = Q(e, Number.NEGATIVE_INFINITY)),
                 (s = Q(s, Number.POSITIVE_INFINITY)),
                 (n = Q(n, Number.NEGATIVE_INFINITY)),
-                {
-                    min: Q(t, s),
-                    max: Q(e, n),
-                    minDefined: W(t),
-                    maxDefined: W(e),
-                }
+                { min: Q(t, s), max: Q(e, n), minDefined: W(t), maxDefined: W(e) }
             );
         }
         getMinMax(t) {
@@ -5005,19 +4916,9 @@ var _t = class extends it {
             let t = this.chart,
                 e = this.options.position;
             if (e === 'left' || e === 'right')
-                return {
-                    top: 0,
-                    left: this.left,
-                    bottom: t.height,
-                    right: this.right,
-                };
+                return { top: 0, left: this.left, bottom: t.height, right: this.right };
             if (e === 'top' || e === 'bottom')
-                return {
-                    top: this.top,
-                    left: 0,
-                    bottom: this.bottom,
-                    right: t.width,
-                };
+                return { top: this.top, left: 0, bottom: this.bottom, right: t.width };
         }
         drawBackground() {
             let {
@@ -5427,12 +5328,7 @@ var ms = class {
         }
     };
 ae.id = 'scatter';
-ae.defaults = {
-    datasetElementType: !1,
-    dataElementType: 'point',
-    showLine: !1,
-    fill: !1,
-};
+ae.defaults = { datasetElementType: !1, dataElementType: 'point', showLine: !1, fill: !1 };
 ae.overrides = {
     interaction: { mode: 'point' },
     plugins: {
@@ -5608,13 +5504,7 @@ var Vr = {
                     ? (i.getSortedVisibleDatasetMetas().forEach((c) => {
                           let h = r[0].index,
                               d = c.data[h];
-                          d &&
-                              !d.skip &&
-                              l.push({
-                                  element: d,
-                                  datasetIndex: c.index,
-                                  index: h,
-                              });
+                          d && !d.skip && l.push({ element: d, datasetIndex: c.index, index: h });
                       }),
                       l)
                     : [];
@@ -5838,10 +5728,7 @@ function Bn(i, t, e, s) {
     }
     (t.x = o), (t.y = a);
 }
-O.set('layout', {
-    autoPadding: !0,
-    padding: { top: 0, right: 0, bottom: 0, left: 0 },
-});
+O.set('layout', { autoPadding: !0, padding: { top: 0, right: 0, bottom: 0, left: 0 } });
 var K = {
         addBox(i, t) {
             i.boxes || (i.boxes = []),
@@ -5917,12 +5804,7 @@ var K = {
                 E(r.chartArea, (p) => {
                     let m = p.box;
                     Object.assign(m, i.chartArea),
-                        m.update(f.w, f.h, {
-                            left: 0,
-                            top: 0,
-                            right: 0,
-                            bottom: 0,
-                        });
+                        m.update(f.w, f.h, { left: 0, top: 0, right: 0, bottom: 0 });
                 });
         },
     },
@@ -6006,13 +5888,7 @@ function Gr(i, t, e) {
 function Zr(i, t) {
     let e = Ur[i.type] || i.type,
         { x: s, y: n } = Pt(i, t);
-    return {
-        type: e,
-        chart: t,
-        native: i,
-        x: s !== void 0 ? s : null,
-        y: n !== void 0 ? n : null,
-    };
+    return { type: e, chart: t, native: i, x: s !== void 0 ? s : null, y: n !== void 0 ? n : null };
 }
 function fi(i, t) {
     for (let e of i) if (e === t || e.contains(t)) return !0;
@@ -6201,10 +6077,7 @@ function rl(i, { plugins: t, localIds: e }, s, n) {
         let l = r.id,
             c = al(s[l], n);
         c !== null &&
-            o.push({
-                plugin: r,
-                options: ll(i.config, { plugin: r, local: e[l] }, c, a),
-            });
+            o.push({ plugin: r, options: ll(i.config, { plugin: r, local: e[l] }, c, a) });
     }
     return o;
 }
@@ -6213,11 +6086,7 @@ function ll(i, { plugin: t, local: e }, s, n) {
         a = i.getOptionScopes(s, o);
     return (
         e && t.defaults && a.push(t.defaults),
-        i.createResolver(a, n, [''], {
-            scriptable: !1,
-            indexable: !1,
-            allKeys: !0,
-        })
+        i.createResolver(a, n, [''], { scriptable: !1, indexable: !1, allKeys: !0 })
     );
 }
 function ys(i, t) {
@@ -6619,13 +6488,7 @@ var It = class {
                     if (l in s && s[l].type === h) d = s[l];
                     else {
                         let u = ht.getScale(h);
-                        (d = new u({
-                            id: l,
-                            type: h,
-                            ctx: this.ctx,
-                            chart: this,
-                        })),
-                            (s[d.id] = d);
+                        (d = new u({ id: l, type: h, ctx: this.ctx, chart: this })), (s[d.id] = d);
                     }
                     d.init(r, t);
                 }),
@@ -6713,10 +6576,7 @@ var It = class {
                 this._checkEventBindings(),
                 this._updateHiddenIndices(),
                 this._plugins.invalidate(),
-                this.notifyPlugins('beforeUpdate', {
-                    mode: t,
-                    cancelable: !0,
-                }) === !1)
+                this.notifyPlugins('beforeUpdate', { mode: t, cancelable: !0 }) === !1)
             )
                 return;
             let o = this.buildOrUpdateControllers();
@@ -6797,12 +6657,7 @@ var It = class {
                 this.notifyPlugins('afterLayout');
         }
         _updateDatasets(t) {
-            if (
-                this.notifyPlugins('beforeDatasetsUpdate', {
-                    mode: t,
-                    cancelable: !0,
-                }) !== !1
-            ) {
+            if (this.notifyPlugins('beforeDatasetsUpdate', { mode: t, cancelable: !0 }) !== !1) {
                 for (let e = 0, s = this.data.datasets.length; e < s; ++e)
                     this.getDatasetMeta(e).controller.configure();
                 for (let e = 0, s = this.data.datasets.length; e < s; ++e)
@@ -7083,12 +6938,7 @@ var It = class {
                 r.length && n.mode && this.updateHoverStyle(r, n.mode, !0);
         }
         _eventHandler(t, e) {
-            let s = {
-                    event: t,
-                    replay: e,
-                    cancelable: !0,
-                    inChartArea: this.isPointInArea(t),
-                },
+            let s = { event: t, replay: e, cancelable: !0, inChartArea: this.isPointInArea(t) },
                 n = (a) => (a.options.events || this.options.events).includes(t.native.type);
             if (this.notifyPlugins('beforeEvent', s, n) === !1) return;
             let o = this._handleEvent(t, e, s.inChartArea);
@@ -7371,12 +7221,7 @@ function Do(i, t, e = {}) {
         l = Math.max(n, a),
         c = Math.min(o, r),
         h = (n < a && o < a) || (n > r && o > r);
-    return {
-        count: s,
-        start: l,
-        loop: t.loop,
-        ilen: c < l && !h ? s + c - l : c - l,
-    };
+    return { count: s, start: l, loop: t.loop, ilen: c < l && !h ? s + c - l : c - l };
 }
 function Dl(i, t, e, s) {
     let { points: n, options: o } = t,
@@ -7555,14 +7400,8 @@ dt.defaults = {
     stepped: !1,
     tension: 0,
 };
-dt.defaultRoutes = {
-    backgroundColor: 'backgroundColor',
-    borderColor: 'borderColor',
-};
-dt.descriptors = {
-    _scriptable: !0,
-    _indexable: (i) => i !== 'borderDash' && i !== 'fill',
-};
+dt.defaultRoutes = { backgroundColor: 'backgroundColor', borderColor: 'borderColor' };
+dt.descriptors = { _scriptable: !0, _indexable: (i) => i !== 'borderDash' && i !== 'fill' };
 function Un(i, t, e, s) {
     let n = i.options,
         { [e]: o } = i.getProps([e], s);
@@ -7624,10 +7463,7 @@ le.defaults = {
     radius: 3,
     rotation: 0,
 };
-le.defaultRoutes = {
-    backgroundColor: 'backgroundColor',
-    borderColor: 'borderColor',
-};
+le.defaultRoutes = { backgroundColor: 'backgroundColor', borderColor: 'borderColor' };
 function Oo(i, t) {
     let {
             x: e,
@@ -7779,10 +7615,7 @@ ce.defaults = {
     inflateAmount: 'auto',
     pointStyle: void 0,
 };
-ce.defaultRoutes = {
-    backgroundColor: 'backgroundColor',
-    borderColor: 'borderColor',
-};
+ce.defaultRoutes = { backgroundColor: 'backgroundColor', borderColor: 'borderColor' };
 var Wl = Object.freeze({
     __proto__: null,
     ArcElement: re,
@@ -8003,14 +7836,7 @@ function To(i, t) {
         s = !1;
     return (
         I(i) ? ((s = !0), (e = i)) : (e = Xl(i, t)),
-        e.length
-            ? new dt({
-                  points: e,
-                  options: { tension: 0 },
-                  _loop: s,
-                  _fullLoop: s,
-              })
-            : null
+        e.length ? new dt({ points: e, options: { tension: 0 }, _loop: s, _fullLoop: s }) : null
     );
 }
 function Gn(i) {
@@ -8176,11 +8002,7 @@ function rc(i) {
         r = [];
     if (s.grid.circular) {
         let l = t.getPointPositionForValue(0, o);
-        return new pi({
-            x: l.x,
-            y: l.y,
-            radius: t.getDistanceFromCenterForValue(a),
-        });
+        return new pi({ x: l.x, y: l.y, radius: t.getDistanceFromCenterForValue(a) });
     }
     for (let l = 0; l < n; ++l) r.push(t.getPointPositionForValue(l, a));
     return r;
@@ -8195,15 +8017,7 @@ function fs(i, t, e) {
     s &&
         n.points.length &&
         (xe(i, e),
-        lc(i, {
-            line: n,
-            target: s,
-            above: h,
-            below: d,
-            area: e,
-            scale: o,
-            axis: a,
-        }),
+        lc(i, { line: n, target: s, above: h, below: d, area: e, scale: o, axis: a }),
         ye(i));
 }
 function lc(i, t) {
@@ -8414,13 +8228,7 @@ var hc = {
                     let m = s + e / 2 + o.measureText(g.text).width;
                     (p === 0 || c[c.length - 1] + m + 2 * r > a) &&
                         ((d += h), (c[c.length - (p > 0 ? 0 : 1)] = 0), (f += h), u++),
-                        (l[p] = {
-                            left: 0,
-                            top: f,
-                            row: u,
-                            width: m,
-                            height: n,
-                        }),
+                        (l[p] = { left: 0, top: f, row: u, width: m, height: n }),
                         (c[c.length - 1] += m + r);
                 }),
                 d
@@ -8452,13 +8260,7 @@ var hc = {
                         (g += u + r),
                         p++,
                         (u = f = 0)),
-                        (l[b] = {
-                            left: g,
-                            top: f,
-                            col: p,
-                            width: _,
-                            height: n,
-                        }),
+                        (l[b] = { left: g, top: f, col: p, width: _, height: n }),
                         (u = Math.max(u, _)),
                         (f += n + r);
                 }),
@@ -8571,11 +8373,7 @@ var hc = {
                 y = this.isHorizontal(),
                 x = this._computeTitleHeight();
             y
-                ? (g = {
-                      x: X(o, this.left + d, this.right - s[0]),
-                      y: this.top + d + x,
-                      line: 0,
-                  })
+                ? (g = { x: X(o, this.left + d, this.right - s[0]), y: this.top + d + x, line: 0 })
                 : (g = {
                       x: this.left + d,
                       y: X(o, this.top + x + d, this.bottom - e[0].height),
@@ -8759,9 +8557,7 @@ var fc = {
         },
         descriptors: {
             _scriptable: (i) => !i.startsWith('on'),
-            labels: {
-                _scriptable: (i) => !['generateLabels', 'filter', 'sort'].includes(i),
-            },
+            labels: { _scriptable: (i) => !['generateLabels', 'filter', 'sort'].includes(i) },
         },
     },
     Te = class extends it {
@@ -9222,11 +9018,7 @@ var Le = class extends it {
             o && this._resolveAnimations().update(this, o),
             t &&
                 s.external &&
-                s.external.call(this, {
-                    chart: this.chart,
-                    tooltip: this,
-                    replay: e,
-                });
+                s.external.call(this, { chart: this.chart, tooltip: this, replay: e });
     }
     drawCaret(t, e, s, n) {
         let o = this.getCaretPosition(t, s, n);
@@ -9662,11 +9454,7 @@ var kc = {
                 afterFooter: rt,
             },
         },
-        defaultRoutes: {
-            bodyFont: 'font',
-            footerFont: 'font',
-            titleFont: 'font',
-        },
+        defaultRoutes: { bodyFont: 'font', footerFont: 'font', titleFont: 'font' },
         descriptors: {
             _scriptable: (i) => i !== 'filter' && i !== 'itemSort' && i !== 'external',
             _indexable: !1,
@@ -10046,9 +9834,7 @@ var Ee = class extends _t {
     }
 };
 Ee.id = 'logarithmic';
-Ee.defaults = {
-    ticks: { callback: bi.formatters.logarithmic, major: { enabled: !0 } },
-};
+Ee.defaults = { ticks: { callback: bi.formatters.logarithmic, major: { enabled: !0 } } };
 function Ps(i) {
     let t = i.ticks;
     if (t.display && i.display) {
@@ -10122,15 +9908,7 @@ function Ec(i, t, e) {
             f = zc(h.y, u.h, d),
             g = Fc(d),
             p = Ic(h.x, u.w, g);
-        s.push({
-            x: h.x,
-            y: f,
-            textAlign: g,
-            left: p,
-            top: f,
-            right: p + u.w,
-            bottom: f + u.h,
-        });
+        s.push({ x: h.x, y: f, textAlign: g, left: p, top: f, right: p + u.w, bottom: f + u.h });
     }
     return s;
 }
@@ -10279,11 +10057,7 @@ var zt = class extends de {
     }
     getPointPosition(t, e, s = 0) {
         let n = this.getIndexAngle(t) - V + s;
-        return {
-            x: Math.cos(n) * e + this.xCenter,
-            y: Math.sin(n) * e + this.yCenter,
-            angle: n,
-        };
+        return { x: Math.cos(n) * e + this.xCenter, y: Math.sin(n) * e + this.yCenter, angle: n };
     }
     getPointPositionForValue(t, e) {
         return this.getPointPosition(t, this.getDistanceFromCenterForValue(e));
@@ -10399,12 +10173,7 @@ zt.defaults = {
     display: !0,
     animate: !0,
     position: 'chartArea',
-    angleLines: {
-        display: !0,
-        lineWidth: 1,
-        borderDash: [],
-        borderDashOffset: 0,
-    },
+    angleLines: { display: !0, lineWidth: 1, borderDash: [], borderDashOffset: 0 },
     grid: { circular: !1 },
     startAngle: 0,
     ticks: { showLabelBackdrop: !0, callback: bi.formatters.numeric },
@@ -10519,11 +10288,7 @@ var Bt = class extends _t {
             n = (this._adapter = new Er._date(t.adapters.date));
         n.init(e),
             Ut(s.displayFormats, n.formats()),
-            (this._parseOpts = {
-                parser: s.parser,
-                round: s.round,
-                isoWeekday: s.isoWeekday,
-            }),
+            (this._parseOpts = { parser: s.parser, round: s.round, isoWeekday: s.isoWeekday }),
             super.init(t),
             (this._normalized = e.normalized);
     }
@@ -10833,14 +10598,7 @@ function Xc({ dataChecksum: i, labels: t, values: e }) {
                     type: 'line',
                     data: {
                         labels: t,
-                        datasets: [
-                            {
-                                data: e,
-                                borderWidth: 2,
-                                fill: 'start',
-                                tension: 0.5,
-                            },
-                        ],
+                        datasets: [{ data: e, borderWidth: 2, fill: 'start', tension: 0.5 }],
                     },
                     options: {
                         animation: { duration: 0 },

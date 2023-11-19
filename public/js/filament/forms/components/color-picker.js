@@ -220,12 +220,7 @@ var $ = class extends p {
     }
     update({ h: t }) {
         (this.h = t),
-            this.style([
-                {
-                    left: `${(t / 360) * 100}%`,
-                    color: u({ h: t, s: 100, v: 100, a: 1 }),
-                },
-            ]),
+            this.style([{ left: `${(t / 360) * 100}%`, color: u({ h: t, s: 100, v: 100, a: 1 }) }]),
             this.el.setAttribute('aria-valuenow', `${a(t)}`);
     }
     getMove(t, r) {
@@ -319,13 +314,7 @@ var S = Symbol('same'),
             (this[et] = t), m(this, 'color-changed', { value: t });
         }
     };
-var ht = {
-        defaultColor: '#000',
-        toHsva: B,
-        fromHsva: X,
-        equal: K,
-        fromAttr: (e) => e,
-    },
+var ht = { defaultColor: '#000', toHsva: B, fromHsva: X, equal: K, fromAttr: (e) => e },
     y = class extends c {
         get colorModel() {
             return ht;
@@ -333,13 +322,7 @@ var ht = {
     };
 var z = class extends y {};
 customElements.define('hex-color-picker', z);
-var mt = {
-        defaultColor: 'hsl(0, 0%, 0%)',
-        toHsva: F,
-        fromHsva: u,
-        equal: d,
-        fromAttr: (e) => e,
-    },
+var mt = { defaultColor: 'hsl(0, 0%, 0%)', toHsva: F, fromHsva: u, equal: d, fromAttr: (e) => e },
     T = class extends c {
         get colorModel() {
             return mt;
@@ -347,13 +330,7 @@ var mt = {
     };
 var V = class extends T {};
 customElements.define('hsl-string-color-picker', V);
-var ft = {
-        defaultColor: 'rgb(0, 0, 0)',
-        toHsva: G,
-        fromHsva: _,
-        equal: d,
-        fromAttr: (e) => e,
-    },
+var ft = { defaultColor: 'rgb(0, 0, 0)', toHsva: G, fromHsva: _, equal: d, fromAttr: (e) => e },
     w = class extends c {
         get colorModel() {
             return ft;
@@ -391,13 +368,7 @@ var k = class extends c {
         return [...super[g], M];
     }
 };
-var gt = {
-        defaultColor: 'rgba(0, 0, 0, 1)',
-        toHsva: A,
-        fromHsva: U,
-        equal: d,
-        fromAttr: (e) => e,
-    },
+var gt = { defaultColor: 'rgba(0, 0, 0, 1)', toHsva: A, fromHsva: U, equal: d, fromAttr: (e) => e },
     C = class extends k {
         get colorModel() {
             return gt;
@@ -420,10 +391,7 @@ function xt({ isAutofocused: e, isDisabled: t, isLiveOnPickerClose: r, state: s 
                 r &&
                     new MutationObserver(() => {
                         this.$refs.panel.style.display === 'none' && this.$wire.call('$refresh');
-                    }).observe(this.$refs.panel, {
-                        attributes: !0,
-                        childList: !0,
-                    });
+                    }).observe(this.$refs.panel, { attributes: !0, childList: !0 });
         },
         togglePanelVisibility: function () {
             t || this.$refs.panel.toggle(this.$refs.input);

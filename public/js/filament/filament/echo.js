@@ -11,10 +11,7 @@
             for (let s of Si(h))
                 !Ti.call(l, s) &&
                     s !== a &&
-                    he(l, s, {
-                        get: () => h[s],
-                        enumerable: !(c = ki(h, s)) || c.enumerable,
-                    });
+                    he(l, s, { get: () => h[s], enumerable: !(c = ki(h, s)) || c.enumerable });
         return l;
     };
     var Oi = (l, h, a) => (
@@ -42,21 +39,13 @@
                     (a.m = l),
                     (a.c = h),
                     (a.d = function (c, s, f) {
-                        a.o(c, s) ||
-                            Object.defineProperty(c, s, {
-                                enumerable: !0,
-                                get: f,
-                            });
+                        a.o(c, s) || Object.defineProperty(c, s, { enumerable: !0, get: f });
                     }),
                     (a.r = function (c) {
                         typeof Symbol < 'u' &&
                             Symbol.toStringTag &&
-                            Object.defineProperty(c, Symbol.toStringTag, {
-                                value: 'Module',
-                            }),
-                            Object.defineProperty(c, '__esModule', {
-                                value: !0,
-                            });
+                            Object.defineProperty(c, Symbol.toStringTag, { value: 'Module' }),
+                            Object.defineProperty(c, '__esModule', { value: !0 });
                     }),
                     (a.t = function (c, s) {
                         if (
@@ -67,10 +56,7 @@
                         var f = Object.create(null);
                         if (
                             (a.r(f),
-                            Object.defineProperty(f, 'default', {
-                                enumerable: !0,
-                                value: c,
-                            }),
+                            Object.defineProperty(f, 'default', { enumerable: !0, value: c }),
                             s & 2 && typeof c != 'string')
                         )
                             for (var d in c)
@@ -429,13 +415,7 @@
                                             o || (t.apply(null, arguments), (o = !0));
                                         };
                                     return (
-                                        (this[n] = u),
-                                        {
-                                            number: n,
-                                            id: r,
-                                            name: i,
-                                            callback: u,
-                                        }
+                                        (this[n] = u), { number: n, id: r, name: i, callback: u }
                                     );
                                 }),
                                 (e.prototype.remove = function (t) {
@@ -466,10 +446,7 @@
                                 endpoint: '/pusher/user-auth',
                                 transport: 'ajax',
                             },
-                            channelAuthorization: {
-                                endpoint: '/pusher/auth',
-                                transport: 'ajax',
-                            },
+                            channelAuthorization: { endpoint: '/pusher/auth', transport: 'ajax' },
                             cdn_http: 'http://js.pusher.com',
                             cdn_https: 'https://js.pusher.com',
                             dependency_suffix: '',
@@ -541,9 +518,7 @@
                                 authorizationEndpoint: {
                                     path: '/docs/channels/server_api/authorizing-users/',
                                 },
-                                javascriptQuickStart: {
-                                    path: '/docs/javascript_quick_start',
-                                },
+                                javascriptQuickStart: { path: '/docs/javascript_quick_start' },
                                 triggeringClientEvents: {
                                     path: '/docs/client_api_guide/client_events#trigger-events',
                                 },
@@ -1234,10 +1209,7 @@
                                 (e.prototype.add = function (t, n, r) {
                                     var i = gt(t);
                                     (this._callbacks[i] = this._callbacks[i] || []),
-                                        this._callbacks[i].push({
-                                            fn: n,
-                                            context: r,
-                                        });
+                                        this._callbacks[i].push({ fn: n, context: r });
                                 }),
                                 (e.prototype.remove = function (t, n, r) {
                                     if (!t && !n && !r) {
@@ -1395,10 +1367,7 @@
                                     }
                                     return (
                                         this.bindListeners(),
-                                        A.debug('Connecting', {
-                                            transport: this.name,
-                                            url: r,
-                                        }),
+                                        A.debug('Connecting', { transport: this.name, url: r }),
                                         this.changeState('connecting'),
                                         !0
                                     );
@@ -1430,14 +1399,9 @@
                                         (this.socket.onopen = void 0);
                                 }),
                                 (t.prototype.onError = function (n) {
-                                    this.emit('error', {
-                                        type: 'WebSocketError',
-                                        error: n,
-                                    }),
+                                    this.emit('error', { type: 'WebSocketError', error: n }),
                                         this.timeline.error(
-                                            this.buildTimelineMessage({
-                                                error: n.toString(),
-                                            }),
+                                            this.buildTimelineMessage({ error: n.toString() }),
                                         );
                                 }),
                                 (t.prototype.onClose = function (n) {
@@ -1487,10 +1451,7 @@
                                 (t.prototype.changeState = function (n, r) {
                                     (this.state = n),
                                         this.timeline.info(
-                                            this.buildTimelineMessage({
-                                                state: n,
-                                                params: r,
-                                            }),
+                                            this.buildTimelineMessage({ state: n, params: r }),
                                         ),
                                         this.emit(n, r);
                                 }),
@@ -1576,9 +1537,7 @@
                             },
                             getSocket: function (e, t) {
                                 return new window.SockJS(e, null, {
-                                    js_path: S.getPath('sockjs', {
-                                        useTLS: t.useTLS,
-                                    }),
+                                    js_path: S.getPath('sockjs', { useTLS: t.useTLS }),
                                     ignore_null_origin: t.ignoreNullOrigin,
                                 });
                             },
@@ -1667,9 +1626,7 @@
                             return (
                                 (e.prototype.createConnection = function (t, n, r, i) {
                                     var o = this;
-                                    i = U({}, i, {
-                                        activityTimeout: this.pingDelay,
-                                    });
+                                    i = U({}, i, { activityTimeout: this.pingDelay });
                                     var u = this.transport.createConnection(t, n, r, i),
                                         p = null,
                                         _ = function () {
@@ -1709,18 +1666,10 @@
                                         try {
                                             n = JSON.parse(t.data);
                                         } catch {}
-                                    var r = {
-                                        event: t.event,
-                                        channel: t.channel,
-                                        data: n,
-                                    };
+                                    var r = { event: t.event, channel: t.channel, data: n };
                                     return t.user_id && (r.user_id = t.user_id), r;
                                 } catch (i) {
-                                    throw {
-                                        type: 'MessageParseError',
-                                        error: i,
-                                        data: e.data,
-                                    };
+                                    throw { type: 'MessageParseError', error: i, data: e.data };
                                 }
                             },
                             encodeMessage: function (e) {
@@ -1764,10 +1713,7 @@
                                 return e.code !== 1e3 && e.code !== 1001
                                     ? {
                                           type: 'PusherError',
-                                          data: {
-                                              code: e.code,
-                                              message: e.reason || e.message,
-                                          },
+                                          data: { code: e.code, message: e.reason || e.message },
                                       }
                                     : null;
                             },
@@ -1892,11 +1838,7 @@
                                     var r = K.getCloseAction(n),
                                         i = K.getCloseError(n);
                                     i && this.emit('error', i),
-                                        r &&
-                                            this.emit(r, {
-                                                action: r,
-                                                error: i,
-                                            });
+                                        r && this.emit(r, { action: r, error: i });
                                 }),
                                 t
                             );
@@ -1926,9 +1868,7 @@
                                                   connection: new Sn(r.id, t.transport),
                                                   activityTimeout: r.activityTimeout,
                                               })
-                                            : (t.finish(r.action, {
-                                                  error: r.error,
-                                              }),
+                                            : (t.finish(r.action, { error: r.error }),
                                               t.transport.close());
                                     }),
                                         (this.onClosed = function (n) {
@@ -1945,15 +1885,7 @@
                                         this.transport.unbind('closed', this.onClosed);
                                 }),
                                 (e.prototype.finish = function (t, n) {
-                                    this.callback(
-                                        U(
-                                            {
-                                                transport: this.transport,
-                                                action: t,
-                                            },
-                                            n,
-                                        ),
-                                    );
+                                    this.callback(U({ transport: this.transport, action: t }, n));
                                 }),
                                 e
                             );
@@ -2082,9 +2014,7 @@
                                                                   error: r.message,
                                                               },
                                                               r instanceof B
-                                                                  ? {
-                                                                        status: r.status,
-                                                                    }
+                                                                  ? { status: r.status }
                                                                   : {},
                                                           ),
                                                       ))
@@ -2345,10 +2275,7 @@
                                         r = o = 0;
                                     }
                                 if (g[0] & 5) throw g[1];
-                                return {
-                                    value: g[0] ? g[1] : void 0,
-                                    done: !0,
-                                };
+                                return { value: g[0] ? g[1] : void 0, done: !0 };
                             }
                         },
                         Un = (function (e) {
@@ -2712,9 +2639,7 @@
                                                         type: 'HandshakeError',
                                                         error: o.error,
                                                     }),
-                                                    n.timeline.error({
-                                                        handshakeError: o.error,
-                                                    }))
+                                                    n.timeline.error({ handshakeError: o.error }))
                                                   : (n.abortConnecting(),
                                                     n.handshakeCallbacks[o.action](o));
                                         };
@@ -2743,10 +2668,7 @@
                                 }),
                                 (t.prototype.retryIn = function (n) {
                                     var r = this;
-                                    this.timeline.info({
-                                        action: 'retry',
-                                        delay: n,
-                                    }),
+                                    this.timeline.info({ action: 'retry', delay: n }),
                                         n > 0 && this.emit('connecting_in', Math.round(n / 1e3)),
                                         (this.retryTimer = new Q(n || 0, function () {
                                             r.disconnectInternally(), r.connect();
@@ -2885,14 +2807,8 @@
                                         o === 'connected' &&
                                             (o += ' with new socket ID ' + r.socket_id),
                                             A.debug('State changed', i + ' -> ' + o),
-                                            this.timeline.info({
-                                                state: n,
-                                                params: r,
-                                            }),
-                                            this.emit('state_change', {
-                                                previous: i,
-                                                current: n,
-                                            }),
+                                            this.timeline.info({ state: n, params: r }),
+                                            this.emit('state_change', { previous: i, current: n }),
                                             this.emit(n, r);
                                     }
                                 }),
@@ -3033,10 +2949,7 @@
                                                         (p = r.tryStrategy(
                                                             i[o],
                                                             t,
-                                                            {
-                                                                timeout: u,
-                                                                failFast: r.failFast,
-                                                            },
+                                                            { timeout: u, failFast: r.failFast },
                                                             _,
                                                         )))
                                                       : n(!0));
@@ -3045,10 +2958,7 @@
                                         (p = this.tryStrategy(
                                             i[o],
                                             t,
-                                            {
-                                                timeout: u,
-                                                failFast: this.failFast,
-                                            },
+                                            { timeout: u, failFast: this.failFast },
                                             _,
                                         )),
                                         {
@@ -3208,11 +3118,7 @@
                         var r = b.getLocalStorage();
                         if (r)
                             try {
-                                r[kt(e)] = at({
-                                    timestamp: j.now(),
-                                    transport: t,
-                                    latency: n,
-                                });
+                                r[kt(e)] = at({ timestamp: j.now(), transport: t, latency: n });
                             } catch {}
                     }
                     function Qt(e) {
@@ -3307,11 +3213,7 @@
                                     hostTLS: e.httpHost + ':' + e.httpsPort,
                                     httpPath: e.httpPath,
                                 }),
-                                _ = {
-                                    loop: !0,
-                                    timeout: 15e3,
-                                    timeoutLimit: 6e4,
-                                },
+                                _ = { loop: !0, timeout: 15e3, timeoutLimit: 6e4 },
                                 g = new Gt({
                                     lives: 2,
                                     minPingDelay: 1e4,
@@ -3469,11 +3371,7 @@
                                 (t.prototype.onChunk = function (n, r) {
                                     for (;;) {
                                         var i = this.advanceBuffer(r);
-                                        if (i)
-                                            this.emit('chunk', {
-                                                status: n,
-                                                data: i,
-                                            });
+                                        if (i) this.emit('chunk', { status: n, data: i });
                                         else break;
                                     }
                                     this.isBufferTooLong(r) && this.emit('buffer_too_long');
@@ -3543,11 +3441,7 @@
                                     this.closeStream(),
                                         (this.readyState = $.CLOSED),
                                         this.onclose &&
-                                            this.onclose({
-                                                code: t,
-                                                reason: n,
-                                                wasClean: r,
-                                            });
+                                            this.onclose({ code: t, reason: n, wasClean: r });
                                 }),
                                 (e.prototype.onChunk = function (t) {
                                     if (t.status === 200) {
@@ -3989,10 +3883,7 @@
                             j.defer(function () {
                                 t(e);
                             }),
-                            {
-                                abort: function () {},
-                                forceMinPriority: function () {},
-                            }
+                            { abort: function () {}, forceMinPriority: function () {} }
                         );
                     }
                     var Hr = b.Transports,
@@ -4006,9 +3897,7 @@
                             return (
                                 p
                                     ? ((i = Object.assign(
-                                          {
-                                              ignoreNullOrigin: e.ignoreNullOrigin,
-                                          },
+                                          { ignoreNullOrigin: e.ignoreNullOrigin },
                                           i,
                                       )),
                                       (_ = new Dr(t, r, o ? o.getAssistant(u) : u, i)))
@@ -4340,9 +4229,7 @@
                                         (this._newSigninPromiseIfNeeded(),
                                         this.pusher.connection.state === 'connected' &&
                                             this.pusher.config.userAuthenticator(
-                                                {
-                                                    socketId: this.pusher.connection.socket_id,
-                                                },
+                                                { socketId: this.pusher.connection.socket_id },
                                                 this._onAuthorize,
                                             ));
                                 }),
@@ -4490,9 +4377,7 @@
                                         A.warn(u);
                                     }),
                                     e.instances.push(this),
-                                    this.timeline.info({
-                                        instances: e.instances.length,
-                                    }),
+                                    this.timeline.info({ instances: e.instances.length }),
                                     (this.user = new hi(this)),
                                     e.isReady && this.connect();
                             }
@@ -5304,10 +5189,7 @@
                     (this._defaultOptions = {
                         auth: { headers: {} },
                         authEndpoint: '/broadcasting/auth',
-                        userAuthentication: {
-                            endpoint: '/broadcasting/user-auth',
-                            headers: {},
-                        },
+                        userAuthentication: { endpoint: '/broadcasting/user-auth', headers: {} },
                         broadcaster: 'pusher',
                         csrfToken: null,
                         bearerToken: null,

@@ -6,13 +6,7 @@
             for (var i in e) h(t, i, { get: e[i], enumerable: !0 });
         },
         p = {};
-    f(p, {
-        eager: () => g,
-        event: () => w,
-        idle: () => y,
-        media: () => b,
-        visible: () => E,
-    });
+    f(p, { eager: () => g, event: () => w, idle: () => y, media: () => b, visible: () => E });
     var c = () => !0,
         g = c,
         v = ({ component: t, argument: e }) =>
@@ -163,12 +157,7 @@
                     n =
                         t.getAttribute(`${this._options.prefix}${this._options.root}`) ||
                         this._options.defaultStrategy;
-                this._componentStrategy({
-                    name: i,
-                    strategy: n,
-                    el: t,
-                    id: t.id || this._index,
-                });
+                this._componentStrategy({ name: i, strategy: n, el: t, id: t.id || this._index });
             },
             async _componentStrategy(t) {
                 let e = P(t.strategy);
@@ -222,11 +211,7 @@
                                             `[${this._options.prefix}${this._options.root}]`,
                                         )
                                         .forEach((n) => this._mutationEl(n)));
-                }).observe(document, {
-                    attributes: !0,
-                    childList: !0,
-                    subtree: !0,
-                });
+                }).observe(document, { attributes: !0, childList: !0, subtree: !0 });
             },
             _mutationEl(t) {
                 t.hasAttribute(`${this._options.prefix}${this._options.inline}`) &&

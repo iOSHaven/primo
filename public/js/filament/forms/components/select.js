@@ -10,10 +10,7 @@ var pt = (se, ie, X, me) => {
         for (let j of ut(ie))
             !dt.call(se, j) &&
                 j !== X &&
-                Ge(se, j, {
-                    get: () => ie[j],
-                    enumerable: !(me = ct(ie, j)) || me.enumerable,
-                });
+                Ge(se, j, { get: () => ie[j], enumerable: !(me = ct(ie, j)) || me.enumerable });
     return se;
 };
 var mt = (se, ie, X) => (
@@ -66,19 +63,13 @@ var $e = ft((Ae, Ye) => {
                             };
                         i.addChoice = h;
                         var d = function (c) {
-                            return {
-                                type: _.ACTION_TYPES.FILTER_CHOICES,
-                                results: c,
-                            };
+                            return { type: _.ACTION_TYPES.FILTER_CHOICES, results: c };
                         };
                         i.filterChoices = d;
                         var a = function (c) {
                             return (
                                 c === void 0 && (c = !0),
-                                {
-                                    type: _.ACTION_TYPES.ACTIVATE_CHOICES,
-                                    active: c,
-                                }
+                                { type: _.ACTION_TYPES.ACTIVATE_CHOICES, active: c }
                             );
                         };
                         i.activateChoices = a;
@@ -133,19 +124,11 @@ var $e = ft((Ae, Ye) => {
                             };
                         i.addItem = h;
                         var d = function (r, c) {
-                            return {
-                                type: _.ACTION_TYPES.REMOVE_ITEM,
-                                id: r,
-                                choiceId: c,
-                            };
+                            return { type: _.ACTION_TYPES.REMOVE_ITEM, id: r, choiceId: c };
                         };
                         i.removeItem = d;
                         var a = function (r, c) {
-                            return {
-                                type: _.ACTION_TYPES.HIGHLIGHT_ITEM,
-                                id: r,
-                                highlighted: c,
-                            };
+                            return { type: _.ACTION_TYPES.HIGHLIGHT_ITEM, id: r, highlighted: c };
                         };
                         i.highlightItem = a;
                     },
@@ -162,10 +145,7 @@ var $e = ft((Ae, Ye) => {
                         };
                         i.resetTo = d;
                         var a = function (r) {
-                            return {
-                                type: _.ACTION_TYPES.SET_IS_LOADING,
-                                isLoading: r,
-                            };
+                            return { type: _.ACTION_TYPES.SET_IS_LOADING, isLoading: r };
                         };
                         i.setIsLoading = a;
                     },
@@ -298,9 +278,7 @@ var $e = ft((Ae, Ye) => {
                                         M !== K && (this._direction = M);
                                     }
                                     if (
-                                        ((this._idNames = {
-                                            itemChoice: 'item-choice',
-                                        }),
+                                        ((this._idNames = { itemChoice: 'item-choice' }),
                                         this._isSelectElement &&
                                             ((this._presetGroups = this.passedElement.optionGroups),
                                             (this._presetOptions = this.passedElement.options)),
@@ -845,10 +823,7 @@ var $e = ft((Ae, Ye) => {
                                                         z
                                                     );
                                                 },
-                                                {
-                                                    placeholderChoices: [],
-                                                    normalChoices: [],
-                                                },
+                                                { placeholderChoices: [], normalChoices: [] },
                                             ),
                                             V = Y.placeholderChoices,
                                             U = Y.normalChoices;
@@ -1858,10 +1833,7 @@ var $e = ft((Ae, Ye) => {
                                                 placeholder: !0,
                                             }),
                                             e.forEach(function (s) {
-                                                return t._addGroup({
-                                                    group: s,
-                                                    id: s.id || null,
-                                                });
+                                                return t._addGroup({ group: s, id: s.id || null });
                                             });
                                     }),
                                     (g.prototype._addPredefinedChoices = function (e) {
@@ -1881,10 +1853,7 @@ var $e = ft((Ae, Ye) => {
                                                 C = v.placeholder;
                                             if (t._isSelectElement)
                                                 if (v.choices)
-                                                    t._addGroup({
-                                                        group: v,
-                                                        id: v.id || null,
-                                                    });
+                                                    t._addGroup({ group: v, id: v.id || null });
                                                 else {
                                                     var Y = t._isSelectOneElement && !n && P === s,
                                                         V = Y ? !0 : v.selected,
@@ -1921,10 +1890,7 @@ var $e = ft((Ae, Ye) => {
                                                     customProperties: n.customProperties,
                                                     placeholder: n.placeholder,
                                                 }),
-                                                typeof n == 'string' &&
-                                                    t._addItem({
-                                                        value: n,
-                                                    });
+                                                typeof n == 'string' && t._addItem({ value: n });
                                         });
                                     }),
                                     (g.prototype._setChoiceOrItem = function (e) {
@@ -1954,9 +1920,7 @@ var $e = ft((Ae, Ye) => {
                                                 },
                                                 string: function () {
                                                     t._isTextElement
-                                                        ? t._addItem({
-                                                              value: e,
-                                                          })
+                                                        ? t._addItem({ value: e })
                                                         : t._addChoice({
                                                               value: e,
                                                               label: e,
@@ -2531,11 +2495,7 @@ var $e = ft((Ae, Ye) => {
                                     var O = l.element,
                                         L = l.classNames,
                                         y = l.delimiter,
-                                        D =
-                                            r.call(this, {
-                                                element: O,
-                                                classNames: L,
-                                            }) || this;
+                                        D = r.call(this, { element: O, classNames: L }) || this;
                                     return (D.delimiter = y), D;
                                 }
                                 return (
@@ -2607,11 +2567,7 @@ var $e = ft((Ae, Ye) => {
                                     var O = l.element,
                                         L = l.classNames,
                                         y = l.template,
-                                        D =
-                                            r.call(this, {
-                                                element: O,
-                                                classNames: L,
-                                            }) || this;
+                                        D = r.call(this, { element: O, classNames: L }) || this;
                                     return (D.template = y), D;
                                 }
                                 return (
@@ -3025,11 +2981,7 @@ var $e = ft((Ae, Ye) => {
                         i.sortByScore = y;
                         var D = function (E, w, N) {
                             N === void 0 && (N = null);
-                            var g = new CustomEvent(w, {
-                                detail: N,
-                                bubbles: !0,
-                                cancelable: !0,
-                            });
+                            var g = new CustomEvent(w, { detail: N, bubbles: !0, cancelable: !0 });
                             return E.dispatchEvent(g);
                         };
                         i.dispatchEvent = D;
@@ -3214,12 +3166,7 @@ var $e = ft((Ae, Ye) => {
                             r = _(b(273)),
                             c = _(b(502)),
                             l = b(799);
-                        i.defaultState = {
-                            groups: [],
-                            items: [],
-                            choices: [],
-                            loading: !1,
-                        };
+                        i.defaultState = { groups: [], items: [], choices: [], loading: !1 };
                         var O = (0, h.combineReducers)({
                                 items: d.default,
                                 groups: a.default,
@@ -3555,10 +3502,7 @@ var $e = ft((Ae, Ye) => {
                                     var n = 'Remove item',
                                         s = Object.assign(
                                             document.createElement('button'),
-                                            ((r = {
-                                                type: 'button',
-                                                className: L,
-                                            }),
+                                            ((r = { type: 'button', className: L }),
                                             (r[c ? 'innerHTML' : 'innerText'] = n),
                                             r),
                                         );
@@ -3597,11 +3541,7 @@ var $e = ft((Ae, Ye) => {
                                     });
                                 return (
                                     k.setAttribute('role', 'group'),
-                                    Object.assign(k.dataset, {
-                                        group: '',
-                                        id: L,
-                                        value: y,
-                                    }),
+                                    Object.assign(k.dataset, { group: '', id: L, value: y }),
                                     D && k.setAttribute('aria-disabled', 'true'),
                                     k.appendChild(
                                         Object.assign(
@@ -3913,13 +3853,7 @@ var $e = ft((Ae, Ye) => {
                                     throw new Error(N(A));
                                 (o = n(A)), (m = s(A)), (T = p.getFn);
                             }
-                            return {
-                                path: o,
-                                id: m,
-                                weight: I,
-                                src: S,
-                                getFn: T,
-                            };
+                            return { path: o, id: m, weight: I, src: S, getFn: T };
                         }
                         function n(p) {
                             return _(p) ? p : p.split('.');
@@ -3963,11 +3897,7 @@ var $e = ft((Ae, Ye) => {
                                           ? -1
                                           : 1,
                             },
-                            ...{
-                                includeMatches: !1,
-                                findAllMatches: !1,
-                                minMatchCharLength: 1,
-                            },
+                            ...{ includeMatches: !1, findAllMatches: !1, minMatchCharLength: 1 },
                             ...{ location: 0, threshold: 0.6, distance: 100 },
                             ...{
                                 useExtendedSearch: !1,
@@ -4057,21 +3987,12 @@ var $e = ft((Ae, Ye) => {
                                     if (y(A)) {
                                         if (_(A)) {
                                             let R = [],
-                                                F = [
-                                                    {
-                                                        nestedArrIndex: -1,
-                                                        value: A,
-                                                    },
-                                                ];
+                                                F = [{ nestedArrIndex: -1, value: A }];
                                             for (; F.length; ) {
                                                 let { nestedArrIndex: H, value: B } = F.pop();
                                                 if (y(B))
                                                     if (r(B) && !D(B)) {
-                                                        let x = {
-                                                            v: B,
-                                                            i: H,
-                                                            n: this.norm.get(B),
-                                                        };
+                                                        let x = { v: B, i: H, n: this.norm.get(B) };
                                                         R.push(x);
                                                     } else
                                                         _(B) &&
@@ -4084,10 +4005,7 @@ var $e = ft((Ae, Ye) => {
                                             }
                                             S.$[T] = R;
                                         } else if (r(A) && !D(A)) {
-                                            let R = {
-                                                v: A,
-                                                n: this.norm.get(A),
-                                            };
+                                            let R = { v: A, n: this.norm.get(A) };
                                             S.$[T] = R;
                                         }
                                     }
@@ -4095,10 +4013,7 @@ var $e = ft((Ae, Ye) => {
                                     this.records.push(S);
                             }
                             toJSON() {
-                                return {
-                                    keys: this.keys,
-                                    records: this.records,
-                                };
+                                return { keys: this.keys, records: this.records };
                             }
                         }
                         function U(
@@ -4242,10 +4157,7 @@ var $e = ft((Ae, Ye) => {
                                     break;
                                 Ie = Oe;
                             }
-                            let Ke = {
-                                isMatch: re >= 0,
-                                score: Math.max(0.001, be),
-                            };
+                            let Ke = { isMatch: re >= 0, score: Math.max(0.001, be) };
                             if (ue) {
                                 let he = J(Ee, R);
                                 he.length ? F && (Ke.indices = he) : (Ke.isMatch = !1);
@@ -4344,10 +4256,7 @@ var $e = ft((Ae, Ye) => {
                                         ve && (G = !0), (x += Ie), ve && be && (B = [...B, ...be]);
                                     },
                                 );
-                                let q = {
-                                    isMatch: G,
-                                    score: G ? x / this.chunks.length : 1,
-                                };
+                                let q = { isMatch: G, score: G ? x / this.chunks.length : 1 };
                                 return G && S && (q.indices = B), q;
                             }
                         }
@@ -4404,11 +4313,7 @@ var $e = ft((Ae, Ye) => {
                             }
                             search(o) {
                                 let S = o.indexOf(this.pattern) === -1;
-                                return {
-                                    isMatch: S,
-                                    score: S ? 0 : 1,
-                                    indices: [0, o.length - 1],
-                                };
+                                return { isMatch: S, score: S ? 0 : 1, indices: [0, o.length - 1] };
                             }
                         }
                         class pe extends le {
@@ -4448,11 +4353,7 @@ var $e = ft((Ae, Ye) => {
                             }
                             search(o) {
                                 let m = !o.startsWith(this.pattern);
-                                return {
-                                    isMatch: m,
-                                    score: m ? 0 : 1,
-                                    indices: [0, o.length - 1],
-                                };
+                                return { isMatch: m, score: m ? 0 : 1, indices: [0, o.length - 1] };
                             }
                         }
                         class Te extends le {
@@ -4492,11 +4393,7 @@ var $e = ft((Ae, Ye) => {
                             }
                             search(o) {
                                 let m = !o.endsWith(this.pattern);
-                                return {
-                                    isMatch: m,
-                                    score: m ? 0 : 1,
-                                    indices: [0, o.length - 1],
-                                };
+                                return { isMatch: m, score: m ? 0 : 1, indices: [0, o.length - 1] };
                             }
                         }
                         class He extends le {
@@ -4559,11 +4456,7 @@ var $e = ft((Ae, Ye) => {
                                 for (; (S = o.indexOf(this.pattern, m)) > -1; )
                                     (m = S + T), I.push([S, m - 1]);
                                 let A = !!I.length;
-                                return {
-                                    isMatch: A,
-                                    score: A ? 0 : 1,
-                                    indices: I,
-                                };
+                                return { isMatch: A, score: A ? 0 : 1, indices: I };
                             }
                         }
                         let Me = [te, Be, pe, oe, Pe, Te, de, He],
@@ -4679,11 +4572,7 @@ var $e = ft((Ae, Ye) => {
                             Re = (p) => !!(p[Ce.AND] || p[Ce.OR]),
                             tt = (p) => !!p[je.PATH],
                             it = (p) => !_(p) && O(p) && !Re(p),
-                            ke = (p) => ({
-                                [Ce.AND]: Object.keys(p).map((o) => ({
-                                    [o]: p[o],
-                                })),
-                            });
+                            ke = (p) => ({ [Ce.AND]: Object.keys(p).map((o) => ({ [o]: p[o] })) });
                         function xe(p, o, { auto: m = !0 } = {}) {
                             let S = (I) => {
                                 let T = Object.keys(I),
@@ -4814,10 +4703,7 @@ var $e = ft((Ae, Ye) => {
                                     nt(F, { ignoreFieldNorm: R }),
                                     T && F.sort(A),
                                     c(m) && m > -1 && (F = F.slice(0, m)),
-                                    ot(F, this._docs, {
-                                        includeMatches: S,
-                                        includeScore: I,
-                                    })
+                                    ot(F, this._docs, { includeMatches: S, includeScore: I })
                                 );
                             }
                             _searchStringList(o) {
@@ -4833,12 +4719,7 @@ var $e = ft((Ae, Ye) => {
                                                 item: T,
                                                 idx: A,
                                                 matches: [
-                                                    {
-                                                        score: H,
-                                                        value: T,
-                                                        norm: R,
-                                                        indices: B,
-                                                    },
+                                                    { score: H, value: T, norm: R, indices: B },
                                                 ],
                                             });
                                     }),
@@ -4859,13 +4740,7 @@ var $e = ft((Ae, Ye) => {
                                                     searcher: G,
                                                 });
                                             return q && q.length
-                                                ? [
-                                                      {
-                                                          idx: H,
-                                                          item: F,
-                                                          matches: q,
-                                                      },
-                                                  ]
+                                                ? [{ idx: H, item: F, matches: q }]
                                                 : [];
                                         }
                                         let B = [];
@@ -4886,11 +4761,7 @@ var $e = ft((Ae, Ye) => {
                                             let H = S(m, R, F);
                                             H.length &&
                                                 (T[F] ||
-                                                    ((T[F] = {
-                                                        idx: F,
-                                                        item: R,
-                                                        matches: [],
-                                                    }),
+                                                    ((T[F] = { idx: F, item: R, matches: [] }),
                                                     A.push(T[F])),
                                                 H.forEach(({ matches: B }) => {
                                                     T[F].matches.push(...B);
@@ -4917,12 +4788,7 @@ var $e = ft((Ae, Ye) => {
                                                 }),
                                             );
                                         }),
-                                            F.length &&
-                                                T.push({
-                                                    idx: R,
-                                                    item: A,
-                                                    matches: F,
-                                                });
+                                            F.length && T.push({ idx: R, item: A, matches: F });
                                     }),
                                     T
                                 );
@@ -4948,13 +4814,7 @@ var $e = ft((Ae, Ye) => {
                                     let { v: T, n: A } = m,
                                         { isMatch: R, score: F, indices: H } = S.searchIn(T);
                                     R &&
-                                        I.push({
-                                            score: F,
-                                            key: o,
-                                            value: T,
-                                            norm: A,
-                                            indices: H,
-                                        });
+                                        I.push({ score: F, key: o, value: T, norm: A, indices: H });
                                 }
                                 return I;
                             }
@@ -5301,11 +5161,7 @@ var $e = ft((Ae, Ye) => {
                                 var C = f[u],
                                     Y = C(void 0, { type: y.INIT });
                                 if (typeof Y > 'u') throw new Error(l(12));
-                                if (
-                                    typeof C(void 0, {
-                                        type: y.PROBE_UNKNOWN_ACTION(),
-                                    }) > 'u'
-                                )
+                                if (typeof C(void 0, { type: y.PROBE_UNKNOWN_ACTION() }) > 'u')
                                     throw new Error(l(13));
                             });
                         }
@@ -5422,10 +5278,7 @@ var $e = ft((Ae, Ye) => {
                         for (var b in i)
                             X.o(i, b) &&
                                 !X.o(j, b) &&
-                                Object.defineProperty(j, b, {
-                                    enumerable: !0,
-                                    get: i[b],
-                                });
+                                Object.defineProperty(j, b, { enumerable: !0, get: i[b] });
                     };
                 })(),
                 (function () {
@@ -5437,12 +5290,8 @@ var $e = ft((Ae, Ye) => {
                     X.r = function (j) {
                         typeof Symbol < 'u' &&
                             Symbol.toStringTag &&
-                            Object.defineProperty(j, Symbol.toStringTag, {
-                                value: 'Module',
-                            }),
-                            Object.defineProperty(j, '__esModule', {
-                                value: !0,
-                            });
+                            Object.defineProperty(j, Symbol.toStringTag, { value: 'Module' }),
+                            Object.defineProperty(j, '__esModule', { value: !0 });
                     };
                 })();
             var me = {};
@@ -5553,9 +5402,7 @@ function vt({
                     this.$refs.input.addEventListener(
                         'search',
                         Alpine.debounce(async (e) => {
-                            await this.refreshChoices({
-                                search: e.detail.value?.trim(),
-                            }),
+                            await this.refreshChoices({ search: e.detail.value?.trim() }),
                                 (this.isSearching = !1);
                         }, Z),
                     )),
@@ -5565,18 +5412,14 @@ function vt({
                         async (e) => {
                             e.detail.livewireId === r &&
                                 e.detail.statePath === g &&
-                                (await this.refreshChoices({
-                                    withInitialOptions: !d,
-                                }));
+                                (await this.refreshChoices({ withInitialOptions: !d }));
                         },
                     ),
                 this.$watch('state', async () => {
                     this.select &&
                         (this.refreshPlaceholder(),
                         !this.isStateBeingUpdated &&
-                            (await this.refreshChoices({
-                                withInitialOptions: !d,
-                            })));
+                            (await this.refreshChoices({ withInitialOptions: !d })));
                 });
         },
         destroy: function () {

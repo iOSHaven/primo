@@ -9,10 +9,7 @@ var Ld = (o, p, v, C) => {
         for (let b of wd(p))
             !Sd.call(o, b) &&
                 b !== v &&
-                as(o, b, {
-                    get: () => p[b],
-                    enumerable: !(C = kd(p, b)) || C.enumerable,
-                });
+                as(o, b, { get: () => p[b], enumerable: !(C = kd(p, b)) || C.enumerable });
     return o;
 };
 var Cd = (o) => Ld(as({}, '__esModule', { value: !0 }), o);
@@ -1969,10 +1966,7 @@ b`.split(/\n/).length != 3
             if (e.cachedPaddingH) return e.cachedPaddingH;
             var t = J(e.measure, x('pre', 'x', 'CodeMirror-line-like')),
                 n = window.getComputedStyle ? window.getComputedStyle(t) : t.currentStyle,
-                r = {
-                    left: parseInt(n.paddingLeft),
-                    right: parseInt(n.paddingRight),
-                };
+                r = { left: parseInt(n.paddingLeft), right: parseInt(n.paddingRight) };
             return !isNaN(r.left) && !isNaN(r.right) && (e.cachedPaddingH = r), r;
         }
         function Jt(e) {
@@ -2005,17 +1999,10 @@ b`.split(/\n/).length != 3
             if (e.rest) {
                 for (var r = 0; r < e.rest.length; r++)
                     if (e.rest[r] == t)
-                        return {
-                            map: e.measure.maps[r],
-                            cache: e.measure.caches[r],
-                        };
+                        return { map: e.measure.maps[r], cache: e.measure.caches[r] };
                 for (var i = 0; i < e.rest.length; i++)
                     if (Xe(e.rest[i]) > n)
-                        return {
-                            map: e.measure.maps[i],
-                            cache: e.measure.caches[i],
-                            before: !0,
-                        };
+                        return { map: e.measure.maps[i], cache: e.measure.caches[i], before: !0 };
             }
         }
         function ef(e, t) {
@@ -2097,14 +2084,7 @@ b`.split(/\n/).length != 3
                             (r = e[(m += 3) + 2]), (l = 'right');
                     break;
                 }
-            return {
-                node: r,
-                start: i,
-                end: a,
-                collapse: l,
-                coverStart: u,
-                coverEnd: f,
-            };
+            return { node: r, start: i, end: a, collapse: l, coverStart: u, coverEnd: f };
         }
         function tf(e, t) {
             var n = Na;
@@ -2189,12 +2169,7 @@ b`.split(/\n/).length != 3
                 return t;
             var n = screen.logicalXDPI / screen.deviceXDPI,
                 r = screen.logicalYDPI / screen.deviceYDPI;
-            return {
-                left: t.left * n,
-                right: t.right * n,
-                top: t.top * r,
-                bottom: t.bottom * r,
-            };
+            return { left: t.left * n, right: t.right * n, top: t.top * r, bottom: t.bottom * r };
         }
         function Pa(e) {
             if (e.measure && ((e.measure.cache = {}), (e.measure.heights = null), e.rest))
@@ -3034,11 +3009,7 @@ b`.split(/\n/).length != 3
         function Qr(e) {
             gi(e);
             var t = e.getCursor();
-            e.curOp.scrollToPos = {
-                from: t,
-                to: t,
-                margin: e.options.cursorScrollMargin,
-            };
+            e.curOp.scrollToPos = { from: t, to: t, margin: e.options.cursorScrollMargin };
         }
         function Ln(e, t, n) {
             (t != null || n != null) && gi(e),
@@ -3308,10 +3279,7 @@ b`.split(/\n/).length != 3
                     e.mustUpdate &&
                     new mi(
                         t,
-                        e.mustUpdate && {
-                            top: e.scrollTop,
-                            ensure: e.scrollToPos,
-                        },
+                        e.mustUpdate && { top: e.scrollTop, ensure: e.scrollToPos },
                         e.forceUpdate,
                     ));
         }
@@ -3597,9 +3565,7 @@ b`.split(/\n/).length != 3
                     if (
                         (n &&
                             n.top != null &&
-                            (n = {
-                                top: Math.min(e.doc.height + uo(e.display) - co(e), n.top),
-                            }),
+                            (n = { top: Math.min(e.doc.height + uo(e.display) - co(e), n.top) }),
                         (t.visible = hi(e.display, e.doc, n)),
                         t.visible.from >= e.display.viewFrom && t.visible.to <= e.display.viewTo)
                     )
@@ -3724,15 +3690,7 @@ b`.split(/\n/).length != 3
                     else continue;
                 n.push({ className: a, style: l });
             }
-            return (
-                t &&
-                    !r &&
-                    n.push({
-                        className: 'CodeMirror-linenumbers',
-                        style: null,
-                    }),
-                n
-            );
+            return t && !r && n.push({ className: 'CodeMirror-linenumbers', style: null }), n;
         }
         function ol(e) {
             var t = e.gutters,
@@ -4513,10 +4471,7 @@ b`.split(/\n/).length != 3
                                 qn(e, he, ve, ml(e, he)),
                                     !ue &&
                                         e.cm &&
-                                        e.cm.scrollIntoView({
-                                            from: he.from,
-                                            to: _r(he),
-                                        });
+                                        e.cm.scrollIntoView({ from: he.from, to: _r(he) });
                                 var _e = [];
                                 kr(e, function (be, Te) {
                                     !Te &&
@@ -4621,13 +4576,7 @@ b`.split(/\n/).length != 3
             var A = Tt(e, 'changes'),
                 P = Tt(e, 'change');
             if (P || A) {
-                var ee = {
-                    from: a,
-                    to: l,
-                    text: t.text,
-                    removed: t.removed,
-                    origin: t.origin,
-                };
+                var ee = { from: a, to: l, text: t.text, removed: t.removed, origin: t.origin };
                 P && pt(e, 'change', e, ee),
                     A && (e.curOp.changeObjs || (e.curOp.changeObjs = [])).push(ee);
             }
@@ -5249,12 +5198,7 @@ b`.split(/\n/).length != 3
             replaceSelections: gt(function (e, t, n) {
                 for (var r = [], i = this.sel, a = 0; a < i.ranges.length; a++) {
                     var l = i.ranges[a];
-                    r[a] = {
-                        from: l.from(),
-                        to: l.to(),
-                        text: this.splitLines(e[a]),
-                        origin: n,
-                    };
+                    r[a] = { from: l.from(), to: l.to(), text: this.splitLines(e[a]), origin: n };
                 }
                 for (var u = t && t != 'end' && Ef(this, r, t), f = r.length - 1; f >= 0; f--)
                     tn(this, r[f]);
@@ -5312,10 +5256,7 @@ b`.split(/\n/).length != 3
                 return this.history.generation == (e || this.cleanGeneration);
             },
             getHistory: function () {
-                return {
-                    done: Jr(this.history.done),
-                    undone: Jr(this.history.undone),
-                };
+                return { done: Jr(this.history.done), undone: Jr(this.history.undone) };
             },
             setHistory: function (e) {
                 var t = (this.history = new bi(this.history));
@@ -5528,10 +5469,7 @@ b`.split(/\n/).length != 3
                 );
                 return (
                     e.sharedHist && (r.history = this.history),
-                    (this.linked || (this.linked = [])).push({
-                        doc: r,
-                        sharedHist: e.sharedHist,
-                    }),
+                    (this.linked || (this.linked = [])).push({ doc: r, sharedHist: e.sharedHist }),
                     (r.linked = [{ doc: this, isParent: !0, sharedHist: e.sharedHist }]),
                     jf(r, ql(this)),
                     r
@@ -6137,10 +6075,7 @@ b`.split(/\n/).length != 3
             },
             deleteLine: function (e) {
                 return an(e, function (t) {
-                    return {
-                        from: G(t.from().line, 0),
-                        to: Pe(e.doc, G(t.to().line + 1, 0)),
-                    };
+                    return { from: G(t.from().line, 0), to: Pe(e.doc, G(t.to().line + 1, 0)) };
                 });
             },
             delLineLeft: function (e) {
@@ -6159,10 +6094,7 @@ b`.split(/\n/).length != 3
                 return an(e, function (t) {
                     var n = e.charCoords(t.head, 'div').top + 5,
                         r = e.coordsChar(
-                            {
-                                left: e.display.lineDiv.offsetWidth + 100,
-                                top: n,
-                            },
+                            { left: e.display.lineDiv.offsetWidth + 100, top: n },
                             'div',
                         );
                     return { from: t.from(), to: r };
@@ -6633,9 +6565,7 @@ b`.split(/\n/).length != 3
                             r.addNew || xi(e.doc, n, null, null, r.extend),
                             (h && !S) || (s && g == 9)
                                 ? setTimeout(function () {
-                                      i.wrapper.ownerDocument.body.focus({
-                                          preventScroll: !0,
-                                      }),
+                                      i.wrapper.ownerDocument.body.focus({ preventScroll: !0 }),
                                           i.input.focus();
                                   }, 20)
                                 : i.input.focus());
@@ -6691,10 +6621,7 @@ b`.split(/\n/).length != 3
             r.addNew
                 ? u == -1
                     ? ((u = m.length),
-                      wt(a, Gt(e, m.concat([l]), u), {
-                          scroll: !1,
-                          origin: '*mouse',
-                      }))
+                      wt(a, Gt(e, m.concat([l]), u), { scroll: !1, origin: '*mouse' }))
                     : m.length > 1 && m[u].empty() && r.unit == 'char' && !r.extend
                       ? (wt(a, Gt(e, m.slice(0, u).concat(m.slice(u + 1)), 0), {
                             scroll: !1,
@@ -7236,11 +7163,7 @@ b`.split(/\n/).length != 3
                 if (!ot(e, f) && !a(f) && !Bo(e, f)) {
                     t.input.ensurePolled(), clearTimeout(n);
                     var m = +new Date();
-                    (t.activeTouch = {
-                        start: m,
-                        moved: !1,
-                        prev: m - r.end <= 300 ? r : null,
-                    }),
+                    (t.activeTouch = { start: m, moved: !1, prev: m - r.end <= 300 ? r : null }),
                         f.touches.length == 1 &&
                             ((t.activeTouch.left = f.touches[0].pageX),
                             (t.activeTouch.top = f.touches[0].pageY));
@@ -7682,10 +7605,7 @@ b`.split(/\n/).length != 3
                     return Xr(this.display);
                 },
                 getViewport: function () {
-                    return {
-                        from: this.display.viewFrom,
-                        to: this.display.viewTo,
-                    };
+                    return { from: this.display.viewFrom, to: this.display.viewTo };
                 },
                 addWidget: function (r, i, a, l, u) {
                     var f = this.display;
@@ -7861,10 +7781,7 @@ b`.split(/\n/).length != 3
                 },
                 scrollIntoView: Ct(function (r, i) {
                     r == null
-                        ? ((r = {
-                              from: this.doc.sel.primary().head,
-                              to: null,
-                          }),
+                        ? ((r = { from: this.doc.sel.primary().head, to: null }),
                           i == null && (i = this.options.cursorScrollMargin))
                         : typeof r == 'number'
                           ? (r = { from: G(r, 0), to: null })
@@ -8181,10 +8098,7 @@ b`.split(/\n/).length != 3
                     if (!m) {
                         var A = u[u.length - 1].measure,
                             P = A.maps ? A.maps[A.maps.length - 1] : A.map;
-                        m = {
-                            node: P[P.length - 1],
-                            offset: P[P.length - 2] - P[P.length - 3],
-                        };
+                        m = { node: P[P.length - 1], offset: P[P.length - 2] - P[P.length - 3] };
                     }
                     if (!f || !m) {
                         e.removeAllRanges();
@@ -9348,12 +9262,7 @@ var xs = Ue((bs, ys) => {
                 H.lastIndex = X;
                 var ne = y.getLine(B),
                     N = H.exec(ne);
-                if (N)
-                    return {
-                        from: p(B, N.index),
-                        to: p(B, N.index + N[0].length),
-                        match: N,
-                    };
+                if (N) return { from: p(B, N.index), to: p(B, N.index + N[0].length), match: N };
             }
         }
         function s(y, H, M) {
@@ -9406,12 +9315,7 @@ var xs = Ue((bs, ys) => {
             for (var B = M.line, X = M.ch, re = y.firstLine(); B >= re; B--, X = -1) {
                 var ne = y.getLine(B),
                     N = g(ne, H, X < 0 ? 0 : ne.length - X);
-                if (N)
-                    return {
-                        from: p(B, N.index),
-                        to: p(B, N.index + N[0].length),
-                        match: N,
-                    };
+                if (N) return { from: p(B, N.index), to: p(B, N.index + N[0].length), match: N };
             }
         }
         function w(y, H, M) {
@@ -9526,10 +9430,7 @@ var xs = Ue((bs, ys) => {
                 if (re.length == 1) {
                     var j = V.lastIndexOf(re[0]);
                     if (j == -1) continue e;
-                    return {
-                        from: p(ne, d(D, V, j, X)),
-                        to: p(ne, d(D, V, j + re[0].length, X)),
-                    };
+                    return { from: p(ne, d(D, V, j, X)), to: p(ne, d(D, V, j + re[0].length, X)) };
                 } else {
                     var J = re[re.length - 1];
                     if (V.slice(0, J.length) != J) continue e;
@@ -10352,10 +10253,7 @@ var Qo = Ue((_s, ks) => {
                         return 'variable-2';
                 },
             },
-            modeProps: {
-                fold: ['brace', 'import'],
-                closeBrackets: { triples: '"' },
-            },
+            modeProps: { fold: ['brace', 'import'], closeBrackets: { triples: '"' } },
         });
     });
 });
@@ -13505,26 +13403,11 @@ var pn = Ue((qs, Is) => {
             o.defineMIME('application/x-javascript', 'javascript'),
             o.defineMIME('application/ecmascript', 'javascript'),
             o.defineMIME('application/json', { name: 'javascript', json: !0 }),
-            o.defineMIME('application/x-json', {
-                name: 'javascript',
-                json: !0,
-            }),
-            o.defineMIME('application/manifest+json', {
-                name: 'javascript',
-                json: !0,
-            }),
-            o.defineMIME('application/ld+json', {
-                name: 'javascript',
-                jsonld: !0,
-            }),
-            o.defineMIME('text/typescript', {
-                name: 'javascript',
-                typescript: !0,
-            }),
-            o.defineMIME('application/typescript', {
-                name: 'javascript',
-                typescript: !0,
-            });
+            o.defineMIME('application/x-json', { name: 'javascript', json: !0 }),
+            o.defineMIME('application/manifest+json', { name: 'javascript', json: !0 }),
+            o.defineMIME('application/ld+json', { name: 'javascript', jsonld: !0 }),
+            o.defineMIME('text/typescript', { name: 'javascript', typescript: !0 }),
+            o.defineMIME('application/typescript', { name: 'javascript', typescript: !0 });
     });
 });
 var Gn = Ue((Fs, Ns) => {
@@ -13674,10 +13557,7 @@ var Gn = Ue((Fs, Ns) => {
                               : o.Pass;
                     },
                     innerMode: function (H) {
-                        return {
-                            state: H.localState || H.htmlState,
-                            mode: H.localMode || c,
-                        };
+                        return { state: H.localState || H.htmlState, mode: H.localMode || c };
                     },
                 };
             },
@@ -14001,12 +13881,7 @@ var Ai = Ue((Rs, Hs) => {
                     },
                     token: _(d, k),
                     innerMode: function (ne) {
-                        return (
-                            ne.local && {
-                                mode: ne.local.mode,
-                                state: ne.localState,
-                            }
-                        );
+                        return ne.local && { mode: ne.local.mode, state: ne.localState };
                     },
                     indent: w(d, S),
                 };
@@ -14205,34 +14080,15 @@ var Us = Ue((Bs, Ws) => {
                 { regex: /^\s*#.*$/, sol: !0, token: 'comment' },
                 { regex: v, token: [null, 'keyword'], sol: !0, next: 'from' },
                 { regex: k, token: [null, 'keyword', null, 'error'], sol: !0 },
-                {
-                    regex: b,
-                    token: [null, 'keyword', null],
-                    sol: !0,
-                    next: 'array',
-                },
-                {
-                    regex: s,
-                    token: [null, 'keyword', null],
-                    sol: !0,
-                    next: 'expose',
-                },
-                {
-                    regex: c,
-                    token: [null, 'keyword', null],
-                    sol: !0,
-                    next: 'arguments',
-                },
+                { regex: b, token: [null, 'keyword', null], sol: !0, next: 'array' },
+                { regex: s, token: [null, 'keyword', null], sol: !0, next: 'expose' },
+                { regex: c, token: [null, 'keyword', null], sol: !0, next: 'arguments' },
                 { regex: /./, token: null },
             ],
             from: [
                 { regex: /\s*$/, token: null, next: 'start' },
                 { regex: /(\s*)(#.*)$/, token: [null, 'error'], next: 'start' },
-                {
-                    regex: /(\s*\S+\s+)(as)/i,
-                    token: [null, 'keyword'],
-                    next: 'start',
-                },
+                { regex: /(\s*\S+\s+)(as)/i, token: [null, 'keyword'], next: 'start' },
                 { token: null, next: 'start' },
             ],
             single: [
@@ -14256,17 +14112,9 @@ var Us = Ue((Bs, Ws) => {
             ],
             arguments: [
                 { regex: /^\s*#.*$/, sol: !0, token: 'comment' },
-                {
-                    regex: /"(?:[^\\"]|\\.)*"?$/,
-                    token: 'string',
-                    next: 'start',
-                },
+                { regex: /"(?:[^\\"]|\\.)*"?$/, token: 'string', next: 'start' },
                 { regex: /"/, token: 'string', push: 'double' },
-                {
-                    regex: /'(?:[^\\']|\\.)*'?$/,
-                    token: 'string',
-                    next: 'start',
-                },
+                { regex: /'(?:[^\\']|\\.)*'?$/, token: 'string', next: 'start' },
                 { regex: /'/, token: 'string', push: 'single' },
                 { regex: /[^#"']+[\\`]$/, token: null },
                 { regex: /[^#"']+$/, token: null, next: 'start' },
@@ -14288,12 +14136,7 @@ var Gs = Ue(($s, Ks) => {
     })(function (o) {
         'use strict';
         o.modeInfo = [
-            {
-                name: 'APL',
-                mime: 'text/apl',
-                mode: 'apl',
-                ext: ['dyalog', 'apl'],
-            },
+            { name: 'APL', mime: 'text/apl', mode: 'apl', ext: ['dyalog', 'apl'] },
             {
                 name: 'PGP',
                 mimes: [
@@ -14305,30 +14148,15 @@ var Gs = Ue(($s, Ks) => {
                 mode: 'asciiarmor',
                 ext: ['asc', 'pgp', 'sig'],
             },
-            {
-                name: 'ASN.1',
-                mime: 'text/x-ttcn-asn',
-                mode: 'asn.1',
-                ext: ['asn', 'asn1'],
-            },
+            { name: 'ASN.1', mime: 'text/x-ttcn-asn', mode: 'asn.1', ext: ['asn', 'asn1'] },
             {
                 name: 'Asterisk',
                 mime: 'text/x-asterisk',
                 mode: 'asterisk',
                 file: /^extensions\.conf$/i,
             },
-            {
-                name: 'Brainfuck',
-                mime: 'text/x-brainfuck',
-                mode: 'brainfuck',
-                ext: ['b', 'bf'],
-            },
-            {
-                name: 'C',
-                mime: 'text/x-csrc',
-                mode: 'clike',
-                ext: ['c', 'h', 'ino'],
-            },
+            { name: 'Brainfuck', mime: 'text/x-brainfuck', mode: 'brainfuck', ext: ['b', 'bf'] },
+            { name: 'C', mime: 'text/x-csrc', mode: 'clike', ext: ['c', 'h', 'ino'] },
             {
                 name: 'C++',
                 mime: 'text/x-c++src',
@@ -14336,12 +14164,7 @@ var Gs = Ue(($s, Ks) => {
                 ext: ['cpp', 'c++', 'cc', 'cxx', 'hpp', 'h++', 'hh', 'hxx'],
                 alias: ['cpp'],
             },
-            {
-                name: 'Cobol',
-                mime: 'text/x-cobol',
-                mode: 'cobol',
-                ext: ['cob', 'cpy', 'cbl'],
-            },
+            { name: 'Cobol', mime: 'text/x-cobol', mode: 'cobol', ext: ['cob', 'cpy', 'cbl'] },
             {
                 name: 'C#',
                 mime: 'text/x-csharp',
@@ -14355,18 +14178,8 @@ var Gs = Ue(($s, Ks) => {
                 mode: 'clojure',
                 ext: ['clj', 'cljc', 'cljx'],
             },
-            {
-                name: 'ClojureScript',
-                mime: 'text/x-clojurescript',
-                mode: 'clojure',
-                ext: ['cljs'],
-            },
-            {
-                name: 'Closure Stylesheets (GSS)',
-                mime: 'text/x-gss',
-                mode: 'css',
-                ext: ['gss'],
-            },
+            { name: 'ClojureScript', mime: 'text/x-clojurescript', mode: 'clojure', ext: ['cljs'] },
+            { name: 'Closure Stylesheets (GSS)', mime: 'text/x-gss', mode: 'css', ext: ['gss'] },
             {
                 name: 'CMake',
                 mime: 'text/x-cmake',
@@ -14394,25 +14207,10 @@ var Gs = Ue(($s, Ks) => {
                 mode: 'cypher',
                 ext: ['cyp', 'cypher'],
             },
-            {
-                name: 'Cython',
-                mime: 'text/x-cython',
-                mode: 'python',
-                ext: ['pyx', 'pxd', 'pxi'],
-            },
-            {
-                name: 'Crystal',
-                mime: 'text/x-crystal',
-                mode: 'crystal',
-                ext: ['cr'],
-            },
+            { name: 'Cython', mime: 'text/x-cython', mode: 'python', ext: ['pyx', 'pxd', 'pxi'] },
+            { name: 'Crystal', mime: 'text/x-crystal', mode: 'crystal', ext: ['cr'] },
             { name: 'CSS', mime: 'text/css', mode: 'css', ext: ['css'] },
-            {
-                name: 'CQL',
-                mime: 'text/x-cassandra',
-                mode: 'sql',
-                ext: ['cql'],
-            },
+            { name: 'CQL', mime: 'text/x-cassandra', mode: 'sql', ext: ['cql'] },
             { name: 'D', mime: 'text/x-d', mode: 'd', ext: ['d'] },
             {
                 name: 'Dart',
@@ -14420,12 +14218,7 @@ var Gs = Ue(($s, Ks) => {
                 mode: 'dart',
                 ext: ['dart'],
             },
-            {
-                name: 'diff',
-                mime: 'text/x-diff',
-                mode: 'diff',
-                ext: ['diff', 'patch'],
-            },
+            { name: 'diff', mime: 'text/x-diff', mode: 'diff', ext: ['diff', 'patch'] },
             { name: 'Django', mime: 'text/x-django', mode: 'django' },
             {
                 name: 'Dockerfile',
@@ -14433,32 +14226,12 @@ var Gs = Ue(($s, Ks) => {
                 mode: 'dockerfile',
                 file: /^Dockerfile$/,
             },
-            {
-                name: 'DTD',
-                mime: 'application/xml-dtd',
-                mode: 'dtd',
-                ext: ['dtd'],
-            },
-            {
-                name: 'Dylan',
-                mime: 'text/x-dylan',
-                mode: 'dylan',
-                ext: ['dylan', 'dyl', 'intr'],
-            },
+            { name: 'DTD', mime: 'application/xml-dtd', mode: 'dtd', ext: ['dtd'] },
+            { name: 'Dylan', mime: 'text/x-dylan', mode: 'dylan', ext: ['dylan', 'dyl', 'intr'] },
             { name: 'EBNF', mime: 'text/x-ebnf', mode: 'ebnf' },
             { name: 'ECL', mime: 'text/x-ecl', mode: 'ecl', ext: ['ecl'] },
-            {
-                name: 'edn',
-                mime: 'application/edn',
-                mode: 'clojure',
-                ext: ['edn'],
-            },
-            {
-                name: 'Eiffel',
-                mime: 'text/x-eiffel',
-                mode: 'eiffel',
-                ext: ['e'],
-            },
+            { name: 'edn', mime: 'application/edn', mode: 'clojure', ext: ['edn'] },
+            { name: 'Eiffel', mime: 'text/x-eiffel', mode: 'eiffel', ext: ['e'] },
             { name: 'Elm', mime: 'text/x-elm', mode: 'elm', ext: ['elm'] },
             {
                 name: 'Embedded JavaScript',
@@ -14472,46 +14245,20 @@ var Gs = Ue(($s, Ks) => {
                 mode: 'htmlembedded',
                 ext: ['erb'],
             },
-            {
-                name: 'Erlang',
-                mime: 'text/x-erlang',
-                mode: 'erlang',
-                ext: ['erl'],
-            },
+            { name: 'Erlang', mime: 'text/x-erlang', mode: 'erlang', ext: ['erl'] },
             { name: 'Esper', mime: 'text/x-esper', mode: 'sql' },
-            {
-                name: 'Factor',
-                mime: 'text/x-factor',
-                mode: 'factor',
-                ext: ['factor'],
-            },
+            { name: 'Factor', mime: 'text/x-factor', mode: 'factor', ext: ['factor'] },
             { name: 'FCL', mime: 'text/x-fcl', mode: 'fcl' },
-            {
-                name: 'Forth',
-                mime: 'text/x-forth',
-                mode: 'forth',
-                ext: ['forth', 'fth', '4th'],
-            },
+            { name: 'Forth', mime: 'text/x-forth', mode: 'forth', ext: ['forth', 'fth', '4th'] },
             {
                 name: 'Fortran',
                 mime: 'text/x-fortran',
                 mode: 'fortran',
                 ext: ['f', 'for', 'f77', 'f90', 'f95'],
             },
-            {
-                name: 'F#',
-                mime: 'text/x-fsharp',
-                mode: 'mllike',
-                ext: ['fs'],
-                alias: ['fsharp'],
-            },
+            { name: 'F#', mime: 'text/x-fsharp', mode: 'mllike', ext: ['fs'], alias: ['fsharp'] },
             { name: 'Gas', mime: 'text/x-gas', mode: 'gas', ext: ['s'] },
-            {
-                name: 'Gherkin',
-                mime: 'text/x-feature',
-                mode: 'gherkin',
-                ext: ['feature'],
-            },
+            { name: 'Gherkin', mime: 'text/x-feature', mode: 'gherkin', ext: ['feature'] },
             {
                 name: 'GitHub Flavored Markdown',
                 mime: 'text/x-gfm',
@@ -14527,12 +14274,7 @@ var Gs = Ue(($s, Ks) => {
                 file: /^Jenkinsfile$/,
             },
             { name: 'HAML', mime: 'text/x-haml', mode: 'haml', ext: ['haml'] },
-            {
-                name: 'Haskell',
-                mime: 'text/x-haskell',
-                mode: 'haskell',
-                ext: ['hs'],
-            },
+            { name: 'Haskell', mime: 'text/x-haskell', mode: 'haskell', ext: ['hs'] },
             {
                 name: 'Haskell (Literate)',
                 mime: 'text/x-literate-haskell',
@@ -14557,13 +14299,7 @@ var Gs = Ue(($s, Ks) => {
             },
             { name: 'HTTP', mime: 'message/http', mode: 'http' },
             { name: 'IDL', mime: 'text/x-idl', mode: 'idl', ext: ['pro'] },
-            {
-                name: 'Pug',
-                mime: 'text/x-pug',
-                mode: 'pug',
-                ext: ['jade', 'pug'],
-                alias: ['jade'],
-            },
+            { name: 'Pug', mime: 'text/x-pug', mode: 'pug', ext: ['jade', 'pug'], alias: ['jade'] },
             { name: 'Java', mime: 'text/x-java', mode: 'clike', ext: ['java'] },
             {
                 name: 'Java Server Pages',
@@ -14600,25 +14336,9 @@ var Gs = Ue(($s, Ks) => {
                 alias: ['jsonld'],
             },
             { name: 'JSX', mime: 'text/jsx', mode: 'jsx', ext: ['jsx'] },
-            {
-                name: 'Jinja2',
-                mime: 'text/jinja2',
-                mode: 'jinja2',
-                ext: ['j2', 'jinja', 'jinja2'],
-            },
-            {
-                name: 'Julia',
-                mime: 'text/x-julia',
-                mode: 'julia',
-                ext: ['jl'],
-                alias: ['jl'],
-            },
-            {
-                name: 'Kotlin',
-                mime: 'text/x-kotlin',
-                mode: 'clike',
-                ext: ['kt'],
-            },
+            { name: 'Jinja2', mime: 'text/jinja2', mode: 'jinja2', ext: ['j2', 'jinja', 'jinja2'] },
+            { name: 'Julia', mime: 'text/x-julia', mode: 'julia', ext: ['jl'], alias: ['jl'] },
+            { name: 'Kotlin', mime: 'text/x-kotlin', mode: 'clike', ext: ['kt'] },
             { name: 'LESS', mime: 'text/x-less', mode: 'css', ext: ['less'] },
             {
                 name: 'LiveScript',
@@ -14642,38 +14362,13 @@ var Gs = Ue(($s, Ks) => {
                 mode: 'mathematica',
                 ext: ['m', 'nb', 'wl', 'wls'],
             },
-            {
-                name: 'Modelica',
-                mime: 'text/x-modelica',
-                mode: 'modelica',
-                ext: ['mo'],
-            },
-            {
-                name: 'MUMPS',
-                mime: 'text/x-mumps',
-                mode: 'mumps',
-                ext: ['mps'],
-            },
+            { name: 'Modelica', mime: 'text/x-modelica', mode: 'modelica', ext: ['mo'] },
+            { name: 'MUMPS', mime: 'text/x-mumps', mode: 'mumps', ext: ['mps'] },
             { name: 'MS SQL', mime: 'text/x-mssql', mode: 'sql' },
-            {
-                name: 'mbox',
-                mime: 'application/mbox',
-                mode: 'mbox',
-                ext: ['mbox'],
-            },
+            { name: 'mbox', mime: 'application/mbox', mode: 'mbox', ext: ['mbox'] },
             { name: 'MySQL', mime: 'text/x-mysql', mode: 'sql' },
-            {
-                name: 'Nginx',
-                mime: 'text/x-nginx-conf',
-                mode: 'nginx',
-                file: /nginx.*\.conf$/i,
-            },
-            {
-                name: 'NSIS',
-                mime: 'text/x-nsis',
-                mode: 'nsis',
-                ext: ['nsh', 'nsi'],
-            },
+            { name: 'Nginx', mime: 'text/x-nginx-conf', mode: 'nginx', file: /nginx.*\.conf$/i },
+            { name: 'NSIS', mime: 'text/x-nsis', mode: 'nsis', ext: ['nsh', 'nsi'] },
             {
                 name: 'NTriples',
                 mimes: ['application/n-triples', 'application/n-quads', 'text/n-triples'],
@@ -14700,26 +14395,11 @@ var Gs = Ue(($s, Ks) => {
                 mode: 'mllike',
                 ext: ['ml', 'mli', 'mll', 'mly'],
             },
-            {
-                name: 'Octave',
-                mime: 'text/x-octave',
-                mode: 'octave',
-                ext: ['m'],
-            },
+            { name: 'Octave', mime: 'text/x-octave', mode: 'octave', ext: ['m'] },
             { name: 'Oz', mime: 'text/x-oz', mode: 'oz', ext: ['oz'] },
-            {
-                name: 'Pascal',
-                mime: 'text/x-pascal',
-                mode: 'pascal',
-                ext: ['p', 'pas'],
-            },
+            { name: 'Pascal', mime: 'text/x-pascal', mode: 'pascal', ext: ['p', 'pas'] },
             { name: 'PEG.js', mime: 'null', mode: 'pegjs', ext: ['jsonld'] },
-            {
-                name: 'Perl',
-                mime: 'text/x-perl',
-                mode: 'perl',
-                ext: ['pl', 'pm'],
-            },
+            { name: 'Perl', mime: 'text/x-perl', mode: 'perl', ext: ['pl', 'pm'] },
             {
                 name: 'PHP',
                 mimes: ['text/x-php', 'application/x-httpd-php', 'application/x-httpd-php-open'],
@@ -14748,12 +14428,7 @@ var Gs = Ue(($s, Ks) => {
                 ext: ['properties', 'ini', 'in'],
                 alias: ['ini', 'properties'],
             },
-            {
-                name: 'ProtoBuf',
-                mime: 'text/x-protobuf',
-                mode: 'protobuf',
-                ext: ['proto'],
-            },
+            { name: 'ProtoBuf', mime: 'text/x-protobuf', mode: 'protobuf', ext: ['proto'] },
             {
                 name: 'Python',
                 mime: 'text/x-python',
@@ -14761,20 +14436,9 @@ var Gs = Ue(($s, Ks) => {
                 ext: ['BUILD', 'bzl', 'py', 'pyw'],
                 file: /^(BUCK|BUILD)$/,
             },
-            {
-                name: 'Puppet',
-                mime: 'text/x-puppet',
-                mode: 'puppet',
-                ext: ['pp'],
-            },
+            { name: 'Puppet', mime: 'text/x-puppet', mode: 'puppet', ext: ['pp'] },
             { name: 'Q', mime: 'text/x-q', mode: 'q', ext: ['q'] },
-            {
-                name: 'R',
-                mime: 'text/x-rsrc',
-                mode: 'r',
-                ext: ['r', 'R'],
-                alias: ['rscript'],
-            },
+            { name: 'R', mime: 'text/x-rsrc', mode: 'r', ext: ['r', 'R'], alias: ['rscript'] },
             {
                 name: 'reStructuredText',
                 mime: 'text/x-rst',
@@ -14783,12 +14447,7 @@ var Gs = Ue(($s, Ks) => {
                 alias: ['rst'],
             },
             { name: 'RPM Changes', mime: 'text/x-rpm-changes', mode: 'rpm' },
-            {
-                name: 'RPM Spec',
-                mime: 'text/x-rpm-spec',
-                mode: 'rpm',
-                ext: ['spec'],
-            },
+            { name: 'RPM Spec', mime: 'text/x-rpm-spec', mode: 'rpm', ext: ['spec'] },
             {
                 name: 'Ruby',
                 mime: 'text/x-ruby',
@@ -14799,18 +14458,8 @@ var Gs = Ue(($s, Ks) => {
             { name: 'Rust', mime: 'text/x-rustsrc', mode: 'rust', ext: ['rs'] },
             { name: 'SAS', mime: 'text/x-sas', mode: 'sas', ext: ['sas'] },
             { name: 'Sass', mime: 'text/x-sass', mode: 'sass', ext: ['sass'] },
-            {
-                name: 'Scala',
-                mime: 'text/x-scala',
-                mode: 'clike',
-                ext: ['scala'],
-            },
-            {
-                name: 'Scheme',
-                mime: 'text/x-scheme',
-                mode: 'scheme',
-                ext: ['scm', 'ss'],
-            },
+            { name: 'Scala', mime: 'text/x-scala', mode: 'clike', ext: ['scala'] },
+            { name: 'Scheme', mime: 'text/x-scheme', mode: 'scheme', ext: ['scm', 'ss'] },
             { name: 'SCSS', mime: 'text/x-scss', mode: 'css', ext: ['scss'] },
             {
                 name: 'Shell',
@@ -14820,30 +14469,15 @@ var Gs = Ue(($s, Ks) => {
                 alias: ['bash', 'sh', 'zsh'],
                 file: /^PKGBUILD$/,
             },
-            {
-                name: 'Sieve',
-                mime: 'application/sieve',
-                mode: 'sieve',
-                ext: ['siv', 'sieve'],
-            },
+            { name: 'Sieve', mime: 'application/sieve', mode: 'sieve', ext: ['siv', 'sieve'] },
             {
                 name: 'Slim',
                 mimes: ['text/x-slim', 'application/x-slim'],
                 mode: 'slim',
                 ext: ['slim'],
             },
-            {
-                name: 'Smalltalk',
-                mime: 'text/x-stsrc',
-                mode: 'smalltalk',
-                ext: ['st'],
-            },
-            {
-                name: 'Smarty',
-                mime: 'text/x-smarty',
-                mode: 'smarty',
-                ext: ['tpl'],
-            },
+            { name: 'Smalltalk', mime: 'text/x-stsrc', mode: 'smalltalk', ext: ['st'] },
+            { name: 'Smarty', mime: 'text/x-smarty', mode: 'smarty', ext: ['tpl'] },
             { name: 'Solr', mime: 'text/x-solr', mode: 'solr' },
             {
                 name: 'SML',
@@ -14873,24 +14507,9 @@ var Gs = Ue(($s, Ks) => {
             },
             { name: 'SQL', mime: 'text/x-sql', mode: 'sql', ext: ['sql'] },
             { name: 'SQLite', mime: 'text/x-sqlite', mode: 'sql' },
-            {
-                name: 'Squirrel',
-                mime: 'text/x-squirrel',
-                mode: 'clike',
-                ext: ['nut'],
-            },
-            {
-                name: 'Stylus',
-                mime: 'text/x-styl',
-                mode: 'stylus',
-                ext: ['styl'],
-            },
-            {
-                name: 'Swift',
-                mime: 'text/x-swift',
-                mode: 'swift',
-                ext: ['swift'],
-            },
+            { name: 'Squirrel', mime: 'text/x-squirrel', mode: 'clike', ext: ['nut'] },
+            { name: 'Stylus', mime: 'text/x-styl', mode: 'stylus', ext: ['styl'] },
+            { name: 'Swift', mime: 'text/x-swift', mode: 'swift', ext: ['swift'] },
             { name: 'sTeX', mime: 'text/x-stex', mode: 'stex' },
             {
                 name: 'LaTeX',
@@ -14906,17 +14525,8 @@ var Gs = Ue(($s, Ks) => {
                 ext: ['v', 'sv', 'svh'],
             },
             { name: 'Tcl', mime: 'text/x-tcl', mode: 'tcl', ext: ['tcl'] },
-            {
-                name: 'Textile',
-                mime: 'text/x-textile',
-                mode: 'textile',
-                ext: ['textile'],
-            },
-            {
-                name: 'TiddlyWiki',
-                mime: 'text/x-tiddlywiki',
-                mode: 'tiddlywiki',
-            },
+            { name: 'Textile', mime: 'text/x-textile', mode: 'textile', ext: ['textile'] },
+            { name: 'TiddlyWiki', mime: 'text/x-tiddlywiki', mode: 'tiddlywiki' },
             { name: 'Tiki wiki', mime: 'text/tiki', mode: 'tiki' },
             { name: 'TOML', mime: 'text/x-toml', mode: 'toml', ext: ['toml'] },
             { name: 'Tornado', mime: 'text/x-tornado', mode: 'tornado' },
@@ -14926,24 +14536,9 @@ var Gs = Ue(($s, Ks) => {
                 mode: 'troff',
                 ext: ['1', '2', '3', '4', '5', '6', '7', '8', '9'],
             },
-            {
-                name: 'TTCN',
-                mime: 'text/x-ttcn',
-                mode: 'ttcn',
-                ext: ['ttcn', 'ttcn3', 'ttcnpp'],
-            },
-            {
-                name: 'TTCN_CFG',
-                mime: 'text/x-ttcn-cfg',
-                mode: 'ttcn-cfg',
-                ext: ['cfg'],
-            },
-            {
-                name: 'Turtle',
-                mime: 'text/turtle',
-                mode: 'turtle',
-                ext: ['ttl'],
-            },
+            { name: 'TTCN', mime: 'text/x-ttcn', mode: 'ttcn', ext: ['ttcn', 'ttcn3', 'ttcnpp'] },
+            { name: 'TTCN_CFG', mime: 'text/x-ttcn-cfg', mode: 'ttcn-cfg', ext: ['cfg'] },
+            { name: 'Turtle', mime: 'text/turtle', mode: 'turtle', ext: ['ttl'] },
             {
                 name: 'TypeScript',
                 mime: 'application/typescript',
@@ -14959,37 +14554,12 @@ var Gs = Ue(($s, Ks) => {
                 alias: ['tsx'],
             },
             { name: 'Twig', mime: 'text/x-twig', mode: 'twig' },
-            {
-                name: 'Web IDL',
-                mime: 'text/x-webidl',
-                mode: 'webidl',
-                ext: ['webidl'],
-            },
+            { name: 'Web IDL', mime: 'text/x-webidl', mode: 'webidl', ext: ['webidl'] },
             { name: 'VB.NET', mime: 'text/x-vb', mode: 'vb', ext: ['vb'] },
-            {
-                name: 'VBScript',
-                mime: 'text/vbscript',
-                mode: 'vbscript',
-                ext: ['vbs'],
-            },
-            {
-                name: 'Velocity',
-                mime: 'text/velocity',
-                mode: 'velocity',
-                ext: ['vtl'],
-            },
-            {
-                name: 'Verilog',
-                mime: 'text/x-verilog',
-                mode: 'verilog',
-                ext: ['v'],
-            },
-            {
-                name: 'VHDL',
-                mime: 'text/x-vhdl',
-                mode: 'vhdl',
-                ext: ['vhd', 'vhdl'],
-            },
+            { name: 'VBScript', mime: 'text/vbscript', mode: 'vbscript', ext: ['vbs'] },
+            { name: 'Velocity', mime: 'text/velocity', mode: 'velocity', ext: ['vtl'] },
+            { name: 'Verilog', mime: 'text/x-verilog', mode: 'verilog', ext: ['v'] },
+            { name: 'VHDL', mime: 'text/x-vhdl', mode: 'vhdl', ext: ['vhd', 'vhdl'] },
             {
                 name: 'Vue.js Component',
                 mimes: ['script/x-vue', 'text/x-vue'],
@@ -15003,12 +14573,7 @@ var Gs = Ue(($s, Ks) => {
                 ext: ['xml', 'xsl', 'xsd', 'svg'],
                 alias: ['rss', 'wsdl', 'xsd'],
             },
-            {
-                name: 'XQuery',
-                mime: 'application/xquery',
-                mode: 'xquery',
-                ext: ['xy', 'xquery'],
-            },
+            { name: 'XQuery', mime: 'application/xquery', mode: 'xquery', ext: ['xy', 'xquery'] },
             { name: 'Yacas', mime: 'text/x-yacas', mode: 'yacas', ext: ['ys'] },
             {
                 name: 'YAML',
@@ -15025,18 +14590,8 @@ var Gs = Ue(($s, Ks) => {
                 ext: ['mscgen', 'mscin', 'msc'],
             },
             { name: 'xu', mime: 'text/x-xu', mode: 'mscgen', ext: ['xu'] },
-            {
-                name: 'msgenny',
-                mime: 'text/x-msgenny',
-                mode: 'mscgen',
-                ext: ['msgenny'],
-            },
-            {
-                name: 'WebAssembly',
-                mime: 'text/webassembly',
-                mode: 'wast',
-                ext: ['wat', 'wast'],
-            },
+            { name: 'msgenny', mime: 'text/x-msgenny', mode: 'mscgen', ext: ['msgenny'] },
+            { name: 'WebAssembly', mime: 'text/webassembly', mode: 'wast', ext: ['wat', 'wast'] },
         ];
         for (var p = 0; p < o.modeInfo.length; p++) {
             var v = o.modeInfo[p];
@@ -15769,11 +15324,7 @@ var Vs = Ue((Ys, Qs) => {
                             return { code: !1, codeBlock: !1, ateSpace: !1 };
                         },
                         copyState: function (w) {
-                            return {
-                                code: w.code,
-                                codeBlock: w.codeBlock,
-                                ateSpace: w.ateSpace,
-                            };
+                            return { code: w.code, codeBlock: w.codeBlock, ateSpace: w.ateSpace };
                         },
                         token: function (w, k) {
                             if (((k.combineTokens = null), k.codeBlock))
@@ -17305,12 +16856,7 @@ var yu = Ue((vu, bu) => {
             }
             return {
                 startState: function () {
-                    return {
-                        tokenize: k,
-                        chain: null,
-                        style: null,
-                        tail: null,
-                    };
+                    return { tokenize: k, chain: null, style: null, tail: null };
                 },
                 token: function (c, d) {
                     return (d.tokenize || k)(c, d);
@@ -17545,13 +17091,7 @@ var ku = Ue((xu, _u) => {
                             B;
                         return (
                             E.curMode == c ? (B = y) : (B = M),
-                            {
-                                html: y,
-                                php: M,
-                                curMode: E.curMode,
-                                curState: B,
-                                pending: E.pending,
-                            }
+                            { html: y, php: M, curMode: E.curMode, curState: B, pending: E.pending }
                         );
                     },
                     token: S,
@@ -17573,10 +17113,7 @@ var ku = Ue((xu, _u) => {
             'clike',
         ),
             o.defineMIME('application/x-httpd-php', 'php'),
-            o.defineMIME('application/x-httpd-php-open', {
-                name: 'php',
-                startOpen: !0,
-            }),
+            o.defineMIME('application/x-httpd-php-open', { name: 'php', startOpen: !0 }),
             o.defineMIME('text/x-php', h);
     });
 });
@@ -17954,11 +17491,7 @@ var Eu = Ue((Lu, Cu) => {
             }
             function D(K) {
                 for (; _(K).type != 'py'; ) K.scopes.pop();
-                K.scopes.push({
-                    offset: _(K).offset + g.indentUnit,
-                    type: 'py',
-                    align: null,
-                });
+                K.scopes.push({ offset: _(K).offset + g.indentUnit, type: 'py', align: null });
             }
             function V(K, Y, I) {
                 var W = K.match(/^[\s\[\{\(]*(?:#|$)/, !1) ? null : K.column() + 1;
@@ -18295,10 +17828,7 @@ var Au = Ue((zu, Mu) => {
                         if (X && D == '#' && !F) {
                             if (ne.eat('{')) {
                                 M == '}' &&
-                                    (N.context = {
-                                        prev: N.context,
-                                        type: 'read-quoted-paused',
-                                    }),
+                                    (N.context = { prev: N.context, type: 'read-quoted-paused' }),
                                     N.tokenize.push(S());
                                 break;
                             } else if (/[@\$]/.test(ne.peek())) {
@@ -18368,11 +17898,7 @@ var Au = Ue((zu, Mu) => {
                         (w || (X && X != 'comment')) && (B.lastTok = ne),
                         w == '|' && (B.varList = !B.varList),
                         re == 'indent' || /[\(\[\{]/.test(w)
-                            ? (B.context = {
-                                  prev: B.context,
-                                  type: w || X,
-                                  indented: B.indented,
-                              })
+                            ? (B.context = { prev: B.context, type: w || X, indented: B.indented })
                             : (re == 'dedent' || /[\)\]\}]/.test(w)) &&
                               B.context.prev &&
                               (B.context = B.context.prev),
@@ -18419,10 +17945,7 @@ var Iu = Ue((Du, qu) => {
                     regex: /'(?:[^'\\]|\\(?:[nrt0'"]|x[\da-fA-F]{2}|u\{[\da-fA-F]{6}\}))'/,
                     token: 'string-2',
                 },
-                {
-                    regex: /b'(?:[^']|\\(?:['\\nrt0]|x[\da-fA-F]{2}))'/,
-                    token: 'string-2',
-                },
+                { regex: /b'(?:[^']|\\(?:['\\nrt0]|x[\da-fA-F]{2}))'/, token: 'string-2' },
                 {
                     regex: /(?:(?:[0-9][0-9_]*)(?:(?:[Ee][+-]?[0-9_]+)|\.[0-9_]+(?:[Ee][+-]?[0-9_]+)?)(?:f32|f64)?)|(?:0(?:b[01_]+|(?:o[0-7_]+)|(?:x[0-9a-fA-F_]+))|(?:[0-9][0-9_]*))(?:u8|u16|u32|u64|i8|i16|i32|i64|isize|usize)?/,
                     token: 'number',
@@ -18439,14 +17962,8 @@ var Iu = Ue((Du, qu) => {
                     regex: /\b(?:Self|isize|usize|char|bool|u8|u16|u32|u64|f16|f32|f64|i8|i16|i32|i64|str|Option)\b/,
                     token: 'atom',
                 },
-                {
-                    regex: /\b(?:true|false|Some|None|Ok|Err)\b/,
-                    token: 'builtin',
-                },
-                {
-                    regex: /\b(fn)(\s+)([a-zA-Z_][a-zA-Z0-9_]*)/,
-                    token: ['keyword', null, 'def'],
-                },
+                { regex: /\b(?:true|false|Some|None|Ok|Err)\b/, token: 'builtin' },
+                { regex: /\b(fn)(\s+)([a-zA-Z_][a-zA-Z0-9_]*)/, token: ['keyword', null, 'def'] },
                 { regex: /#!?\[.*\]/, token: 'meta' },
                 { regex: /\/\/.*/, token: 'comment' },
                 { regex: /\/\*/, token: 'comment', next: 'comment' },
@@ -19059,12 +18576,7 @@ var Bu = Ue((Ru, Hu) => {
                 };
             }
             function F(V, j, J) {
-                j.context = {
-                    prev: j.context,
-                    indent: V.indentation(),
-                    col: V.column(),
-                    type: J,
-                };
+                j.context = { prev: j.context, indent: V.indentation(), col: V.column(), type: J };
             }
             function D(V) {
                 (V.indent = V.context.indent), (V.context = V.context.prev);
@@ -21302,12 +20814,7 @@ var Gu = Ue(($u, Ku) => {
         o.defineMode('swift', function (N) {
             return {
                 startState: function () {
-                    return {
-                        prev: null,
-                        context: null,
-                        indented: 0,
-                        tokenize: [],
-                    };
+                    return { prev: null, context: null, indented: 0, tokenize: [] };
                 },
                 token: function (F, D) {
                     var V = D.prev;
@@ -21500,13 +21007,7 @@ var Yu = Ue((Zu, Xu) => {
                 V !== 'coffee'
                     ? ((J = null), (x = F.column() + F.current().length))
                     : D.scope.align && (D.scope.align = !1),
-                    (D.scope = {
-                        offset: j,
-                        type: V,
-                        prev: D.scope,
-                        align: J,
-                        alignOffset: x,
-                    });
+                    (D.scope = { offset: j, type: V, prev: D.scope, align: J, alignOffset: x });
             }
             function re(F, D) {
                 if (D.scope.prev)
@@ -21550,12 +21051,7 @@ var Yu = Ue((Zu, Xu) => {
                 startState: function (F) {
                     return {
                         tokenize: H,
-                        scope: {
-                            offset: F || 0,
-                            type: 'coffee',
-                            prev: null,
-                            align: !1,
-                        },
+                        scope: { offset: F || 0, type: 'coffee', prev: null, align: !1 },
                         prop: !1,
                         dedent: 0,
                     };
@@ -22168,10 +21664,7 @@ var oc = Ue((nc, ic) => {
                 { regex: /(?:else|this)\b/, token: 'keyword' },
                 { regex: /\d+/i, token: 'number' },
                 { regex: /=|~|@|true|false/, token: 'atom' },
-                {
-                    regex: /(?:\.\.\/)*(?:[A-Za-z_][\w\.]*)+/,
-                    token: 'variable-2',
-                },
+                { regex: /(?:\.\.\/)*(?:[A-Za-z_][\w\.]*)+/, token: 'variable-2' },
             ],
             dash_comment: [
                 { regex: /--\}\}/, pop: !0, token: 'comment' },
@@ -22937,25 +22430,13 @@ function aa(o, p, v) {
                 _ = Lr(o),
                 s = o.getCursor('start'),
                 g = o.getCursor('end'),
-                h = {
-                    quote: /^(\s*)>\s+/,
-                    'unordered-list': C,
-                    'ordered-list': C,
-                },
+                h = { quote: /^(\s*)>\s+/, 'unordered-list': C, 'ordered-list': C },
                 w = function (E, z) {
-                    var y = {
-                        quote: '>',
-                        'unordered-list': v,
-                        'ordered-list': '%%i.',
-                    };
+                    var y = { quote: '>', 'unordered-list': v, 'ordered-list': '%%i.' };
                     return y[E].replace('%%i', z);
                 },
                 k = function (E, z) {
-                    var y = {
-                            quote: '>',
-                            'unordered-list': '\\' + v,
-                            'ordered-list': '\\d+.',
-                        },
+                    var y = { quote: '>', 'unordered-list': '\\' + v, 'ordered-list': '\\d+.' },
                         H = new RegExp(y[E]);
                     return z && H.test(z);
                 },
@@ -23334,13 +22815,7 @@ var hc,
             redo: 'fa fa-repeat fa-redo',
         }),
             (jr = {
-                bold: {
-                    name: 'bold',
-                    action: Ii,
-                    className: rt.bold,
-                    title: 'Bold',
-                    default: !0,
-                },
+                bold: { name: 'bold', action: Ii, className: rt.bold, title: 'Bold', default: !0 },
                 italic: {
                     name: 'italic',
                     action: Fi,
@@ -23392,12 +22867,7 @@ var hc,
                     title: 'Small Heading',
                 },
                 'separator-1': { name: 'separator-1' },
-                code: {
-                    name: 'code',
-                    action: Oi,
-                    className: rt.code,
-                    title: 'Code',
-                },
+                code: { name: 'code', action: Oi, className: rt.code, title: 'Code' },
                 quote: {
                     name: 'quote',
                     action: Pi,
@@ -23446,12 +22916,7 @@ var hc,
                     className: rt['upload-image'],
                     title: 'Import an image',
                 },
-                table: {
-                    name: 'table',
-                    action: Zi,
-                    className: rt.table,
-                    title: 'Insert Table',
-                },
+                table: { name: 'table', action: Zi, className: rt.table, title: 'Insert Table' },
                 'horizontal-rule': {
                     name: 'horizontal-rule',
                     action: Xi,
@@ -23534,10 +22999,7 @@ var hc,
                 ],
             }),
             (Pd = { link: 'URL for the link:', image: 'URL of the image:' }),
-            (jd = {
-                locale: 'en-US',
-                format: { hour: '2-digit', minute: '2-digit' },
-            }),
+            (jd = { locale: 'en-US', format: { hour: '2-digit', minute: '2-digit' } }),
             (Rd = { bold: '**', code: '```', italic: '*' }),
             (Hd = {
                 sbInit: 'Attach files by drag and dropping or pasting from clipboard.',
@@ -23674,9 +23136,7 @@ Maximum file size is #image_max_size#.`,
                     (s.gitHubSpice = !1),
                     typeof p.spellChecker == 'function'
                         ? p.spellChecker({ codeMirrorInstance: CodeMirror })
-                        : CodeMirrorSpellChecker({
-                              codeMirrorInstance: CodeMirror,
-                          }));
+                        : CodeMirrorSpellChecker({ codeMirrorInstance: CodeMirror }));
             function g(y, H, M) {
                 return { addNew: !1 };
             }
@@ -24176,12 +23636,7 @@ Maximum file size is #image_max_size#.`,
                                     (g = function (S) {
                                         S.innerHTML = p.imageTexts.sbInit;
                                     }),
-                            C.push({
-                                className: h,
-                                defaultValue: g,
-                                onUpdate: _,
-                                onActivity: s,
-                            });
+                            C.push({ className: h, defaultValue: g, onUpdate: _, onActivity: s });
                     }
                 var w = document.createElement('div');
                 for (w.className = 'editor-statusbar', b = 0; b < C.length; b++) {
@@ -24482,14 +23937,8 @@ function Ud({
                                     y = k.text.length > 1 ? 0 : S.ch;
                                 setTimeout(() => {
                                     h.setSelection(
-                                        {
-                                            line: E.line,
-                                            ch: y + d.lastIndexOf('(') + 1,
-                                        },
-                                        {
-                                            line: E.line,
-                                            ch: y + d.lastIndexOf(')'),
-                                        },
+                                        { line: E.line, ch: y + d.lastIndexOf('(') + 1 },
+                                        { line: E.line, ch: y + d.lastIndexOf(')') },
                                     );
                                 }, 25);
                             }
@@ -24598,17 +24047,9 @@ function Ud({
                     ['undo', 'redo'].some((w) => s.includes(w)) &&
                     h.push('|'),
                 s.includes('undo') &&
-                    h.push({
-                        name: 'undo',
-                        action: EasyMDE.undo,
-                        title: _.toolbar_buttons?.undo,
-                    }),
+                    h.push({ name: 'undo', action: EasyMDE.undo, title: _.toolbar_buttons?.undo }),
                 s.includes('redo') &&
-                    h.push({
-                        name: 'redo',
-                        action: EasyMDE.redo,
-                        title: _.toolbar_buttons?.redo,
-                    }),
+                    h.push({ name: 'redo', action: EasyMDE.redo, title: _.toolbar_buttons?.redo }),
                 h
             );
         },

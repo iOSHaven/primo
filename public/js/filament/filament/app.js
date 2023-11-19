@@ -12,10 +12,7 @@
                 for (let d of re(n))
                     !te.call(o, d) &&
                         d !== 'default' &&
-                        L(o, d, {
-                            get: () => n[d],
-                            enumerable: !(p = ne(n, d)) || p.enumerable,
-                        });
+                        L(o, d, { get: () => n[d], enumerable: !(p = ne(n, d)) || p.enumerable });
             return o;
         },
         oe = (o) =>

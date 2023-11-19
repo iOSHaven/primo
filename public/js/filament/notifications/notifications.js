@@ -11,10 +11,7 @@
             for (let n of Y(t))
                 !W.call(i, n) &&
                     n !== e &&
-                    $(i, n, {
-                        get: () => t[n],
-                        enumerable: !(s = V(t, n)) || s.enumerable,
-                    });
+                    $(i, n, { get: () => t[n], enumerable: !(s = V(t, n)) || s.enumerable });
         return i;
     };
     var J = (i, t, e) => (
@@ -197,9 +194,7 @@
                                 this.isShown &&
                                     this.$el.animate(
                                         [
-                                            {
-                                                transform: `translateY(${c - l()}px)`,
-                                            },
+                                            { transform: `translateY(${c - l()}px)` },
                                             { transform: 'translateY(0px)' },
                                         ],
                                         {
@@ -221,25 +216,19 @@
                     setTimeout(
                         () =>
                             window.dispatchEvent(
-                                new CustomEvent('notificationClosed', {
-                                    detail: { id: t.id },
-                                }),
+                                new CustomEvent('notificationClosed', { detail: { id: t.id } }),
                             ),
                         this.transitionDuration,
                     );
             },
             markAsRead: function () {
                 window.dispatchEvent(
-                    new CustomEvent('markedNotificationAsRead', {
-                        detail: { id: t.id },
-                    }),
+                    new CustomEvent('markedNotificationAsRead', { detail: { id: t.id } }),
                 );
             },
             markAsUnread: function () {
                 window.dispatchEvent(
-                    new CustomEvent('markedNotificationAsUnread', {
-                        detail: { id: t.id },
-                    }),
+                    new CustomEvent('markedNotificationAsUnread', { detail: { id: t.id } }),
                 );
             },
         }));
@@ -303,9 +292,7 @@
             send() {
                 return (
                     window.dispatchEvent(
-                        new CustomEvent('notificationSent', {
-                            detail: { notification: this },
-                        }),
+                        new CustomEvent('notificationSent', { detail: { notification: this } }),
                     ),
                     this
                 );

@@ -10,10 +10,7 @@ var at = (I, g, x, b) => {
         for (let y of it(g))
             !ot.call(I, y) &&
                 y !== x &&
-                Z(I, y, {
-                    get: () => g[y],
-                    enumerable: !(b = nt(g, y)) || b.enumerable,
-                });
+                Z(I, y, { get: () => g[y], enumerable: !(b = nt(g, y)) || b.enumerable });
     return I;
 };
 var ut = (I, g, x) => (
@@ -220,10 +217,7 @@ var Q = st((q, V) => {
                                 return (
                                     a && a[0] === o
                                         ? (a[1] = e)
-                                        : b(o, this.name, {
-                                              value: [o, e],
-                                              writable: !0,
-                                          }),
+                                        : b(o, this.name, { value: [o, e], writable: !0 }),
                                     this
                                 );
                             },
@@ -598,9 +592,7 @@ var Q = st((q, V) => {
                             (window.Event.prototype = e.prototype);
                     }
                 })(window.WebComponents),
-                (window.CustomElements = window.CustomElements || {
-                    flags: {},
-                }),
+                (window.CustomElements = window.CustomElements || { flags: {} }),
                 (function (b) {
                     var y = b.flags,
                         h = [],
@@ -1036,9 +1028,7 @@ var Q = st((q, V) => {
                                             window.CustomElements.readyTime -
                                             window.HTMLImports.readyTime),
                                     document.dispatchEvent(
-                                        new CustomEvent('WebComponentsReady', {
-                                            bubbles: !0,
-                                        }),
+                                        new CustomEvent('WebComponentsReady', { bubbles: !0 }),
                                     );
                             });
                         });
@@ -1315,10 +1305,7 @@ var Q = st((q, V) => {
                                     o++;
                                 for (; e > o + 1 && y.charAt(e - 1).isEqualTo(h.charAt(a - 1)); )
                                     e--, a--;
-                                return {
-                                    utf16String: y.slice(o, e),
-                                    offset: o,
-                                };
+                                return { utf16String: y.slice(o, e), offset: o };
                             });
                     }.call(this),
                     function () {
@@ -1888,9 +1875,7 @@ var Q = st((q, V) => {
                                           var u, s;
                                           return (
                                               (s = Object.create(HTMLElement.prototype, i)),
-                                              (u = document.registerElement(d, {
-                                                  prototype: s,
-                                              })),
+                                              (u = document.registerElement(d, { prototype: s })),
                                               Object.defineProperty(s, 'constructor', { value: u }),
                                               u
                                           );
@@ -1931,9 +1916,7 @@ var Q = st((q, V) => {
                     }.call(this),
                     function () {
                         var x;
-                        (x = {
-                            'application/x-trix-feature-detection': 'test',
-                        }),
+                        (x = { 'application/x-trix-feature-detection': 'test' }),
                             g.extend({
                                 dataTransferIsPlainText: function (b) {
                                     var y, h, o;
@@ -2132,9 +2115,7 @@ var Q = st((q, V) => {
                                         return this.toObject();
                                     }),
                                     (o.prototype.contentsForInspection = function () {
-                                        return {
-                                            values: JSON.stringify(this.values),
-                                        };
+                                        return { values: JSON.stringify(this.values) };
                                     }),
                                     (i = function (s, n) {
                                         var p;
@@ -2177,10 +2158,7 @@ var Q = st((q, V) => {
                                         ((this.depth = o),
                                         (this.objects = this.constructor.groupObjects(
                                             this.objects,
-                                            {
-                                                asTree: h,
-                                                depth: this.depth + 1,
-                                            },
+                                            { asTree: h, depth: this.depth + 1 },
                                         )));
                             }
                             return (
@@ -2209,28 +2187,14 @@ var Q = st((q, V) => {
                                                 a.push(u);
                                                 continue;
                                             }
-                                            s.push(
-                                                new this(a, {
-                                                    depth: e,
-                                                    asTree: h,
-                                                }),
-                                            ),
+                                            s.push(new this(a, { depth: e, asTree: h })),
                                                 (a = null);
                                         }
                                         typeof u.canBeGrouped == 'function' && u.canBeGrouped(e)
                                             ? (a = [u])
                                             : s.push(u);
                                     }
-                                    return (
-                                        a &&
-                                            s.push(
-                                                new this(a, {
-                                                    depth: e,
-                                                    asTree: h,
-                                                }),
-                                            ),
-                                        s
-                                    );
+                                    return a && s.push(new this(a, { depth: e, asTree: h })), s;
                                 }),
                                 (x.prototype.getObjects = function () {
                                     return this.objects;
@@ -2588,17 +2552,8 @@ var Q = st((q, V) => {
                         g.config.blockAttributes = x = {
                             default: { tagName: 'div', parse: !1 },
                             quote: { tagName: 'blockquote', nestable: !0 },
-                            heading1: {
-                                tagName: 'h1',
-                                terminal: !0,
-                                breakOnReturn: !0,
-                                group: !1,
-                            },
-                            code: {
-                                tagName: 'pre',
-                                terminal: !0,
-                                text: { plaintext: !0 },
-                            },
+                            heading1: { tagName: 'h1', terminal: !0, breakOnReturn: !0, group: !1 },
+                            code: { tagName: 'pre', terminal: !0, text: { plaintext: !0 } },
                             bulletList: { tagName: 'ul', parse: !1 },
                             bullet: {
                                 tagName: 'li',
@@ -2913,10 +2868,7 @@ var Q = st((q, V) => {
                     }.call(this),
                     function () {
                         g.config.attachments = {
-                            preview: {
-                                presentation: 'gallery',
-                                caption: { name: !0, size: !0 },
-                            },
+                            preview: { presentation: 'gallery', caption: { name: !0, size: !0 } },
                             file: { caption: { size: !0 } },
                         };
                     }.call(this),
@@ -3461,10 +3413,7 @@ var Q = st((q, V) => {
                                                 (C = o(m, f)),
                                                 (r = C.added),
                                                 (S = C.removed)),
-                                            {
-                                                additions: r ? [r] : [],
-                                                deletions: S ? [S] : [],
-                                            }
+                                            { additions: r ? [r] : [], deletions: S ? [S] : [] }
                                         );
                                     }),
                                     (p = function (r) {
@@ -3817,9 +3766,7 @@ var Q = st((q, V) => {
                                                             (R === 'ctrl' && (R = 'control'),
                                                             (C = C?.[R]));
                                                 C?.[L] != null &&
-                                                    (this.setInputSummary({
-                                                        keyName: L,
-                                                    }),
+                                                    (this.setInputSummary({ keyName: L }),
                                                     g.selectionChangeObserver.reset(),
                                                     C[L].call(this, f));
                                             }
@@ -3878,9 +3825,7 @@ var Q = st((q, V) => {
                                                       ]),
                                                       (S = this.responder) != null &&
                                                           S.insertString(m),
-                                                      this.setInputSummary({
-                                                          textAdded: m,
-                                                      }),
+                                                      this.setInputSummary({ textAdded: m }),
                                                       this.setSelectedRange(C))
                                                     : void 0
                                             );
@@ -3907,10 +3852,7 @@ var Q = st((q, V) => {
                                             return (!this.draggedRange &&
                                                 !this.canAcceptDataTransfer(f.dataTransfer)) ||
                                                 (f.preventDefault(),
-                                                (m = {
-                                                    x: f.clientX,
-                                                    y: f.clientY,
-                                                }),
+                                                (m = { x: f.clientX, y: f.clientY }),
                                                 u(m, this.draggingPoint))
                                                 ? void 0
                                                 : ((this.draggingPoint = m),
@@ -3941,10 +3883,7 @@ var Q = st((q, V) => {
                                                     (O = f.dataTransfer) != null
                                                         ? O.files
                                                         : void 0),
-                                                (L = {
-                                                    x: f.clientX,
-                                                    y: f.clientY,
-                                                }),
+                                                (L = { x: f.clientX, y: f.clientY }),
                                                 (D = this.responder) != null &&
                                                     D.setLocationRangeFromPointRange(L),
                                                 S?.length
@@ -4155,9 +4094,7 @@ var Q = st((q, V) => {
                                         return: function () {
                                             var f, m;
                                             return (
-                                                this.setInputSummary({
-                                                    preferDocument: !0,
-                                                }),
+                                                this.setInputSummary({ preferDocument: !0 }),
                                                 (f = this.delegate) != null &&
                                                     f.inputControllerWillPerformTyping(),
                                                 (m = this.responder) != null
@@ -4220,9 +4157,7 @@ var Q = st((q, V) => {
                                                         C.insertString(
                                                             `
 `,
-                                                            {
-                                                                updatePosition: !1,
-                                                            },
+                                                            { updatePosition: !1 },
                                                         ),
                                                     this.requestRender()
                                                 );
@@ -4268,9 +4203,7 @@ var Q = st((q, V) => {
                                             backspace: function () {
                                                 var f;
                                                 return (
-                                                    this.setInputSummary({
-                                                        preferDocument: !1,
-                                                    }),
+                                                    this.setInputSummary({ preferDocument: !1 }),
                                                     (f = this.delegate) != null
                                                         ? f.inputControllerWillPerformTyping()
                                                         : void 0
@@ -4281,9 +4214,7 @@ var Q = st((q, V) => {
                                             backspace: function () {
                                                 var f;
                                                 return (
-                                                    this.setInputSummary({
-                                                        preferDocument: !1,
-                                                    }),
+                                                    this.setInputSummary({ preferDocument: !1 }),
                                                     (f = this.delegate) != null
                                                         ? f.inputControllerWillPerformTyping()
                                                         : void 0
@@ -4307,9 +4238,7 @@ var Q = st((q, V) => {
                                         return ((C = this.responder) != null
                                             ? C.deleteInDirection(f)
                                             : void 0) !== !1
-                                            ? this.setInputSummary({
-                                                  didDelete: !0,
-                                              })
+                                            ? this.setInputSummary({ didDelete: !0 })
                                             : m
                                               ? (m.preventDefault(), this.requestRender())
                                               : void 0;
@@ -4365,11 +4294,7 @@ var Q = st((q, V) => {
                                                 top: window.pageYOffset + 'px',
                                                 opacity: 0,
                                             }),
-                                            (m = i({
-                                                style: S,
-                                                tagName: 'div',
-                                                editable: !0,
-                                            })),
+                                            (m = i({ style: S, tagName: 'div', editable: !0 })),
                                             document.body.appendChild(m),
                                             m.focus(),
                                             requestAnimationFrame(
@@ -5198,9 +5123,7 @@ var Q = st((q, V) => {
                                                         : void 0;
                                                 };
                                             })(this)),
-                                            (l = this.getTargetDOMRange({
-                                                minLength: 2,
-                                            }))
+                                            (l = this.getTargetDOMRange({ minLength: 2 }))
                                                 ? this.withTargetDOMRange(l, A)
                                                 : A()
                                         );
@@ -5440,12 +5363,8 @@ var Q = st((q, V) => {
                                                             className:
                                                                 'trix-button trix-button--remove',
                                                             textContent: o.remove,
-                                                            attributes: {
-                                                                title: o.remove,
-                                                            },
-                                                            data: {
-                                                                trixAction: 'remove',
-                                                            },
+                                                            attributes: { title: o.remove },
+                                                            data: { trixAction: 'remove' },
                                                         }),
                                                     }),
                                                 }),
@@ -5507,9 +5426,7 @@ var Q = st((q, V) => {
                                             (l = e({
                                                 tagName: 'textarea',
                                                 className: x.attachmentCaptionEditor,
-                                                attributes: {
-                                                    placeholder: o.captionPlaceholder,
-                                                },
+                                                attributes: { placeholder: o.captionPlaceholder },
                                                 data: { trixMutable: !0 },
                                             })),
                                             (l.value = this.attachmentPiece.getCaption()),
@@ -5522,10 +5439,7 @@ var Q = st((q, V) => {
                                                     (l.style.height = A.scrollHeight + 'px')
                                                 );
                                             }),
-                                            y('input', {
-                                                onElement: l,
-                                                withCallback: v,
-                                            }),
+                                            y('input', { onElement: l, withCallback: v }),
                                             y('input', {
                                                 onElement: l,
                                                 withCallback: this.didInputCaption,
@@ -5662,10 +5576,7 @@ var Q = st((q, V) => {
                                                 ((n = y({
                                                     tagName: 'a',
                                                     editable: !1,
-                                                    attributes: {
-                                                        href: u,
-                                                        tabindex: -1,
-                                                    },
+                                                    attributes: { href: u, tabindex: -1 },
                                                 })),
                                                 i.appendChild(n)),
                                             this.attachment.hasContent())
@@ -5791,10 +5702,7 @@ var Q = st((q, V) => {
                                         return y({
                                             tagName: 'span',
                                             textContent: g.ZERO_WIDTH_SPACE,
-                                            data: {
-                                                trixCursorTarget: i,
-                                                trixSerialize: !1,
-                                            },
+                                            data: { trixCursorTarget: i, trixSerialize: !1 },
                                         });
                                     }),
                                     (a.prototype.attachmentDidChangeUploadProgress = function () {
@@ -5884,9 +5792,7 @@ var Q = st((q, V) => {
                                                 ? e.removeAttribute(
                                                       'data-trix-serialized-attributes',
                                                   )
-                                                : ((i = JSON.stringify({
-                                                      src: s,
-                                                  })),
+                                                : ((i = JSON.stringify({ src: s })),
                                                   e.setAttribute(
                                                       'data-trix-serialized-attributes',
                                                       i,
@@ -6162,10 +6068,7 @@ var Q = st((q, V) => {
                                         for (
                                             t = g.config.blockAttributes.default.tagName,
                                                 this.block.isRTL() && (d = { dir: 'rtl' }),
-                                                u = y({
-                                                    tagName: t,
-                                                    attributes: d,
-                                                }),
+                                                u = y({ tagName: t, attributes: d }),
                                                 s = 0,
                                                 n = c.length;
                                             n > s;
@@ -6188,11 +6091,7 @@ var Q = st((q, V) => {
                                                     x.attachmentGallery +
                                                     '--' +
                                                     n)),
-                                            y({
-                                                tagName: p,
-                                                className: s,
-                                                attributes: u,
-                                            })
+                                            y({ tagName: p, className: s, attributes: u })
                                         );
                                     }),
                                     (a.prototype.shouldAddExtraNewlineElement = function () {
@@ -6465,9 +6364,8 @@ var Q = st((q, V) => {
                                         return (
                                             (p = this.findAttachmentForElement(n)),
                                             (c =
-                                                y(s.target, {
-                                                    matchingSelector: 'figcaption',
-                                                }) != null),
+                                                y(s.target, { matchingSelector: 'figcaption' }) !=
+                                                null),
                                             (v = this.delegate) != null &&
                                             typeof v.compositionControllerDidSelectAttachment ==
                                                 'function'
@@ -6735,9 +6633,7 @@ var Q = st((q, V) => {
                                     (d.prototype.didClickDialogButton = function (f, m) {
                                         var C, S;
                                         return (
-                                            (C = x(m, {
-                                                matchingSelector: c,
-                                            })),
+                                            (C = x(m, { matchingSelector: c })),
                                             (S = m.getAttribute('data-trix-method')),
                                             this[S].call(this, C)
                                         );
@@ -6838,12 +6734,7 @@ var Q = st((q, V) => {
                                                 (C = JSON.stringify(S.sort())),
                                                 C === O)
                                             )
-                                                return (
-                                                    y('mousedown', {
-                                                        onElement: m,
-                                                    }),
-                                                    !0
-                                                );
+                                                return y('mousedown', { onElement: m }), !0;
                                         return !1;
                                     }),
                                     (d.prototype.dialogIsVisible = function (f) {
@@ -7795,16 +7686,10 @@ var Q = st((q, V) => {
                                                 (v = s + t.getLength()),
                                                 u >= s && v > u)
                                             )
-                                                return {
-                                                    index: p,
-                                                    offset: u - s,
-                                                };
+                                                return { index: p, offset: u - s };
                                             s = v;
                                         }
-                                        return {
-                                            index: null,
-                                            offset: null,
-                                        };
+                                        return { index: null, offset: null };
                                     }),
                                     (e.prototype.findPositionAtIndexAndOffset = function (u, s) {
                                         var n, p, c, v, t, r;
@@ -8123,16 +8008,10 @@ var Q = st((q, V) => {
                                             ((d = u[e]),
                                             ((s = d.attachment) != null ? s.id : void 0) === o)
                                         )
-                                            return {
-                                                attachment: d.attachment,
-                                                position: i,
-                                            };
+                                            return { attachment: d.attachment, position: i };
                                         i += d.length;
                                     }
-                                    return {
-                                        attachment: null,
-                                        position: null,
-                                    };
+                                    return { attachment: null, position: null };
                                 }),
                                 (h.prototype.getAttachmentById = function (o) {
                                     var e, a, d;
@@ -8189,9 +8068,7 @@ var Q = st((q, V) => {
                                     return this.pieceList.getObjectAtPosition(o);
                                 }),
                                 (h.prototype.contentsForInspection = function () {
-                                    return {
-                                        pieceList: this.pieceList.inspect(),
-                                    };
+                                    return { pieceList: this.pieceList.inspect() };
                                 }),
                                 (h.prototype.toSerializableText = function () {
                                     var o;
@@ -8445,10 +8322,7 @@ var Q = st((q, V) => {
                                         return this.text.toString();
                                     }),
                                     (s.prototype.toJSON = function () {
-                                        return {
-                                            text: this.text,
-                                            attributes: this.attributes,
-                                        };
+                                        return { text: this.text, attributes: this.attributes };
                                     }),
                                     (s.prototype.getDirection = function () {
                                         return this.text.getDirection();
@@ -8835,9 +8709,7 @@ var Q = st((q, V) => {
                                               ))
                                             : ((this.containerElement = e({
                                                   tagName: 'div',
-                                                  style: {
-                                                      display: 'none',
-                                                  },
+                                                  style: { display: 'none' },
                                               })),
                                               document.body.appendChild(this.containerElement));
                                     }),
@@ -9049,11 +8921,7 @@ var Q = st((q, V) => {
                                             k == null && (k = {}),
                                             (T = 'string'),
                                             (w = d(w)),
-                                            {
-                                                string: w,
-                                                attributes: k,
-                                                type: T,
-                                            }
+                                            { string: w, attributes: k, type: T }
                                         );
                                     }),
                                     (O = function (w, k) {
@@ -9061,11 +8929,7 @@ var Q = st((q, V) => {
                                         return (
                                             k == null && (k = {}),
                                             (T = 'attachment'),
-                                            {
-                                                attachment: w,
-                                                attributes: k,
-                                                type: T,
-                                            }
+                                            { attachment: w, attributes: k, type: T }
                                         );
                                     }),
                                     (r = function (w) {
@@ -9461,9 +9325,7 @@ var Q = st((q, V) => {
                                                 ? ((f = v.slice(0, -c.length)),
                                                   (A = n.copyWithBaseBlockAttributes(f)))
                                                 : (A = n
-                                                      .copy({
-                                                          consolidateBlocks: !0,
-                                                      })
+                                                      .copy({ consolidateBlocks: !0 })
                                                       .copyWithBaseBlockAttributes(v)),
                                             (t = A.getBlockCount()),
                                             (r = A.getBlockAtIndex(0)),
@@ -10523,9 +10385,7 @@ var Q = st((q, V) => {
                                             (r = g.Document.fromHTML(
                                                 t,
                                             ).copyUsingObjectsFromDocument(this.document)),
-                                            (l = this.getLocationRange({
-                                                strict: !1,
-                                            })),
+                                            (l = this.getLocationRange({ strict: !1 })),
                                             (A = this.document.rangeFromLocationRange(l)),
                                             this.setDocument(r),
                                             this.setSelection(A)
@@ -10845,11 +10705,7 @@ var Q = st((q, V) => {
                                     }),
                                     (c.prototype.updateCurrentAttributes = function () {
                                         var t, r, l, A, f, m;
-                                        if (
-                                            (m = this.getSelectedRange({
-                                                ignoreLock: !0,
-                                            }))
-                                        ) {
+                                        if ((m = this.getSelectedRange({ ignoreLock: !0 }))) {
                                             for (
                                                 r = this.document.getCommonAttributesAtRange(m),
                                                     f = y(),
@@ -11498,10 +11354,7 @@ var Q = st((q, V) => {
                                         (o = h.document),
                                         (e = h.selectedRange),
                                         (o = g.Document.fromJSON(o)),
-                                        this.loadSnapshot({
-                                            document: o,
-                                            selectedRange: e,
-                                        })
+                                        this.loadSnapshot({ document: o, selectedRange: e })
                                     );
                                 }),
                                 (b.prototype.loadSnapshot = function (h) {
@@ -11783,9 +11636,7 @@ var Q = st((q, V) => {
                                                 S = { index: 0, offset: 0 },
                                                 (f = this.findAttachmentElementParentForNode(r)) &&
                                                     ((r = f.parentNode), (l = b(f))),
-                                                D = s(this.element, {
-                                                    usingFilter: v,
-                                                });
+                                                D = s(this.element, { usingFilter: v });
                                             D.nextNode();
 
                                         ) {
@@ -11822,9 +11673,7 @@ var Q = st((q, V) => {
                                                 c(A) === 0
                                                     ? ((l = A.parentNode.parentNode),
                                                       (m = b(A.parentNode)),
-                                                      a(A, {
-                                                          name: 'right',
-                                                      }) && m++)
+                                                      a(A, { name: 'right' }) && m++)
                                                     : ((l = A), (m = r.offset - f));
                                             else {
                                                 if (
@@ -11870,11 +11719,7 @@ var Q = st((q, V) => {
                                     (n.prototype.getSignificantNodesForIndex = function (r) {
                                         var l, A, f, m, C;
                                         for (
-                                            f = [],
-                                                C = s(this.element, {
-                                                    usingFilter: p,
-                                                }),
-                                                m = !1;
+                                            f = [], C = s(this.element, { usingFilter: p }), m = !1;
                                             C.nextNode();
 
                                         )
@@ -12599,10 +12444,7 @@ var Q = st((q, V) => {
                                     (i.prototype.compositionControllerDidFocus = function () {
                                         return (
                                             this.isFocusedInvisibly() &&
-                                                this.setLocationRange({
-                                                    index: 0,
-                                                    offset: 0,
-                                                }),
+                                                this.setLocationRange({ index: 0, offset: 0 }),
                                             this.toolbarController.hideDialog(),
                                             this.notifyEditorElement('focus')
                                         );
@@ -12738,10 +12580,7 @@ var Q = st((q, V) => {
                                     (i.prototype.toolbarDidClickButton = function () {
                                         return this.getLocationRange()
                                             ? void 0
-                                            : this.setLocationRange({
-                                                  index: 0,
-                                                  offset: 0,
-                                              });
+                                            : this.setLocationRange({ index: 0, offset: 0 });
                                     }),
                                     (i.prototype.toolbarDidInvokeAction = function (s) {
                                         return this.invokeAction(s);
@@ -13148,22 +12987,13 @@ var Q = st((q, V) => {
                                                                 : l.removeAttribute('aria-label')
                                                         );
                                                     })(),
-                                                    h('focus', {
-                                                        onElement: l,
-                                                        withCallback: A,
-                                                    })
+                                                    h('focus', { onElement: l, withCallback: A })
                                                 );
                                         }),
                                         (n = (function () {
                                             return b.forcesObjectResizing
-                                                ? {
-                                                      display: 'inline',
-                                                      width: 'auto',
-                                                  }
-                                                : {
-                                                      display: 'inline-block',
-                                                      width: '1px',
-                                                  };
+                                                ? { display: 'inline', width: 'auto' }
+                                                : { display: 'inline-block', width: '1px' };
                                         })()),
                                         {
                                             defaultCSS:

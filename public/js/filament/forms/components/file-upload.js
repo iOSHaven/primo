@@ -116,12 +116,7 @@ var No = (e) => e instanceof HTMLElement,
             l = r + e.height * (a[1] || 1),
             s = {
                 element: { ...e },
-                inner: {
-                    left: e.left,
-                    top: e.top,
-                    right: e.right,
-                    bottom: e.bottom,
-                },
+                inner: { left: e.left, top: e.top, right: e.right, bottom: e.bottom },
                 outer: { left: n, top: r, right: o, bottom: l },
             };
         return (
@@ -507,11 +502,7 @@ var Qo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
                         }),
                         _.forEach((U) => U._destroy());
                 },
-                V = {
-                    element: { get: x },
-                    style: { get: w },
-                    childViews: { get: O },
-                },
+                V = { element: { get: x }, style: { get: w }, childViews: { get: O } },
                 G = {
                     ...V,
                     rect: { get: C },
@@ -620,14 +611,7 @@ var Qo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
                         shouldOptimize: o,
                     }),
                 ),
-                t &&
-                    t({
-                        root: i,
-                        props: a,
-                        actions: n,
-                        timestamp: r,
-                        shouldOptimize: o,
-                    });
+                t && t({ root: i, props: a, actions: n, timestamp: r, shouldOptimize: o });
         },
     va = (e, t) => t.parentNode.insertBefore(e, t),
     Aa = (e, t) => t.parentNode.insertBefore(e, t.nextSibling),
@@ -804,9 +788,7 @@ var Qo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
                 i[a] = {
                     get: () => e.getState().options[a],
                     set: (n) => {
-                        e.dispatch(`SET_${ti(a, '_').toUpperCase()}`, {
-                            value: n,
-                        });
+                        e.dispatch(`SET_${ti(a, '_').toUpperCase()}`, { value: n });
                     },
                 };
             }),
@@ -1308,11 +1290,7 @@ var Qo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
             },
             r = (l) => {
                 if (!e) {
-                    o.fire('error', {
-                        type: 'error',
-                        body: "Can't load URL",
-                        code: 400,
-                    });
+                    o.fire('error', { type: 'error', body: "Can't load URL", code: 400 });
                     return;
                 }
                 (t.timestamp = Date.now()),
@@ -1350,13 +1328,7 @@ var Qo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
                         },
                     ));
             },
-            o = {
-                ...ii(),
-                setSource: (l) => (t.source = l),
-                getProgress: i,
-                abort: a,
-                load: n,
-            };
+            o = { ...ii(), setSource: (l) => (t.source = l), getProgress: i, abort: a, load: n };
         return o;
     },
     Da = (e) => /GET|HEAD/.test(e),
@@ -1747,12 +1719,7 @@ var Qo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
                         (p) => {
                             (i.response = re(p)
                                 ? p
-                                : {
-                                      type: 'load',
-                                      code: 200,
-                                      body: `${p}`,
-                                      headers: {},
-                                  }),
+                                : { type: 'load', code: 200, body: `${p}`, headers: {} }),
                                 (i.duration = Date.now() - i.timestamp),
                                 (i.progress = 1),
                                 u.fire('load', i.response.body),
@@ -1762,13 +1729,7 @@ var Qo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
                             i.perceivedPerformanceUpdater.clear(),
                                 u.fire(
                                     'error',
-                                    re(p)
-                                        ? p
-                                        : {
-                                              type: 'error',
-                                              code: 0,
-                                              body: `${p}`,
-                                          },
+                                    re(p) ? p : { type: 'error', code: 0, body: `${p}` },
                                 );
                         },
                         (p, m, g) => {
@@ -1806,14 +1767,7 @@ var Qo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
                 ? () => (i.progress ? Math.min(i.progress, i.perceivedProgress) : null)
                 : () => i.progress || null,
             s = a ? () => Math.min(i.duration, i.perceivedDuration) : () => i.duration,
-            u = {
-                ...ii(),
-                process: n,
-                abort: r,
-                getProgress: l,
-                getDuration: s,
-                reset: o,
-            };
+            u = { ...ii(), process: n, abort: r, getProgress: l, getDuration: s, reset: o };
         return u;
     },
     yn = (e) => e.substring(0, e.lastIndexOf('.')) || e,
@@ -2016,12 +1970,7 @@ var Qo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
                     A = o;
                 x.forEach((C) => (A = A[C])),
                     JSON.stringify(A[B]) !== JSON.stringify(S) &&
-                        ((A[B] = S),
-                        s('metadata-update', {
-                            key: O,
-                            value: o[O],
-                            silent: P,
-                        }));
+                        ((A[B] = S), s('metadata-update', { key: O, value: o[O], silent: P }));
             },
             I = {
                 id: { get: () => a },
@@ -2141,10 +2090,7 @@ var Qo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
             });
         },
         DID_SET_FILES: ({ value: a = [] }) => {
-            let n = a.map((o) => ({
-                    source: o.source ? o.source : o,
-                    options: o.options,
-                })),
+            let n = a.map((o) => ({ source: o.source ? o.source : o, options: o.options })),
                 r = we(i.items);
             r.forEach((o) => {
                 n.find((l) => l.source === o.source || l.source === o.file) ||
@@ -2153,11 +2099,7 @@ var Qo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
                 (r = we(i.items)),
                 n.forEach((o, l) => {
                     r.find((s) => s.source === o.source || s.file === o.source) ||
-                        e('ADD_ITEM', {
-                            ...o,
-                            interactionMethod: be.NONE,
-                            index: l,
-                        });
+                        e('ADD_ITEM', { ...o, interactionMethod: be.NONE, index: l });
                 });
         },
         DID_UPDATE_ITEM_METADATA: ({ id: a, action: n, change: r }) => {
@@ -2181,10 +2123,7 @@ var Qo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
                                             query: a,
                                             item: o,
                                             success: (h) => {
-                                                e('DID_PREPARE_OUTPUT', {
-                                                    id: a,
-                                                    file: h,
-                                                });
+                                                e('DID_PREPARE_OUTPUT', { id: a, file: h });
                                             },
                                         },
                                         !0,
@@ -2346,22 +2285,14 @@ var Qo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
                     });
                 }),
                 c.on('load-file-error', (b) => {
-                    e('DID_THROW_ITEM_INVALID', {
-                        id: h,
-                        error: b.status,
-                        status: b.status,
-                    }),
+                    e('DID_THROW_ITEM_INVALID', { id: h, error: b.status, status: b.status }),
                         l({ error: b.status, file: he(c) });
                 }),
                 c.on('load-abort', () => {
                     e('REMOVE_ITEM', { query: h });
                 }),
                 c.on('load-skip', () => {
-                    e('COMPLETE_LOAD_ITEM', {
-                        query: h,
-                        item: c,
-                        data: { source: a, success: o },
-                    });
+                    e('COMPLETE_LOAD_ITEM', { query: h, item: c, data: { source: a, success: o } });
                 }),
                 c.on('load', () => {
                     let b = (E) => {
@@ -2372,10 +2303,7 @@ var Qo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
                         c.on('metadata-update', (T) => {
                             e('DID_UPDATE_ITEM_METADATA', { id: h, change: T });
                         }),
-                            Se('SHOULD_PREPARE_OUTPUT', !1, {
-                                item: c,
-                                query: t,
-                            }).then((T) => {
+                            Se('SHOULD_PREPARE_OUTPUT', !1, { item: c, query: t }).then((T) => {
                                 let _ = t('GET_BEFORE_PREPARE_FILE');
                                 _ && (T = _(c, T));
                                 let y = () => {
@@ -2393,11 +2321,7 @@ var Qo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
                                             query: h,
                                             item: c,
                                             success: (I) => {
-                                                e('DID_PREPARE_OUTPUT', {
-                                                    id: h,
-                                                    file: I,
-                                                }),
-                                                    y();
+                                                e('DID_PREPARE_OUTPUT', { id: h, file: I }), y();
                                             },
                                         },
                                         !0,
@@ -2424,10 +2348,7 @@ var Qo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
                     e('DID_START_ITEM_PROCESSING', { id: h });
                 }),
                 c.on('process-progress', (b) => {
-                    e('DID_UPDATE_ITEM_PROCESS_PROGRESS', {
-                        id: h,
-                        progress: b,
-                    });
+                    e('DID_UPDATE_ITEM_PROCESS_PROGRESS', { id: h, progress: b });
                 }),
                 c.on('process-error', (b) => {
                     e('DID_THROW_ITEM_PROCESSING_ERROR', {
@@ -2541,12 +2462,7 @@ var Qo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
         }),
         REQUEST_ITEM_PROCESSING: Ie(i, (a, n, r) => {
             if (!(a.status === H.IDLE || a.status === H.PROCESSING_ERROR)) {
-                let l = () =>
-                        e('REQUEST_ITEM_PROCESSING', {
-                            query: a,
-                            success: n,
-                            failure: r,
-                        }),
+                let l = () => e('REQUEST_ITEM_PROCESSING', { query: a, success: n, failure: r }),
                     s = () => (document.hidden ? l() : setTimeout(l, 32));
                 a.status === H.PROCESSING_COMPLETE || a.status === H.PROCESSING_REVERT_ERROR
                     ? a
@@ -2606,9 +2522,7 @@ var Qo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
                         chunkSize: u.chunkSize,
                         chunkRetryDelays: u.chunkRetryDelays,
                     }),
-                    {
-                        allowMinimumUploadDuration: t('GET_ALLOW_MINIMUM_UPLOAD_DURATION'),
-                    },
+                    { allowMinimumUploadDuration: t('GET_ALLOW_MINIMUM_UPLOAD_DURATION') },
                 ),
                 (c, d, h) => {
                     Se('PREPARE_OUTPUT', c, { query: t, item: a })
@@ -2735,10 +2649,7 @@ var Qo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
     gs = ({ root: e, props: t }) => {
         (t.spin = !1), (t.progress = 0), (t.opacity = 0);
         let i = jt('svg');
-        (e.ref.path = jt('path', {
-            'stroke-width': 2,
-            'stroke-linecap': 'round',
-        })),
+        (e.ref.path = jt('path', { 'stroke-width': 2, 'stroke-linecap': 'round' })),
             i.appendChild(e.ref.path),
             (e.ref.svg = i),
             e.appendChild(i);
@@ -2766,12 +2677,7 @@ var Qo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
             styles: ['opacity'],
             animations: {
                 opacity: { type: 'tween', duration: 500 },
-                progress: {
-                    type: 'spring',
-                    stiffness: 0.95,
-                    damping: 0.65,
-                    mass: 10,
-                },
+                progress: { type: 'spring', stiffness: 0.95, damping: 0.65, mass: 10 },
             },
         },
     }),
@@ -3149,11 +3055,7 @@ var ge = (e) => {
             (p.info.translateX = Ms),
                 (p.info.translateY = Wt),
                 (p.status.translateY = Wt),
-                (p.processingCompleteIndicator = {
-                    opacity: 1,
-                    scaleX: 1,
-                    scaleY: 1,
-                });
+                (p.processingCompleteIndicator = { opacity: 1, scaleX: 1, scaleY: 1 });
         }
         if (
             (s &&
@@ -3173,11 +3075,7 @@ var ge = (e) => {
             let p = nt.DID_COMPLETE_ITEM_PROCESSING;
             (p.info.translateX = ge),
                 (p.status.translateY = Wt),
-                (p.processingCompleteIndicator = {
-                    opacity: 1,
-                    scaleX: 1,
-                    scaleY: 1,
-                });
+                (p.processingCompleteIndicator = { opacity: 1, scaleX: 1, scaleY: 1 });
         }
         r || (i.RemoveItem.disabled = !0),
             Z(i, (p, m) => {
@@ -3306,18 +3204,12 @@ var ge = (e) => {
             {
                 name: 'center',
                 props: { translateY: null, scaleY: null },
-                mixins: {
-                    animations: { scaleY: Wa },
-                    styles: ['translateY', 'scaleY'],
-                },
+                mixins: { animations: { scaleY: Wa }, styles: ['translateY', 'scaleY'] },
             },
             {
                 name: 'bottom',
                 props: { translateY: null },
-                mixins: {
-                    animations: { translateY: Wa },
-                    styles: ['translateY'],
-                },
+                mixins: { animations: { translateY: Wa }, styles: ['translateY'] },
             },
         ].forEach((i) => {
             ks(e, i, t.name);
@@ -3579,12 +3471,7 @@ var ge = (e) => {
         }
         (e.ref.lastItemSpanwDate = o),
             e.appendChildView(
-                e.createChildView(Xs, {
-                    spawnDate: o,
-                    id: i,
-                    opacity: l,
-                    interactionMethod: n,
-                }),
+                e.createChildView(Xs, { spawnDate: o, id: i, opacity: l, interactionMethod: n }),
                 a,
             );
     },
@@ -3835,15 +3722,9 @@ var ge = (e) => {
             ee(e.element, 'name', e.query('GET_NAME')),
             ee(e.element, 'aria-controls', `filepond--assistant-${t.id}`),
             ee(e.element, 'aria-labelledby', `filepond--drop-label-${t.id}`),
-            On({
-                root: e,
-                action: { value: e.query('GET_ACCEPTED_FILE_TYPES') },
-            }),
+            On({ root: e, action: { value: e.query('GET_ACCEPTED_FILE_TYPES') } }),
             xn({ root: e, action: { value: e.query('GET_ALLOW_MULTIPLE') } }),
-            Dn({
-                root: e,
-                action: { value: e.query('GET_ALLOW_DIRECTORIES_ONLY') },
-            }),
+            Dn({ root: e, action: { value: e.query('GET_ALLOW_DIRECTORIES_ONLY') } }),
             Oi({ root: e }),
             Pn({ root: e, action: { value: e.query('GET_REQUIRED') } }),
             Fn({ root: e, action: { value: e.query('GET_CAPTURE_METHOD') } }),
@@ -4087,13 +3968,7 @@ var ge = (e) => {
         DID_REORDER_ITEMS: Za,
         DID_SORT_ITEMS: Za,
     }),
-    Pc = te({
-        tag: 'fieldset',
-        name: 'data',
-        create: wc,
-        write: Dc,
-        ignoreRect: !0,
-    }),
+    Pc = te({ tag: 'fieldset', name: 'data', create: wc, write: Dc, ignoreRect: !0 }),
     Fc = (e) => ('getRootNode' in e ? e.getRootNode() : document),
     Cc = ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'webp', 'svg', 'tiff'],
     zc = ['css', 'csv', 'html', 'txt'],
@@ -4274,10 +4149,7 @@ var ge = (e) => {
     Zc = (e, t) => ('elementFromPoint' in e || (e = document), e.elementFromPoint(t.x, t.y)),
     Xi = (e, t) => {
         let i = Fc(t),
-            a = Zc(i, {
-                x: e.pageX - window.pageXOffset,
-                y: e.pageY - window.pageYOffset,
-            });
+            a = Zc(i, { x: e.pageX - window.pageXOffset, y: e.pageY - window.pageYOffset });
         return a === t || t.contains(a);
     },
     Gn = null,
@@ -4663,10 +4535,7 @@ var ge = (e) => {
     md = (e) => {
         let t = e.ref.list.childViews[0].childViews[0];
         return t
-            ? {
-                  top: t.rect.element.marginTop,
-                  bottom: t.rect.element.marginBottom,
-              }
+            ? { top: t.rect.element.marginTop, bottom: t.rect.element.marginBottom }
             : { top: 0, bottom: 0 };
     },
     gd = (e) => {
@@ -4752,9 +4621,9 @@ var ge = (e) => {
                     return e.query('GET_DROP_VALIDATION')
                         ? r.every(
                               (s) =>
-                                  Xe('ALLOW_HOPPER_ITEM', s, {
-                                      query: e.query,
-                                  }).every((u) => u === !0) && o(s),
+                                  Xe('ALLOW_HOPPER_ITEM', s, { query: e.query }).every(
+                                      (u) => u === !0,
+                                  ) && o(s),
                           )
                         : !0;
                 },
@@ -4832,11 +4701,7 @@ var ge = (e) => {
               (e.ref.paster.onload = (n) => {
                   Se('ADD_ITEMS', n, { dispatch: e.dispatch }).then((r) => {
                       if (ji(e, r)) return !1;
-                      e.dispatch('ADD_ITEMS', {
-                          items: r,
-                          index: -1,
-                          interactionMethod: be.PASTE,
-                      });
+                      e.dispatch('ADD_ITEMS', { items: r, index: -1, interactionMethod: be.PASTE });
                   });
               }))
             : !a && e.ref.paster && (e.ref.paster.destroy(), (e.ref.paster = null));
@@ -5227,9 +5092,7 @@ var ge = (e) => {
     },
     Ld = (e, t) => e.replace(/(?:{([a-zA-Z]+)})/g, (i, a) => t[a]),
     Md = (e) => {
-        let t = new Blob(['(', e.toString(), ')()'], {
-                type: 'application/javascript',
-            }),
+        let t = new Blob(['(', e.toString(), ')()'], { type: 'application/javascript' }),
             i = URL.createObjectURL(t),
             a = new Worker(i);
         return {
@@ -5825,11 +5688,7 @@ function gt(e, t, i) {
     var a;
     return (
         fe(Event) && fe(CustomEvent)
-            ? (a = new CustomEvent(t, {
-                  detail: i,
-                  bubbles: !0,
-                  cancelable: !0,
-              }))
+            ? (a = new CustomEvent(t, { detail: i, bubbles: !0, cancelable: !0 }))
             : ((a = document.createEvent('CustomEvent')), a.initCustomEvent(t, !0, !0, i)),
         e.dispatchEvent(a)
     );
@@ -6130,13 +5989,7 @@ var Su = {
                 : a === 3
                   ? (u = t.width / l)
                   : (s = t.height * l);
-            var c = {
-                aspectRatio: l,
-                naturalWidth: r,
-                naturalHeight: o,
-                width: s,
-                height: u,
-            };
+            var c = { aspectRatio: l, naturalWidth: r, naturalHeight: o, width: s, height: u };
             (this.canvasData = c),
                 (this.limited = a === 1 || a === 2),
                 this.limitCanvas(!0, !0),
@@ -6251,12 +6104,7 @@ var Su = {
                 a = this.imageData,
                 n = a.naturalWidth * (i.width / i.naturalWidth),
                 r = a.naturalHeight * (i.height / i.naturalHeight);
-            Q(a, {
-                width: n,
-                height: r,
-                left: (i.width - n) / 2,
-                top: (i.height - r) / 2,
-            }),
+            Q(a, { width: n, height: r, left: (i.width - n) / 2, top: (i.height - r) / 2 }),
                 Be(
                     this.image,
                     Q(
@@ -6432,15 +6280,7 @@ var Su = {
                             c.getElementsByTagName('img')[0],
                             Q(
                                 { width: o * g, height: l * g },
-                                Pt(
-                                    Q(
-                                        {
-                                            translateX: -s * g,
-                                            translateY: -u * g,
-                                        },
-                                        t,
-                                    ),
-                                ),
+                                Pt(Q({ translateX: -s * g, translateY: -u * g }, t)),
                             ),
                         );
                 }));
@@ -6459,10 +6299,7 @@ var Su = {
                 _e(a, er, (this.onCropStart = this.cropStart.bind(this))),
                 i.zoomable &&
                     i.zoomOnWheel &&
-                    _e(a, rr, (this.onWheel = this.wheel.bind(this)), {
-                        passive: !1,
-                        capture: !0,
-                    }),
+                    _e(a, rr, (this.onWheel = this.wheel.bind(this)), { passive: !1, capture: !0 }),
                 i.toggleDragModeOnDblclick &&
                     _e(a, Jn, (this.onDblclick = this.dblclick.bind(this))),
                 _e(t.ownerDocument, tr, (this.onCropMove = this.cropMove.bind(this))),
@@ -6561,10 +6398,7 @@ var Su = {
                         ? (o = gr)
                         : (o = sa(t.target, Ft)),
                     eu.test(o) &&
-                        gt(this.element, oa, {
-                            originalEvent: t,
-                            action: o,
-                        }) !== !1 &&
+                        gt(this.element, oa, { originalEvent: t, action: o }) !== !1 &&
                         (t.preventDefault(),
                         (this.action = o),
                         (this.cropping = !1),
@@ -6851,12 +6685,7 @@ var Su = {
             return (
                 this.cropped &&
                     !this.disabled &&
-                    (Q(this.cropBoxData, {
-                        left: 0,
-                        top: 0,
-                        width: 0,
-                        height: 0,
-                    }),
+                    (Q(this.cropBoxData, { left: 0, top: 0, width: 0, height: 0 }),
                     (this.cropped = !1),
                     this.renderCropBox(),
                     this.limitCanvas(!0, !0),
@@ -6947,13 +6776,7 @@ var Su = {
             if (((t = Number(t)), t >= 0 && this.ready && !this.disabled && n.zoomable)) {
                 var c = s * t,
                     d = u * t;
-                if (
-                    gt(this.element, la, {
-                        ratio: t,
-                        oldRatio: o / s,
-                        originalEvent: a,
-                    }) === !1
-                )
+                if (gt(this.element, la, { ratio: t, oldRatio: o / s, originalEvent: a }) === !1)
                     return this;
                 if (a) {
                     var h = this.pointers,
@@ -7016,12 +6839,7 @@ var Su = {
                 r = this.cropBoxData,
                 o;
             if (this.ready && this.cropped) {
-                o = {
-                    x: r.left - n.left,
-                    y: r.top - n.top,
-                    width: r.width,
-                    height: r.height,
-                };
+                o = { x: r.left - n.left, y: r.top - n.top, width: r.width, height: r.height };
                 var l = a.width / a.naturalWidth;
                 if (
                     (ie(o, function (c, d) {
@@ -7109,12 +6927,7 @@ var Su = {
             return (
                 this.ready &&
                     this.cropped &&
-                    (i = {
-                        left: t.left,
-                        top: t.top,
-                        width: t.width,
-                        height: t.height,
-                    }),
+                    (i = { left: t.left, top: t.top, width: t.width, height: t.height }),
                 i || {}
             );
         },
@@ -7157,11 +6970,7 @@ var Su = {
                     height: t.maxHeight || 1 / 0,
                 }),
                 h = Ge(
-                    {
-                        aspectRatio: c,
-                        width: t.minWidth || 0,
-                        height: t.minHeight || 0,
-                    },
+                    { aspectRatio: c, width: t.minWidth || 0, height: t.minHeight || 0 },
                     'cover',
                 ),
                 f = Ge({
@@ -7781,12 +7590,7 @@ var Or = (e) => /^image/.test(e.type),
                             d(u);
                     }),
             ),
-            {
-                options: {
-                    allowImageCrop: [!0, i.BOOLEAN],
-                    imageCropAspectRatio: [null, i.STRING],
-                },
-            }
+            { options: { allowImageCrop: [!0, i.BOOLEAN], imageCropAspectRatio: [null, i.STRING] } }
         );
     },
     Pu = typeof window < 'u' && typeof window.document < 'u';
@@ -7829,10 +7633,7 @@ var ma = (e) => /^image/.test(e.type),
                             b = () => {
                                 if (!s.length) return;
                                 let { item: E, resolve: T, reject: _ } = s[0];
-                                h('EDIT_ITEM', {
-                                    id: E.id,
-                                    handleEditorResponse: g(E, T, _),
-                                });
+                                h('EDIT_ITEM', { id: E.id, handleEditorResponse: g(E, T, _) });
                             };
                         u({ item: c, resolve: f, reject: p }), s.length === 1 && b();
                     }),
@@ -7920,11 +7721,7 @@ var ma = (e) => /^image/.test(e.type),
                                     z &&
                                     ((D.width = z.width), (D.height = z.height)),
                                     (D.width || D.height) &&
-                                        (U.resize = {
-                                            upscale: G.upscale,
-                                            mode: G.mode,
-                                            size: D,
-                                        });
+                                        (U.resize = { upscale: G.upscale, mode: G.mode, size: D });
                             }
                             le && (U.markup = le),
                                 (U.colors = q),
@@ -8157,11 +7954,7 @@ var ku = (e) => /^image/.test(e.type),
     },
     Qu = { contain: 'xMidYMid meet', cover: 'xMidYMid slice' },
     Zu = (e, t) => {
-        xe(e, {
-            ...e.rect,
-            ...e.styles,
-            preserveAspectRatio: Qu[t.fit] || 'none',
-        });
+        xe(e, { ...e.rect, ...e.styles, preserveAspectRatio: Qu[t.fit] || 'none' });
     },
     Ku = { left: 'start', center: 'middle', right: 'end' },
     Ju = (e, t, i, a) => {
@@ -8197,32 +7990,21 @@ var ku = (e) => /^image/.test(e.type),
                 h = Vr(l, d),
                 f = ui(l, 2, h),
                 p = ui(l, -2, h);
-            xe(r, {
-                style: 'display:block;',
-                d: `M${f.x},${f.y} L${l.x},${l.y} L${p.x},${p.y}`,
-            });
+            xe(r, { style: 'display:block;', d: `M${f.x},${f.y} L${l.x},${l.y} L${p.x},${p.y}` });
         }
         if (t.lineDecoration.indexOf('arrow-end') !== -1) {
             let d = Gr(u, -c),
                 h = Vr(s, d),
                 f = ui(s, 2, h),
                 p = ui(s, -2, h);
-            xe(o, {
-                style: 'display:block;',
-                d: `M${f.x},${f.y} L${s.x},${s.y} L${p.x},${p.y}`,
-            });
+            xe(o, { style: 'display:block;', d: `M${f.x},${f.y} L${s.x},${s.y} L${p.x},${p.y}` });
         }
     },
     th = (e, t, i, a) => {
         xe(e, {
             ...e.styles,
             fill: 'none',
-            d: $u(
-                t.points.map((n) => ({
-                    x: me(n.x, i, a, 'width'),
-                    y: me(n.y, i, a, 'height'),
-                })),
-            ),
+            d: $u(t.points.map((n) => ({ x: me(n.x, i, a, 'width'), y: me(n.y, i, a, 'height') }))),
         });
     },
     hi = (e) => (t) => Et(e, { id: t.id }),
@@ -8242,11 +8024,7 @@ var ku = (e) => /^image/.test(e.type),
         );
     },
     ah = (e) => {
-        let t = Et('g', {
-                id: e.id,
-                'stroke-linecap': 'round',
-                'stroke-linejoin': 'round',
-            }),
+        let t = Et('g', { id: e.id, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }),
             i = Et('line');
         t.appendChild(i);
         let a = Et('path');
@@ -8280,9 +8058,7 @@ var ku = (e) => /^image/.test(e.type),
             name: 'image-preview-markup',
             tag: 'svg',
             ignoreRect: !0,
-            mixins: {
-                apis: ['width', 'height', 'crop', 'markup', 'resize', 'dirty'],
-            },
+            mixins: { apis: ['width', 'height', 'crop', 'markup', 'resize', 'dirty'] },
             write: ({ root: t, props: i }) => {
                 if (!i.dirty) return;
                 let { crop: a, resize: n, markup: r } = i,
@@ -8483,17 +8259,8 @@ var ku = (e) => /^image/.test(e.type),
             write: ({ root: t, props: i, shouldOptimize: a }) => {
                 let { crop: n, markup: r, resize: o, dirty: l, width: s, height: u } = i;
                 t.ref.image.crop = n;
-                let c = {
-                        x: 0,
-                        y: 0,
-                        width: s,
-                        height: u,
-                        center: { x: s * 0.5, y: u * 0.5 },
-                    },
-                    d = {
-                        width: t.ref.image.width,
-                        height: t.ref.image.height,
-                    },
+                let c = { x: 0, y: 0, width: s, height: u, center: { x: s * 0.5, y: u * 0.5 } },
+                    d = { width: t.ref.image.width, height: t.ref.image.height },
                     h = { x: n.center.x * d.width, y: n.center.y * d.height },
                     f = {
                         x: c.center.x - d.width * n.center.x,
@@ -8626,10 +8393,7 @@ var ku = (e) => /^image/.test(e.type),
                     t.element.classList.add(`filepond--image-preview-overlay-${i.status}`),
                     (t.element.innerHTML = a.replace(/__UID__/g, Wr));
             },
-            mixins: {
-                styles: ['opacity'],
-                animations: { opacity: { type: 'spring', mass: 25 } },
-            },
+            mixins: { styles: ['opacity'], animations: { opacity: { type: 'spring', mass: 25 } } },
         }),
     Sh = function () {
         self.onmessage = (e) => {
@@ -8897,11 +8661,7 @@ var ku = (e) => /^image/.test(e.type),
                 if (!y) return;
                 let I = URL.createObjectURL(y.file);
                 vh(I, (v, R) => {
-                    E.dispatch('DID_IMAGE_PREVIEW_CALCULATE_SIZE', {
-                        id: _,
-                        width: v,
-                        height: R,
-                    });
+                    E.dispatch('DID_IMAGE_PREVIEW_CALCULATE_SIZE', { id: _, width: v, height: R });
                 });
             },
             h = ({ root: E, props: T }) => {
@@ -9037,11 +8797,7 @@ var ku = (e) => /^image/.test(e.type),
                         if (!y && I && _.size > I) return;
                         g.ref.imagePreview = u.appendChildView(u.createChildView(o, { id: E }));
                         let v = g.query('GET_IMAGE_PREVIEW_HEIGHT');
-                        v &&
-                            g.dispatch('DID_UPDATE_PANEL_HEIGHT', {
-                                id: T.id,
-                                height: v,
-                            });
+                        v && g.dispatch('DID_UPDATE_PANEL_HEIGHT', { id: T.id, height: v });
                         let R = !y && _.size > c('GET_IMAGE_PREVIEW_MAX_INSTANT_PREVIEW_FILE_SIZE');
                         g.dispatch('DID_IMAGE_PREVIEW_CONTAINER_CREATE', { id: E }, R);
                     },
@@ -9071,10 +8827,7 @@ var ku = (e) => /^image/.test(e.type),
                             C = Math.max(S, Math.min(R, P)),
                             w = g.rect.element.width,
                             L = Math.min(w * A, C);
-                        g.dispatch('DID_UPDATE_PANEL_HEIGHT', {
-                            id: T.id,
-                            height: L,
-                        });
+                        g.dispatch('DID_UPDATE_PANEL_HEIGHT', { id: T.id, height: L });
                     },
                     f = ({ root: g }) => {
                         g.ref.shouldRescale = !0;
@@ -9424,11 +9177,7 @@ var tf = (e, t, i = null) =>
     },
     lf = { contain: 'xMidYMid meet', cover: 'xMidYMid slice' },
     sf = (e, t) => {
-        De(e, {
-            ...e.rect,
-            ...e.styles,
-            preserveAspectRatio: lf[t.fit] || 'none',
-        });
+        De(e, { ...e.rect, ...e.styles, preserveAspectRatio: lf[t.fit] || 'none' });
     },
     cf = { left: 'start', center: 'middle', right: 'end' },
     df = (e, t, i, a) => {
@@ -9464,32 +9213,21 @@ var tf = (e, t, i = null) =>
                 h = mi(l, d),
                 f = Ve(l, 2, h),
                 p = Ve(l, -2, h);
-            De(r, {
-                style: 'display:block;',
-                d: `M${f.x},${f.y} L${l.x},${l.y} L${p.x},${p.y}`,
-            });
+            De(r, { style: 'display:block;', d: `M${f.x},${f.y} L${l.x},${l.y} L${p.x},${p.y}` });
         }
         if (t.lineDecoration.indexOf('arrow-end') !== -1) {
             let d = pi(u, -c),
                 h = mi(s, d),
                 f = Ve(s, 2, h),
                 p = Ve(s, -2, h);
-            De(o, {
-                style: 'display:block;',
-                d: `M${f.x},${f.y} L${s.x},${s.y} L${p.x},${p.y}`,
-            });
+            De(o, { style: 'display:block;', d: `M${f.x},${f.y} L${s.x},${s.y} L${p.x},${p.y}` });
         }
     },
     hf = (e, t, i, a) => {
         De(e, {
             ...e.styles,
             fill: 'none',
-            d: af(
-                t.points.map((n) => ({
-                    x: se(n.x, i, a, 'width'),
-                    y: se(n.y, i, a, 'height'),
-                })),
-            ),
+            d: af(t.points.map((n) => ({ x: se(n.x, i, a, 'width'), y: se(n.y, i, a, 'height') }))),
         });
     },
     fi = (e) => (t) => Tt(e, { id: t.id }),
@@ -9509,11 +9247,7 @@ var tf = (e, t, i = null) =>
         );
     },
     pf = (e) => {
-        let t = Tt('g', {
-                id: e.id,
-                'stroke-linecap': 'round',
-                'stroke-linejoin': 'round',
-            }),
+        let t = Tt('g', { id: e.id, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }),
             i = Tt('line');
         t.appendChild(i);
         let a = Tt('path');
@@ -9869,9 +9603,7 @@ ${u.outerHTML}${v}
     },
     Af = () => Math.random().toString(36).substr(2, 9),
     Lf = (e) => {
-        let t = new Blob(['(', e.toString(), ')()'], {
-                type: 'application/javascript',
-            }),
+        let t = new Blob(['(', e.toString(), ')()'], { type: 'application/javascript' }),
             i = URL.createObjectURL(t),
             a = new Worker(i),
             n = [];
@@ -10008,10 +9740,7 @@ ${u.outerHTML}${v}
     zf = (e, t, i) => {
         let a = tt(i, t);
         bt(e, a), e.beginPath();
-        let n = i.points.map((o) => ({
-            x: se(o.x, t, 1, 'width'),
-            y: se(o.y, t, 1, 'height'),
-        }));
+        let n = i.points.map((o) => ({ x: se(o.x, t, 1, 'width'), y: se(o.y, t, 1, 'height') }));
         e.moveTo(n[0].x, n[0].y);
         let r = n.length;
         for (let o = 1; o < r; o++) e.lineTo(n[o].x, n[o].y);
@@ -10085,9 +9814,7 @@ ${u.outerHTML}${v}
                                 if ((ro(x), r)) return _(O);
                                 Sf(e).then((B) => {
                                     B !== null &&
-                                        (O = new Blob([B, O.slice(20)], {
-                                            type: O.type,
-                                        })),
+                                        (O = new Blob([B, O.slice(20)], { type: O.type })),
                                         _(O);
                                 });
                             })
@@ -10102,10 +9829,7 @@ ${u.outerHTML}${v}
             Mf(I)
                 .then((v) => {
                     URL.revokeObjectURL(I);
-                    let R = Jh(v, p, u, {
-                            canvasMemoryLimit: s,
-                            background: E,
-                        }),
+                    let R = Jh(v, p, u, { canvasMemoryLimit: s, background: E }),
                         S = { quality: g, type: b || e.type };
                     if (!T.length) return y(R, S);
                     let P = Lf(_f);
@@ -10209,12 +9933,7 @@ var Ea = typeof window < 'u' && typeof window.document < 'u',
                             new Promise((f, p) => {
                                 h(
                                     'REQUEST_PREPARE_OUTPUT',
-                                    {
-                                        query: c.id,
-                                        item: c,
-                                        success: f,
-                                        failure: p,
-                                    },
+                                    { query: c.id, item: c, success: f, failure: p },
                                     !0,
                                 );
                             }),
@@ -10286,9 +10005,7 @@ var Ea = typeof window < 'u' && typeof window.document < 'u',
                                                 markup: N,
                                             } = O,
                                             F = {
-                                                image: {
-                                                    orientation: A ? A.orientation : null,
-                                                },
+                                                image: { orientation: A ? A.orientation : null },
                                                 output:
                                                     C &&
                                                     (C.type ||
@@ -10507,10 +10224,7 @@ var Ta = (e) => /^video/.test(e.type),
                                         u = t.ref.media.videoWidth / s;
                                     l = t.ref.media.videoHeight / u;
                                 }
-                                t.dispatch('DID_UPDATE_PANEL_HEIGHT', {
-                                    id: i.id,
-                                    height: l,
-                                });
+                                t.dispatch('DID_UPDATE_PANEL_HEIGHT', { id: i.id, height: l });
                             },
                             !1,
                         );
@@ -10529,9 +10243,7 @@ var Ta = (e) => /^video/.test(e.type),
         return e.utils.createView({
             name: 'media-preview-wrapper',
             create: i,
-            write: e.utils.createRoute({
-                DID_MEDIA_PREVIEW_CONTAINER_CREATE: t,
-            }),
+            write: e.utils.createRoute({ DID_MEDIA_PREVIEW_CONTAINER_CREATE: t }),
         });
     },
     ba = (e) => {
@@ -10551,9 +10263,7 @@ var Ta = (e) => /^video/.test(e.type),
                         p.archived ||
                         ((!Ta(p.file) || !m) && (!Vt(p.file) || !g)) ||
                         ((d.ref.mediaPreview = s.appendChildView(s.createChildView(r, { id: f }))),
-                        d.dispatch('DID_MEDIA_PREVIEW_CONTAINER_CREATE', {
-                            id: f,
-                        }));
+                        d.dispatch('DID_MEDIA_PREVIEW_CONTAINER_CREATE', { id: f }));
                 };
                 s.registerWriter(
                     n({ DID_LOAD_ITEM: c }, ({ root: d, props: h }) => {
@@ -10565,12 +10275,7 @@ var Ta = (e) => /^video/.test(e.type),
                     }),
                 );
             }),
-            {
-                options: {
-                    allowVideoPreview: [!0, a.BOOLEAN],
-                    allowAudioPreview: [!0, a.BOOLEAN],
-                },
-            }
+            { options: { allowVideoPreview: [!0, a.BOOLEAN], allowAudioPreview: [!0, a.BOOLEAN] } }
         );
     },
     Xf = typeof window < 'u' && typeof window.document < 'u';
@@ -11890,13 +11595,7 @@ function jf({
                             type: 'local',
                             ...(/^image/.test(D.type)
                                 ? {}
-                                : {
-                                      file: {
-                                          name: D.name,
-                                          size: D.size,
-                                          type: D.type,
-                                      },
-                                  }),
+                                : { file: { name: D.name, size: D.size, type: D.type } }),
                         },
                     });
             return V ? z : z.reverse();
