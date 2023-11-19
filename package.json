@@ -3,7 +3,8 @@
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "build": "vite build && vite build --ssr"
+        "build": "vite build && vite build --ssr",
+        "prepare": "husky install"
     },
     "devDependencies": {
         "@inertiajs/vue3": "^1.0.0",
@@ -17,5 +18,12 @@
         "tailwindcss": "^3.2.1",
         "vite": "^4.0.0",
         "vue": "^3.2.41"
+    },
+    "dependencies": {
+        "@tailwindcss/typography": "^0.5.10",
+        "husky": "^8.0.3",
+        "prettier": "^3.1.0",
+        "prettier-plugin-organize-imports": "^3.2.4",
+        "prettier-plugin-tailwindcss": "^0.5.7"
     }
 }

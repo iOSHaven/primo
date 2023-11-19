@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# only run pint on modified/added php files
+git --no-pager diff --name-only --cached --diff-filter=AM | grep \\.php | xargs ./vendor/bin/pint
+
+# only run prettier on modified/added vue files
+git --no-pager diff --name-only --cached --diff-filter=AM | grep \\.vue | xargs ./node_modules/.bin/prettier --write --cache
+
+# only run prettier on modified/added js files
+git --no-pager diff --name-only --cached --diff-filter=AM | grep \\.js | xargs ./node_modules/.bin/prettier --write --cache
+
+# restage all modified and added files.
+git --no-pager diff --name-only --cached --diff-filter=AM | xargs git add
