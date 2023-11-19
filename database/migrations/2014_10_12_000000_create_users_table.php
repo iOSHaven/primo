@@ -20,7 +20,7 @@ return new class extends Migration
                 ->constrained('teams')
                 ->cascadeOnDelete();
 
-            $table->string('name');
+            $table->string('name')->nullable();
             $table->string('nickname')->nullable();
             $table->string('username')->unique();
             $table->string('email')->unique();
@@ -28,6 +28,8 @@ return new class extends Migration
             $table->string('password');
             $table->json('oauth')->nullable();
             $table->rememberToken();
+            $table->timestamp('imported_at')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

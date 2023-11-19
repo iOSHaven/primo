@@ -36,11 +36,11 @@ class UserSeeder extends Seeder
 
         \App\Models\User::factory()->create([
             'name' => 'Standard User',
-            'username' => 'user',
+            'username' => 'test-user',
             'email' => 'user@example.com',
             'password' => Hash::make(config('app.password')),
         ]);
 
-        \App\Models\User::factory(10)->create();
+        // \App\Models\User::factory(10)->create();
     }
 }
