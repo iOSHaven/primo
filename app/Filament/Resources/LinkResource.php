@@ -7,13 +7,14 @@ use App\Models\Link;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
 class LinkResource extends Resource
 {
     protected static ?string $model = Link::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-link';
 
     public static function form(Form $form): Form
     {
@@ -27,7 +28,13 @@ class LinkResource extends Resource
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('type'),
+                TextColumn::make('url')
+                    ->formatStateUsing(fn (Link $link) => str($link->url)->after('itms-services://?action=download-manifest&url='))
+                    ->url(fn (Link $link) => $link->url)
+                    ->extraAttributes([
+                        'style' => 'max-width: 20rem; overflow: hidden; text-overflow: ellipsis',
+                    ]),
             ])
             ->filters([
                 //

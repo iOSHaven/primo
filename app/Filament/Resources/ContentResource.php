@@ -2,19 +2,19 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\UserResource\Pages;
-use App\Models\User;
+use App\Filament\Resources\ShortcutResource\Pages;
+use App\Models\Content;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
-class UserResource extends Resource
+abstract class ContentResource extends Resource
 {
-    protected static ?string $model = User::class;
+    protected static ?string $model = Content::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-user-group';
+    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function form(Form $form): Form
     {
@@ -29,8 +29,7 @@ class UserResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('name'),
-                TextColumn::make('username'),
-                TextColumn::make('email'),
+                TextColumn::make('snippet'),
             ])
             ->filters([
                 //
@@ -55,9 +54,9 @@ class UserResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListUsers::route('/'),
-            'create' => Pages\CreateUser::route('/create'),
-            'edit' => Pages\EditUser::route('/{record}/edit'),
+            'index' => Pages\ListShortcuts::route('/'),
+            'create' => Pages\CreateShortcut::route('/create'),
+            'edit' => Pages\EditShortcut::route('/{record}/edit'),
         ];
     }
 }
