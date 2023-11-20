@@ -50,7 +50,9 @@ class AppSeeder extends Seeder
         $output->progressFinish();
 
         $this->call([
-            AppLinkSeeder::class,
+            ItmsLinkSeeder::class,
+            IpaLinkSeeder::class,
+            TeamSeeder::class,
         ]);
     }
 }

@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->boolean('working')->default(true);
             $table->text('url');
+            $table->boolean('external')->default(false);
             $table->softDeletes();
             $table->timestamps();
         });

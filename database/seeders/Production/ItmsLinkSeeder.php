@@ -10,7 +10,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 
-class AppLinkSeeder extends Seeder
+class ItmsLinkSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -20,6 +20,7 @@ class AppLinkSeeder extends Seeder
         $query = DB::connection('legacy')->table('itms_provider')
             ->join('itms', 'itms.id', '=', 'itms_provider.itms_id')
             ->join('app_itms', 'app_itms.itms_id', '=', 'itms.id')
+            ->selectRaw('itms.*, app_itms.app_id, itms_provider.provider_id')
             ->oldest('itms_provider.id');
 
         $output = $this->command->getOutput();

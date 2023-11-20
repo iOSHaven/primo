@@ -16,6 +16,9 @@ return new class extends Migration
             $table->string('name');
             $table->string('identifier')->unique();
             $table->string('description');
+            $table->string('domain');
+            $table->boolean('active');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
