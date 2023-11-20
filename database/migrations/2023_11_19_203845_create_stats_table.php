@@ -11,11 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
+        if (Schema::hasTable('stats')) {
+            return;
+        }
+
         Schema::create('stats', function (Blueprint $table) {
             $table->id();
             $table->morphs('model');
             $table->string('type');
-            $table->string('identifier');
+            $table->string('identifier')->nullable();
 
             for ($i = 1; $i <= 7; $i++) {
                 $table->timestamp("date_$i");
@@ -35,6 +39,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('stats');
+        // Schema::dropIfExists('stats');
     }
 };

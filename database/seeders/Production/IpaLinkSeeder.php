@@ -26,13 +26,15 @@ class IpaLinkSeeder extends Seeder
         $output = $this->command->getOutput();
         $progress = $output->progressStart($query->count());
         $chunkSize = min($query->count(), 2500);
+        $linkId = Link::orderBy('id', 'desc')->first()->id;
         $query
-            ->chunk($chunkSize, function ($models) use ($output, $chunkSize) {
+            ->chunk($chunkSize, function ($models) use ($output, $chunkSize, $linkId) {
                 $inserts = [];
                 foreach ($models as $model) {
                     $model = (array) $model;
                     $inserts[] = [
                         ...Arr::only($model, ['working', 'url', 'created_at', 'updated_at']),
+                        'id' => $id = ($linkId + data_get($model, 'id')),
                         'type' => LinkType::Ipa,
                         'model_type' => App::class,
                         'model_id' => data_get($model, 'app_id'),
