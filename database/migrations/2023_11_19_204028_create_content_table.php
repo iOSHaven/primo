@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('content', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->longText('description');
+            $table->string('snippet')->nullable();
+            $table->longText('description')->nullable();
             $table->string('type');
             $table->softDeletes();
             $table->timestamps();

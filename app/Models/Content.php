@@ -11,6 +11,8 @@ class Content extends Model
     use HasFactory;
     use Recommendations;
 
+    protected $table = 'content';
+
     public function registerRecommendations()
     {
     }

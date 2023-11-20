@@ -14,9 +14,12 @@ return new class extends Migration
         Schema::create('links', function (Blueprint $table) {
             $table->id();
             $table->morphs('model');
+            $table->morphs('author');
             $table->string('type');
+            $table->string('label')->nullable();
             $table->string('slug')->unique();
             $table->boolean('working')->default(true);
+            $table->text('url');
             $table->softDeletes();
             $table->timestamps();
         });
