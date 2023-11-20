@@ -8,4 +8,5 @@ enum LinkType: string
     case Ipa = 'ipa';
     case Apk = 'apk';
     case Social = 'social';
+    case Shortcut = 'shortcut';
 }

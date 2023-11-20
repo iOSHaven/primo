@@ -2,7 +2,7 @@
 
 namespace Database\Seeders\Production;
 
-use App\Models\Content;
+use App\Models\Content\App;
 use App\Models\Enum\LinkType;
 use App\Models\Link;
 use App\Models\Team;
@@ -34,7 +34,7 @@ class IpaLinkSeeder extends Seeder
                     $inserts[] = [
                         ...Arr::only($model, ['working', 'url', 'created_at', 'updated_at']),
                         'type' => LinkType::Ipa,
-                        'model_type' => Content::class,
+                        'model_type' => App::class,
                         'model_id' => data_get($model, 'app_id'),
                         'author_type' => Team::class,
                         'author_id' => data_get($model, 'provider_id'),
