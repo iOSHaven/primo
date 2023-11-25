@@ -22,11 +22,7 @@ function i({ state: a, splitKeys: n }) {
                     (t.preventDefault(), t.stopPropagation(), this.createTag());
             },
             ['x-on:paste']() {
-                this.$nextTick(() => {
-                    if (n.length === 0) {
-                        this.createTag();
-                        return;
-                    }
+                $nextTick(() => {
                     let t = n.map((e) => e.replace(/[/\-\\^$*+?.()|[\]{}]/g, '\\$&')).join('|');
                     this.newTag.split(new RegExp(t, 'g')).forEach((e) => {
                         (this.newTag = e), this.createTag();

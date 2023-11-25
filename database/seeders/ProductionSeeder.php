@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\Stat;
 use Database\Seeders\Production\AdminSeeder;
 use Database\Seeders\Production\AppSeeder;
 use Database\Seeders\Production\ShortcutSeeder;
@@ -22,10 +21,7 @@ class ProductionSeeder extends Seeder
             UserSeeder::class,
             AppSeeder::class,
             ShortcutSeeder::class,
+            StatSeeder::class,
         ]);
-
-        if (! Stat::exists()) {
-            $this->call(StatSeeder::class);
-        }
     }
 }

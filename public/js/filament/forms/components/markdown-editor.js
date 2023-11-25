@@ -8900,7 +8900,7 @@ b`.split(/\n/).length != 3
             }),
             (nt.fromTextArea = yd),
             xd(nt),
-            (nt.version = '5.65.15'),
+            (nt.version = '5.65.14'),
             nt
         );
     });
@@ -21828,7 +21828,7 @@ var fc = Ue((uc, cc) => {
                     }
                     return !b.pair &&
                         C.match(
-                            /^\s*(?:[,\[\]{}&*!|>'"%@`][^\s'":]|[^\s,\[\]{}#&*!|>'"%@`])[^#:]*(?=:($|\s))/,
+                            /^\s*(?:[,\[\]{}&*!|>'"%@`][^\s'":]|[^,\[\]{}#&*!|>'"%@`])[^#]*?(?=\s*:($|\s))/,
                         )
                         ? ((b.pair = !0), (b.keyCol = C.indentation()), 'atom')
                         : b.pair && C.match(/^:\s*/)
@@ -23921,10 +23921,6 @@ function Ud({
                 toolbar: this.getToolbar(),
                 uploadImage: !0,
             })),
-                this.editor.codemirror.setOption(
-                    'direction',
-                    document.documentElement?.dir ?? 'ltr',
-                ),
                 this.editor.codemirror.on('changes', (h, w) => {
                     try {
                         let k = w[w.length - 1];
@@ -23948,8 +23944,7 @@ function Ud({
                 this.editor.codemirror.on(
                     'change',
                     Alpine.debounce(() => {
-                        this.editor &&
-                            ((this.state = this.editor.value()), o && this.$wire.call('$refresh'));
+                        (this.state = this.editor.value()), o && this.$wire.call('$refresh');
                     }, v ?? 300),
                 ),
                 p && this.editor.codemirror.on('blur', () => this.$wire.call('$refresh')),

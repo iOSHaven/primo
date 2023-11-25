@@ -1,8 +1,5 @@
 function t({ initialHeight: e }) {
     return {
-        init: function () {
-            this.render();
-        },
         render: function () {
             this.$el.scrollHeight > 0 &&
                 ((this.$el.style.height = e + 'rem'),

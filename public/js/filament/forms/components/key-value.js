@@ -1,29 +1,28 @@
-function r({ state: i }) {
+function i({ state: o }) {
     return {
-        state: i,
+        state: o,
         rows: [],
         shouldUpdateRows: !0,
         init: function () {
             this.updateRows(),
                 this.rows.length <= 0 && this.addRow(),
-                this.updateState(),
-                this.$watch('state', (t, e) => {
-                    let s = (o) =>
-                        o === null
-                            ? 0
-                            : Array.isArray(o)
-                              ? o.length
-                              : typeof o != 'object'
-                                ? 0
-                                : Object.keys(o).length;
-                    (s(t) === 0 && s(e) === 0) || this.updateRows();
+                (this.shouldUpdateRows = !0),
+                this.$watch('state', () => {
+                    if (!this.shouldUpdateRows) {
+                        this.shouldUpdateRows = !0;
+                        return;
+                    }
+                    this.updateRows();
                 });
         },
         addRow: function () {
             this.rows.push({ key: '', value: '' }), this.updateState();
         },
         deleteRow: function (t) {
-            this.rows.splice(t, 1), this.rows.length <= 0 && this.addRow(), this.updateState();
+            this.rows.splice(t, 1),
+                this.rows.length <= 0 && this.addRow(),
+                this.updateState(),
+                (this.shouldUpdateRows = !0);
         },
         reorderRows: function (t) {
             let e = Alpine.raw(this.rows),
@@ -31,10 +30,6 @@ function r({ state: i }) {
             e.splice(t.newIndex, 0, s), (this.rows = e), this.updateState();
         },
         updateRows: function () {
-            if (!this.shouldUpdateRows) {
-                this.shouldUpdateRows = !0;
-                return;
-            }
             let t = [];
             for (let [e, s] of Object.entries(this.state ?? {})) t.push({ key: e, value: s });
             this.rows = t;
@@ -49,4 +44,4 @@ function r({ state: i }) {
         },
     };
 }
-export { r as default };
+export { i as default };

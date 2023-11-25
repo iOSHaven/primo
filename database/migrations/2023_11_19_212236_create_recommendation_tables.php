@@ -36,6 +36,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('recommendations');
+        $tableNames = config('mirror.table_names', []);
+        Schema::dropIfExists(data_get($tableNames, 'recommendations', 'recommendations'));
     }
 };

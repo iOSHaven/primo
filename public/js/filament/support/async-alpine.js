@@ -1,113 +1,51 @@
 (() => {
-    var h = Object.defineProperty,
-        m = (t) => h(t, '__esModule', { value: !0 }),
-        f = (t, e) => {
-            m(t);
-            for (var i in e) h(t, i, { get: e[i], enumerable: !0 });
-        },
-        p = {};
-    f(p, { eager: () => g, event: () => w, idle: () => y, media: () => b, visible: () => E });
-    var c = () => !0,
-        g = c,
-        v = ({ component: t, argument: e }) =>
-            new Promise((i) => {
-                if (e) window.addEventListener(e, () => i(), { once: !0 });
-                else {
-                    let n = (a) => {
-                        a.detail.id === t.id &&
-                            (window.removeEventListener('async-alpine:load', n), i());
-                    };
-                    window.addEventListener('async-alpine:load', n);
-                }
+    var l = (t) =>
+            new Promise((e) => {
+                window.addEventListener('async-alpine:load', (n) => {
+                    n.detail.id === t.id && e();
+                });
             }),
-        w = v,
-        x = () =>
+        d = l,
+        h = () =>
             new Promise((t) => {
                 'requestIdleCallback' in window
                     ? window.requestIdleCallback(t)
                     : setTimeout(t, 200);
             }),
-        y = x,
-        A = ({ argument: t }) =>
+        p = h,
+        _ = (t) =>
             new Promise((e) => {
-                if (!t)
-                    return (
-                        console.log(
-                            "Async Alpine: media strategy requires a media query. Treating as 'eager'",
-                        ),
-                        e()
-                    );
-                let i = window.matchMedia(`(${t})`);
-                i.matches ? e() : i.addEventListener('change', e, { once: !0 });
+                let n = t.indexOf('('),
+                    i = t.slice(n),
+                    s = window.matchMedia(i);
+                s.matches ? e() : s.addEventListener('change', e, { once: !0 });
             }),
-        b = A,
-        $ = ({ component: t, argument: e }) =>
-            new Promise((i) => {
-                let n = e || '0px 0px 0px 0px',
-                    a = new IntersectionObserver(
-                        (r) => {
-                            r[0].isIntersecting && (a.disconnect(), i());
-                        },
-                        { rootMargin: n },
-                    );
-                a.observe(t.el);
+        u = _,
+        c = (t, e) =>
+            new Promise((n) => {
+                let i = '0px 0px 0px 0px';
+                if (e.indexOf('(') !== -1) {
+                    let a = e.indexOf('(') + 1;
+                    i = e.slice(a, -1);
+                }
+                let s = new IntersectionObserver(
+                    (a) => {
+                        a[0].isIntersecting && (s.disconnect(), n());
+                    },
+                    { rootMargin: i },
+                );
+                s.observe(t.el);
             }),
-        E = $;
-    function P(t) {
-        let e = q(t),
-            i = _(e);
-        return i.type === 'method' ? { type: 'expression', operator: '&&', parameters: [i] } : i;
-    }
-    function q(t) {
-        let e = /\s*([()])\s*|\s*(\|\||&&|\|)\s*|\s*((?:[^()&|]+\([^()]+\))|[^()&|]+)\s*/g,
-            i = [],
-            n;
-        for (; (n = e.exec(t)) !== null; ) {
-            let [, a, r, s] = n;
-            if (a !== void 0) i.push({ type: 'parenthesis', value: a });
-            else if (r !== void 0) i.push({ type: 'operator', value: r === '|' ? '&&' : r });
-            else {
-                let o = { type: 'method', method: s.trim() };
-                s.includes('(') &&
-                    ((o.method = s.substring(0, s.indexOf('(')).trim()),
-                    (o.argument = s.substring(s.indexOf('(') + 1, s.indexOf(')')))),
-                    s.method === 'immediate' && (s.method = 'eager'),
-                    i.push(o);
-            }
-        }
-        return i;
-    }
-    function _(t) {
-        let e = d(t);
-        for (
-            ;
-            t.length > 0 && (t[0].value === '&&' || t[0].value === '|' || t[0].value === '||');
-
-        ) {
-            let i = t.shift().value,
-                n = d(t);
-            e.type === 'expression' && e.operator === i
-                ? e.parameters.push(n)
-                : (e = { type: 'expression', operator: i, parameters: [e, n] });
-        }
-        return e;
-    }
-    function d(t) {
-        if (t[0].value === '(') {
-            t.shift();
-            let e = _(t);
-            return t[0].value === ')' && t.shift(), e;
-        } else return t.shift();
-    }
-    var u = '__internal_',
-        l = {
+        f = c,
+        r = '__internal_',
+        o = {
             Alpine: null,
             _options: {
                 prefix: 'ax-',
                 alpinePrefix: 'x-',
                 root: 'load',
                 inline: 'load-src',
-                defaultStrategy: 'eager',
+                defaultStrategy: 'immediate',
             },
             _alias: !1,
             _data: {},
@@ -141,10 +79,10 @@
             },
             _inlineElement(t) {
                 let e = t.getAttribute(`${this._options.alpinePrefix}data`),
-                    i = t.getAttribute(`${this._options.prefix}${this._options.inline}`);
-                if (!e || !i) return;
-                let n = this._parseName(e);
-                this.url(n, i);
+                    n = t.getAttribute(`${this._options.prefix}${this._options.inline}`);
+                if (!e || !n) return;
+                let i = this._parseName(e);
+                this.url(i, n);
             },
             _setupComponents() {
                 let t = document.querySelectorAll(`[${this._options.prefix}${this._options.root}]`);
@@ -153,34 +91,45 @@
             _setupComponent(t) {
                 let e = t.getAttribute(`${this._options.alpinePrefix}data`);
                 t.setAttribute(`${this._options.alpinePrefix}ignore`, '');
-                let i = this._parseName(e),
-                    n =
+                let n = this._parseName(e),
+                    i =
                         t.getAttribute(`${this._options.prefix}${this._options.root}`) ||
                         this._options.defaultStrategy;
-                this._componentStrategy({ name: i, strategy: n, el: t, id: t.id || this._index });
+                this._componentStrategy({ name: n, strategy: i, el: t, id: t.id || this._index });
             },
             async _componentStrategy(t) {
-                let e = P(t.strategy);
-                await this._generateRequirements(t, e),
-                    await this._download(t.name),
-                    this._activate(t);
-            },
-            _generateRequirements(t, e) {
-                if (e.type === 'expression') {
-                    if (e.operator === '&&')
-                        return Promise.all(
-                            e.parameters.map((i) => this._generateRequirements(t, i)),
-                        );
-                    if (e.operator === '||')
-                        return Promise.any(
-                            e.parameters.map((i) => this._generateRequirements(t, i)),
-                        );
+                let e = t.strategy
+                    .split('|')
+                    .map((i) => i.trim())
+                    .filter((i) => i !== 'immediate')
+                    .filter((i) => i !== 'eager');
+                if (!e.length) {
+                    await this._download(t.name), this._activate(t);
+                    return;
                 }
-                return p[e.method] ? p[e.method]({ component: t, argument: e.argument }) : !1;
+                let n = [];
+                for (let i of e) {
+                    if (i === 'idle') {
+                        n.push(p());
+                        continue;
+                    }
+                    if (i.startsWith('visible')) {
+                        n.push(f(t, i));
+                        continue;
+                    }
+                    if (i.startsWith('media')) {
+                        n.push(u(i));
+                        continue;
+                    }
+                    i === 'event' && n.push(d(t));
+                }
+                Promise.all(n).then(async () => {
+                    await this._download(t.name), this._activate(t);
+                });
             },
             async _download(t) {
                 if (
-                    t.startsWith(u) ||
+                    t.startsWith(r) ||
                     (this._handleAlias(t), !this._data[t] || this._data[t].loaded)
                 )
                     return;
@@ -201,16 +150,16 @@
                 new MutationObserver((t) => {
                     for (let e of t)
                         if (e.addedNodes)
-                            for (let i of e.addedNodes)
-                                i.nodeType === 1 &&
-                                    (i.hasAttribute(
+                            for (let n of e.addedNodes)
+                                n.nodeType === 1 &&
+                                    (n.hasAttribute(
                                         `${this._options.prefix}${this._options.root}`,
-                                    ) && this._mutationEl(i),
-                                    i
+                                    ) && this._mutationEl(n),
+                                    n
                                         .querySelectorAll(
                                             `[${this._options.prefix}${this._options.root}]`,
                                         )
-                                        .forEach((n) => this._mutationEl(n)));
+                                        .forEach((i) => this._mutationEl(i)));
                 }).observe(document, { attributes: !0, childList: !0, subtree: !0 });
             },
             _mutationEl(t) {
@@ -222,7 +171,7 @@
                 !this._alias || this._data[t] || this.url(t, this._alias.replace('[name]', t));
             },
             _parseName(t) {
-                return (t || '').split(/[({]/g)[0] || `${u}${this._index}`;
+                return (t || '').split(/[({]/g)[0] || `${r}${this._index}`;
             },
             _parseUrl(t) {
                 return new RegExp('^(?:[a-z+]+:)?//', 'i').test(t)
@@ -231,9 +180,9 @@
             },
         };
     document.addEventListener('alpine:init', () => {
-        (window.AsyncAlpine = l),
-            l.init(Alpine, window.AsyncAlpineOptions || {}),
+        (window.AsyncAlpine = o),
+            o.init(Alpine, window.AsyncAlpineOptions || {}),
             document.dispatchEvent(new CustomEvent('async-alpine:init')),
-            l.start();
+            o.start();
     });
 })();
