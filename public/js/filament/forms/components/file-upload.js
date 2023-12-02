@@ -1,139 +1,139 @@
-var Mo = Object.defineProperty;
-var Oo = (e, t) => {
-    for (var i in t) Mo(e, i, { get: t[i], enumerable: !0 });
+var zo = Object.defineProperty;
+var No = (e, t) => {
+    for (var i in t) zo(e, i, { get: t[i], enumerable: !0 });
 };
-var $i = {};
-Oo($i, {
-    FileOrigin: () => wt,
-    FileStatus: () => st,
-    OptionTypes: () => Mi,
-    Status: () => Wn,
-    create: () => at,
-    destroy: () => nt,
-    find: () => Di,
-    getOptions: () => xi,
-    parse: () => Oi,
-    registerPlugin: () => ge,
-    setOptions: () => yt,
-    supported: () => Li,
+var Zi = {};
+No(Zi, {
+    FileOrigin: () => Mt,
+    FileStatus: () => ut,
+    OptionTypes: () => Fi,
+    Status: () => jn,
+    create: () => ot,
+    destroy: () => lt,
+    find: () => zi,
+    getOptions: () => Ni,
+    parse: () => Ci,
+    registerPlugin: () => Te,
+    setOptions: () => At,
+    supported: () => Pi,
 });
-var Do = (e) => e instanceof HTMLElement,
-    xo = (e, t = [], i = []) => {
+var Bo = (e) => e instanceof HTMLElement,
+    Go = (e, t = [], i = []) => {
         let a = { ...e },
             n = [],
-            o = [],
-            r = () => ({ ...a }),
+            r = [],
+            o = () => ({ ...a }),
             l = () => {
-                let f = [...n];
-                return (n.length = 0), f;
+                let p = [...n];
+                return (n.length = 0), p;
             },
             s = () => {
-                let f = [...o];
-                (o.length = 0),
-                    f.forEach(({ type: m, data: E }) => {
-                        u(m, E);
+                let p = [...r];
+                (r.length = 0),
+                    p.forEach(({ type: m, data: g }) => {
+                        u(m, g);
                     });
             },
-            u = (f, m, E) => {
-                if (E && !document.hidden) {
-                    o.push({ type: f, data: m });
+            u = (p, m, g) => {
+                if (g && !document.hidden) {
+                    r.push({ type: p, data: m });
                     return;
                 }
-                p[f] && p[f](m), n.push({ type: f, data: m });
+                f[p] && f[p](m), n.push({ type: p, data: m });
             },
-            c = (f, ...m) => (h[f] ? h[f](...m) : null),
+            c = (p, ...m) => (h[p] ? h[p](...m) : null),
             d = {
-                getState: r,
+                getState: o,
                 processActionQueue: l,
                 processDispatchQueue: s,
                 dispatch: u,
                 query: c,
             },
             h = {};
-        t.forEach((f) => {
-            h = { ...f(a), ...h };
+        t.forEach((p) => {
+            h = { ...p(a), ...h };
         });
-        let p = {};
+        let f = {};
         return (
-            i.forEach((f) => {
-                p = { ...f(u, c, a), ...p };
+            i.forEach((p) => {
+                f = { ...p(u, c, a), ...f };
             }),
             d
         );
     },
-    Po = (e, t, i) => {
+    Vo = (e, t, i) => {
         if (typeof i == 'function') {
             e[t] = i;
             return;
         }
         Object.defineProperty(e, t, { ...i });
     },
-    Q = (e, t) => {
+    J = (e, t) => {
         for (let i in e) e.hasOwnProperty(i) && t(i, e[i]);
     },
-    Fe = (e) => {
+    Be = (e) => {
         let t = {};
         return (
-            Q(e, (i) => {
-                Po(t, i, e[i]);
+            J(e, (i) => {
+                Vo(t, i, e[i]);
             }),
             t
         );
     },
-    ee = (e, t, i = null) => {
+    ie = (e, t, i = null) => {
         if (i === null) return e.getAttribute(t) || e.hasAttribute(t);
         e.setAttribute(t, i);
     },
-    Co = 'http://www.w3.org/2000/svg',
-    Fo = ['svg', 'path'],
-    Ea = (e) => Fo.includes(e),
-    $t = (e, t, i = {}) => {
+    Uo = 'http://www.w3.org/2000/svg',
+    ko = ['svg', 'path'],
+    Ra = (e) => ko.includes(e),
+    Zt = (e, t, i = {}) => {
         typeof t == 'object' && ((i = t), (t = null));
-        let a = Ea(e) ? document.createElementNS(Co, e) : document.createElement(e);
+        let a = Ra(e) ? document.createElementNS(Uo, e) : document.createElement(e);
         return (
-            t && (Ea(e) ? ee(a, 'class', t) : (a.className = t)),
-            Q(i, (n, o) => {
-                ee(a, n, o);
+            t && (Ra(e) ? ie(a, 'class', t) : (a.className = t)),
+            J(i, (n, r) => {
+                ie(a, n, r);
             }),
             a
         );
     },
-    zo = (e) => (t, i) => {
+    Ho = (e) => (t, i) => {
         typeof i < 'u' && e.children[i] ? e.insertBefore(t, e.children[i]) : e.appendChild(t);
     },
-    No = (e, t) => (i, a) => (typeof a < 'u' ? t.splice(a, 0, i) : t.push(i), i),
-    Bo = (e, t) => (i) => (
+    Wo = (e, t) => (i, a) => (typeof a < 'u' ? t.splice(a, 0, i) : t.push(i), i),
+    Yo = (e, t) => (i) => (
         t.splice(t.indexOf(i), 1), i.element.parentNode && e.removeChild(i.element), i
     ),
-    Go = (() => typeof window < 'u' && typeof window.document < 'u')(),
-    an = () => Go,
-    Vo = an() ? $t('svg') : {},
-    Uo = 'children' in Vo ? (e) => e.children.length : (e) => e.childNodes.length,
-    nn = (e, t, i, a) => {
+    $o = (() => typeof window < 'u' && typeof window.document < 'u')(),
+    sn = () => $o,
+    qo = sn() ? Zt('svg') : {},
+    Xo = 'children' in qo ? (e) => e.children.length : (e) => e.childNodes.length,
+    cn = (e, t, i, a) => {
         let n = i[0] || e.left,
-            o = i[1] || e.top,
-            r = n + e.width,
-            l = o + e.height * (a[1] || 1),
+            r = i[1] || e.top,
+            o = n + e.width,
+            l = r + e.height * (a[1] || 1),
             s = {
                 element: { ...e },
                 inner: { left: e.left, top: e.top, right: e.right, bottom: e.bottom },
-                outer: { left: n, top: o, right: r, bottom: l },
+                outer: { left: n, top: r, right: o, bottom: l },
             };
         return (
             t
                 .filter((u) => !u.isRectIgnored())
                 .map((u) => u.rect)
                 .forEach((u) => {
-                    Ta(s.inner, { ...u.inner }), Ta(s.outer, { ...u.outer });
+                    ya(s.inner, { ...u.inner }), ya(s.outer, { ...u.outer });
                 }),
-            Ia(s.inner),
+            Sa(s.inner),
             (s.outer.bottom += s.element.marginBottom),
             (s.outer.right += s.element.marginRight),
-            Ia(s.outer),
+            Sa(s.outer),
             s
         );
     },
-    Ta = (e, t) => {
+    ya = (e, t) => {
         (t.top += e.top),
             (t.right += e.left),
             (t.bottom += e.top),
@@ -141,74 +141,74 @@ var Do = (e) => e instanceof HTMLElement,
             t.bottom > e.bottom && (e.bottom = t.bottom),
             t.right > e.right && (e.right = t.right);
     },
-    Ia = (e) => {
+    Sa = (e) => {
         (e.width = e.right - e.left), (e.height = e.bottom - e.top);
     },
-    Ve = (e) => typeof e == 'number',
-    ko = (e, t, i, a = 0.001) => Math.abs(e - t) < a && Math.abs(i) < a,
-    Ho = ({ stiffness: e = 0.5, damping: t = 0.75, mass: i = 10 } = {}) => {
+    He = (e) => typeof e == 'number',
+    jo = (e, t, i, a = 0.001) => Math.abs(e - t) < a && Math.abs(i) < a,
+    Qo = ({ stiffness: e = 0.5, damping: t = 0.75, mass: i = 10 } = {}) => {
         let a = null,
             n = null,
-            o = 0,
-            r = !1,
-            u = Fe({
+            r = 0,
+            o = !1,
+            u = Be({
                 interpolate: (c, d) => {
-                    if (r) return;
-                    if (!(Ve(a) && Ve(n))) {
-                        (r = !0), (o = 0);
+                    if (o) return;
+                    if (!(He(a) && He(n))) {
+                        (o = !0), (r = 0);
                         return;
                     }
                     let h = -(n - a) * e;
-                    (o += h / i),
-                        (n += o),
-                        (o *= t),
-                        ko(n, a, o) || d
-                            ? ((n = a), (o = 0), (r = !0), u.onupdate(n), u.oncomplete(n))
+                    (r += h / i),
+                        (n += r),
+                        (r *= t),
+                        jo(n, a, r) || d
+                            ? ((n = a), (r = 0), (o = !0), u.onupdate(n), u.oncomplete(n))
                             : u.onupdate(n);
                 },
                 target: {
                     set: (c) => {
                         if (
-                            (Ve(c) && !Ve(n) && (n = c),
+                            (He(c) && !He(n) && (n = c),
                             a === null && ((a = c), (n = c)),
                             (a = c),
                             n === a || typeof a > 'u')
                         ) {
-                            (r = !0), (o = 0), u.onupdate(n), u.oncomplete(n);
+                            (o = !0), (r = 0), u.onupdate(n), u.oncomplete(n);
                             return;
                         }
-                        r = !1;
+                        o = !1;
                     },
                     get: () => a,
                 },
-                resting: { get: () => r },
+                resting: { get: () => o },
                 onupdate: (c) => {},
                 oncomplete: (c) => {},
             });
         return u;
     };
-var Wo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
-    Yo = ({ duration: e = 500, easing: t = Wo, delay: i = 0 } = {}) => {
+var Zo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
+    Ko = ({ duration: e = 500, easing: t = Zo, delay: i = 0 } = {}) => {
         let a = null,
             n,
-            o,
-            r = !0,
+            r,
+            o = !0,
             l = !1,
             s = null,
-            c = Fe({
+            c = Be({
                 interpolate: (d, h) => {
-                    r ||
+                    o ||
                         s === null ||
                         (a === null && (a = d),
                         !(d - a < i) &&
                             ((n = d - a - i),
                             n >= e || h
                                 ? ((n = 1),
-                                  (o = l ? 0 : 1),
-                                  c.onupdate(o * s),
-                                  c.oncomplete(o * s),
-                                  (r = !0))
-                                : ((o = n / e), c.onupdate((n >= 0 ? t(l ? 1 - o : o) : 0) * s))));
+                                  (r = l ? 0 : 1),
+                                  c.onupdate(r * s),
+                                  c.oncomplete(r * s),
+                                  (o = !0))
+                                : ((r = n / e), c.onupdate((n >= 0 ? t(l ? 1 - r : r) : 0) * s))));
                 },
                 target: {
                     get: () => (l ? 0 : s),
@@ -217,68 +217,68 @@ var Wo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
                             (s = d), c.onupdate(d), c.oncomplete(d);
                             return;
                         }
-                        d < s ? ((s = 1), (l = !0)) : ((l = !1), (s = d)), (r = !1), (a = null);
+                        d < s ? ((s = 1), (l = !0)) : ((l = !1), (s = d)), (o = !1), (a = null);
                     },
                 },
-                resting: { get: () => r },
+                resting: { get: () => o },
                 onupdate: (d) => {},
                 oncomplete: (d) => {},
             });
         return c;
     },
-    ba = { spring: Ho, tween: Yo },
-    $o = (e, t, i) => {
+    wa = { spring: Qo, tween: Ko },
+    Jo = (e, t, i) => {
         let a = e[t] && typeof e[t][i] == 'object' ? e[t][i] : e[t] || e,
             n = typeof a == 'string' ? a : a.type,
-            o = typeof a == 'object' ? { ...a } : {};
-        return ba[n] ? ba[n](o) : null;
+            r = typeof a == 'object' ? { ...a } : {};
+        return wa[n] ? wa[n](r) : null;
     },
-    Pi = (e, t, i, a = !1) => {
+    Bi = (e, t, i, a = !1) => {
         (t = Array.isArray(t) ? t : [t]),
             t.forEach((n) => {
-                e.forEach((o) => {
-                    let r = o,
-                        l = () => i[o],
-                        s = (u) => (i[o] = u);
-                    typeof o == 'object' && ((r = o.key), (l = o.getter || l), (s = o.setter || s)),
-                        !(n[r] && !a) && (n[r] = { get: l, set: s });
+                e.forEach((r) => {
+                    let o = r,
+                        l = () => i[r],
+                        s = (u) => (i[r] = u);
+                    typeof r == 'object' && ((o = r.key), (l = r.getter || l), (s = r.setter || s)),
+                        !(n[o] && !a) && (n[o] = { get: l, set: s });
                 });
             });
     },
-    qo = ({ mixinConfig: e, viewProps: t, viewInternalAPI: i, viewExternalAPI: a }) => {
+    el = ({ mixinConfig: e, viewProps: t, viewInternalAPI: i, viewExternalAPI: a }) => {
         let n = { ...t },
-            o = [];
+            r = [];
         return (
-            Q(e, (r, l) => {
-                let s = $o(l);
+            J(e, (o, l) => {
+                let s = Jo(l);
                 if (!s) return;
                 (s.onupdate = (c) => {
-                    t[r] = c;
+                    t[o] = c;
                 }),
-                    (s.target = n[r]),
-                    Pi(
+                    (s.target = n[o]),
+                    Bi(
                         [
                             {
-                                key: r,
+                                key: o,
                                 setter: (c) => {
                                     s.target !== c && (s.target = c);
                                 },
-                                getter: () => t[r],
+                                getter: () => t[o],
                             },
                         ],
                         [i, a],
                         t,
                         !0,
                     ),
-                    o.push(s);
+                    r.push(s);
             }),
             {
-                write: (r) => {
+                write: (o) => {
                     let l = document.hidden,
                         s = !0;
                     return (
-                        o.forEach((u) => {
-                            u.resting || (s = !1), u.interpolate(r, l);
+                        r.forEach((u) => {
+                            u.resting || (s = !1), u.interpolate(o, l);
                         }),
                         s
                     );
@@ -287,30 +287,30 @@ var Wo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
             }
         );
     },
-    Xo = (e) => (t, i) => {
+    tl = (e) => (t, i) => {
         e.addEventListener(t, i);
     },
-    jo = (e) => (t, i) => {
+    il = (e) => (t, i) => {
         e.removeEventListener(t, i);
     },
-    Qo = ({
+    al = ({
         mixinConfig: e,
         viewProps: t,
         viewInternalAPI: i,
         viewExternalAPI: a,
         viewState: n,
-        view: o,
+        view: r,
     }) => {
-        let r = [],
-            l = Xo(o.element),
-            s = jo(o.element);
+        let o = [],
+            l = tl(r.element),
+            s = il(r.element);
         return (
             (a.on = (u, c) => {
-                r.push({ type: u, fn: c }), l(u, c);
+                o.push({ type: u, fn: c }), l(u, c);
             }),
             (a.off = (u, c) => {
-                r.splice(
-                    r.findIndex((d) => d.type === u && d.fn === c),
+                o.splice(
+                    o.findIndex((d) => d.type === u && d.fn === c),
                     1,
                 ),
                     s(u, c);
@@ -318,18 +318,18 @@ var Wo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
             {
                 write: () => !0,
                 destroy: () => {
-                    r.forEach((u) => {
+                    o.forEach((u) => {
                         s(u.type, u.fn);
                     });
                 },
             }
         );
     },
-    Zo = ({ mixinConfig: e, viewProps: t, viewExternalAPI: i }) => {
-        Pi(e, i, t);
+    nl = ({ mixinConfig: e, viewProps: t, viewExternalAPI: i }) => {
+        Bi(e, i, t);
     },
-    se = (e) => e != null,
-    Ko = {
+    de = (e) => e != null,
+    rl = {
         opacity: 1,
         scaleX: 1,
         scaleY: 1,
@@ -341,71 +341,71 @@ var Wo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
         originX: 0,
         originY: 0,
     },
-    Jo = ({ mixinConfig: e, viewProps: t, viewInternalAPI: i, viewExternalAPI: a, view: n }) => {
-        let o = { ...t },
-            r = {};
-        Pi(e, [i, a], t);
+    ol = ({ mixinConfig: e, viewProps: t, viewInternalAPI: i, viewExternalAPI: a, view: n }) => {
+        let r = { ...t },
+            o = {};
+        Bi(e, [i, a], t);
         let l = () => [t.translateX || 0, t.translateY || 0],
             s = () => [t.scaleX || 0, t.scaleY || 0],
-            u = () => (n.rect ? nn(n.rect, n.childViews, l(), s()) : null);
+            u = () => (n.rect ? cn(n.rect, n.childViews, l(), s()) : null);
         return (
             (i.rect = { get: u }),
             (a.rect = { get: u }),
             e.forEach((c) => {
-                t[c] = typeof o[c] > 'u' ? Ko[c] : o[c];
+                t[c] = typeof r[c] > 'u' ? rl[c] : r[c];
             }),
             {
                 write: () => {
-                    if (el(r, t)) return tl(n.element, t), Object.assign(r, { ...t }), !0;
+                    if (ll(o, t)) return sl(n.element, t), Object.assign(o, { ...t }), !0;
                 },
                 destroy: () => {},
             }
         );
     },
-    el = (e, t) => {
+    ll = (e, t) => {
         if (Object.keys(e).length !== Object.keys(t).length) return !0;
         for (let i in t) if (t[i] !== e[i]) return !0;
         return !1;
     },
-    tl = (
+    sl = (
         e,
         {
             opacity: t,
             perspective: i,
             translateX: a,
             translateY: n,
-            scaleX: o,
-            scaleY: r,
+            scaleX: r,
+            scaleY: o,
             rotateX: l,
             rotateY: s,
             rotateZ: u,
             originX: c,
             originY: d,
             width: h,
-            height: p,
+            height: f,
         },
     ) => {
-        let f = '',
+        let p = '',
             m = '';
-        (se(c) || se(d)) && (m += `transform-origin: ${c || 0}px ${d || 0}px;`),
-            se(i) && (f += `perspective(${i}px) `),
-            (se(a) || se(n)) && (f += `translate3d(${a || 0}px, ${n || 0}px, 0) `),
-            (se(o) || se(r)) && (f += `scale3d(${se(o) ? o : 1}, ${se(r) ? r : 1}, 1) `),
-            se(u) && (f += `rotateZ(${u}rad) `),
-            se(l) && (f += `rotateX(${l}rad) `),
-            se(s) && (f += `rotateY(${s}rad) `),
-            f.length && (m += `transform:${f};`),
-            se(t) &&
+        (de(c) || de(d)) && (m += `transform-origin: ${c || 0}px ${d || 0}px;`),
+            de(i) && (p += `perspective(${i}px) `),
+            (de(a) || de(n)) && (p += `translate3d(${a || 0}px, ${n || 0}px, 0) `),
+            (de(r) || de(o)) && (p += `scale3d(${de(r) ? r : 1}, ${de(o) ? o : 1}, 1) `),
+            de(u) && (p += `rotateZ(${u}rad) `),
+            de(l) && (p += `rotateX(${l}rad) `),
+            de(s) && (p += `rotateY(${s}rad) `),
+            p.length && (m += `transform:${p};`),
+            de(t) &&
                 ((m += `opacity:${t};`),
                 t === 0 && (m += 'visibility:hidden;'),
                 t < 1 && (m += 'pointer-events:none;')),
-            se(p) && (m += `height:${p}px;`),
-            se(h) && (m += `width:${h}px;`);
-        let E = e.elementCurrentStyle || '';
-        (m.length !== E.length || m !== E) && ((e.style.cssText = m), (e.elementCurrentStyle = m));
+            de(f) && (m += `height:${f}px;`),
+            de(h) && (m += `width:${h}px;`);
+        let g = e.elementCurrentStyle || '';
+        (m.length !== g.length || m !== g) && ((e.style.cssText = m), (e.elementCurrentStyle = m));
     },
-    il = { styles: Jo, listeners: Qo, animations: qo, apis: Zo },
-    _a = (e = {}, t = {}, i = {}) => (
+    cl = { styles: ol, listeners: al, animations: el, apis: nl },
+    va = (e = {}, t = {}, i = {}) => (
         t.layoutCalculated ||
             ((e.paddingTop = parseInt(i.paddingTop, 10) || 0),
             (e.marginTop = parseInt(i.marginTop, 10) || 0),
@@ -423,142 +423,142 @@ var Wo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
         (e.hidden = t.offsetParent === null),
         e
     ),
-    te =
+    ae =
         ({
             tag: e = 'div',
             name: t = null,
             attributes: i = {},
             read: a = () => {},
             write: n = () => {},
-            create: o = () => {},
-            destroy: r = () => {},
-            filterFrameActionsForChild: l = (p, f) => f,
+            create: r = () => {},
+            destroy: o = () => {},
+            filterFrameActionsForChild: l = (f, p) => p,
             didCreateView: s = () => {},
             didWriteView: u = () => {},
             ignoreRect: c = !1,
             ignoreRectUpdate: d = !1,
             mixins: h = [],
         } = {}) =>
-        (p, f = {}) => {
-            let m = $t(e, `filepond--${t}`, i),
-                E = window.getComputedStyle(m, null),
-                b = _a(),
-                g = null,
+        (f, p = {}) => {
+            let m = Zt(e, `filepond--${t}`, i),
+                g = window.getComputedStyle(m, null),
+                b = va(),
+                E = null,
                 T = !1,
                 _ = [],
                 y = [],
                 I = {},
-                A = {},
+                v = {},
                 R = [n],
                 S = [a],
-                P = [r],
-                D = () => m,
+                D = [o],
+                x = () => m,
                 O = () => _.concat(),
-                N = () => I,
-                v = (V) => (H, $) => H(V, $),
-                F = () => g || ((g = nn(b, _, [0, 0], [1, 1])), g),
-                w = () => E,
+                B = () => I,
+                A = (k) => (W, C) => W(k, C),
+                F = () => E || ((E = cn(b, _, [0, 0], [1, 1])), E),
+                w = () => g,
                 L = () => {
-                    (g = null),
-                        _.forEach(($) => $._read()),
-                        !(d && b.width && b.height) && _a(b, m, E);
-                    let H = { root: W, props: f, rect: b };
-                    S.forEach(($) => $(H));
+                    (E = null),
+                        _.forEach((C) => C._read()),
+                        !(d && b.width && b.height) && va(b, m, g);
+                    let W = { root: j, props: p, rect: b };
+                    S.forEach((C) => C(W));
                 },
-                z = (V, H, $) => {
-                    let j = H.length === 0;
+                N = (k, W, C) => {
+                    let z = W.length === 0;
                     return (
-                        R.forEach((Z) => {
-                            Z({
-                                props: f,
-                                root: W,
-                                actions: H,
-                                timestamp: V,
-                                shouldOptimize: $,
-                            }) === !1 && (j = !1);
+                        R.forEach((G) => {
+                            G({
+                                props: p,
+                                root: j,
+                                actions: W,
+                                timestamp: k,
+                                shouldOptimize: C,
+                            }) === !1 && (z = !1);
                         }),
-                        y.forEach((Z) => {
-                            Z.write(V) === !1 && (j = !1);
+                        y.forEach((G) => {
+                            G.write(k) === !1 && (z = !1);
                         }),
-                        _.filter((Z) => !!Z.element.parentNode).forEach((Z) => {
-                            Z._write(V, l(Z, H), $) || (j = !1);
+                        _.filter((G) => !!G.element.parentNode).forEach((G) => {
+                            G._write(k, l(G, W), C) || (z = !1);
                         }),
-                        _.forEach((Z, Bt) => {
-                            Z.element.parentNode ||
-                                (W.appendChild(Z.element, Bt),
-                                Z._read(),
-                                Z._write(V, l(Z, H), $),
-                                (j = !1));
+                        _.forEach((G, $) => {
+                            G.element.parentNode ||
+                                (j.appendChild(G.element, $),
+                                G._read(),
+                                G._write(k, l(G, W), C),
+                                (z = !1));
                         }),
-                        (T = j),
-                        u({ props: f, root: W, actions: H, timestamp: V }),
-                        j
+                        (T = z),
+                        u({ props: p, root: j, actions: W, timestamp: k }),
+                        z
                     );
                 },
-                C = () => {
-                    y.forEach((V) => V.destroy()),
-                        P.forEach((V) => {
-                            V({ root: W, props: f });
+                P = () => {
+                    y.forEach((k) => k.destroy()),
+                        D.forEach((k) => {
+                            k({ root: j, props: p });
                         }),
-                        _.forEach((V) => V._destroy());
+                        _.forEach((k) => k._destroy());
                 },
-                G = { element: { get: D }, style: { get: w }, childViews: { get: O } },
-                x = {
-                    ...G,
+                U = { element: { get: x }, style: { get: w }, childViews: { get: O } },
+                V = {
+                    ...U,
                     rect: { get: F },
-                    ref: { get: N },
-                    is: (V) => t === V,
-                    appendChild: zo(m),
-                    createChildView: v(p),
-                    linkView: (V) => (_.push(V), V),
-                    unlinkView: (V) => {
-                        _.splice(_.indexOf(V), 1);
+                    ref: { get: B },
+                    is: (k) => t === k,
+                    appendChild: Ho(m),
+                    createChildView: A(f),
+                    linkView: (k) => (_.push(k), k),
+                    unlinkView: (k) => {
+                        _.splice(_.indexOf(k), 1);
                     },
-                    appendChildView: No(m, _),
-                    removeChildView: Bo(m, _),
-                    registerWriter: (V) => R.push(V),
-                    registerReader: (V) => S.push(V),
-                    registerDestroyer: (V) => P.push(V),
+                    appendChildView: Wo(m, _),
+                    removeChildView: Yo(m, _),
+                    registerWriter: (k) => R.push(k),
+                    registerReader: (k) => S.push(k),
+                    registerDestroyer: (k) => D.push(k),
                     invalidateLayout: () => (m.layoutCalculated = !1),
-                    dispatch: p.dispatch,
-                    query: p.query,
+                    dispatch: f.dispatch,
+                    query: f.query,
                 },
-                B = {
-                    element: { get: D },
+                q = {
+                    element: { get: x },
                     childViews: { get: O },
                     rect: { get: F },
                     resting: { get: () => T },
                     isRectIgnored: () => c,
                     _read: L,
-                    _write: z,
-                    _destroy: C,
+                    _write: N,
+                    _destroy: P,
                 },
-                U = { ...G, rect: { get: () => b } };
+                X = { ...U, rect: { get: () => b } };
             Object.keys(h)
-                .sort((V, H) => (V === 'styles' ? 1 : H === 'styles' ? -1 : 0))
-                .forEach((V) => {
-                    let H = il[V]({
-                        mixinConfig: h[V],
-                        viewProps: f,
-                        viewState: A,
-                        viewInternalAPI: x,
-                        viewExternalAPI: B,
-                        view: Fe(U),
+                .sort((k, W) => (k === 'styles' ? 1 : W === 'styles' ? -1 : 0))
+                .forEach((k) => {
+                    let W = cl[k]({
+                        mixinConfig: h[k],
+                        viewProps: p,
+                        viewState: v,
+                        viewInternalAPI: V,
+                        viewExternalAPI: q,
+                        view: Be(X),
                     });
-                    H && y.push(H);
+                    W && y.push(W);
                 });
-            let W = Fe(x);
-            o({ root: W, props: f });
-            let ae = Uo(m);
+            let j = Be(V);
+            r({ root: j, props: p });
+            let se = Xo(m);
             return (
-                _.forEach((V, H) => {
-                    W.appendChild(V.element, ae + H);
+                _.forEach((k, W) => {
+                    j.appendChild(k.element, se + W);
                 }),
-                s(W),
-                Fe(B)
+                s(j),
+                Be(q)
             );
         },
-    al = (e, t, i = 60) => {
+    dl = (e, t, i = 60) => {
         let a = '__framePainter';
         if (window[a]) {
             window[a].readers.push(e), window[a].writers.push(t);
@@ -566,14 +566,14 @@ var Wo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
         }
         window[a] = { readers: [e], writers: [t] };
         let n = window[a],
-            o = 1e3 / i,
-            r = null,
+            r = 1e3 / i,
+            o = null,
             l = null,
             s = null,
             u = null,
             c = () => {
                 document.hidden
-                    ? ((s = () => window.setTimeout(() => d(performance.now()), o)),
+                    ? ((s = () => window.setTimeout(() => d(performance.now()), r)),
                       (u = () => window.clearTimeout(l)))
                     : ((s = () => window.requestAnimationFrame(d)),
                       (u = () => window.cancelAnimationFrame(l)));
@@ -582,10 +582,10 @@ var Wo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
             u && u(), c(), d(performance.now());
         });
         let d = (h) => {
-            (l = s(d)), r || (r = h);
-            let p = h - r;
-            p <= o ||
-                ((r = h - (p % o)), n.readers.forEach((f) => f()), n.writers.forEach((f) => f(h)));
+            (l = s(d)), o || (o = h);
+            let f = h - o;
+            f <= r ||
+                ((o = h - (f % r)), n.readers.forEach((p) => p()), n.writers.forEach((p) => p(h)));
         };
         return (
             c(),
@@ -597,9 +597,9 @@ var Wo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
             }
         );
     },
-    de =
+    he =
         (e, t) =>
-        ({ root: i, props: a, actions: n = [], timestamp: o, shouldOptimize: r }) => {
+        ({ root: i, props: a, actions: n = [], timestamp: r, shouldOptimize: o }) => {
             n
                 .filter((l) => e[l.type])
                 .forEach((l) =>
@@ -607,52 +607,52 @@ var Wo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
                         root: i,
                         props: a,
                         action: l.data,
-                        timestamp: o,
-                        shouldOptimize: r,
+                        timestamp: r,
+                        shouldOptimize: o,
                     }),
                 ),
-                t && t({ root: i, props: a, actions: n, timestamp: o, shouldOptimize: r });
+                t && t({ root: i, props: a, actions: n, timestamp: r, shouldOptimize: o });
         },
-    Ra = (e, t) => t.parentNode.insertBefore(e, t),
-    ya = (e, t) => t.parentNode.insertBefore(e, t.nextSibling),
-    Qt = (e) => Array.isArray(e),
-    xe = (e) => e == null,
-    nl = (e) => e.trim(),
-    Zt = (e) => '' + e,
-    rl = (e, t = ',') =>
-        xe(e)
+    Aa = (e, t) => t.parentNode.insertBefore(e, t),
+    La = (e, t) => t.parentNode.insertBefore(e, t.nextSibling),
+    ti = (e) => Array.isArray(e),
+    Fe = (e) => e == null,
+    ul = (e) => e.trim(),
+    ii = (e) => '' + e,
+    hl = (e, t = ',') =>
+        Fe(e)
             ? []
-            : Qt(e)
+            : ti(e)
               ? e
-              : Zt(e)
+              : ii(e)
                     .split(t)
-                    .map(nl)
+                    .map(ul)
                     .filter((i) => i.length),
-    rn = (e) => typeof e == 'boolean',
-    on = (e) => (rn(e) ? e : e === 'true'),
-    ce = (e) => typeof e == 'string',
-    ln = (e) => (Ve(e) ? e : ce(e) ? Zt(e).replace(/[a-z]+/gi, '') : 0),
-    Yt = (e) => parseInt(ln(e), 10),
-    Sa = (e) => parseFloat(ln(e)),
-    lt = (e) => Ve(e) && isFinite(e) && Math.floor(e) === e,
-    wa = (e, t = 1e3) => {
-        if (lt(e)) return e;
-        let i = Zt(e).trim();
+    dn = (e) => typeof e == 'boolean',
+    un = (e) => (dn(e) ? e : e === 'true'),
+    ue = (e) => typeof e == 'string',
+    hn = (e) => (He(e) ? e : ue(e) ? ii(e).replace(/[a-z]+/gi, '') : 0),
+    Qt = (e) => parseInt(hn(e), 10),
+    Ma = (e) => parseFloat(hn(e)),
+    dt = (e) => He(e) && isFinite(e) && Math.floor(e) === e,
+    Oa = (e, t = 1e3) => {
+        if (dt(e)) return e;
+        let i = ii(e).trim();
         return /MB$/i.test(i)
-            ? ((i = i.replace(/MB$i/, '').trim()), Yt(i) * t * t)
+            ? ((i = i.replace(/MB$i/, '').trim()), Qt(i) * t * t)
             : /KB/i.test(i)
-              ? ((i = i.replace(/KB$i/, '').trim()), Yt(i) * t)
-              : Yt(i);
+              ? ((i = i.replace(/KB$i/, '').trim()), Qt(i) * t)
+              : Qt(i);
     },
-    Ue = (e) => typeof e == 'function',
-    ol = (e) => {
+    We = (e) => typeof e == 'function',
+    fl = (e) => {
         let t = self,
             i = e.split('.'),
             a = null;
         for (; (a = i.shift()); ) if (((t = t[a]), !t)) return null;
         return t;
     },
-    Aa = {
+    xa = {
         process: 'POST',
         patch: 'PATCH',
         revert: 'DELETE',
@@ -660,25 +660,25 @@ var Wo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
         restore: 'GET',
         load: 'GET',
     },
-    ll = (e) => {
+    pl = (e) => {
         let t = {};
         return (
-            (t.url = ce(e) ? e : e.url || ''),
+            (t.url = ue(e) ? e : e.url || ''),
             (t.timeout = e.timeout ? parseInt(e.timeout, 10) : 0),
             (t.headers = e.headers ? e.headers : {}),
-            Q(Aa, (i) => {
-                t[i] = sl(i, e[i], Aa[i], t.timeout, t.headers);
+            J(xa, (i) => {
+                t[i] = ml(i, e[i], xa[i], t.timeout, t.headers);
             }),
-            (t.process = e.process || ce(e) || e.url ? t.process : null),
+            (t.process = e.process || ue(e) || e.url ? t.process : null),
             (t.remove = e.remove || null),
             delete t.headers,
             t
         );
     },
-    sl = (e, t, i, a, n) => {
+    ml = (e, t, i, a, n) => {
         if (t === null) return null;
         if (typeof t == 'function') return t;
-        let o = {
+        let r = {
             url: i === 'GET' || i === 'PATCH' ? `?${e}=` : '',
             method: i,
             headers: n,
@@ -688,30 +688,30 @@ var Wo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
             ondata: null,
             onerror: null,
         };
-        if (ce(t)) return (o.url = t), o;
-        if ((Object.assign(o, t), ce(o.headers))) {
-            let r = o.headers.split(/:(.+)/);
-            o.headers = { header: r[0], value: r[1] };
+        if (ue(t)) return (r.url = t), r;
+        if ((Object.assign(r, t), ue(r.headers))) {
+            let o = r.headers.split(/:(.+)/);
+            r.headers = { header: o[0], value: o[1] };
         }
-        return (o.withCredentials = on(o.withCredentials)), o;
+        return (r.withCredentials = un(r.withCredentials)), r;
     },
-    cl = (e) => ll(e),
-    dl = (e) => e === null,
-    re = (e) => typeof e == 'object' && e !== null,
-    ul = (e) => re(e) && ce(e.url) && re(e.process) && re(e.revert) && re(e.restore) && re(e.fetch),
-    bi = (e) =>
-        Qt(e)
+    gl = (e) => pl(e),
+    El = (e) => e === null,
+    oe = (e) => typeof e == 'object' && e !== null,
+    Tl = (e) => oe(e) && ue(e.url) && oe(e.process) && oe(e.revert) && oe(e.restore) && oe(e.fetch),
+    wi = (e) =>
+        ti(e)
             ? 'array'
-            : dl(e)
+            : El(e)
               ? 'null'
-              : lt(e)
+              : dt(e)
                 ? 'int'
                 : /^[0-9]+ ?(?:GB|MB|KB)$/gi.test(e)
                   ? 'bytes'
-                  : ul(e)
+                  : Tl(e)
                     ? 'api'
                     : typeof e,
-    hl = (e) =>
+    Il = (e) =>
         e
             .replace(/{\s*'/g, '{"')
             .replace(/'\s*}/g, '"}')
@@ -719,124 +719,124 @@ var Wo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
             .replace(/:\s*'/g, ':"')
             .replace(/,\s*'/g, ',"')
             .replace(/'\s*,/g, '",'),
-    fl = {
-        array: rl,
-        boolean: on,
-        int: (e) => (bi(e) === 'bytes' ? wa(e) : Yt(e)),
-        number: Sa,
-        float: Sa,
-        bytes: wa,
-        string: (e) => (Ue(e) ? e : Zt(e)),
-        function: (e) => ol(e),
-        serverapi: cl,
+    bl = {
+        array: hl,
+        boolean: un,
+        int: (e) => (wi(e) === 'bytes' ? Oa(e) : Qt(e)),
+        number: Ma,
+        float: Ma,
+        bytes: Oa,
+        string: (e) => (We(e) ? e : ii(e)),
+        function: (e) => fl(e),
+        serverapi: gl,
         object: (e) => {
             try {
-                return JSON.parse(hl(e));
+                return JSON.parse(Il(e));
             } catch {
                 return null;
             }
         },
     },
-    pl = (e, t) => fl[t](e),
-    sn = (e, t, i) => {
+    _l = (e, t) => bl[t](e),
+    fn = (e, t, i) => {
         if (e === t) return e;
-        let a = bi(e);
+        let a = wi(e);
         if (a !== i) {
-            let n = pl(e, i);
-            if (((a = bi(n)), n === null))
+            let n = _l(e, i);
+            if (((a = wi(n)), n === null))
                 throw `Trying to assign value with incorrect type to "${option}", allowed type: "${i}"`;
             e = n;
         }
         return e;
     },
-    ml = (e, t) => {
+    Rl = (e, t) => {
         let i = e;
         return {
             enumerable: !0,
             get: () => i,
             set: (a) => {
-                i = sn(a, e, t);
+                i = fn(a, e, t);
             },
         };
     },
-    gl = (e) => {
+    yl = (e) => {
         let t = {};
         return (
-            Q(e, (i) => {
+            J(e, (i) => {
                 let a = e[i];
-                t[i] = ml(a[0], a[1]);
+                t[i] = Rl(a[0], a[1]);
             }),
-            Fe(t)
+            Be(t)
         );
     },
-    El = (e) => ({
+    Sl = (e) => ({
         items: [],
         listUpdateTimeout: null,
         itemUpdateTimeout: null,
         processingQueue: [],
-        options: gl(e),
+        options: yl(e),
     }),
-    Kt = (e, t = '-') =>
+    ai = (e, t = '-') =>
         e
             .split(/(?=[A-Z])/)
             .map((i) => i.toLowerCase())
             .join(t),
-    Tl = (e, t) => {
+    wl = (e, t) => {
         let i = {};
         return (
-            Q(t, (a) => {
+            J(t, (a) => {
                 i[a] = {
                     get: () => e.getState().options[a],
                     set: (n) => {
-                        e.dispatch(`SET_${Kt(a, '_').toUpperCase()}`, { value: n });
+                        e.dispatch(`SET_${ai(a, '_').toUpperCase()}`, { value: n });
                     },
                 };
             }),
             i
         );
     },
-    Il = (e) => (t, i, a) => {
+    vl = (e) => (t, i, a) => {
         let n = {};
         return (
-            Q(e, (o) => {
-                let r = Kt(o, '_').toUpperCase();
-                n[`SET_${r}`] = (l) => {
+            J(e, (r) => {
+                let o = ai(r, '_').toUpperCase();
+                n[`SET_${o}`] = (l) => {
                     try {
-                        a.options[o] = l.value;
+                        a.options[r] = l.value;
                     } catch {}
-                    t(`DID_SET_${r}`, { value: a.options[o] });
+                    t(`DID_SET_${o}`, { value: a.options[r] });
                 };
             }),
             n
         );
     },
-    bl = (e) => (t) => {
+    Al = (e) => (t) => {
         let i = {};
         return (
-            Q(e, (a) => {
-                i[`GET_${Kt(a, '_').toUpperCase()}`] = (n) => t.options[a];
+            J(e, (a) => {
+                i[`GET_${ai(a, '_').toUpperCase()}`] = (n) => t.options[a];
             }),
             i
         );
     },
-    Ie = { API: 1, DROP: 2, BROWSE: 3, PASTE: 4, NONE: 5 },
-    Ci = () => Math.random().toString(36).substring(2, 11),
-    Fi = (e, t) => e.splice(t, 1),
-    _l = (e, t) => {
+    _e = { API: 1, DROP: 2, BROWSE: 3, PASTE: 4, NONE: 5 },
+    Gi = () => Math.random().toString(36).substring(2, 11),
+    Vi = (e, t) => e.splice(t, 1),
+    Ll = (e, t) => {
         t ? e() : document.hidden ? Promise.resolve(1).then(e) : setTimeout(e, 0);
     },
-    Jt = () => {
+    ni = () => {
         let e = [],
             t = (a, n) => {
-                Fi(
+                Vi(
                     e,
-                    e.findIndex((o) => o.event === a && (o.cb === n || !n)),
+                    e.findIndex((r) => r.event === a && (r.cb === n || !n)),
                 );
             },
-            i = (a, n, o) => {
-                e.filter((r) => r.event === a)
-                    .map((r) => r.cb)
-                    .forEach((r) => _l(() => r(...n), o));
+            i = (a, n, r) => {
+                e.filter((o) => o.event === a)
+                    .map((o) => o.cb)
+                    .forEach((o) => Ll(() => o(...n), r));
             };
         return {
             fireSync: (a, ...n) => {
@@ -851,20 +851,20 @@ var Wo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
             onOnce: (a, n) => {
                 e.push({
                     event: a,
-                    cb: (...o) => {
-                        t(a, n), n(...o);
+                    cb: (...r) => {
+                        t(a, n), n(...r);
                     },
                 });
             },
             off: t,
         };
     },
-    cn = (e, t, i) => {
+    pn = (e, t, i) => {
         Object.getOwnPropertyNames(e)
             .filter((a) => !i.includes(a))
             .forEach((a) => Object.defineProperty(t, a, Object.getOwnPropertyDescriptor(e, a)));
     },
-    Rl = [
+    Ml = [
         'fire',
         'process',
         'revert',
@@ -881,16 +881,16 @@ var Wo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
         'requestProcessing',
         'freeze',
     ],
-    ue = (e) => {
+    fe = (e) => {
         let t = {};
-        return cn(e, t, Rl), t;
+        return pn(e, t, Ml), t;
     },
-    yl = (e) => {
+    Ol = (e) => {
         e.forEach((t, i) => {
-            t.released && Fi(e, i);
+            t.released && Vi(e, i);
         });
     },
-    k = {
+    H = {
         INIT: 1,
         IDLE: 2,
         PROCESSING_QUEUED: 9,
@@ -901,14 +901,14 @@ var Wo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
         LOADING: 7,
         LOAD_ERROR: 8,
     },
-    ne = { INPUT: 1, LIMBO: 2, LOCAL: 3 },
-    dn = (e) => /[^0-9]+/.exec(e),
-    un = () => dn((1.1).toLocaleString())[0],
-    Sl = () => {
-        let e = un(),
+    re = { INPUT: 1, LIMBO: 2, LOCAL: 3 },
+    mn = (e) => /[^0-9]+/.exec(e),
+    gn = () => mn((1.1).toLocaleString())[0],
+    xl = () => {
+        let e = gn(),
             t = (1e3).toLocaleString(),
             i = (1e3).toString();
-        return t !== i ? dn(t)[0] : e === '.' ? ',' : '.';
+        return t !== i ? mn(t)[0] : e === '.' ? ',' : '.';
     },
     M = {
         BOOLEAN: 'boolean',
@@ -922,29 +922,29 @@ var Wo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
         SERVER_API: 'serverapi',
         REGEX: 'regex',
     },
-    zi = [],
-    ye = (e, t, i) =>
+    Ui = [],
+    we = (e, t, i) =>
         new Promise((a, n) => {
-            let o = zi.filter((l) => l.key === e).map((l) => l.cb);
-            if (o.length === 0) {
+            let r = Ui.filter((l) => l.key === e).map((l) => l.cb);
+            if (r.length === 0) {
                 a(t);
                 return;
             }
-            let r = o.shift();
-            o.reduce((l, s) => l.then((u) => s(u, i)), r(t, i))
+            let o = r.shift();
+            r.reduce((l, s) => l.then((u) => s(u, i)), o(t, i))
                 .then((l) => a(l))
                 .catch((l) => n(l));
         }),
-    $e = (e, t, i) => zi.filter((a) => a.key === e).map((a) => a.cb(t, i)),
-    wl = (e, t) => zi.push({ key: e, cb: t }),
-    Al = (e) => Object.assign(et, e),
-    qt = () => ({ ...et }),
-    vl = (e) => {
-        Q(e, (t, i) => {
-            et[t] && (et[t][0] = sn(i, et[t][0], et[t][1]));
+    je = (e, t, i) => Ui.filter((a) => a.key === e).map((a) => a.cb(t, i)),
+    Dl = (e, t) => Ui.push({ key: e, cb: t }),
+    Pl = (e) => Object.assign(at, e),
+    Kt = () => ({ ...at }),
+    Fl = (e) => {
+        J(e, (t, i) => {
+            at[t] && (at[t][0] = fn(i, at[t][0], at[t][1]));
         });
     },
-    et = {
+    at = {
         id: [null, M.STRING],
         name: ['filepond', M.STRING],
         disabled: [!1, M.BOOLEAN],
@@ -986,8 +986,8 @@ var Wo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
         labelFileSizeKilobytes: ['KB', M.STRING],
         labelFileSizeMegabytes: ['MB', M.STRING],
         labelFileSizeGigabytes: ['GB', M.STRING],
-        labelDecimalSeparator: [un(), M.STRING],
-        labelThousandsSeparator: [Sl(), M.STRING],
+        labelDecimalSeparator: [gn(), M.STRING],
+        labelThousandsSeparator: [xl(), M.STRING],
         labelIdle: [
             'Drag & Drop your files or <span class="filepond--label-action">Browse</span>',
             M.STRING,
@@ -1070,59 +1070,59 @@ var Wo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
         files: [[], M.ARRAY],
         credits: [['https://pqina.nl/', 'Powered by PQINA'], M.ARRAY],
     },
-    ke = (e, t) =>
-        xe(t)
+    Ye = (e, t) =>
+        Fe(t)
             ? e[0] || null
-            : lt(t)
+            : dt(t)
               ? e[t] || null
               : (typeof t == 'object' && (t = t.id), e.find((i) => i.id === t) || null),
-    hn = (e) => {
-        if (xe(e)) return e;
+    En = (e) => {
+        if (Fe(e)) return e;
         if (/:/.test(e)) {
             let t = e.split(':');
             return t[1] / t[0];
         }
         return parseFloat(e);
     },
-    Se = (e) => e.filter((t) => !t.archived),
-    fn = { EMPTY: 0, IDLE: 1, ERROR: 2, BUSY: 3, READY: 4 },
-    Gt = null,
-    Ll = () => {
-        if (Gt === null)
+    ve = (e) => e.filter((t) => !t.archived),
+    Tn = { EMPTY: 0, IDLE: 1, ERROR: 2, BUSY: 3, READY: 4 },
+    Wt = null,
+    Cl = () => {
+        if (Wt === null)
             try {
                 let e = new DataTransfer();
                 e.items.add(new File(['hello world'], 'This_Works.txt'));
                 let t = document.createElement('input');
-                t.setAttribute('type', 'file'), (t.files = e.files), (Gt = t.files.length === 1);
+                t.setAttribute('type', 'file'), (t.files = e.files), (Wt = t.files.length === 1);
             } catch {
-                Gt = !1;
+                Wt = !1;
             }
-        return Gt;
+        return Wt;
     },
-    Ml = [k.LOAD_ERROR, k.PROCESSING_ERROR, k.PROCESSING_REVERT_ERROR],
-    Ol = [k.LOADING, k.PROCESSING, k.PROCESSING_QUEUED, k.INIT],
-    Dl = [k.PROCESSING_COMPLETE],
-    xl = (e) => Ml.includes(e.status),
-    Pl = (e) => Ol.includes(e.status),
-    Cl = (e) => Dl.includes(e.status),
-    va = (e) =>
-        re(e.options.server) && (re(e.options.server.process) || Ue(e.options.server.process)),
-    Fl = (e) => ({
+    zl = [H.LOAD_ERROR, H.PROCESSING_ERROR, H.PROCESSING_REVERT_ERROR],
+    Nl = [H.LOADING, H.PROCESSING, H.PROCESSING_QUEUED, H.INIT],
+    Bl = [H.PROCESSING_COMPLETE],
+    Gl = (e) => zl.includes(e.status),
+    Vl = (e) => Nl.includes(e.status),
+    Ul = (e) => Bl.includes(e.status),
+    Da = (e) =>
+        oe(e.options.server) && (oe(e.options.server.process) || We(e.options.server.process)),
+    kl = (e) => ({
         GET_STATUS: () => {
-            let t = Se(e.items),
-                { EMPTY: i, ERROR: a, BUSY: n, IDLE: o, READY: r } = fn;
-            return t.length === 0 ? i : t.some(xl) ? a : t.some(Pl) ? n : t.some(Cl) ? r : o;
+            let t = ve(e.items),
+                { EMPTY: i, ERROR: a, BUSY: n, IDLE: r, READY: o } = Tn;
+            return t.length === 0 ? i : t.some(Gl) ? a : t.some(Vl) ? n : t.some(Ul) ? o : r;
         },
-        GET_ITEM: (t) => ke(e.items, t),
-        GET_ACTIVE_ITEM: (t) => ke(Se(e.items), t),
-        GET_ACTIVE_ITEMS: () => Se(e.items),
+        GET_ITEM: (t) => Ye(e.items, t),
+        GET_ACTIVE_ITEM: (t) => Ye(ve(e.items), t),
+        GET_ACTIVE_ITEMS: () => ve(e.items),
         GET_ITEMS: () => e.items,
         GET_ITEM_NAME: (t) => {
-            let i = ke(e.items, t);
+            let i = Ye(e.items, t);
             return i ? i.filename : null;
         },
         GET_ITEM_SIZE: (t) => {
-            let i = ke(e.items, t);
+            let i = Ye(e.items, t);
             return i ? i.fileSize : null;
         },
         GET_STYLES: () =>
@@ -1130,12 +1130,12 @@ var Wo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
                 .filter((t) => /^style/.test(t))
                 .map((t) => ({ name: t, value: e.options[t] })),
         GET_PANEL_ASPECT_RATIO: () =>
-            /circle/.test(e.options.stylePanelLayout) ? 1 : hn(e.options.stylePanelAspectRatio),
+            /circle/.test(e.options.stylePanelLayout) ? 1 : En(e.options.stylePanelAspectRatio),
         GET_ITEM_PANEL_ASPECT_RATIO: () => e.options.styleItemPanelAspectRatio,
-        GET_ITEMS_BY_STATUS: (t) => Se(e.items).filter((i) => i.status === t),
-        GET_TOTAL_ITEMS: () => Se(e.items).length,
-        SHOULD_UPDATE_FILE_INPUT: () => e.options.storeAsFile && Ll() && !va(e),
-        IS_ASYNC: () => va(e),
+        GET_ITEMS_BY_STATUS: (t) => ve(e.items).filter((i) => i.status === t),
+        GET_TOTAL_ITEMS: () => ve(e.items).length,
+        SHOULD_UPDATE_FILE_INPUT: () => e.options.storeAsFile && Cl() && !Da(e),
+        IS_ASYNC: () => Da(e),
         GET_FILE_SIZE_LABELS: (t) => ({
             labelBytes: t('GET_LABEL_FILE_SIZE_BYTES') || void 0,
             labelKilobytes: t('GET_LABEL_FILE_SIZE_KILOBYTES') || void 0,
@@ -1143,23 +1143,23 @@ var Wo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
             labelGigabytes: t('GET_LABEL_FILE_SIZE_GIGABYTES') || void 0,
         }),
     }),
-    zl = (e) => {
-        let t = Se(e.items).length;
+    Hl = (e) => {
+        let t = ve(e.items).length;
         if (!e.options.allowMultiple) return t === 0;
         let i = e.options.maxFiles;
         return i === null || t < i;
     },
-    pn = (e, t, i) => Math.max(Math.min(i, e), t),
-    Nl = (e, t, i) => e.splice(t, 0, i),
-    Bl = (e, t, i) =>
-        xe(t) ? null : typeof i > 'u' ? (e.push(t), t) : ((i = pn(i, 0, e.length)), Nl(e, i, t), t),
-    _i = (e) =>
+    In = (e, t, i) => Math.max(Math.min(i, e), t),
+    Wl = (e, t, i) => e.splice(t, 0, i),
+    Yl = (e, t, i) =>
+        Fe(t) ? null : typeof i > 'u' ? (e.push(t), t) : ((i = In(i, 0, e.length)), Wl(e, i, t), t),
+    vi = (e) =>
         /^\s*data:([a-z]+\/[a-z0-9-+.]+(;[a-z-]+=[a-z0-9-]+)?)?(;base64)?,([a-z0-9!$&',()*+;=\-._~:@\/?%\s]*)\s*$/i.test(
             e,
         ),
-    St = (e) => e.split('/').pop().split('?').shift(),
-    ei = (e) => e.split('.').pop(),
-    Gl = (e) => {
+    Lt = (e) => e.split('/').pop().split('?').shift(),
+    ri = (e) => e.split('.').pop(),
+    $l = (e) => {
         if (typeof e != 'string') return '';
         let t = e.split('/').pop();
         return /svg/.test(t)
@@ -1176,54 +1176,54 @@ var Wo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
                         : t
                     : '';
     },
-    It = (e, t = '') => (t + e).slice(-t.length),
-    mn = (e = new Date()) =>
-        `${e.getFullYear()}-${It(e.getMonth() + 1, '00')}-${It(e.getDate(), '00')}_${It(
+    yt = (e, t = '') => (t + e).slice(-t.length),
+    bn = (e = new Date()) =>
+        `${e.getFullYear()}-${yt(e.getMonth() + 1, '00')}-${yt(e.getDate(), '00')}_${yt(
             e.getHours(),
             '00',
-        )}-${It(e.getMinutes(), '00')}-${It(e.getSeconds(), '00')}`,
-    rt = (e, t, i = null, a = null) => {
+        )}-${yt(e.getMinutes(), '00')}-${yt(e.getSeconds(), '00')}`,
+    st = (e, t, i = null, a = null) => {
         let n = typeof i == 'string' ? e.slice(0, e.size, i) : e.slice(0, e.size, e.type);
         return (
             (n.lastModifiedDate = new Date()),
             e._relativePath && (n._relativePath = e._relativePath),
-            ce(t) || (t = mn()),
-            t && a === null && ei(t)
+            ue(t) || (t = bn()),
+            t && a === null && ri(t)
                 ? (n.name = t)
-                : ((a = a || Gl(n.type)), (n.name = t + (a ? '.' + a : ''))),
+                : ((a = a || $l(n.type)), (n.name = t + (a ? '.' + a : ''))),
             n
         );
     },
-    Vl = () =>
+    ql = () =>
         (window.BlobBuilder =
             window.BlobBuilder ||
             window.WebKitBlobBuilder ||
             window.MozBlobBuilder ||
             window.MSBlobBuilder),
-    gn = (e, t) => {
-        let i = Vl();
+    _n = (e, t) => {
+        let i = ql();
         if (i) {
             let a = new i();
             return a.append(e), a.getBlob(t);
         }
         return new Blob([e], { type: t });
     },
-    Ul = (e, t) => {
+    Xl = (e, t) => {
         let i = new ArrayBuffer(e.length),
             a = new Uint8Array(i);
         for (let n = 0; n < e.length; n++) a[n] = e.charCodeAt(n);
-        return gn(i, t);
+        return _n(i, t);
     },
-    En = (e) => (/^data:(.+);/.exec(e) || [])[1] || null,
-    kl = (e) => e.split(',')[1].replace(/\s/g, ''),
-    Hl = (e) => atob(kl(e)),
-    Wl = (e) => {
-        let t = En(e),
-            i = Hl(e);
-        return Ul(i, t);
+    Rn = (e) => (/^data:(.+);/.exec(e) || [])[1] || null,
+    jl = (e) => e.split(',')[1].replace(/\s/g, ''),
+    Ql = (e) => atob(jl(e)),
+    Zl = (e) => {
+        let t = Rn(e),
+            i = Ql(e);
+        return Xl(i, t);
     },
-    Yl = (e, t, i) => rt(Wl(e), t, null, i),
-    $l = (e) => {
+    Kl = (e, t, i) => st(Zl(e), t, null, i),
+    Jl = (e) => {
         if (!/^content-disposition:/i.test(e)) return null;
         let t = e
             .split(/filename=|filename\*=.+''/)
@@ -1232,38 +1232,38 @@ var Wo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
             .filter((i) => i.length);
         return t.length ? decodeURI(t[t.length - 1]) : null;
     },
-    ql = (e) => {
+    es = (e) => {
         if (/content-length:/i.test(e)) {
             let t = e.match(/[0-9]+/)[0];
             return t ? parseInt(t, 10) : null;
         }
         return null;
     },
-    Xl = (e) => (/x-content-transfer-id:/i.test(e) && (e.split(':')[1] || '').trim()) || null,
-    Ni = (e) => {
+    ts = (e) => (/x-content-transfer-id:/i.test(e) && (e.split(':')[1] || '').trim()) || null,
+    ki = (e) => {
         let t = { source: null, name: null, size: null },
             i = e.split(`
 `);
         for (let a of i) {
-            let n = $l(a);
+            let n = Jl(a);
             if (n) {
                 t.name = n;
                 continue;
             }
-            let o = ql(a);
-            if (o) {
-                t.size = o;
+            let r = es(a);
+            if (r) {
+                t.size = r;
                 continue;
             }
-            let r = Xl(a);
-            if (r) {
-                t.source = r;
+            let o = ts(a);
+            if (o) {
+                t.source = o;
                 continue;
             }
         }
         return t;
     },
-    jl = (e) => {
+    is = (e) => {
         let t = {
                 source: null,
                 complete: !1,
@@ -1279,18 +1279,18 @@ var Wo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
             },
             n = () => {
                 let l = t.source;
-                r.fire('init', l),
+                o.fire('init', l),
                     l instanceof File
-                        ? r.fire('load', l)
+                        ? o.fire('load', l)
                         : l instanceof Blob
-                          ? r.fire('load', rt(l, l.name))
-                          : _i(l)
-                            ? r.fire('load', Yl(l))
-                            : o(l);
+                          ? o.fire('load', st(l, l.name))
+                          : vi(l)
+                            ? o.fire('load', Kl(l))
+                            : r(l);
             },
-            o = (l) => {
+            r = (l) => {
                 if (!e) {
-                    r.fire('error', { type: 'error', body: "Can't load URL", code: 400 });
+                    o.fire('error', { type: 'error', body: "Can't load URL", code: 400 });
                     return;
                 }
                 (t.timestamp = Date.now()),
@@ -1299,11 +1299,11 @@ var Wo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
                         (s) => {
                             (t.duration = Date.now() - t.timestamp),
                                 (t.complete = !0),
-                                s instanceof Blob && (s = rt(s, s.name || St(l))),
-                                r.fire('load', s instanceof Blob ? s : s ? s.body : null);
+                                s instanceof Blob && (s = st(s, s.name || Lt(l))),
+                                o.fire('load', s instanceof Blob ? s : s ? s.body : null);
                         },
                         (s) => {
-                            r.fire(
+                            o.fire(
                                 'error',
                                 typeof s == 'string' ? { type: 'error', code: 0, body: s } : s,
                             );
@@ -1313,14 +1313,14 @@ var Wo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
                                 t.progress = null;
                                 return;
                             }
-                            (t.progress = u / c), r.fire('progress', t.progress);
+                            (t.progress = u / c), o.fire('progress', t.progress);
                         },
                         () => {
-                            r.fire('abort');
+                            o.fire('abort');
                         },
                         (s) => {
-                            let u = Ni(typeof s == 'string' ? s : s.headers);
-                            r.fire('meta', {
+                            let u = ki(typeof s == 'string' ? s : s.headers);
+                            o.fire('meta', {
                                 size: t.size || u.size,
                                 filename: u.name,
                                 source: u.source,
@@ -1328,11 +1328,11 @@ var Wo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
                         },
                     ));
             },
-            r = { ...Jt(), setSource: (l) => (t.source = l), getProgress: i, abort: a, load: n };
-        return r;
+            o = { ...ni(), setSource: (l) => (t.source = l), getProgress: i, abort: a, load: n };
+        return o;
     },
-    La = (e) => /GET|HEAD/.test(e),
-    He = (e, t, i) => {
+    Pa = (e) => /GET|HEAD/.test(e),
+    $e = (e, t, i) => {
         let a = {
                 onheaders: () => {},
                 onprogress: () => {},
@@ -1341,78 +1341,78 @@ var Wo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
                 onerror: () => {},
                 onabort: () => {},
                 abort: () => {
-                    (n = !0), r.abort();
+                    (n = !0), o.abort();
                 },
             },
             n = !1,
-            o = !1;
+            r = !1;
         (i = { method: 'POST', headers: {}, withCredentials: !1, ...i }),
             (t = encodeURI(t)),
-            La(i.method) &&
+            Pa(i.method) &&
                 e &&
                 (t = `${t}${encodeURIComponent(typeof e == 'string' ? e : JSON.stringify(e))}`);
-        let r = new XMLHttpRequest(),
-            l = La(i.method) ? r : r.upload;
+        let o = new XMLHttpRequest(),
+            l = Pa(i.method) ? o : o.upload;
         return (
             (l.onprogress = (s) => {
                 n || a.onprogress(s.lengthComputable, s.loaded, s.total);
             }),
-            (r.onreadystatechange = () => {
-                r.readyState < 2 ||
-                    (r.readyState === 4 && r.status === 0) ||
-                    o ||
-                    ((o = !0), a.onheaders(r));
+            (o.onreadystatechange = () => {
+                o.readyState < 2 ||
+                    (o.readyState === 4 && o.status === 0) ||
+                    r ||
+                    ((r = !0), a.onheaders(o));
             }),
-            (r.onload = () => {
-                r.status >= 200 && r.status < 300 ? a.onload(r) : a.onerror(r);
+            (o.onload = () => {
+                o.status >= 200 && o.status < 300 ? a.onload(o) : a.onerror(o);
             }),
-            (r.onerror = () => a.onerror(r)),
-            (r.onabort = () => {
+            (o.onerror = () => a.onerror(o)),
+            (o.onabort = () => {
                 (n = !0), a.onabort();
             }),
-            (r.ontimeout = () => a.ontimeout(r)),
-            r.open(i.method, t, !0),
-            lt(i.timeout) && (r.timeout = i.timeout),
+            (o.ontimeout = () => a.ontimeout(o)),
+            o.open(i.method, t, !0),
+            dt(i.timeout) && (o.timeout = i.timeout),
             Object.keys(i.headers).forEach((s) => {
                 let u = unescape(encodeURIComponent(i.headers[s]));
-                r.setRequestHeader(s, u);
+                o.setRequestHeader(s, u);
             }),
-            i.responseType && (r.responseType = i.responseType),
-            i.withCredentials && (r.withCredentials = !0),
-            r.send(e),
+            i.responseType && (o.responseType = i.responseType),
+            i.withCredentials && (o.withCredentials = !0),
+            o.send(e),
             a
         );
     },
-    K = (e, t, i, a) => ({ type: e, code: t, body: i, headers: a }),
-    We = (e) => (t) => {
-        e(K('error', 0, 'Timeout', t.getAllResponseHeaders()));
+    ee = (e, t, i, a) => ({ type: e, code: t, body: i, headers: a }),
+    qe = (e) => (t) => {
+        e(ee('error', 0, 'Timeout', t.getAllResponseHeaders()));
     },
-    Ma = (e) => /\?/.test(e),
-    Rt = (...e) => {
+    Fa = (e) => /\?/.test(e),
+    vt = (...e) => {
         let t = '';
         return (
             e.forEach((i) => {
-                t += Ma(t) && Ma(i) ? i.replace(/\?/, '&') : i;
+                t += Fa(t) && Fa(i) ? i.replace(/\?/, '&') : i;
             }),
             t
         );
     },
-    pi = (e = '', t) => {
+    Ii = (e = '', t) => {
         if (typeof t == 'function') return t;
-        if (!t || !ce(t.url)) return null;
+        if (!t || !ue(t.url)) return null;
         let i = t.onload || ((n) => n),
             a = t.onerror || ((n) => null);
-        return (n, o, r, l, s, u) => {
-            let c = He(n, Rt(e, t.url), { ...t, responseType: 'blob' });
+        return (n, r, o, l, s, u) => {
+            let c = $e(n, vt(e, t.url), { ...t, responseType: 'blob' });
             return (
                 (c.onload = (d) => {
                     let h = d.getAllResponseHeaders(),
-                        p = Ni(h).name || St(n);
-                    o(K('load', d.status, t.method === 'HEAD' ? null : rt(i(d.response), p), h));
+                        f = ki(h).name || Lt(n);
+                    r(ee('load', d.status, t.method === 'HEAD' ? null : st(i(d.response), f), h));
                 }),
                 (c.onerror = (d) => {
-                    r(
-                        K(
+                    o(
+                        ee(
                             'error',
                             d.status,
                             a(d.response) || d.statusText,
@@ -1421,229 +1421,229 @@ var Wo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
                     );
                 }),
                 (c.onheaders = (d) => {
-                    u(K('headers', d.status, null, d.getAllResponseHeaders()));
+                    u(ee('headers', d.status, null, d.getAllResponseHeaders()));
                 }),
-                (c.ontimeout = We(r)),
+                (c.ontimeout = qe(o)),
                 (c.onprogress = l),
                 (c.onabort = s),
                 c
             );
         };
     },
-    Ee = { QUEUED: 0, COMPLETE: 1, PROCESSING: 2, ERROR: 3, WAITING: 4 },
-    Ql = (e, t, i, a, n, o, r, l, s, u, c) => {
+    Ie = { QUEUED: 0, COMPLETE: 1, PROCESSING: 2, ERROR: 3, WAITING: 4 },
+    as = (e, t, i, a, n, r, o, l, s, u, c) => {
         let d = [],
-            { chunkTransferId: h, chunkServer: p, chunkSize: f, chunkRetryDelays: m } = c,
-            E = { serverId: h, aborted: !1 },
-            b = t.ondata || ((v) => v),
-            g =
+            { chunkTransferId: h, chunkServer: f, chunkSize: p, chunkRetryDelays: m } = c,
+            g = { serverId: h, aborted: !1 },
+            b = t.ondata || ((A) => A),
+            E =
                 t.onload ||
-                ((v, F) => (F === 'HEAD' ? v.getResponseHeader('Upload-Offset') : v.response)),
-            T = t.onerror || ((v) => null),
-            _ = (v) => {
+                ((A, F) => (F === 'HEAD' ? A.getResponseHeader('Upload-Offset') : A.response)),
+            T = t.onerror || ((A) => null),
+            _ = (A) => {
                 let F = new FormData();
-                re(n) && F.append(i, JSON.stringify(n));
+                oe(n) && F.append(i, JSON.stringify(n));
                 let w =
                         typeof t.headers == 'function'
                             ? t.headers(a, n)
                             : { ...t.headers, 'Upload-Length': a.size },
                     L = { ...t, headers: w },
-                    z = He(b(F), Rt(e, t.url), L);
-                (z.onload = (C) => v(g(C, L.method))),
-                    (z.onerror = (C) =>
-                        r(
-                            K(
+                    N = $e(b(F), vt(e, t.url), L);
+                (N.onload = (P) => A(E(P, L.method))),
+                    (N.onerror = (P) =>
+                        o(
+                            ee(
                                 'error',
-                                C.status,
-                                T(C.response) || C.statusText,
-                                C.getAllResponseHeaders(),
+                                P.status,
+                                T(P.response) || P.statusText,
+                                P.getAllResponseHeaders(),
                             ),
                         )),
-                    (z.ontimeout = We(r));
+                    (N.ontimeout = qe(o));
             },
-            y = (v) => {
-                let F = Rt(e, p.url, E.serverId),
+            y = (A) => {
+                let F = vt(e, f.url, g.serverId),
                     L = {
                         headers:
                             typeof t.headers == 'function'
-                                ? t.headers(E.serverId)
+                                ? t.headers(g.serverId)
                                 : { ...t.headers },
                         method: 'HEAD',
                     },
-                    z = He(null, F, L);
-                (z.onload = (C) => v(g(C, L.method))),
-                    (z.onerror = (C) =>
-                        r(
-                            K(
+                    N = $e(null, F, L);
+                (N.onload = (P) => A(E(P, L.method))),
+                    (N.onerror = (P) =>
+                        o(
+                            ee(
                                 'error',
-                                C.status,
-                                T(C.response) || C.statusText,
-                                C.getAllResponseHeaders(),
+                                P.status,
+                                T(P.response) || P.statusText,
+                                P.getAllResponseHeaders(),
                             ),
                         )),
-                    (z.ontimeout = We(r));
+                    (N.ontimeout = qe(o));
             },
-            I = Math.floor(a.size / f);
-        for (let v = 0; v <= I; v++) {
-            let F = v * f,
-                w = a.slice(F, F + f, 'application/offset+octet-stream');
-            d[v] = {
-                index: v,
+            I = Math.floor(a.size / p);
+        for (let A = 0; A <= I; A++) {
+            let F = A * p,
+                w = a.slice(F, F + p, 'application/offset+octet-stream');
+            d[A] = {
+                index: A,
                 size: w.size,
                 offset: F,
                 data: w,
                 file: a,
                 progress: 0,
                 retries: [...m],
-                status: Ee.QUEUED,
+                status: Ie.QUEUED,
                 error: null,
                 request: null,
                 timeout: null,
             };
         }
-        let A = () => o(E.serverId),
-            R = (v) => v.status === Ee.QUEUED || v.status === Ee.ERROR,
-            S = (v) => {
-                if (E.aborted) return;
-                if (((v = v || d.find(R)), !v)) {
-                    d.every((G) => G.status === Ee.COMPLETE) && A();
+        let v = () => r(g.serverId),
+            R = (A) => A.status === Ie.QUEUED || A.status === Ie.ERROR,
+            S = (A) => {
+                if (g.aborted) return;
+                if (((A = A || d.find(R)), !A)) {
+                    d.every((U) => U.status === Ie.COMPLETE) && v();
                     return;
                 }
-                (v.status = Ee.PROCESSING), (v.progress = null);
-                let F = p.ondata || ((G) => G),
-                    w = p.onerror || ((G) => null),
-                    L = Rt(e, p.url, E.serverId),
-                    z =
-                        typeof p.headers == 'function'
-                            ? p.headers(v)
+                (A.status = Ie.PROCESSING), (A.progress = null);
+                let F = f.ondata || ((U) => U),
+                    w = f.onerror || ((U) => null),
+                    L = vt(e, f.url, g.serverId),
+                    N =
+                        typeof f.headers == 'function'
+                            ? f.headers(A)
                             : {
-                                  ...p.headers,
+                                  ...f.headers,
                                   'Content-Type': 'application/offset+octet-stream',
-                                  'Upload-Offset': v.offset,
+                                  'Upload-Offset': A.offset,
                                   'Upload-Length': a.size,
                                   'Upload-Name': a.name,
                               },
-                    C = (v.request = He(F(v.data), L, { ...p, headers: z }));
-                (C.onload = () => {
-                    (v.status = Ee.COMPLETE), (v.request = null), O();
+                    P = (A.request = $e(F(A.data), L, { ...f, headers: N }));
+                (P.onload = () => {
+                    (A.status = Ie.COMPLETE), (A.request = null), O();
                 }),
-                    (C.onprogress = (G, x, B) => {
-                        (v.progress = G ? x : null), D();
+                    (P.onprogress = (U, V, q) => {
+                        (A.progress = U ? V : null), x();
                     }),
-                    (C.onerror = (G) => {
-                        (v.status = Ee.ERROR),
-                            (v.request = null),
-                            (v.error = w(G.response) || G.statusText),
-                            P(v) ||
-                                r(
-                                    K(
+                    (P.onerror = (U) => {
+                        (A.status = Ie.ERROR),
+                            (A.request = null),
+                            (A.error = w(U.response) || U.statusText),
+                            D(A) ||
+                                o(
+                                    ee(
                                         'error',
-                                        G.status,
-                                        w(G.response) || G.statusText,
-                                        G.getAllResponseHeaders(),
+                                        U.status,
+                                        w(U.response) || U.statusText,
+                                        U.getAllResponseHeaders(),
                                     ),
                                 );
                     }),
-                    (C.ontimeout = (G) => {
-                        (v.status = Ee.ERROR), (v.request = null), P(v) || We(r)(G);
+                    (P.ontimeout = (U) => {
+                        (A.status = Ie.ERROR), (A.request = null), D(A) || qe(o)(U);
                     }),
-                    (C.onabort = () => {
-                        (v.status = Ee.QUEUED), (v.request = null), s();
+                    (P.onabort = () => {
+                        (A.status = Ie.QUEUED), (A.request = null), s();
                     });
             },
-            P = (v) =>
-                v.retries.length === 0
+            D = (A) =>
+                A.retries.length === 0
                     ? !1
-                    : ((v.status = Ee.WAITING),
-                      clearTimeout(v.timeout),
-                      (v.timeout = setTimeout(() => {
-                          S(v);
-                      }, v.retries.shift())),
+                    : ((A.status = Ie.WAITING),
+                      clearTimeout(A.timeout),
+                      (A.timeout = setTimeout(() => {
+                          S(A);
+                      }, A.retries.shift())),
                       !0),
-            D = () => {
-                let v = d.reduce(
+            x = () => {
+                let A = d.reduce(
                     (w, L) => (w === null || L.progress === null ? null : w + L.progress),
                     0,
                 );
-                if (v === null) return l(!1, 0, 0);
+                if (A === null) return l(!1, 0, 0);
                 let F = d.reduce((w, L) => w + L.size, 0);
-                l(!0, v, F);
+                l(!0, A, F);
             },
             O = () => {
-                d.filter((F) => F.status === Ee.PROCESSING).length >= 1 || S();
+                d.filter((F) => F.status === Ie.PROCESSING).length >= 1 || S();
             },
-            N = () => {
-                d.forEach((v) => {
-                    clearTimeout(v.timeout), v.request && v.request.abort();
+            B = () => {
+                d.forEach((A) => {
+                    clearTimeout(A.timeout), A.request && A.request.abort();
                 });
             };
         return (
-            E.serverId
-                ? y((v) => {
-                      E.aborted ||
+            g.serverId
+                ? y((A) => {
+                      g.aborted ||
                           (d
-                              .filter((F) => F.offset < v)
+                              .filter((F) => F.offset < A)
                               .forEach((F) => {
-                                  (F.status = Ee.COMPLETE), (F.progress = F.size);
+                                  (F.status = Ie.COMPLETE), (F.progress = F.size);
                               }),
                           O());
                   })
-                : _((v) => {
-                      E.aborted || (u(v), (E.serverId = v), O());
+                : _((A) => {
+                      g.aborted || (u(A), (g.serverId = A), O());
                   }),
             {
                 abort: () => {
-                    (E.aborted = !0), N();
+                    (g.aborted = !0), B();
                 },
             }
         );
     },
-    Zl = (e, t, i, a) => (n, o, r, l, s, u, c) => {
+    ns = (e, t, i, a) => (n, r, o, l, s, u, c) => {
         if (!n) return;
         let d = a.chunkUploads,
             h = d && n.size > a.chunkSize,
-            p = d && (h || a.chunkForce);
-        if (n instanceof Blob && p) return Ql(e, t, i, n, o, r, l, s, u, c, a);
-        let f = t.ondata || ((y) => y),
+            f = d && (h || a.chunkForce);
+        if (n instanceof Blob && f) return as(e, t, i, n, r, o, l, s, u, c, a);
+        let p = t.ondata || ((y) => y),
             m = t.onload || ((y) => y),
-            E = t.onerror || ((y) => null),
-            b = typeof t.headers == 'function' ? t.headers(n, o) || {} : { ...t.headers },
-            g = { ...t, headers: b };
+            g = t.onerror || ((y) => null),
+            b = typeof t.headers == 'function' ? t.headers(n, r) || {} : { ...t.headers },
+            E = { ...t, headers: b };
         var T = new FormData();
-        re(o) && T.append(i, JSON.stringify(o)),
+        oe(r) && T.append(i, JSON.stringify(r)),
             (n instanceof Blob ? [{ name: null, file: n }] : n).forEach((y) => {
                 T.append(i, y.file, y.name === null ? y.file.name : `${y.name}${y.file.name}`);
             });
-        let _ = He(f(T), Rt(e, t.url), g);
+        let _ = $e(p(T), vt(e, t.url), E);
         return (
             (_.onload = (y) => {
-                r(K('load', y.status, m(y.response), y.getAllResponseHeaders()));
+                o(ee('load', y.status, m(y.response), y.getAllResponseHeaders()));
             }),
             (_.onerror = (y) => {
-                l(K('error', y.status, E(y.response) || y.statusText, y.getAllResponseHeaders()));
+                l(ee('error', y.status, g(y.response) || y.statusText, y.getAllResponseHeaders()));
             }),
-            (_.ontimeout = We(l)),
+            (_.ontimeout = qe(l)),
             (_.onprogress = s),
             (_.onabort = u),
             _
         );
     },
-    Kl = (e = '', t, i, a) =>
-        typeof t == 'function' ? (...n) => t(i, ...n, a) : !t || !ce(t.url) ? null : Zl(e, t, i, a),
-    bt = (e = '', t) => {
+    rs = (e = '', t, i, a) =>
+        typeof t == 'function' ? (...n) => t(i, ...n, a) : !t || !ue(t.url) ? null : ns(e, t, i, a),
+    St = (e = '', t) => {
         if (typeof t == 'function') return t;
-        if (!t || !ce(t.url)) return (n, o) => o();
+        if (!t || !ue(t.url)) return (n, r) => r();
         let i = t.onload || ((n) => n),
             a = t.onerror || ((n) => null);
-        return (n, o, r) => {
-            let l = He(n, e + t.url, t);
+        return (n, r, o) => {
+            let l = $e(n, e + t.url, t);
             return (
                 (l.onload = (s) => {
-                    o(K('load', s.status, i(s.response), s.getAllResponseHeaders()));
+                    r(ee('load', s.status, i(s.response), s.getAllResponseHeaders()));
                 }),
                 (l.onerror = (s) => {
-                    r(
-                        K(
+                    o(
+                        ee(
                             'error',
                             s.status,
                             a(s.response) || s.statusText,
@@ -1651,36 +1651,36 @@ var Wo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
                         ),
                     );
                 }),
-                (l.ontimeout = We(r)),
+                (l.ontimeout = qe(o)),
                 l
             );
         };
     },
-    Tn = (e = 0, t = 1) => e + Math.random() * (t - e),
-    Jl = (e, t = 1e3, i = 0, a = 25, n = 250) => {
-        let o = null,
-            r = Date.now(),
+    yn = (e = 0, t = 1) => e + Math.random() * (t - e),
+    os = (e, t = 1e3, i = 0, a = 25, n = 250) => {
+        let r = null,
+            o = Date.now(),
             l = () => {
-                let s = Date.now() - r,
-                    u = Tn(a, n);
+                let s = Date.now() - o,
+                    u = yn(a, n);
                 s + u > t && (u = s + u - t);
                 let c = s / t;
                 if (c >= 1 || document.hidden) {
                     e(1);
                     return;
                 }
-                e(c), (o = setTimeout(l, u));
+                e(c), (r = setTimeout(l, u));
             };
         return (
             t > 0 && l(),
             {
                 clear: () => {
-                    clearTimeout(o);
+                    clearTimeout(r);
                 },
             }
         );
     },
-    es = (e, t) => {
+    ls = (e, t) => {
         let i = {
                 complete: !1,
                 perceivedProgress: 0,
@@ -1699,61 +1699,61 @@ var Wo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
                             i.progress === null ||
                             u.fire('progress', u.getProgress());
                     },
-                    p = () => {
+                    f = () => {
                         (i.complete = !0), u.fire('load-perceived', i.response.body);
                     };
                 u.fire('start'),
                     (i.timestamp = Date.now()),
-                    (i.perceivedPerformanceUpdater = Jl(
-                        (f) => {
-                            (i.perceivedProgress = f),
+                    (i.perceivedPerformanceUpdater = os(
+                        (p) => {
+                            (i.perceivedProgress = p),
                                 (i.perceivedDuration = Date.now() - i.timestamp),
                                 h(),
-                                i.response && i.perceivedProgress === 1 && !i.complete && p();
+                                i.response && i.perceivedProgress === 1 && !i.complete && f();
                         },
-                        a ? Tn(750, 1500) : 0,
+                        a ? yn(750, 1500) : 0,
                     )),
                     (i.request = e(
                         c,
                         d,
-                        (f) => {
-                            (i.response = re(f)
-                                ? f
-                                : { type: 'load', code: 200, body: `${f}`, headers: {} }),
+                        (p) => {
+                            (i.response = oe(p)
+                                ? p
+                                : { type: 'load', code: 200, body: `${p}`, headers: {} }),
                                 (i.duration = Date.now() - i.timestamp),
                                 (i.progress = 1),
                                 u.fire('load', i.response.body),
-                                (!a || (a && i.perceivedProgress === 1)) && p();
+                                (!a || (a && i.perceivedProgress === 1)) && f();
                         },
-                        (f) => {
+                        (p) => {
                             i.perceivedPerformanceUpdater.clear(),
                                 u.fire(
                                     'error',
-                                    re(f) ? f : { type: 'error', code: 0, body: `${f}` },
+                                    oe(p) ? p : { type: 'error', code: 0, body: `${p}` },
                                 );
                         },
-                        (f, m, E) => {
+                        (p, m, g) => {
                             (i.duration = Date.now() - i.timestamp),
-                                (i.progress = f ? m / E : null),
+                                (i.progress = p ? m / g : null),
                                 h();
                         },
                         () => {
                             i.perceivedPerformanceUpdater.clear(),
                                 u.fire('abort', i.response ? i.response.body : null);
                         },
-                        (f) => {
-                            u.fire('transfer', f);
+                        (p) => {
+                            u.fire('transfer', p);
                         },
                     ));
             },
-            o = () => {
+            r = () => {
                 i.request &&
                     (i.perceivedPerformanceUpdater.clear(),
                     i.request.abort && i.request.abort(),
                     (i.complete = !0));
             },
-            r = () => {
-                o(),
+            o = () => {
+                r(),
                     (i.complete = !1),
                     (i.perceivedProgress = 0),
                     (i.progress = 0),
@@ -1767,34 +1767,34 @@ var Wo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
                 ? () => (i.progress ? Math.min(i.progress, i.perceivedProgress) : null)
                 : () => i.progress || null,
             s = a ? () => Math.min(i.duration, i.perceivedDuration) : () => i.duration,
-            u = { ...Jt(), process: n, abort: o, getProgress: l, getDuration: s, reset: r };
+            u = { ...ni(), process: n, abort: r, getProgress: l, getDuration: s, reset: o };
         return u;
     },
-    In = (e) => e.substring(0, e.lastIndexOf('.')) || e,
-    ts = (e) => {
+    Sn = (e) => e.substring(0, e.lastIndexOf('.')) || e,
+    ss = (e) => {
         let t = [e.name, e.size, e.type];
         return (
-            e instanceof Blob || _i(e)
-                ? (t[0] = e.name || mn())
-                : _i(e)
-                  ? ((t[1] = e.length), (t[2] = En(e)))
-                  : ce(e) && ((t[0] = St(e)), (t[1] = 0), (t[2] = 'application/octet-stream')),
+            e instanceof Blob || vi(e)
+                ? (t[0] = e.name || bn())
+                : vi(e)
+                  ? ((t[1] = e.length), (t[2] = Rn(e)))
+                  : ue(e) && ((t[0] = Lt(e)), (t[1] = 0), (t[2] = 'application/octet-stream')),
             { name: t[0], size: t[1], type: t[2] }
         );
     },
-    ot = (e) => !!(e instanceof File || (e instanceof Blob && e.name)),
-    bn = (e) => {
-        if (!re(e)) return e;
-        let t = Qt(e) ? [] : {};
+    ct = (e) => !!(e instanceof File || (e instanceof Blob && e.name)),
+    wn = (e) => {
+        if (!oe(e)) return e;
+        let t = ti(e) ? [] : {};
         for (let i in e) {
             if (!e.hasOwnProperty(i)) continue;
             let a = e[i];
-            t[i] = a && re(a) ? bn(a) : a;
+            t[i] = a && oe(a) ? wn(a) : a;
         }
         return t;
     },
-    is = (e = null, t = null, i = null) => {
-        let a = Ci(),
+    cs = (e = null, t = null, i = null) => {
+        let a = Gi(),
             n = {
                 archived: !1,
                 frozen: !1,
@@ -1804,73 +1804,73 @@ var Wo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
                 serverFileReference: t,
                 transferId: null,
                 processingAborted: !1,
-                status: t ? k.PROCESSING_COMPLETE : k.INIT,
+                status: t ? H.PROCESSING_COMPLETE : H.INIT,
                 activeLoader: null,
                 activeProcessor: null,
             },
-            o = null,
-            r = {},
+            r = null,
+            o = {},
             l = (R) => (n.status = R),
             s = (R, ...S) => {
                 n.released || n.frozen || I.fire(R, ...S);
             },
-            u = () => ei(n.file.name),
+            u = () => ri(n.file.name),
             c = () => n.file.type,
             d = () => n.file.size,
             h = () => n.file,
-            p = (R, S, P) => {
+            f = (R, S, D) => {
                 if (((n.source = R), I.fireSync('init'), n.file)) {
                     I.fireSync('load-skip');
                     return;
                 }
-                (n.file = ts(R)),
+                (n.file = ss(R)),
                     S.on('init', () => {
                         s('load-init');
                     }),
-                    S.on('meta', (D) => {
-                        (n.file.size = D.size),
-                            (n.file.filename = D.filename),
-                            D.source &&
-                                ((e = ne.LIMBO),
-                                (n.serverFileReference = D.source),
-                                (n.status = k.PROCESSING_COMPLETE)),
+                    S.on('meta', (x) => {
+                        (n.file.size = x.size),
+                            (n.file.filename = x.filename),
+                            x.source &&
+                                ((e = re.LIMBO),
+                                (n.serverFileReference = x.source),
+                                (n.status = H.PROCESSING_COMPLETE)),
                             s('load-meta');
                     }),
-                    S.on('progress', (D) => {
-                        l(k.LOADING), s('load-progress', D);
+                    S.on('progress', (x) => {
+                        l(H.LOADING), s('load-progress', x);
                     }),
-                    S.on('error', (D) => {
-                        l(k.LOAD_ERROR), s('load-request-error', D);
+                    S.on('error', (x) => {
+                        l(H.LOAD_ERROR), s('load-request-error', x);
                     }),
                     S.on('abort', () => {
-                        l(k.INIT), s('load-abort');
+                        l(H.INIT), s('load-abort');
                     }),
-                    S.on('load', (D) => {
+                    S.on('load', (x) => {
                         n.activeLoader = null;
-                        let O = (v) => {
-                                (n.file = ot(v) ? v : n.file),
-                                    e === ne.LIMBO && n.serverFileReference
-                                        ? l(k.PROCESSING_COMPLETE)
-                                        : l(k.IDLE),
+                        let O = (A) => {
+                                (n.file = ct(A) ? A : n.file),
+                                    e === re.LIMBO && n.serverFileReference
+                                        ? l(H.PROCESSING_COMPLETE)
+                                        : l(H.IDLE),
                                     s('load');
                             },
-                            N = (v) => {
-                                (n.file = D),
+                            B = (A) => {
+                                (n.file = x),
                                     s('load-meta'),
-                                    l(k.LOAD_ERROR),
-                                    s('load-file-error', v);
+                                    l(H.LOAD_ERROR),
+                                    s('load-file-error', A);
                             };
                         if (n.serverFileReference) {
-                            O(D);
+                            O(x);
                             return;
                         }
-                        P(D, O, N);
+                        D(x, O, B);
                     }),
                     S.setSource(R),
                     (n.activeLoader = S),
                     S.load();
             },
-            f = () => {
+            p = () => {
                 n.activeLoader && n.activeLoader.load();
             },
             m = () => {
@@ -1878,16 +1878,16 @@ var Wo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
                     n.activeLoader.abort();
                     return;
                 }
-                l(k.INIT), s('load-abort');
+                l(H.INIT), s('load-abort');
             },
-            E = (R, S) => {
+            g = (R, S) => {
                 if (n.processingAborted) {
                     n.processingAborted = !1;
                     return;
                 }
-                if ((l(k.PROCESSING), (o = null), !(n.file instanceof Blob))) {
+                if ((l(H.PROCESSING), (r = null), !(n.file instanceof Blob))) {
                     I.on('load', () => {
-                        E(R, S);
+                        g(R, S);
                     });
                     return;
                 }
@@ -1901,76 +1901,76 @@ var Wo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
                         (n.activeProcessor = null),
                             (n.transferId = null),
                             (n.serverFileReference = O),
-                            l(k.PROCESSING_COMPLETE),
+                            l(H.PROCESSING_COMPLETE),
                             s('process-complete', O);
                     }),
                     R.on('start', () => {
                         s('process-start');
                     }),
                     R.on('error', (O) => {
-                        (n.activeProcessor = null), l(k.PROCESSING_ERROR), s('process-error', O);
+                        (n.activeProcessor = null), l(H.PROCESSING_ERROR), s('process-error', O);
                     }),
                     R.on('abort', (O) => {
                         (n.activeProcessor = null),
                             (n.serverFileReference = O),
-                            l(k.IDLE),
+                            l(H.IDLE),
                             s('process-abort'),
-                            o && o();
+                            r && r();
                     }),
                     R.on('progress', (O) => {
                         s('process-progress', O);
                     });
-                let P = (O) => {
-                        n.archived || R.process(O, { ...r });
+                let D = (O) => {
+                        n.archived || R.process(O, { ...o });
                     },
-                    D = console.error;
-                S(n.file, P, D), (n.activeProcessor = R);
+                    x = console.error;
+                S(n.file, D, x), (n.activeProcessor = R);
             },
             b = () => {
-                (n.processingAborted = !1), l(k.PROCESSING_QUEUED);
+                (n.processingAborted = !1), l(H.PROCESSING_QUEUED);
             },
-            g = () =>
+            E = () =>
                 new Promise((R) => {
                     if (!n.activeProcessor) {
-                        (n.processingAborted = !0), l(k.IDLE), s('process-abort'), R();
+                        (n.processingAborted = !0), l(H.IDLE), s('process-abort'), R();
                         return;
                     }
-                    (o = () => {
+                    (r = () => {
                         R();
                     }),
                         n.activeProcessor.abort();
                 }),
             T = (R, S) =>
-                new Promise((P, D) => {
+                new Promise((D, x) => {
                     let O = n.serverFileReference !== null ? n.serverFileReference : n.transferId;
                     if (O === null) {
-                        P();
+                        D();
                         return;
                     }
                     R(
                         O,
                         () => {
-                            (n.serverFileReference = null), (n.transferId = null), P();
+                            (n.serverFileReference = null), (n.transferId = null), D();
                         },
-                        (N) => {
+                        (B) => {
                             if (!S) {
-                                P();
+                                D();
                                 return;
                             }
-                            l(k.PROCESSING_REVERT_ERROR), s('process-revert-error'), D(N);
+                            l(H.PROCESSING_REVERT_ERROR), s('process-revert-error'), x(B);
                         },
                     ),
-                        l(k.IDLE),
+                        l(H.IDLE),
                         s('process-revert');
                 }),
-            _ = (R, S, P) => {
-                let D = R.split('.'),
-                    O = D[0],
-                    N = D.pop(),
-                    v = r;
-                D.forEach((F) => (v = v[F])),
-                    JSON.stringify(v[N]) !== JSON.stringify(S) &&
-                        ((v[N] = S), s('metadata-update', { key: O, value: r[O], silent: P }));
+            _ = (R, S, D) => {
+                let x = R.split('.'),
+                    O = x[0],
+                    B = x.pop(),
+                    A = o;
+                x.forEach((F) => (A = A[F])),
+                    JSON.stringify(A[B]) !== JSON.stringify(S) &&
+                        ((A[B] = S), s('metadata-update', { key: O, value: o[O], silent: D }));
             },
             I = {
                 id: { get: () => a },
@@ -1979,70 +1979,70 @@ var Wo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
                 transferId: { get: () => n.transferId },
                 status: { get: () => n.status },
                 filename: { get: () => n.file.name },
-                filenameWithoutExtension: { get: () => In(n.file.name) },
+                filenameWithoutExtension: { get: () => Sn(n.file.name) },
                 fileExtension: { get: u },
                 fileType: { get: c },
                 fileSize: { get: d },
                 file: { get: h },
                 relativePath: { get: () => n.file._relativePath },
                 source: { get: () => n.source },
-                getMetadata: (R) => bn(R ? r[R] : r),
-                setMetadata: (R, S, P) => {
-                    if (re(R)) {
-                        let D = R;
+                getMetadata: (R) => wn(R ? o[R] : o),
+                setMetadata: (R, S, D) => {
+                    if (oe(R)) {
+                        let x = R;
                         return (
-                            Object.keys(D).forEach((O) => {
-                                _(O, D[O], S);
+                            Object.keys(x).forEach((O) => {
+                                _(O, x[O], S);
                             }),
                             R
                         );
                     }
-                    return _(R, S, P), S;
+                    return _(R, S, D), S;
                 },
-                extend: (R, S) => (A[R] = S),
+                extend: (R, S) => (v[R] = S),
                 abortLoad: m,
-                retryLoad: f,
+                retryLoad: p,
                 requestProcessing: b,
-                abortProcessing: g,
-                load: p,
-                process: E,
+                abortProcessing: E,
+                load: f,
+                process: g,
                 revert: T,
-                ...Jt(),
+                ...ni(),
                 freeze: () => (n.frozen = !0),
                 release: () => (n.released = !0),
                 released: { get: () => n.released },
                 archive: () => (n.archived = !0),
                 archived: { get: () => n.archived },
             },
-            A = Fe(I);
-        return A;
+            v = Be(I);
+        return v;
     },
-    as = (e, t) => (xe(t) ? 0 : ce(t) ? e.findIndex((i) => i.id === t) : -1),
-    Oa = (e, t) => {
-        let i = as(e, t);
+    ds = (e, t) => (Fe(t) ? 0 : ue(t) ? e.findIndex((i) => i.id === t) : -1),
+    Ca = (e, t) => {
+        let i = ds(e, t);
         if (!(i < 0)) return e[i] || null;
     },
-    Da = (e, t, i, a, n, o) => {
-        let r = He(null, e, { method: 'GET', responseType: 'blob' });
+    za = (e, t, i, a, n, r) => {
+        let o = $e(null, e, { method: 'GET', responseType: 'blob' });
         return (
-            (r.onload = (l) => {
+            (o.onload = (l) => {
                 let s = l.getAllResponseHeaders(),
-                    u = Ni(s).name || St(e);
-                t(K('load', l.status, rt(l.response, u), s));
+                    u = ki(s).name || Lt(e);
+                t(ee('load', l.status, st(l.response, u), s));
             }),
-            (r.onerror = (l) => {
-                i(K('error', l.status, l.statusText, l.getAllResponseHeaders()));
+            (o.onerror = (l) => {
+                i(ee('error', l.status, l.statusText, l.getAllResponseHeaders()));
             }),
-            (r.onheaders = (l) => {
-                o(K('headers', l.status, null, l.getAllResponseHeaders()));
+            (o.onheaders = (l) => {
+                r(ee('headers', l.status, null, l.getAllResponseHeaders()));
             }),
-            (r.ontimeout = We(i)),
-            (r.onprogress = a),
-            (r.onabort = n),
-            r
+            (o.ontimeout = qe(i)),
+            (o.onprogress = a),
+            (o.onabort = n),
+            o
         );
     },
-    xa = (e) => (
+    Na = (e) => (
         e.indexOf('//') === 0 && (e = location.protocol + e),
         e
             .toLowerCase()
@@ -2050,19 +2050,19 @@ var Wo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
             .replace(/([a-z])?:\/\//, '$1')
             .split('/')[0]
     ),
-    ns = (e) => (e.indexOf(':') > -1 || e.indexOf('//') > -1) && xa(location.href) !== xa(e),
-    Vt =
+    us = (e) => (e.indexOf(':') > -1 || e.indexOf('//') > -1) && Na(location.href) !== Na(e),
+    Yt =
         (e) =>
         (...t) =>
-            Ue(e) ? e(...t) : e,
-    rs = (e) => !ot(e.file),
-    mi = (e, t) => {
+            We(e) ? e(...t) : e,
+    hs = (e) => !ct(e.file),
+    bi = (e, t) => {
         clearTimeout(t.listUpdateTimeout),
             (t.listUpdateTimeout = setTimeout(() => {
-                e('DID_UPDATE_ITEMS', { items: Se(t.items) });
+                e('DID_UPDATE_ITEMS', { items: ve(t.items) });
             }, 0));
     },
-    Pa = (e, ...t) =>
+    Ba = (e, ...t) =>
         new Promise((i) => {
             if (!e) return i(!0);
             let a = e(...t);
@@ -2070,58 +2070,58 @@ var Wo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
             if (typeof a == 'boolean') return i(a);
             typeof a.then == 'function' && a.then(i);
         }),
-    gi = (e, t) => {
-        e.items.sort((i, a) => t(ue(i), ue(a)));
+    _i = (e, t) => {
+        e.items.sort((i, a) => t(fe(i), fe(a)));
     },
-    Te =
+    be =
         (e, t) =>
-        ({ query: i, success: a = () => {}, failure: n = () => {}, ...o } = {}) => {
-            let r = ke(e.items, i);
-            if (!r) {
-                n({ error: K('error', 0, 'Item not found'), file: null });
+        ({ query: i, success: a = () => {}, failure: n = () => {}, ...r } = {}) => {
+            let o = Ye(e.items, i);
+            if (!o) {
+                n({ error: ee('error', 0, 'Item not found'), file: null });
                 return;
             }
-            t(r, a, n, o || {});
+            t(o, a, n, r || {});
         },
-    os = (e, t, i) => ({
+    fs = (e, t, i) => ({
         ABORT_ALL: () => {
-            Se(i.items).forEach((a) => {
+            ve(i.items).forEach((a) => {
                 a.freeze(), a.abortLoad(), a.abortProcessing();
             });
         },
         DID_SET_FILES: ({ value: a = [] }) => {
-            let n = a.map((r) => ({ source: r.source ? r.source : r, options: r.options })),
-                o = Se(i.items);
-            o.forEach((r) => {
-                n.find((l) => l.source === r.source || l.source === r.file) ||
-                    e('REMOVE_ITEM', { query: r, remove: !1 });
+            let n = a.map((o) => ({ source: o.source ? o.source : o, options: o.options })),
+                r = ve(i.items);
+            r.forEach((o) => {
+                n.find((l) => l.source === o.source || l.source === o.file) ||
+                    e('REMOVE_ITEM', { query: o, remove: !1 });
             }),
-                (o = Se(i.items)),
-                n.forEach((r, l) => {
-                    o.find((s) => s.source === r.source || s.file === r.source) ||
-                        e('ADD_ITEM', { ...r, interactionMethod: Ie.NONE, index: l });
+                (r = ve(i.items)),
+                n.forEach((o, l) => {
+                    r.find((s) => s.source === o.source || s.file === o.source) ||
+                        e('ADD_ITEM', { ...o, interactionMethod: _e.NONE, index: l });
                 });
         },
-        DID_UPDATE_ITEM_METADATA: ({ id: a, action: n, change: o }) => {
-            o.silent ||
+        DID_UPDATE_ITEM_METADATA: ({ id: a, action: n, change: r }) => {
+            r.silent ||
                 (clearTimeout(i.itemUpdateTimeout),
                 (i.itemUpdateTimeout = setTimeout(() => {
-                    let r = Oa(i.items, a);
+                    let o = Ca(i.items, a);
                     if (!t('IS_ASYNC')) {
-                        ye('SHOULD_PREPARE_OUTPUT', !1, {
-                            item: r,
+                        we('SHOULD_PREPARE_OUTPUT', !1, {
+                            item: o,
                             query: t,
                             action: n,
-                            change: o,
+                            change: r,
                         }).then((c) => {
                             let d = t('GET_BEFORE_PREPARE_FILE');
-                            d && (c = d(r, c)),
+                            d && (c = d(o, c)),
                                 c &&
                                     e(
                                         'REQUEST_PREPARE_OUTPUT',
                                         {
                                             query: a,
-                                            item: r,
+                                            item: o,
                                             success: (h) => {
                                                 e('DID_PREPARE_OUTPUT', { id: a, file: h });
                                             },
@@ -2131,11 +2131,11 @@ var Wo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
                         });
                         return;
                     }
-                    r.origin === ne.LOCAL &&
+                    o.origin === re.LOCAL &&
                         e('DID_LOAD_ITEM', {
-                            id: r.id,
+                            id: o.id,
                             error: null,
-                            serverFileReference: r.source,
+                            serverFileReference: o.source,
                         });
                     let l = () => {
                             setTimeout(() => {
@@ -2143,117 +2143,117 @@ var Wo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
                             }, 32);
                         },
                         s = (c) => {
-                            r.revert(
-                                bt(i.options.server.url, i.options.server.revert),
+                            o.revert(
+                                St(i.options.server.url, i.options.server.revert),
                                 t('GET_FORCE_REVERT'),
                             )
                                 .then(c ? l : () => {})
                                 .catch(() => {});
                         },
                         u = (c) => {
-                            r.abortProcessing().then(c ? l : () => {});
+                            o.abortProcessing().then(c ? l : () => {});
                         };
-                    if (r.status === k.PROCESSING_COMPLETE) return s(i.options.instantUpload);
-                    if (r.status === k.PROCESSING) return u(i.options.instantUpload);
+                    if (o.status === H.PROCESSING_COMPLETE) return s(i.options.instantUpload);
+                    if (o.status === H.PROCESSING) return u(i.options.instantUpload);
                     i.options.instantUpload && l();
                 }, 0)));
         },
         MOVE_ITEM: ({ query: a, index: n }) => {
-            let o = ke(i.items, a);
-            if (!o) return;
-            let r = i.items.indexOf(o);
-            (n = pn(n, 0, i.items.length - 1)),
-                r !== n && i.items.splice(n, 0, i.items.splice(r, 1)[0]);
+            let r = Ye(i.items, a);
+            if (!r) return;
+            let o = i.items.indexOf(r);
+            (n = In(n, 0, i.items.length - 1)),
+                o !== n && i.items.splice(n, 0, i.items.splice(o, 1)[0]);
         },
         SORT: ({ compare: a }) => {
-            gi(i, a), e('DID_SORT_ITEMS', { items: t('GET_ACTIVE_ITEMS') });
+            _i(i, a), e('DID_SORT_ITEMS', { items: t('GET_ACTIVE_ITEMS') });
         },
         ADD_ITEMS: ({
             items: a,
             index: n,
-            interactionMethod: o,
-            success: r = () => {},
+            interactionMethod: r,
+            success: o = () => {},
             failure: l = () => {},
         }) => {
             let s = n;
             if (n === -1 || typeof n > 'u') {
-                let p = t('GET_ITEM_INSERT_LOCATION'),
-                    f = t('GET_TOTAL_ITEMS');
-                s = p === 'before' ? 0 : f;
+                let f = t('GET_ITEM_INSERT_LOCATION'),
+                    p = t('GET_TOTAL_ITEMS');
+                s = f === 'before' ? 0 : p;
             }
             let u = t('GET_IGNORED_FILES'),
-                c = (p) => (ot(p) ? !u.includes(p.name.toLowerCase()) : !xe(p)),
+                c = (f) => (ct(f) ? !u.includes(f.name.toLowerCase()) : !Fe(f)),
                 h = a.filter(c).map(
-                    (p) =>
-                        new Promise((f, m) => {
+                    (f) =>
+                        new Promise((p, m) => {
                             e('ADD_ITEM', {
-                                interactionMethod: o,
-                                source: p.source || p,
-                                success: f,
+                                interactionMethod: r,
+                                source: f.source || f,
+                                success: p,
                                 failure: m,
                                 index: s++,
-                                options: p.options || {},
+                                options: f.options || {},
                             });
                         }),
                 );
-            Promise.all(h).then(r).catch(l);
+            Promise.all(h).then(o).catch(l);
         },
         ADD_ITEM: ({
             source: a,
             index: n = -1,
-            interactionMethod: o,
-            success: r = () => {},
+            interactionMethod: r,
+            success: o = () => {},
             failure: l = () => {},
             options: s = {},
         }) => {
-            if (xe(a)) {
-                l({ error: K('error', 0, 'No source'), file: null });
+            if (Fe(a)) {
+                l({ error: ee('error', 0, 'No source'), file: null });
                 return;
             }
-            if (ot(a) && i.options.ignoredFiles.includes(a.name.toLowerCase())) return;
-            if (!zl(i)) {
+            if (ct(a) && i.options.ignoredFiles.includes(a.name.toLowerCase())) return;
+            if (!Hl(i)) {
                 if (
                     i.options.allowMultiple ||
                     (!i.options.allowMultiple && !i.options.allowReplace)
                 ) {
-                    let g = K('warning', 0, 'Max files');
-                    e('DID_THROW_MAX_FILES', { source: a, error: g }), l({ error: g, file: null });
+                    let E = ee('warning', 0, 'Max files');
+                    e('DID_THROW_MAX_FILES', { source: a, error: E }), l({ error: E, file: null });
                     return;
                 }
-                let b = Se(i.items)[0];
-                if (b.status === k.PROCESSING_COMPLETE || b.status === k.PROCESSING_REVERT_ERROR) {
-                    let g = t('GET_FORCE_REVERT');
+                let b = ve(i.items)[0];
+                if (b.status === H.PROCESSING_COMPLETE || b.status === H.PROCESSING_REVERT_ERROR) {
+                    let E = t('GET_FORCE_REVERT');
                     if (
                         (b
-                            .revert(bt(i.options.server.url, i.options.server.revert), g)
+                            .revert(St(i.options.server.url, i.options.server.revert), E)
                             .then(() => {
-                                g &&
+                                E &&
                                     e('ADD_ITEM', {
                                         source: a,
                                         index: n,
-                                        interactionMethod: o,
-                                        success: r,
+                                        interactionMethod: r,
+                                        success: o,
                                         failure: l,
                                         options: s,
                                     });
                             })
                             .catch(() => {}),
-                        g)
+                        E)
                     )
                         return;
                 }
                 e('REMOVE_ITEM', { query: b.id });
             }
-            let u = s.type === 'local' ? ne.LOCAL : s.type === 'limbo' ? ne.LIMBO : ne.INPUT,
-                c = is(u, u === ne.INPUT ? null : a, s.file);
+            let u = s.type === 'local' ? re.LOCAL : s.type === 'limbo' ? re.LIMBO : re.INPUT,
+                c = cs(u, u === re.INPUT ? null : a, s.file);
             Object.keys(s.metadata || {}).forEach((b) => {
                 c.setMetadata(b, s.metadata[b]);
             }),
-                $e('DID_CREATE_ITEM', c, { query: t, dispatch: e });
+                je('DID_CREATE_ITEM', c, { query: t, dispatch: e });
             let d = t('GET_ITEM_INSERT_LOCATION');
             i.options.itemInsertLocationFreedom || (n = d === 'before' ? -1 : i.items.length),
-                Bl(i.items, c, n),
-                Ue(d) && a && gi(i, d);
+                Yl(i.items, c, n),
+                We(d) && a && _i(i, d);
             let h = c.id;
             c.on('init', () => {
                 e('DID_INIT_ITEM', { id: h });
@@ -2268,51 +2268,51 @@ var Wo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
                     e('DID_UPDATE_ITEM_LOAD_PROGRESS', { id: h, progress: b });
                 }),
                 c.on('load-request-error', (b) => {
-                    let g = Vt(i.options.labelFileLoadError)(b);
+                    let E = Yt(i.options.labelFileLoadError)(b);
                     if (b.code >= 400 && b.code < 500) {
                         e('DID_THROW_ITEM_INVALID', {
                             id: h,
                             error: b,
-                            status: { main: g, sub: `${b.code} (${b.body})` },
+                            status: { main: E, sub: `${b.code} (${b.body})` },
                         }),
-                            l({ error: b, file: ue(c) });
+                            l({ error: b, file: fe(c) });
                         return;
                     }
                     e('DID_THROW_ITEM_LOAD_ERROR', {
                         id: h,
                         error: b,
-                        status: { main: g, sub: i.options.labelTapToRetry },
+                        status: { main: E, sub: i.options.labelTapToRetry },
                     });
                 }),
                 c.on('load-file-error', (b) => {
                     e('DID_THROW_ITEM_INVALID', { id: h, error: b.status, status: b.status }),
-                        l({ error: b.status, file: ue(c) });
+                        l({ error: b.status, file: fe(c) });
                 }),
                 c.on('load-abort', () => {
                     e('REMOVE_ITEM', { query: h });
                 }),
                 c.on('load-skip', () => {
-                    e('COMPLETE_LOAD_ITEM', { query: h, item: c, data: { source: a, success: r } });
+                    e('COMPLETE_LOAD_ITEM', { query: h, item: c, data: { source: a, success: o } });
                 }),
                 c.on('load', () => {
-                    let b = (g) => {
-                        if (!g) {
+                    let b = (E) => {
+                        if (!E) {
                             e('REMOVE_ITEM', { query: h });
                             return;
                         }
                         c.on('metadata-update', (T) => {
                             e('DID_UPDATE_ITEM_METADATA', { id: h, change: T });
                         }),
-                            ye('SHOULD_PREPARE_OUTPUT', !1, { item: c, query: t }).then((T) => {
+                            we('SHOULD_PREPARE_OUTPUT', !1, { item: c, query: t }).then((T) => {
                                 let _ = t('GET_BEFORE_PREPARE_FILE');
                                 _ && (T = _(c, T));
                                 let y = () => {
                                     e('COMPLETE_LOAD_ITEM', {
                                         query: h,
                                         item: c,
-                                        data: { source: a, success: r },
+                                        data: { source: a, success: o },
                                     }),
-                                        mi(e, i);
+                                        bi(e, i);
                                 };
                                 if (T) {
                                     e(
@@ -2331,16 +2331,16 @@ var Wo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
                                 y();
                             });
                     };
-                    ye('DID_LOAD_ITEM', c, { query: t, dispatch: e })
+                    we('DID_LOAD_ITEM', c, { query: t, dispatch: e })
                         .then(() => {
-                            Pa(t('GET_BEFORE_ADD_FILE'), ue(c)).then(b);
+                            Ba(t('GET_BEFORE_ADD_FILE'), fe(c)).then(b);
                         })
-                        .catch((g) => {
-                            if (!g || !g.error || !g.status) return b(!1);
+                        .catch((E) => {
+                            if (!E || !E.error || !E.status) return b(!1);
                             e('DID_THROW_ITEM_INVALID', {
                                 id: h,
-                                error: g.error,
-                                status: g.status,
+                                error: E.error,
+                                status: E.status,
                             });
                         });
                 }),
@@ -2355,7 +2355,7 @@ var Wo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
                         id: h,
                         error: b,
                         status: {
-                            main: Vt(i.options.labelFileProcessingError)(b),
+                            main: Yt(i.options.labelFileProcessingError)(b),
                             sub: i.options.labelTapToRetry,
                         },
                     });
@@ -2365,7 +2365,7 @@ var Wo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
                         id: h,
                         error: b,
                         status: {
-                            main: Vt(i.options.labelFileProcessingRevertError)(b),
+                            main: Yt(i.options.labelFileProcessingRevertError)(b),
                             sub: i.options.labelTapToRetry,
                         },
                     });
@@ -2385,136 +2385,136 @@ var Wo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
                     e('DID_REVERT_ITEM_PROCESSING', { id: h }),
                         e('DID_DEFINE_VALUE', { id: h, value: null });
                 }),
-                e('DID_ADD_ITEM', { id: h, index: n, interactionMethod: o }),
-                mi(e, i);
-            let { url: p, load: f, restore: m, fetch: E } = i.options.server || {};
+                e('DID_ADD_ITEM', { id: h, index: n, interactionMethod: r }),
+                bi(e, i);
+            let { url: f, load: p, restore: m, fetch: g } = i.options.server || {};
             c.load(
                 a,
-                jl(
-                    u === ne.INPUT
-                        ? ce(a) && ns(a) && E
-                            ? pi(p, E)
-                            : Da
-                        : u === ne.LIMBO
-                          ? pi(p, m)
-                          : pi(p, f),
+                is(
+                    u === re.INPUT
+                        ? ue(a) && us(a) && g
+                            ? Ii(f, g)
+                            : za
+                        : u === re.LIMBO
+                          ? Ii(f, m)
+                          : Ii(f, p),
                 ),
-                (b, g, T) => {
-                    ye('LOAD_FILE', b, { query: t }).then(g).catch(T);
+                (b, E, T) => {
+                    we('LOAD_FILE', b, { query: t }).then(E).catch(T);
                 },
             );
         },
-        REQUEST_PREPARE_OUTPUT: ({ item: a, success: n, failure: o = () => {} }) => {
-            let r = { error: K('error', 0, 'Item not found'), file: null };
-            if (a.archived) return o(r);
-            ye('PREPARE_OUTPUT', a.file, { query: t, item: a }).then((l) => {
-                ye('COMPLETE_PREPARE_OUTPUT', l, { query: t, item: a }).then((s) => {
-                    if (a.archived) return o(r);
+        REQUEST_PREPARE_OUTPUT: ({ item: a, success: n, failure: r = () => {} }) => {
+            let o = { error: ee('error', 0, 'Item not found'), file: null };
+            if (a.archived) return r(o);
+            we('PREPARE_OUTPUT', a.file, { query: t, item: a }).then((l) => {
+                we('COMPLETE_PREPARE_OUTPUT', l, { query: t, item: a }).then((s) => {
+                    if (a.archived) return r(o);
                     n(s);
                 });
             });
         },
         COMPLETE_LOAD_ITEM: ({ item: a, data: n }) => {
-            let { success: o, source: r } = n,
+            let { success: r, source: o } = n,
                 l = t('GET_ITEM_INSERT_LOCATION');
             if (
-                (Ue(l) && r && gi(i, l),
+                (We(l) && o && _i(i, l),
                 e('DID_LOAD_ITEM', {
                     id: a.id,
                     error: null,
-                    serverFileReference: a.origin === ne.INPUT ? null : r,
+                    serverFileReference: a.origin === re.INPUT ? null : o,
                 }),
-                o(ue(a)),
-                a.origin === ne.LOCAL)
+                r(fe(a)),
+                a.origin === re.LOCAL)
             ) {
                 e('DID_LOAD_LOCAL_ITEM', { id: a.id });
                 return;
             }
-            if (a.origin === ne.LIMBO) {
+            if (a.origin === re.LIMBO) {
                 e('DID_COMPLETE_ITEM_PROCESSING', {
                     id: a.id,
                     error: null,
-                    serverFileReference: r,
+                    serverFileReference: o,
                 }),
-                    e('DID_DEFINE_VALUE', { id: a.id, value: a.serverId || r });
+                    e('DID_DEFINE_VALUE', { id: a.id, value: a.serverId || o });
                 return;
             }
             t('IS_ASYNC') &&
                 i.options.instantUpload &&
                 e('REQUEST_ITEM_PROCESSING', { query: a.id });
         },
-        RETRY_ITEM_LOAD: Te(i, (a) => {
+        RETRY_ITEM_LOAD: be(i, (a) => {
             a.retryLoad();
         }),
-        REQUEST_ITEM_PREPARE: Te(i, (a, n, o) => {
+        REQUEST_ITEM_PREPARE: be(i, (a, n, r) => {
             e(
                 'REQUEST_PREPARE_OUTPUT',
                 {
                     query: a.id,
                     item: a,
-                    success: (r) => {
-                        e('DID_PREPARE_OUTPUT', { id: a.id, file: r }), n({ file: a, output: r });
+                    success: (o) => {
+                        e('DID_PREPARE_OUTPUT', { id: a.id, file: o }), n({ file: a, output: o });
                     },
-                    failure: o,
+                    failure: r,
                 },
                 !0,
             );
         }),
-        REQUEST_ITEM_PROCESSING: Te(i, (a, n, o) => {
-            if (!(a.status === k.IDLE || a.status === k.PROCESSING_ERROR)) {
-                let l = () => e('REQUEST_ITEM_PROCESSING', { query: a, success: n, failure: o }),
+        REQUEST_ITEM_PROCESSING: be(i, (a, n, r) => {
+            if (!(a.status === H.IDLE || a.status === H.PROCESSING_ERROR)) {
+                let l = () => e('REQUEST_ITEM_PROCESSING', { query: a, success: n, failure: r }),
                     s = () => (document.hidden ? l() : setTimeout(l, 32));
-                a.status === k.PROCESSING_COMPLETE || a.status === k.PROCESSING_REVERT_ERROR
+                a.status === H.PROCESSING_COMPLETE || a.status === H.PROCESSING_REVERT_ERROR
                     ? a
                           .revert(
-                              bt(i.options.server.url, i.options.server.revert),
+                              St(i.options.server.url, i.options.server.revert),
                               t('GET_FORCE_REVERT'),
                           )
                           .then(s)
                           .catch(() => {})
-                    : a.status === k.PROCESSING && a.abortProcessing().then(s);
+                    : a.status === H.PROCESSING && a.abortProcessing().then(s);
                 return;
             }
-            a.status !== k.PROCESSING_QUEUED &&
+            a.status !== H.PROCESSING_QUEUED &&
                 (a.requestProcessing(),
                 e('DID_REQUEST_ITEM_PROCESSING', { id: a.id }),
-                e('PROCESS_ITEM', { query: a, success: n, failure: o }, !0));
+                e('PROCESS_ITEM', { query: a, success: n, failure: r }, !0));
         }),
-        PROCESS_ITEM: Te(i, (a, n, o) => {
-            let r = t('GET_MAX_PARALLEL_UPLOADS');
-            if (t('GET_ITEMS_BY_STATUS', k.PROCESSING).length === r) {
-                i.processingQueue.push({ id: a.id, success: n, failure: o });
+        PROCESS_ITEM: be(i, (a, n, r) => {
+            let o = t('GET_MAX_PARALLEL_UPLOADS');
+            if (t('GET_ITEMS_BY_STATUS', H.PROCESSING).length === o) {
+                i.processingQueue.push({ id: a.id, success: n, failure: r });
                 return;
             }
-            if (a.status === k.PROCESSING) return;
+            if (a.status === H.PROCESSING) return;
             let s = () => {
                 let c = i.processingQueue.shift();
                 if (!c) return;
-                let { id: d, success: h, failure: p } = c,
-                    f = ke(i.items, d);
-                if (!f || f.archived) {
+                let { id: d, success: h, failure: f } = c,
+                    p = Ye(i.items, d);
+                if (!p || p.archived) {
                     s();
                     return;
                 }
-                e('PROCESS_ITEM', { query: d, success: h, failure: p }, !0);
+                e('PROCESS_ITEM', { query: d, success: h, failure: f }, !0);
             };
             a.onOnce('process-complete', () => {
-                n(ue(a)), s();
+                n(fe(a)), s();
                 let c = i.options.server;
-                if (i.options.instantUpload && a.origin === ne.LOCAL && Ue(c.remove)) {
-                    let p = () => {};
-                    (a.origin = ne.LIMBO), i.options.server.remove(a.source, p, p);
+                if (i.options.instantUpload && a.origin === re.LOCAL && We(c.remove)) {
+                    let f = () => {};
+                    (a.origin = re.LIMBO), i.options.server.remove(a.source, f, f);
                 }
-                t('GET_ITEMS_BY_STATUS', k.PROCESSING_COMPLETE).length === i.items.length &&
+                t('GET_ITEMS_BY_STATUS', H.PROCESSING_COMPLETE).length === i.items.length &&
                     e('DID_COMPLETE_ITEM_PROCESSING_ALL');
             }),
                 a.onOnce('process-error', (c) => {
-                    o({ error: c, file: ue(a) }), s();
+                    r({ error: c, file: fe(a) }), s();
                 });
             let u = i.options;
             a.process(
-                es(
-                    Kl(u.server.url, u.server.process, u.name, {
+                ls(
+                    rs(u.server.url, u.server.process, u.name, {
                         chunkTransferId: a.transferId,
                         chunkServer: u.server.patch,
                         chunkUploads: u.chunkUploads,
@@ -2525,35 +2525,35 @@ var Wo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
                     { allowMinimumUploadDuration: t('GET_ALLOW_MINIMUM_UPLOAD_DURATION') },
                 ),
                 (c, d, h) => {
-                    ye('PREPARE_OUTPUT', c, { query: t, item: a })
-                        .then((p) => {
-                            e('DID_PREPARE_OUTPUT', { id: a.id, file: p }), d(p);
+                    we('PREPARE_OUTPUT', c, { query: t, item: a })
+                        .then((f) => {
+                            e('DID_PREPARE_OUTPUT', { id: a.id, file: f }), d(f);
                         })
                         .catch(h);
                 },
             );
         }),
-        RETRY_ITEM_PROCESSING: Te(i, (a) => {
+        RETRY_ITEM_PROCESSING: be(i, (a) => {
             e('REQUEST_ITEM_PROCESSING', { query: a });
         }),
-        REQUEST_REMOVE_ITEM: Te(i, (a) => {
-            Pa(t('GET_BEFORE_REMOVE_FILE'), ue(a)).then((n) => {
+        REQUEST_REMOVE_ITEM: be(i, (a) => {
+            Ba(t('GET_BEFORE_REMOVE_FILE'), fe(a)).then((n) => {
                 n && e('REMOVE_ITEM', { query: a });
             });
         }),
-        RELEASE_ITEM: Te(i, (a) => {
+        RELEASE_ITEM: be(i, (a) => {
             a.release();
         }),
-        REMOVE_ITEM: Te(i, (a, n, o, r) => {
+        REMOVE_ITEM: be(i, (a, n, r, o) => {
             let l = () => {
                     let u = a.id;
-                    Oa(i.items, u).archive(),
+                    Ca(i.items, u).archive(),
                         e('DID_REMOVE_ITEM', { error: null, id: u, item: a }),
-                        mi(e, i),
-                        n(ue(a));
+                        bi(e, i),
+                        n(fe(a));
                 },
                 s = i.options.server;
-            a.origin === ne.LOCAL && s && Ue(s.remove) && r.remove !== !1
+            a.origin === re.LOCAL && s && We(s.remove) && o.remove !== !1
                 ? (e('DID_START_ITEM_REMOVE', { id: a.id }),
                   s.remove(
                       a.source,
@@ -2561,27 +2561,27 @@ var Wo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
                       (u) => {
                           e('DID_THROW_ITEM_REMOVE_ERROR', {
                               id: a.id,
-                              error: K('error', 0, u, null),
+                              error: ee('error', 0, u, null),
                               status: {
-                                  main: Vt(i.options.labelFileRemoveError)(u),
+                                  main: Yt(i.options.labelFileRemoveError)(u),
                                   sub: i.options.labelTapToRetry,
                               },
                           });
                       },
                   ))
-                : (((r.revert && a.origin !== ne.LOCAL && a.serverId !== null) ||
+                : (((o.revert && a.origin !== re.LOCAL && a.serverId !== null) ||
                       (i.options.chunkUploads && a.file.size > i.options.chunkSize) ||
                       (i.options.chunkUploads && i.options.chunkForce)) &&
                       a.revert(
-                          bt(i.options.server.url, i.options.server.revert),
+                          St(i.options.server.url, i.options.server.revert),
                           t('GET_FORCE_REVERT'),
                       ),
                   l());
         }),
-        ABORT_ITEM_LOAD: Te(i, (a) => {
+        ABORT_ITEM_LOAD: be(i, (a) => {
             a.abortLoad();
         }),
-        ABORT_ITEM_PROCESSING: Te(i, (a) => {
+        ABORT_ITEM_PROCESSING: be(i, (a) => {
             if (a.serverId) {
                 e('REVERT_ITEM_PROCESSING', { id: a.id });
                 return;
@@ -2590,7 +2590,7 @@ var Wo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
                 i.options.instantUpload && e('REMOVE_ITEM', { query: a.id });
             });
         }),
-        REQUEST_REVERT_ITEM_PROCESSING: Te(i, (a) => {
+        REQUEST_REVERT_ITEM_PROCESSING: be(i, (a) => {
             if (!i.options.instantUpload) {
                 e('REVERT_ITEM_PROCESSING', { query: a });
                 return;
@@ -2598,80 +2598,80 @@ var Wo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
             let n = (l) => {
                     l && e('REVERT_ITEM_PROCESSING', { query: a });
                 },
-                o = t('GET_BEFORE_REMOVE_FILE');
-            if (!o) return n(!0);
-            let r = o(ue(a));
-            if (r == null) return n(!0);
-            if (typeof r == 'boolean') return n(r);
-            typeof r.then == 'function' && r.then(n);
+                r = t('GET_BEFORE_REMOVE_FILE');
+            if (!r) return n(!0);
+            let o = r(fe(a));
+            if (o == null) return n(!0);
+            if (typeof o == 'boolean') return n(o);
+            typeof o.then == 'function' && o.then(n);
         }),
-        REVERT_ITEM_PROCESSING: Te(i, (a) => {
-            a.revert(bt(i.options.server.url, i.options.server.revert), t('GET_FORCE_REVERT'))
+        REVERT_ITEM_PROCESSING: be(i, (a) => {
+            a.revert(St(i.options.server.url, i.options.server.revert), t('GET_FORCE_REVERT'))
                 .then(() => {
-                    (i.options.instantUpload || rs(a)) && e('REMOVE_ITEM', { query: a.id });
+                    (i.options.instantUpload || hs(a)) && e('REMOVE_ITEM', { query: a.id });
                 })
                 .catch(() => {});
         }),
         SET_OPTIONS: ({ options: a }) => {
             let n = Object.keys(a),
-                o = ls.filter((l) => n.includes(l));
-            [...o, ...Object.keys(a).filter((l) => !o.includes(l))].forEach((l) => {
-                e(`SET_${Kt(l, '_').toUpperCase()}`, { value: a[l] });
+                r = ps.filter((l) => n.includes(l));
+            [...r, ...Object.keys(a).filter((l) => !r.includes(l))].forEach((l) => {
+                e(`SET_${ai(l, '_').toUpperCase()}`, { value: a[l] });
             });
         },
     }),
-    ls = ['server'],
-    Bi = (e) => e,
-    Pe = (e) => document.createElement(e),
-    J = (e, t) => {
+    ps = ['server'],
+    Hi = (e) => e,
+    Ce = (e) => document.createElement(e),
+    te = (e, t) => {
         let i = e.childNodes[0];
         i
             ? t !== i.nodeValue && (i.nodeValue = t)
             : ((i = document.createTextNode(t)), e.appendChild(i));
     },
-    Ca = (e, t, i, a) => {
+    Ga = (e, t, i, a) => {
         let n = (((a % 360) - 90) * Math.PI) / 180;
         return { x: e + i * Math.cos(n), y: t + i * Math.sin(n) };
     },
-    ss = (e, t, i, a, n, o) => {
-        let r = Ca(e, t, i, n),
-            l = Ca(e, t, i, a);
-        return ['M', r.x, r.y, 'A', i, i, 0, o, 0, l.x, l.y].join(' ');
+    ms = (e, t, i, a, n, r) => {
+        let o = Ga(e, t, i, n),
+            l = Ga(e, t, i, a);
+        return ['M', o.x, o.y, 'A', i, i, 0, r, 0, l.x, l.y].join(' ');
     },
-    cs = (e, t, i, a, n) => {
-        let o = 1;
+    gs = (e, t, i, a, n) => {
+        let r = 1;
         return (
-            n > a && n - a <= 0.5 && (o = 0),
-            a > n && a - n >= 0.5 && (o = 0),
-            ss(e, t, i, Math.min(0.9999, a) * 360, Math.min(0.9999, n) * 360, o)
+            n > a && n - a <= 0.5 && (r = 0),
+            a > n && a - n >= 0.5 && (r = 0),
+            ms(e, t, i, Math.min(0.9999, a) * 360, Math.min(0.9999, n) * 360, r)
         );
     },
-    ds = ({ root: e, props: t }) => {
+    Es = ({ root: e, props: t }) => {
         (t.spin = !1), (t.progress = 0), (t.opacity = 0);
-        let i = $t('svg');
-        (e.ref.path = $t('path', { 'stroke-width': 2, 'stroke-linecap': 'round' })),
+        let i = Zt('svg');
+        (e.ref.path = Zt('path', { 'stroke-width': 2, 'stroke-linecap': 'round' })),
             i.appendChild(e.ref.path),
             (e.ref.svg = i),
             e.appendChild(i);
     },
-    us = ({ root: e, props: t }) => {
+    Ts = ({ root: e, props: t }) => {
         if (t.opacity === 0) return;
         t.align && (e.element.dataset.align = t.align);
-        let i = parseInt(ee(e.ref.path, 'stroke-width'), 10),
+        let i = parseInt(ie(e.ref.path, 'stroke-width'), 10),
             a = e.rect.element.width * 0.5,
             n = 0,
-            o = 0;
-        t.spin ? ((n = 0), (o = 0.5)) : ((n = 0), (o = t.progress));
-        let r = cs(a, a, a - i, n, o);
-        ee(e.ref.path, 'd', r), ee(e.ref.path, 'stroke-opacity', t.spin || t.progress > 0 ? 1 : 0);
+            r = 0;
+        t.spin ? ((n = 0), (r = 0.5)) : ((n = 0), (r = t.progress));
+        let o = gs(a, a, a - i, n, r);
+        ie(e.ref.path, 'd', o), ie(e.ref.path, 'stroke-opacity', t.spin || t.progress > 0 ? 1 : 0);
     },
-    Fa = te({
+    Va = ae({
         tag: 'div',
         name: 'progress-indicator',
         ignoreRectUpdate: !0,
         ignoreRect: !0,
-        create: ds,
-        write: us,
+        create: Es,
+        write: Ts,
         mixins: {
             apis: ['progress', 'spin', 'align'],
             styles: ['opacity'],
@@ -2681,17 +2681,17 @@ var Wo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
             },
         },
     }),
-    hs = ({ root: e, props: t }) => {
+    Is = ({ root: e, props: t }) => {
         (e.element.innerHTML = (t.icon || '') + `<span>${t.label}</span>`), (t.isDisabled = !1);
     },
-    fs = ({ root: e, props: t }) => {
+    bs = ({ root: e, props: t }) => {
         let { isDisabled: i } = t,
             a = e.query('GET_DISABLED') || t.opacity === 0;
         a && !i
-            ? ((t.isDisabled = !0), ee(e.element, 'disabled', 'disabled'))
+            ? ((t.isDisabled = !0), ie(e.element, 'disabled', 'disabled'))
             : !a && i && ((t.isDisabled = !1), e.element.removeAttribute('disabled'));
     },
-    _n = te({
+    vn = ae({
         tag: 'button',
         attributes: { type: 'button' },
         ignoreRect: !0,
@@ -2709,14 +2709,14 @@ var Wo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
             },
             listeners: !0,
         },
-        create: hs,
-        write: fs,
+        create: Is,
+        write: bs,
     }),
-    Rn = (e, t = '.', i = 1e3, a = {}) => {
+    An = (e, t = '.', i = 1e3, a = {}) => {
         let {
             labelBytes: n = 'bytes',
-            labelKilobytes: o = 'KB',
-            labelMegabytes: r = 'MB',
+            labelKilobytes: r = 'KB',
+            labelMegabytes: o = 'MB',
             labelGigabytes: l = 'GB',
         } = a;
         e = Math.round(Math.abs(e));
@@ -2726,132 +2726,132 @@ var Wo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
         return e < s
             ? `${e} ${n}`
             : e < u
-              ? `${Math.floor(e / s)} ${o}`
+              ? `${Math.floor(e / s)} ${r}`
               : e < c
-                ? `${za(e / u, 1, t)} ${r}`
-                : `${za(e / c, 2, t)} ${l}`;
+                ? `${Ua(e / u, 1, t)} ${o}`
+                : `${Ua(e / c, 2, t)} ${l}`;
     },
-    za = (e, t, i) =>
+    Ua = (e, t, i) =>
         e
             .toFixed(t)
             .split('.')
             .filter((a) => a !== '0')
             .join(i),
-    ps = ({ root: e, props: t }) => {
-        let i = Pe('span');
+    _s = ({ root: e, props: t }) => {
+        let i = Ce('span');
         (i.className = 'filepond--file-info-main'),
-            ee(i, 'aria-hidden', 'true'),
+            ie(i, 'aria-hidden', 'true'),
             e.appendChild(i),
             (e.ref.fileName = i);
-        let a = Pe('span');
+        let a = Ce('span');
         (a.className = 'filepond--file-info-sub'),
             e.appendChild(a),
             (e.ref.fileSize = a),
-            J(a, e.query('GET_LABEL_FILE_WAITING_FOR_SIZE')),
-            J(i, Bi(e.query('GET_ITEM_NAME', t.id)));
+            te(a, e.query('GET_LABEL_FILE_WAITING_FOR_SIZE')),
+            te(i, Hi(e.query('GET_ITEM_NAME', t.id)));
     },
-    Ri = ({ root: e, props: t }) => {
-        J(
+    Ai = ({ root: e, props: t }) => {
+        te(
             e.ref.fileSize,
-            Rn(
+            An(
                 e.query('GET_ITEM_SIZE', t.id),
                 '.',
                 e.query('GET_FILE_SIZE_BASE'),
                 e.query('GET_FILE_SIZE_LABELS', e.query),
             ),
         ),
-            J(e.ref.fileName, Bi(e.query('GET_ITEM_NAME', t.id)));
+            te(e.ref.fileName, Hi(e.query('GET_ITEM_NAME', t.id)));
     },
-    Na = ({ root: e, props: t }) => {
-        if (lt(e.query('GET_ITEM_SIZE', t.id))) {
-            Ri({ root: e, props: t });
+    ka = ({ root: e, props: t }) => {
+        if (dt(e.query('GET_ITEM_SIZE', t.id))) {
+            Ai({ root: e, props: t });
             return;
         }
-        J(e.ref.fileSize, e.query('GET_LABEL_FILE_SIZE_NOT_AVAILABLE'));
+        te(e.ref.fileSize, e.query('GET_LABEL_FILE_SIZE_NOT_AVAILABLE'));
     },
-    ms = te({
+    Rs = ae({
         name: 'file-info',
         ignoreRect: !0,
         ignoreRectUpdate: !0,
-        write: de({
-            DID_LOAD_ITEM: Ri,
-            DID_UPDATE_ITEM_META: Ri,
-            DID_THROW_ITEM_LOAD_ERROR: Na,
-            DID_THROW_ITEM_INVALID: Na,
+        write: he({
+            DID_LOAD_ITEM: Ai,
+            DID_UPDATE_ITEM_META: Ai,
+            DID_THROW_ITEM_LOAD_ERROR: ka,
+            DID_THROW_ITEM_INVALID: ka,
         }),
         didCreateView: (e) => {
-            $e('CREATE_VIEW', { ...e, view: e });
+            je('CREATE_VIEW', { ...e, view: e });
         },
-        create: ps,
+        create: _s,
         mixins: {
             styles: ['translateX', 'translateY'],
             animations: { translateX: 'spring', translateY: 'spring' },
         },
     }),
-    yn = (e) => Math.round(e * 100),
-    gs = ({ root: e }) => {
-        let t = Pe('span');
+    Ln = (e) => Math.round(e * 100),
+    ys = ({ root: e }) => {
+        let t = Ce('span');
         (t.className = 'filepond--file-status-main'), e.appendChild(t), (e.ref.main = t);
-        let i = Pe('span');
+        let i = Ce('span');
         (i.className = 'filepond--file-status-sub'),
             e.appendChild(i),
             (e.ref.sub = i),
-            Sn({ root: e, action: { progress: null } });
+            Mn({ root: e, action: { progress: null } });
     },
-    Sn = ({ root: e, action: t }) => {
+    Mn = ({ root: e, action: t }) => {
         let i =
             t.progress === null
                 ? e.query('GET_LABEL_FILE_LOADING')
-                : `${e.query('GET_LABEL_FILE_LOADING')} ${yn(t.progress)}%`;
-        J(e.ref.main, i), J(e.ref.sub, e.query('GET_LABEL_TAP_TO_CANCEL'));
+                : `${e.query('GET_LABEL_FILE_LOADING')} ${Ln(t.progress)}%`;
+        te(e.ref.main, i), te(e.ref.sub, e.query('GET_LABEL_TAP_TO_CANCEL'));
     },
-    Es = ({ root: e, action: t }) => {
+    Ss = ({ root: e, action: t }) => {
         let i =
             t.progress === null
                 ? e.query('GET_LABEL_FILE_PROCESSING')
-                : `${e.query('GET_LABEL_FILE_PROCESSING')} ${yn(t.progress)}%`;
-        J(e.ref.main, i), J(e.ref.sub, e.query('GET_LABEL_TAP_TO_CANCEL'));
+                : `${e.query('GET_LABEL_FILE_PROCESSING')} ${Ln(t.progress)}%`;
+        te(e.ref.main, i), te(e.ref.sub, e.query('GET_LABEL_TAP_TO_CANCEL'));
     },
-    Ts = ({ root: e }) => {
-        J(e.ref.main, e.query('GET_LABEL_FILE_PROCESSING')),
-            J(e.ref.sub, e.query('GET_LABEL_TAP_TO_CANCEL'));
+    ws = ({ root: e }) => {
+        te(e.ref.main, e.query('GET_LABEL_FILE_PROCESSING')),
+            te(e.ref.sub, e.query('GET_LABEL_TAP_TO_CANCEL'));
     },
-    Is = ({ root: e }) => {
-        J(e.ref.main, e.query('GET_LABEL_FILE_PROCESSING_ABORTED')),
-            J(e.ref.sub, e.query('GET_LABEL_TAP_TO_RETRY'));
+    vs = ({ root: e }) => {
+        te(e.ref.main, e.query('GET_LABEL_FILE_PROCESSING_ABORTED')),
+            te(e.ref.sub, e.query('GET_LABEL_TAP_TO_RETRY'));
     },
-    bs = ({ root: e }) => {
-        J(e.ref.main, e.query('GET_LABEL_FILE_PROCESSING_COMPLETE')),
-            J(e.ref.sub, e.query('GET_LABEL_TAP_TO_UNDO'));
+    As = ({ root: e }) => {
+        te(e.ref.main, e.query('GET_LABEL_FILE_PROCESSING_COMPLETE')),
+            te(e.ref.sub, e.query('GET_LABEL_TAP_TO_UNDO'));
     },
-    Ba = ({ root: e }) => {
-        J(e.ref.main, ''), J(e.ref.sub, '');
+    Ha = ({ root: e }) => {
+        te(e.ref.main, ''), te(e.ref.sub, '');
     },
-    _t = ({ root: e, action: t }) => {
-        J(e.ref.main, t.status.main), J(e.ref.sub, t.status.sub);
+    wt = ({ root: e, action: t }) => {
+        te(e.ref.main, t.status.main), te(e.ref.sub, t.status.sub);
     },
-    _s = te({
+    Ls = ae({
         name: 'file-status',
         ignoreRect: !0,
         ignoreRectUpdate: !0,
-        write: de({
-            DID_LOAD_ITEM: Ba,
-            DID_REVERT_ITEM_PROCESSING: Ba,
-            DID_REQUEST_ITEM_PROCESSING: Ts,
-            DID_ABORT_ITEM_PROCESSING: Is,
-            DID_COMPLETE_ITEM_PROCESSING: bs,
-            DID_UPDATE_ITEM_PROCESS_PROGRESS: Es,
-            DID_UPDATE_ITEM_LOAD_PROGRESS: Sn,
-            DID_THROW_ITEM_LOAD_ERROR: _t,
-            DID_THROW_ITEM_INVALID: _t,
-            DID_THROW_ITEM_PROCESSING_ERROR: _t,
-            DID_THROW_ITEM_PROCESSING_REVERT_ERROR: _t,
-            DID_THROW_ITEM_REMOVE_ERROR: _t,
+        write: he({
+            DID_LOAD_ITEM: Ha,
+            DID_REVERT_ITEM_PROCESSING: Ha,
+            DID_REQUEST_ITEM_PROCESSING: ws,
+            DID_ABORT_ITEM_PROCESSING: vs,
+            DID_COMPLETE_ITEM_PROCESSING: As,
+            DID_UPDATE_ITEM_PROCESS_PROGRESS: Ss,
+            DID_UPDATE_ITEM_LOAD_PROGRESS: Mn,
+            DID_THROW_ITEM_LOAD_ERROR: wt,
+            DID_THROW_ITEM_INVALID: wt,
+            DID_THROW_ITEM_PROCESSING_ERROR: wt,
+            DID_THROW_ITEM_PROCESSING_REVERT_ERROR: wt,
+            DID_THROW_ITEM_REMOVE_ERROR: wt,
         }),
         didCreateView: (e) => {
-            $e('CREATE_VIEW', { ...e, view: e });
+            je('CREATE_VIEW', { ...e, view: e });
         },
-        create: gs,
+        create: ys,
         mixins: {
             styles: ['translateX', 'translateY', 'opacity'],
             animations: {
@@ -2861,7 +2861,7 @@ var Wo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
             },
         },
     }),
-    yi = {
+    Li = {
         AbortItemLoad: {
             label: 'GET_LABEL_BUTTON_ABORT_ITEM_LOAD',
             action: 'ABORT_ITEM_LOAD',
@@ -2910,22 +2910,22 @@ var Wo = (e) => (e < 0.5 ? 2 * e * e : -1 + (4 - 2 * e) * e),
             align: 'BUTTON_PROCESS_ITEM_POSITION',
         },
     },
-    Si = [];
-Q(yi, (e) => {
-    Si.push(e);
+    Mi = [];
+J(Li, (e) => {
+    Mi.push(e);
 });
-var me = (e) => {
-        if (wi(e) === 'right') return 0;
+var Ee = (e) => {
+        if (Oi(e) === 'right') return 0;
         let t = e.ref.buttonRemoveItem.rect.element;
         return t.hidden ? null : t.width + t.left;
     },
-    Rs = (e) => e.ref.buttonAbortItemLoad.rect.element.width,
-    Ut = (e) => Math.floor(e.ref.buttonRemoveItem.rect.element.height / 4),
-    ys = (e) => Math.floor(e.ref.buttonRemoveItem.rect.element.left / 2),
-    Ss = (e) => e.query('GET_STYLE_LOAD_INDICATOR_POSITION'),
-    ws = (e) => e.query('GET_STYLE_PROGRESS_INDICATOR_POSITION'),
-    wi = (e) => e.query('GET_STYLE_BUTTON_REMOVE_ITEM_POSITION'),
-    As = {
+    Ms = (e) => e.ref.buttonAbortItemLoad.rect.element.width,
+    $t = (e) => Math.floor(e.ref.buttonRemoveItem.rect.element.height / 4),
+    Os = (e) => Math.floor(e.ref.buttonRemoveItem.rect.element.left / 2),
+    xs = (e) => e.query('GET_STYLE_LOAD_INDICATOR_POSITION'),
+    Ds = (e) => e.query('GET_STYLE_PROGRESS_INDICATOR_POSITION'),
+    Oi = (e) => e.query('GET_STYLE_BUTTON_REMOVE_ITEM_POSITION'),
+    Ps = {
         buttonAbortItemLoad: { opacity: 0 },
         buttonRetryItemLoad: { opacity: 0 },
         buttonRemoveItem: { opacity: 0 },
@@ -2933,28 +2933,28 @@ var me = (e) => {
         buttonAbortItemProcessing: { opacity: 0 },
         buttonRetryItemProcessing: { opacity: 0 },
         buttonRevertItemProcessing: { opacity: 0 },
-        loadProgressIndicator: { opacity: 0, align: Ss },
-        processProgressIndicator: { opacity: 0, align: ws },
+        loadProgressIndicator: { opacity: 0, align: xs },
+        processProgressIndicator: { opacity: 0, align: Ds },
         processingCompleteIndicator: { opacity: 0, scaleX: 0.75, scaleY: 0.75 },
         info: { translateX: 0, translateY: 0, opacity: 0 },
         status: { translateX: 0, translateY: 0, opacity: 0 },
     },
-    Ga = {
+    Wa = {
         buttonRemoveItem: { opacity: 1 },
         buttonProcessItem: { opacity: 1 },
-        info: { translateX: me },
-        status: { translateX: me },
+        info: { translateX: Ee },
+        status: { translateX: Ee },
     },
-    Ei = {
+    Ri = {
         buttonAbortItemProcessing: { opacity: 1 },
         processProgressIndicator: { opacity: 1 },
         status: { opacity: 1 },
     },
-    tt = {
+    nt = {
         DID_THROW_ITEM_INVALID: {
             buttonRemoveItem: { opacity: 1 },
-            info: { translateX: me },
-            status: { translateX: me, opacity: 1 },
+            info: { translateX: Ee },
+            status: { translateX: Ee, opacity: 1 },
         },
         DID_START_ITEM_LOAD: {
             buttonAbortItemLoad: { opacity: 1 },
@@ -2964,29 +2964,29 @@ var me = (e) => {
         DID_THROW_ITEM_LOAD_ERROR: {
             buttonRetryItemLoad: { opacity: 1 },
             buttonRemoveItem: { opacity: 1 },
-            info: { translateX: me },
+            info: { translateX: Ee },
             status: { opacity: 1 },
         },
         DID_START_ITEM_REMOVE: {
-            processProgressIndicator: { opacity: 1, align: wi },
-            info: { translateX: me },
+            processProgressIndicator: { opacity: 1, align: Oi },
+            info: { translateX: Ee },
             status: { opacity: 0 },
         },
         DID_THROW_ITEM_REMOVE_ERROR: {
-            processProgressIndicator: { opacity: 0, align: wi },
+            processProgressIndicator: { opacity: 0, align: Oi },
             buttonRemoveItem: { opacity: 1 },
-            info: { translateX: me },
-            status: { opacity: 1, translateX: me },
+            info: { translateX: Ee },
+            status: { opacity: 1, translateX: Ee },
         },
-        DID_LOAD_ITEM: Ga,
+        DID_LOAD_ITEM: Wa,
         DID_LOAD_LOCAL_ITEM: {
             buttonRemoveItem: { opacity: 1 },
-            info: { translateX: me },
-            status: { translateX: me },
+            info: { translateX: Ee },
+            status: { translateX: Ee },
         },
-        DID_START_ITEM_PROCESSING: Ei,
-        DID_REQUEST_ITEM_PROCESSING: Ei,
-        DID_UPDATE_ITEM_PROCESS_PROGRESS: Ei,
+        DID_START_ITEM_PROCESSING: Ri,
+        DID_REQUEST_ITEM_PROCESSING: Ri,
+        DID_UPDATE_ITEM_PROCESS_PROGRESS: Ri,
         DID_COMPLETE_ITEM_PROCESSING: {
             buttonRevertItemProcessing: { opacity: 1 },
             info: { opacity: 1 },
@@ -2996,7 +2996,7 @@ var me = (e) => {
             buttonRemoveItem: { opacity: 1 },
             buttonRetryItemProcessing: { opacity: 1 },
             status: { opacity: 1 },
-            info: { translateX: me },
+            info: { translateX: Ee },
         },
         DID_THROW_ITEM_PROCESSING_REVERT_ERROR: {
             buttonRevertItemProcessing: { opacity: 1 },
@@ -3006,12 +3006,12 @@ var me = (e) => {
         DID_ABORT_ITEM_PROCESSING: {
             buttonRemoveItem: { opacity: 1 },
             buttonProcessItem: { opacity: 1 },
-            info: { translateX: me },
+            info: { translateX: Ee },
             status: { opacity: 1 },
         },
-        DID_REVERT_ITEM_PROCESSING: Ga,
+        DID_REVERT_ITEM_PROCESSING: Wa,
     },
-    vs = te({
+    Fs = ae({
         create: ({ root: e }) => {
             e.element.innerHTML = e.query('GET_ICON_DONE');
         },
@@ -3026,24 +3026,24 @@ var me = (e) => {
             },
         },
     }),
-    Ls = ({ root: e, props: t }) => {
-        let i = Object.keys(yi).reduce((f, m) => ((f[m] = { ...yi[m] }), f), {}),
+    Cs = ({ root: e, props: t }) => {
+        let i = Object.keys(Li).reduce((p, m) => ((p[m] = { ...Li[m] }), p), {}),
             { id: a } = t,
             n = e.query('GET_ALLOW_REVERT'),
-            o = e.query('GET_ALLOW_REMOVE'),
-            r = e.query('GET_ALLOW_PROCESS'),
+            r = e.query('GET_ALLOW_REMOVE'),
+            o = e.query('GET_ALLOW_PROCESS'),
             l = e.query('GET_INSTANT_UPLOAD'),
             s = e.query('IS_ASYNC'),
             u = e.query('GET_STYLE_BUTTON_REMOVE_ITEM_ALIGN'),
             c;
         s
-            ? r && !n
-                ? (c = (f) => !/RevertItemProcessing/.test(f))
-                : !r && n
-                  ? (c = (f) => !/ProcessItem|RetryItemProcessing|AbortItemProcessing/.test(f))
-                  : !r && !n && (c = (f) => !/Process/.test(f))
-            : (c = (f) => !/Process/.test(f));
-        let d = c ? Si.filter(c) : Si.concat();
+            ? o && !n
+                ? (c = (p) => !/RevertItemProcessing/.test(p))
+                : !o && n
+                  ? (c = (p) => !/ProcessItem|RetryItemProcessing|AbortItemProcessing/.test(p))
+                  : !o && !n && (c = (p) => !/Process/.test(p))
+            : (c = (p) => !/Process/.test(p));
+        let d = c ? Mi.filter(c) : Mi.concat();
         if (
             (l &&
                 n &&
@@ -3051,96 +3051,96 @@ var me = (e) => {
                 (i.RevertItemProcessing.icon = 'GET_ICON_REMOVE')),
             s && !n)
         ) {
-            let f = tt.DID_COMPLETE_ITEM_PROCESSING;
-            (f.info.translateX = ys),
-                (f.info.translateY = Ut),
-                (f.status.translateY = Ut),
-                (f.processingCompleteIndicator = { opacity: 1, scaleX: 1, scaleY: 1 });
+            let p = nt.DID_COMPLETE_ITEM_PROCESSING;
+            (p.info.translateX = Os),
+                (p.info.translateY = $t),
+                (p.status.translateY = $t),
+                (p.processingCompleteIndicator = { opacity: 1, scaleX: 1, scaleY: 1 });
         }
         if (
             (s &&
-                !r &&
+                !o &&
                 ([
                     'DID_START_ITEM_PROCESSING',
                     'DID_REQUEST_ITEM_PROCESSING',
                     'DID_UPDATE_ITEM_PROCESS_PROGRESS',
                     'DID_THROW_ITEM_PROCESSING_ERROR',
-                ].forEach((f) => {
-                    tt[f].status.translateY = Ut;
+                ].forEach((p) => {
+                    nt[p].status.translateY = $t;
                 }),
-                (tt.DID_THROW_ITEM_PROCESSING_ERROR.status.translateX = Rs)),
+                (nt.DID_THROW_ITEM_PROCESSING_ERROR.status.translateX = Ms)),
             u && n)
         ) {
             i.RevertItemProcessing.align = 'BUTTON_REMOVE_ITEM_POSITION';
-            let f = tt.DID_COMPLETE_ITEM_PROCESSING;
-            (f.info.translateX = me),
-                (f.status.translateY = Ut),
-                (f.processingCompleteIndicator = { opacity: 1, scaleX: 1, scaleY: 1 });
+            let p = nt.DID_COMPLETE_ITEM_PROCESSING;
+            (p.info.translateX = Ee),
+                (p.status.translateY = $t),
+                (p.processingCompleteIndicator = { opacity: 1, scaleX: 1, scaleY: 1 });
         }
-        o || (i.RemoveItem.disabled = !0),
-            Q(i, (f, m) => {
-                let E = e.createChildView(_n, {
+        r || (i.RemoveItem.disabled = !0),
+            J(i, (p, m) => {
+                let g = e.createChildView(vn, {
                     label: e.query(m.label),
                     icon: e.query(m.icon),
                     opacity: 0,
                 });
-                d.includes(f) && e.appendChildView(E),
+                d.includes(p) && e.appendChildView(g),
                     m.disabled &&
-                        (E.element.setAttribute('disabled', 'disabled'),
-                        E.element.setAttribute('hidden', 'hidden')),
-                    (E.element.dataset.align = e.query(`GET_STYLE_${m.align}`)),
-                    E.element.classList.add(m.className),
-                    E.on('click', (b) => {
+                        (g.element.setAttribute('disabled', 'disabled'),
+                        g.element.setAttribute('hidden', 'hidden')),
+                    (g.element.dataset.align = e.query(`GET_STYLE_${m.align}`)),
+                    g.element.classList.add(m.className),
+                    g.on('click', (b) => {
                         b.stopPropagation(), !m.disabled && e.dispatch(m.action, { query: a });
                     }),
-                    (e.ref[`button${f}`] = E);
+                    (e.ref[`button${p}`] = g);
             }),
-            (e.ref.processingCompleteIndicator = e.appendChildView(e.createChildView(vs))),
+            (e.ref.processingCompleteIndicator = e.appendChildView(e.createChildView(Fs))),
             (e.ref.processingCompleteIndicator.element.dataset.align = e.query(
                 'GET_STYLE_BUTTON_PROCESS_ITEM_POSITION',
             )),
-            (e.ref.info = e.appendChildView(e.createChildView(ms, { id: a }))),
-            (e.ref.status = e.appendChildView(e.createChildView(_s, { id: a })));
+            (e.ref.info = e.appendChildView(e.createChildView(Rs, { id: a }))),
+            (e.ref.status = e.appendChildView(e.createChildView(Ls, { id: a })));
         let h = e.appendChildView(
-            e.createChildView(Fa, {
+            e.createChildView(Va, {
                 opacity: 0,
                 align: e.query('GET_STYLE_LOAD_INDICATOR_POSITION'),
             }),
         );
         h.element.classList.add('filepond--load-indicator'), (e.ref.loadProgressIndicator = h);
-        let p = e.appendChildView(
-            e.createChildView(Fa, {
+        let f = e.appendChildView(
+            e.createChildView(Va, {
                 opacity: 0,
                 align: e.query('GET_STYLE_PROGRESS_INDICATOR_POSITION'),
             }),
         );
-        p.element.classList.add('filepond--process-indicator'),
-            (e.ref.processProgressIndicator = p),
+        f.element.classList.add('filepond--process-indicator'),
+            (e.ref.processProgressIndicator = f),
             (e.ref.activeStyles = []);
     },
-    Ms = ({ root: e, actions: t, props: i }) => {
-        Os({ root: e, actions: t, props: i });
+    zs = ({ root: e, actions: t, props: i }) => {
+        Ns({ root: e, actions: t, props: i });
         let a = t
             .concat()
             .filter((n) => /^DID_/.test(n.type))
             .reverse()
-            .find((n) => tt[n.type]);
+            .find((n) => nt[n.type]);
         if (a) {
             e.ref.activeStyles = [];
-            let n = tt[a.type];
-            Q(As, (o, r) => {
-                let l = e.ref[o];
-                Q(r, (s, u) => {
-                    let c = n[o] && typeof n[o][s] < 'u' ? n[o][s] : u;
+            let n = nt[a.type];
+            J(Ps, (r, o) => {
+                let l = e.ref[r];
+                J(o, (s, u) => {
+                    let c = n[r] && typeof n[r][s] < 'u' ? n[r][s] : u;
                     e.ref.activeStyles.push({ control: l, key: s, value: c });
                 });
             });
         }
-        e.ref.activeStyles.forEach(({ control: n, key: o, value: r }) => {
-            n[o] = typeof r == 'function' ? r(e) : r;
+        e.ref.activeStyles.forEach(({ control: n, key: r, value: o }) => {
+            n[r] = typeof o == 'function' ? o(e) : o;
         });
     },
-    Os = de({
+    Ns = he({
         DID_SET_LABEL_BUTTON_ABORT_ITEM_PROCESSING: ({ root: e, action: t }) => {
             e.ref.buttonAbortItemProcessing.label = t.value;
         },
@@ -3170,55 +3170,55 @@ var me = (e) => {
                 (e.ref.processProgressIndicator.progress = t.progress);
         },
     }),
-    Ds = te({
-        create: Ls,
-        write: Ms,
+    Bs = ae({
+        create: Cs,
+        write: zs,
         didCreateView: (e) => {
-            $e('CREATE_VIEW', { ...e, view: e });
+            je('CREATE_VIEW', { ...e, view: e });
         },
         name: 'file',
     }),
-    xs = ({ root: e, props: t }) => {
-        (e.ref.fileName = Pe('legend')),
+    Gs = ({ root: e, props: t }) => {
+        (e.ref.fileName = Ce('legend')),
             e.appendChild(e.ref.fileName),
-            (e.ref.file = e.appendChildView(e.createChildView(Ds, { id: t.id }))),
+            (e.ref.file = e.appendChildView(e.createChildView(Bs, { id: t.id }))),
             (e.ref.data = !1);
     },
-    Ps = ({ root: e, props: t }) => {
-        J(e.ref.fileName, Bi(e.query('GET_ITEM_NAME', t.id)));
+    Vs = ({ root: e, props: t }) => {
+        te(e.ref.fileName, Hi(e.query('GET_ITEM_NAME', t.id)));
     },
-    Cs = te({
-        create: xs,
+    Us = ae({
+        create: Gs,
         ignoreRect: !0,
-        write: de({ DID_LOAD_ITEM: Ps }),
+        write: he({ DID_LOAD_ITEM: Vs }),
         didCreateView: (e) => {
-            $e('CREATE_VIEW', { ...e, view: e });
+            je('CREATE_VIEW', { ...e, view: e });
         },
         tag: 'fieldset',
         name: 'file-wrapper',
     }),
-    Va = { type: 'spring', damping: 0.6, mass: 7 },
-    Fs = ({ root: e, props: t }) => {
+    Ya = { type: 'spring', damping: 0.6, mass: 7 },
+    ks = ({ root: e, props: t }) => {
         [
             { name: 'top' },
             {
                 name: 'center',
                 props: { translateY: null, scaleY: null },
-                mixins: { animations: { scaleY: Va }, styles: ['translateY', 'scaleY'] },
+                mixins: { animations: { scaleY: Ya }, styles: ['translateY', 'scaleY'] },
             },
             {
                 name: 'bottom',
                 props: { translateY: null },
-                mixins: { animations: { translateY: Va }, styles: ['translateY'] },
+                mixins: { animations: { translateY: Ya }, styles: ['translateY'] },
             },
         ].forEach((i) => {
-            zs(e, i, t.name);
+            Hs(e, i, t.name);
         }),
             e.element.classList.add(`filepond--${t.name}`),
             (e.ref.scalable = null);
     },
-    zs = (e, t, i) => {
-        let a = te({
+    Hs = (e, t, i) => {
+        let a = ae({
                 name: `panel-${t.name} filepond--${i}`,
                 mixins: t.mixins,
                 ignoreRectUpdate: !0,
@@ -3226,10 +3226,10 @@ var me = (e) => {
             n = e.createChildView(a, t.props);
         e.ref[t.name] = e.appendChildView(n);
     },
-    Ns = ({ root: e, props: t }) => {
+    Ws = ({ root: e, props: t }) => {
         if (
             ((e.ref.scalable === null || t.scalable !== e.ref.scalable) &&
-                ((e.ref.scalable = rn(t.scalable) ? t.scalable : !0),
+                ((e.ref.scalable = dn(t.scalable) ? t.scalable : !0),
                 (e.element.dataset.scalable = e.ref.scalable)),
             !t.height)
         )
@@ -3241,15 +3241,15 @@ var me = (e) => {
             (e.ref.center.scaleY = (n - i.height - a.height) / 100),
             (e.ref.bottom.translateY = n - a.height);
     },
-    wn = te({
+    On = ae({
         name: 'panel',
         read: ({ root: e, props: t }) => (t.heightCurrent = e.ref.bottom.translateY),
-        write: Ns,
-        create: Fs,
+        write: Ws,
+        create: ks,
         ignoreRect: !0,
         mixins: { apis: ['height', 'heightCurrent', 'scalable'] },
     }),
-    Bs = (e) => {
+    Ys = (e) => {
         let t = e.map((a) => a.id),
             i;
         return {
@@ -3260,9 +3260,9 @@ var me = (e) => {
             getItemIndex: (a) => t.indexOf(a.id),
         };
     },
-    Ua = { type: 'spring', stiffness: 0.75, damping: 0.45, mass: 10 },
-    ka = 'spring',
-    Ha = {
+    $a = { type: 'spring', stiffness: 0.75, damping: 0.45, mass: 10 },
+    qa = 'spring',
+    Xa = {
         DID_START_ITEM_LOAD: 'busy',
         DID_UPDATE_ITEM_LOAD_PROGRESS: 'loading',
         DID_THROW_ITEM_INVALID: 'load-invalid',
@@ -3279,13 +3279,13 @@ var me = (e) => {
         DID_ABORT_ITEM_PROCESSING: 'cancelled',
         DID_REVERT_ITEM_PROCESSING: 'idle',
     },
-    Gs = ({ root: e, props: t }) => {
+    $s = ({ root: e, props: t }) => {
         if (
             ((e.ref.handleClick = (a) => e.dispatch('DID_ACTIVATE_ITEM', { id: t.id })),
             (e.element.id = `filepond--item-${t.id}`),
             e.element.addEventListener('click', e.ref.handleClick),
-            (e.ref.container = e.appendChildView(e.createChildView(Cs, { id: t.id }))),
-            (e.ref.panel = e.appendChildView(e.createChildView(wn, { name: 'item-panel' }))),
+            (e.ref.container = e.appendChildView(e.createChildView(Us, { id: t.id }))),
+            (e.ref.panel = e.appendChildView(e.createChildView(On, { name: 'item-panel' }))),
             (e.ref.panel.height = null),
             (t.markedForRemoval = !1),
             !e.query('GET_ALLOW_REORDER'))
@@ -3295,27 +3295,27 @@ var me = (e) => {
         let i = (a) => {
             if (!a.isPrimary) return;
             let n = !1,
-                o = { x: a.pageX, y: a.pageY };
+                r = { x: a.pageX, y: a.pageY };
             (t.dragOrigin = { x: e.translateX, y: e.translateY }),
                 (t.dragCenter = { x: a.offsetX, y: a.offsetY });
-            let r = Bs(e.query('GET_ACTIVE_ITEMS'));
-            e.dispatch('DID_GRAB_ITEM', { id: t.id, dragState: r });
+            let o = Ys(e.query('GET_ACTIVE_ITEMS'));
+            e.dispatch('DID_GRAB_ITEM', { id: t.id, dragState: o });
             let l = (u) => {
                     if (!u.isPrimary) return;
                     u.stopPropagation(),
                         u.preventDefault(),
-                        (t.dragOffset = { x: u.pageX - o.x, y: u.pageY - o.y }),
+                        (t.dragOffset = { x: u.pageX - r.x, y: u.pageY - r.y }),
                         t.dragOffset.x * t.dragOffset.x + t.dragOffset.y * t.dragOffset.y > 16 &&
                             !n &&
                             ((n = !0), e.element.removeEventListener('click', e.ref.handleClick)),
-                        e.dispatch('DID_DRAG_ITEM', { id: t.id, dragState: r });
+                        e.dispatch('DID_DRAG_ITEM', { id: t.id, dragState: o });
                 },
                 s = (u) => {
                     u.isPrimary &&
                         (document.removeEventListener('pointermove', l),
                         document.removeEventListener('pointerup', s),
-                        (t.dragOffset = { x: u.pageX - o.x, y: u.pageY - o.y }),
-                        e.dispatch('DID_DROP_ITEM', { id: t.id, dragState: r }),
+                        (t.dragOffset = { x: u.pageX - r.x, y: u.pageY - r.y }),
+                        e.dispatch('DID_DROP_ITEM', { id: t.id, dragState: o }),
                         n &&
                             setTimeout(
                                 () => e.element.addEventListener('click', e.ref.handleClick),
@@ -3326,12 +3326,12 @@ var me = (e) => {
         };
         e.element.addEventListener('pointerdown', i);
     },
-    Vs = de({
+    qs = he({
         DID_UPDATE_PANEL_HEIGHT: ({ root: e, action: t }) => {
             e.height = t.height;
         },
     }),
-    Us = de(
+    Xs = he(
         {
             DID_GRAB_ITEM: ({ root: e, props: t }) => {
                 t.dragOrigin = { x: e.translateX, y: e.translateY };
@@ -3351,17 +3351,17 @@ var me = (e) => {
                 (e.element.dataset.dragState = 'idle');
             let n = t
                 .concat()
-                .filter((r) => /^DID_/.test(r.type))
+                .filter((o) => /^DID_/.test(o.type))
                 .reverse()
-                .find((r) => Ha[r.type]);
+                .find((o) => Xa[o.type]);
             n &&
                 n.type !== i.currentState &&
                 ((i.currentState = n.type),
-                (e.element.dataset.filepondItemState = Ha[i.currentState] || ''));
-            let o = e.query('GET_ITEM_PANEL_ASPECT_RATIO') || e.query('GET_PANEL_ASPECT_RATIO');
-            o
-                ? a || (e.height = e.rect.element.width * o)
-                : (Vs({ root: e, actions: t, props: i }),
+                (e.element.dataset.filepondItemState = Xa[i.currentState] || ''));
+            let r = e.query('GET_ITEM_PANEL_ASPECT_RATIO') || e.query('GET_PANEL_ASPECT_RATIO');
+            r
+                ? a || (e.height = e.rect.element.width * r)
+                : (qs({ root: e, actions: t, props: i }),
                   !e.height &&
                       e.ref.container.rect.element.height > 0 &&
                       (e.height = e.ref.container.rect.element.height)),
@@ -3369,9 +3369,9 @@ var me = (e) => {
                 (e.ref.panel.height = e.height);
         },
     ),
-    ks = te({
-        create: Gs,
-        write: Us,
+    js = ae({
+        create: $s,
+        write: Xs,
         destroy: ({ root: e, props: t }) => {
             e.element.removeEventListener('click', e.ref.handleClick),
                 e.dispatch('RELEASE_ITEM', { query: t.id });
@@ -3390,51 +3390,51 @@ var me = (e) => {
             ],
             styles: ['translateX', 'translateY', 'scaleX', 'scaleY', 'opacity', 'height'],
             animations: {
-                scaleX: ka,
-                scaleY: ka,
-                translateX: Ua,
-                translateY: Ua,
+                scaleX: qa,
+                scaleY: qa,
+                translateX: $a,
+                translateY: $a,
                 opacity: { type: 'tween', duration: 150 },
             },
         },
     }),
-    Gi = (e, t) => Math.max(1, Math.floor((e + 1) / t)),
-    Vi = (e, t, i) => {
+    Wi = (e, t) => Math.max(1, Math.floor((e + 1) / t)),
+    Yi = (e, t, i) => {
         if (!i) return;
         let a = e.rect.element.width,
             n = t.length,
-            o = null;
+            r = null;
         if (n === 0 || i.top < t[0].rect.element.top) return -1;
         let l = t[0].rect.element,
             s = l.marginLeft + l.marginRight,
             u = l.width + s,
-            c = Gi(a, u);
+            c = Wi(a, u);
         if (c === 1) {
-            for (let p = 0; p < n; p++) {
-                let f = t[p],
-                    m = f.rect.outer.top + f.rect.element.height * 0.5;
-                if (i.top < m) return p;
+            for (let f = 0; f < n; f++) {
+                let p = t[f],
+                    m = p.rect.outer.top + p.rect.element.height * 0.5;
+                if (i.top < m) return f;
             }
             return n;
         }
         let d = l.marginTop + l.marginBottom,
             h = l.height + d;
-        for (let p = 0; p < n; p++) {
-            let f = p % c,
-                m = Math.floor(p / c),
-                E = f * u,
+        for (let f = 0; f < n; f++) {
+            let p = f % c,
+                m = Math.floor(f / c),
+                g = p * u,
                 b = m * h,
-                g = b - l.marginTop,
-                T = E + u,
+                E = b - l.marginTop,
+                T = g + u,
                 _ = b + h + l.marginBottom;
-            if (i.top < _ && i.top > g) {
-                if (i.left < T) return p;
-                p !== n - 1 ? (o = p) : (o = null);
+            if (i.top < _ && i.top > E) {
+                if (i.left < T) return f;
+                f !== n - 1 ? (r = f) : (r = null);
             }
         }
-        return o !== null ? o : n;
+        return r !== null ? r : n;
     },
-    kt = {
+    qt = {
         height: 0,
         width: 0,
         get getHeight() {
@@ -3454,28 +3454,28 @@ var me = (e) => {
                 (this.width === 0 || t === 0) && (this.width = t);
         },
     },
-    Hs = ({ root: e }) => {
-        ee(e.element, 'role', 'list'), (e.ref.lastItemSpanwDate = Date.now());
+    Qs = ({ root: e }) => {
+        ie(e.element, 'role', 'list'), (e.ref.lastItemSpanwDate = Date.now());
     },
-    Ws = ({ root: e, action: t }) => {
+    Zs = ({ root: e, action: t }) => {
         let { id: i, index: a, interactionMethod: n } = t;
         e.ref.addIndex = a;
-        let o = Date.now(),
-            r = o,
+        let r = Date.now(),
+            o = r,
             l = 1;
-        if (n !== Ie.NONE) {
+        if (n !== _e.NONE) {
             l = 0;
             let s = e.query('GET_ITEM_INSERT_INTERVAL'),
-                u = o - e.ref.lastItemSpanwDate;
-            r = u < s ? o + (s - u) : o;
+                u = r - e.ref.lastItemSpanwDate;
+            o = u < s ? r + (s - u) : r;
         }
-        (e.ref.lastItemSpanwDate = r),
+        (e.ref.lastItemSpanwDate = o),
             e.appendChildView(
-                e.createChildView(ks, { spawnDate: r, id: i, opacity: l, interactionMethod: n }),
+                e.createChildView(js, { spawnDate: o, id: i, opacity: l, interactionMethod: n }),
                 a,
             );
     },
-    Wa = (e, t, i, a = 0, n = 1) => {
+    ja = (e, t, i, a = 0, n = 1) => {
         e.dragOffset
             ? ((e.translateX = null),
               (e.translateY = null),
@@ -3486,140 +3486,140 @@ var me = (e) => {
             : ((e.translateX = t),
               (e.translateY = i),
               Date.now() > e.spawnDate &&
-                  (e.opacity === 0 && Ys(e, t, i, a, n),
+                  (e.opacity === 0 && Ks(e, t, i, a, n),
                   (e.scaleX = 1),
                   (e.scaleY = 1),
                   (e.opacity = 1)));
     },
-    Ys = (e, t, i, a, n) => {
-        e.interactionMethod === Ie.NONE
+    Ks = (e, t, i, a, n) => {
+        e.interactionMethod === _e.NONE
             ? ((e.translateX = null), (e.translateX = t), (e.translateY = null), (e.translateY = i))
-            : e.interactionMethod === Ie.DROP
+            : e.interactionMethod === _e.DROP
               ? ((e.translateX = null),
                 (e.translateX = t - a * 20),
                 (e.translateY = null),
                 (e.translateY = i - n * 10),
                 (e.scaleX = 0.8),
                 (e.scaleY = 0.8))
-              : e.interactionMethod === Ie.BROWSE
+              : e.interactionMethod === _e.BROWSE
                 ? ((e.translateY = null), (e.translateY = i - 30))
-                : e.interactionMethod === Ie.API &&
+                : e.interactionMethod === _e.API &&
                   ((e.translateX = null), (e.translateX = t - 30), (e.translateY = null));
     },
-    $s = ({ root: e, action: t }) => {
+    Js = ({ root: e, action: t }) => {
         let { id: i } = t,
             a = e.childViews.find((n) => n.id === i);
         a && ((a.scaleX = 0.9), (a.scaleY = 0.9), (a.opacity = 0), (a.markedForRemoval = !0));
     },
-    Ti = (e) =>
+    yi = (e) =>
         e.rect.element.height + e.rect.element.marginBottom * 0.5 + e.rect.element.marginTop * 0.5,
-    qs = (e) =>
+    ec = (e) =>
         e.rect.element.width + e.rect.element.marginLeft * 0.5 + e.rect.element.marginRight * 0.5,
-    Xs = ({ root: e, action: t }) => {
+    tc = ({ root: e, action: t }) => {
         let { id: i, dragState: a } = t,
             n = e.query('GET_ITEM', { id: i }),
-            o = e.childViews.find((E) => E.id === i),
-            r = e.childViews.length,
+            r = e.childViews.find((g) => g.id === i),
+            o = e.childViews.length,
             l = a.getItemIndex(n);
-        if (!o) return;
+        if (!r) return;
         let s = {
-                x: o.dragOrigin.x + o.dragOffset.x + o.dragCenter.x,
-                y: o.dragOrigin.y + o.dragOffset.y + o.dragCenter.y,
+                x: r.dragOrigin.x + r.dragOffset.x + r.dragCenter.x,
+                y: r.dragOrigin.y + r.dragOffset.y + r.dragCenter.y,
             },
-            u = Ti(o),
-            c = qs(o),
+            u = yi(r),
+            c = ec(r),
             d = Math.floor(e.rect.outer.width / c);
-        d > r && (d = r);
-        let h = Math.floor(r / d + 1);
-        (kt.setHeight = u * h), (kt.setWidth = c * d);
-        var p = {
+        d > o && (d = o);
+        let h = Math.floor(o / d + 1);
+        (qt.setHeight = u * h), (qt.setWidth = c * d);
+        var f = {
             y: Math.floor(s.y / u),
             x: Math.floor(s.x / c),
             getGridIndex: function () {
-                return s.y > kt.getHeight || s.y < 0 || s.x > kt.getWidth || s.x < 0
+                return s.y > qt.getHeight || s.y < 0 || s.x > qt.getWidth || s.x < 0
                     ? l
                     : this.y * d + this.x;
             },
             getColIndex: function () {
                 let b = e.query('GET_ACTIVE_ITEMS'),
-                    g = e.childViews.filter((D) => D.rect.element.height),
-                    T = b.map((D) => g.find((O) => O.id === D.id)),
-                    _ = T.findIndex((D) => D === o),
-                    y = Ti(o),
+                    E = e.childViews.filter((x) => x.rect.element.height),
+                    T = b.map((x) => E.find((O) => O.id === x.id)),
+                    _ = T.findIndex((x) => x === r),
+                    y = yi(r),
                     I = T.length,
-                    A = I,
+                    v = I,
                     R = 0,
                     S = 0,
-                    P = 0;
-                for (let D = 0; D < I; D++)
-                    if (((R = Ti(T[D])), (P = S), (S = P + R), s.y < S)) {
-                        if (_ > D) {
-                            if (s.y < P + y) {
-                                A = D;
+                    D = 0;
+                for (let x = 0; x < I; x++)
+                    if (((R = yi(T[x])), (D = S), (S = D + R), s.y < S)) {
+                        if (_ > x) {
+                            if (s.y < D + y) {
+                                v = x;
                                 break;
                             }
                             continue;
                         }
-                        A = D;
+                        v = x;
                         break;
                     }
-                return A;
+                return v;
             },
         };
-        let f = d > 1 ? p.getGridIndex() : p.getColIndex();
-        e.dispatch('MOVE_ITEM', { query: o, index: f });
+        let p = d > 1 ? f.getGridIndex() : f.getColIndex();
+        e.dispatch('MOVE_ITEM', { query: r, index: p });
         let m = a.getIndex();
-        if (m === void 0 || m !== f) {
-            if ((a.setIndex(f), m === void 0)) return;
+        if (m === void 0 || m !== p) {
+            if ((a.setIndex(p), m === void 0)) return;
             e.dispatch('DID_REORDER_ITEMS', {
                 items: e.query('GET_ACTIVE_ITEMS'),
                 origin: l,
-                target: f,
+                target: p,
             });
         }
     },
-    js = de({ DID_ADD_ITEM: Ws, DID_REMOVE_ITEM: $s, DID_DRAG_ITEM: Xs }),
-    Qs = ({ root: e, props: t, actions: i, shouldOptimize: a }) => {
-        js({ root: e, props: t, actions: i });
+    ic = he({ DID_ADD_ITEM: Zs, DID_REMOVE_ITEM: Js, DID_DRAG_ITEM: tc }),
+    ac = ({ root: e, props: t, actions: i, shouldOptimize: a }) => {
+        ic({ root: e, props: t, actions: i });
         let { dragCoordinates: n } = t,
-            o = e.rect.element.width,
-            r = e.childViews.filter((T) => T.rect.element.height),
+            r = e.rect.element.width,
+            o = e.childViews.filter((T) => T.rect.element.height),
             l = e
                 .query('GET_ACTIVE_ITEMS')
-                .map((T) => r.find((_) => _.id === T.id))
+                .map((T) => o.find((_) => _.id === T.id))
                 .filter((T) => T),
-            s = n ? Vi(e, l, n) : null,
+            s = n ? Yi(e, l, n) : null,
             u = e.ref.addIndex || null;
         e.ref.addIndex = null;
         let c = 0,
             d = 0,
             h = 0;
         if (l.length === 0) return;
-        let p = l[0].rect.element,
-            f = p.marginTop + p.marginBottom,
-            m = p.marginLeft + p.marginRight,
-            E = p.width + m,
-            b = p.height + f,
-            g = Gi(o, E);
-        if (g === 1) {
+        let f = l[0].rect.element,
+            p = f.marginTop + f.marginBottom,
+            m = f.marginLeft + f.marginRight,
+            g = f.width + m,
+            b = f.height + p,
+            E = Wi(r, g);
+        if (E === 1) {
             let T = 0,
                 _ = 0;
             l.forEach((y, I) => {
                 if (s) {
                     let S = I - s;
                     S === -2
-                        ? (_ = -f * 0.25)
+                        ? (_ = -p * 0.25)
                         : S === -1
-                          ? (_ = -f * 0.75)
+                          ? (_ = -p * 0.75)
                           : S === 0
-                            ? (_ = f * 0.75)
+                            ? (_ = p * 0.75)
                             : S === 1
-                              ? (_ = f * 0.25)
+                              ? (_ = p * 0.25)
                               : (_ = 0);
                 }
                 a && ((y.translateX = null), (y.translateY = null)),
-                    y.markedForRemoval || Wa(y, 0, T + _);
-                let R = (y.rect.element.height + f) * (y.markedForRemoval ? y.opacity : 1);
+                    y.markedForRemoval || ja(y, 0, T + _);
+                let R = (y.rect.element.height + p) * (y.markedForRemoval ? y.opacity : 1);
                 T += R;
             });
         } else {
@@ -3629,24 +3629,24 @@ var me = (e) => {
                 I === s && (c = 1),
                     I === u && (h += 1),
                     y.markedForRemoval && y.opacity < 0.5 && (d -= 1);
-                let A = I + h + c + d,
-                    R = A % g,
-                    S = Math.floor(A / g),
-                    P = R * E,
-                    D = S * b,
-                    O = Math.sign(P - T),
-                    N = Math.sign(D - _);
-                (T = P),
-                    (_ = D),
+                let v = I + h + c + d,
+                    R = v % E,
+                    S = Math.floor(v / E),
+                    D = R * g,
+                    x = S * b,
+                    O = Math.sign(D - T),
+                    B = Math.sign(x - _);
+                (T = D),
+                    (_ = x),
                     !y.markedForRemoval &&
-                        (a && ((y.translateX = null), (y.translateY = null)), Wa(y, P, D, O, N));
+                        (a && ((y.translateX = null), (y.translateY = null)), ja(y, D, x, O, B));
             });
         }
     },
-    Zs = (e, t) => t.filter((i) => (i.data && i.data.id ? e.id === i.data.id : !0)),
-    Ks = te({
-        create: Hs,
-        write: Qs,
+    nc = (e, t) => t.filter((i) => (i.data && i.data.id ? e.id === i.data.id : !0)),
+    rc = ae({
+        create: Qs,
+        write: ac,
         tag: 'ul',
         name: 'list',
         didWriteView: ({ root: e }) => {
@@ -3656,15 +3656,15 @@ var me = (e) => {
                     t._destroy(), e.removeChildView(t);
                 });
         },
-        filterFrameActionsForChild: Zs,
+        filterFrameActionsForChild: nc,
         mixins: { apis: ['dragCoordinates'] },
     }),
-    Js = ({ root: e, props: t }) => {
-        (e.ref.list = e.appendChildView(e.createChildView(Ks))),
+    oc = ({ root: e, props: t }) => {
+        (e.ref.list = e.appendChildView(e.createChildView(rc))),
             (t.dragCoordinates = null),
             (t.overflowing = !1);
     },
-    ec = ({ root: e, props: t, action: i }) => {
+    lc = ({ root: e, props: t, action: i }) => {
         e.query('GET_ITEM_INSERT_LOCATION_FREEDOM') &&
             (t.dragCoordinates = {
                 left: i.position.scopeLeft - e.ref.list.rect.element.left,
@@ -3673,13 +3673,13 @@ var me = (e) => {
                     (e.rect.outer.top + e.rect.element.marginTop + e.rect.element.scrollTop),
             });
     },
-    tc = ({ props: e }) => {
+    sc = ({ props: e }) => {
         e.dragCoordinates = null;
     },
-    ic = de({ DID_DRAG: ec, DID_END_DRAG: tc }),
-    ac = ({ root: e, props: t, actions: i }) => {
+    cc = he({ DID_DRAG: lc, DID_END_DRAG: sc }),
+    dc = ({ root: e, props: t, actions: i }) => {
         if (
-            (ic({ root: e, props: t, actions: i }),
+            (cc({ root: e, props: t, actions: i }),
             (e.ref.list.dragCoordinates = t.dragCoordinates),
             t.overflowing &&
                 !t.overflow &&
@@ -3691,9 +3691,9 @@ var me = (e) => {
                 ((t.overflowing = !0), (e.element.dataset.state = 'overflow'), (e.height = a));
         }
     },
-    nc = te({
-        create: Js,
-        write: ac,
+    uc = ae({
+        create: oc,
+        write: dc,
         name: 'list-scroller',
         mixins: {
             apis: ['overflow', 'dragCoordinates'],
@@ -3701,111 +3701,111 @@ var me = (e) => {
             animations: { translateY: 'spring' },
         },
     }),
-    we = (e, t, i, a = '') => {
-        i ? ee(e, t, a) : e.removeAttribute(t);
+    Ae = (e, t, i, a = '') => {
+        i ? ie(e, t, a) : e.removeAttribute(t);
     },
-    rc = (e) => {
+    hc = (e) => {
         if (!(!e || e.value === '')) {
             try {
                 e.value = '';
             } catch {}
             if (e.value) {
-                let t = Pe('form'),
+                let t = Ce('form'),
                     i = e.parentNode,
                     a = e.nextSibling;
                 t.appendChild(e), t.reset(), a ? i.insertBefore(e, a) : i.appendChild(e);
             }
         }
     },
-    oc = ({ root: e, props: t }) => {
+    fc = ({ root: e, props: t }) => {
         (e.element.id = `filepond--browser-${t.id}`),
-            ee(e.element, 'name', e.query('GET_NAME')),
-            ee(e.element, 'aria-controls', `filepond--assistant-${t.id}`),
-            ee(e.element, 'aria-labelledby', `filepond--drop-label-${t.id}`),
-            An({ root: e, action: { value: e.query('GET_ACCEPTED_FILE_TYPES') } }),
-            vn({ root: e, action: { value: e.query('GET_ALLOW_MULTIPLE') } }),
-            Ln({ root: e, action: { value: e.query('GET_ALLOW_DIRECTORIES_ONLY') } }),
-            Ai({ root: e }),
-            Mn({ root: e, action: { value: e.query('GET_REQUIRED') } }),
-            On({ root: e, action: { value: e.query('GET_CAPTURE_METHOD') } }),
+            ie(e.element, 'name', e.query('GET_NAME')),
+            ie(e.element, 'aria-controls', `filepond--assistant-${t.id}`),
+            ie(e.element, 'aria-labelledby', `filepond--drop-label-${t.id}`),
+            xn({ root: e, action: { value: e.query('GET_ACCEPTED_FILE_TYPES') } }),
+            Dn({ root: e, action: { value: e.query('GET_ALLOW_MULTIPLE') } }),
+            Pn({ root: e, action: { value: e.query('GET_ALLOW_DIRECTORIES_ONLY') } }),
+            xi({ root: e }),
+            Fn({ root: e, action: { value: e.query('GET_REQUIRED') } }),
+            Cn({ root: e, action: { value: e.query('GET_CAPTURE_METHOD') } }),
             (e.ref.handleChange = (i) => {
                 if (!e.element.value) return;
                 let a = Array.from(e.element.files).map(
                     (n) => ((n._relativePath = n.webkitRelativePath), n),
                 );
                 setTimeout(() => {
-                    t.onload(a), rc(e.element);
+                    t.onload(a), hc(e.element);
                 }, 250);
             }),
             e.element.addEventListener('change', e.ref.handleChange);
     },
-    An = ({ root: e, action: t }) => {
+    xn = ({ root: e, action: t }) => {
         e.query('GET_ALLOW_SYNC_ACCEPT_ATTRIBUTE') &&
-            we(e.element, 'accept', !!t.value, t.value ? t.value.join(',') : '');
+            Ae(e.element, 'accept', !!t.value, t.value ? t.value.join(',') : '');
     },
-    vn = ({ root: e, action: t }) => {
-        we(e.element, 'multiple', t.value);
+    Dn = ({ root: e, action: t }) => {
+        Ae(e.element, 'multiple', t.value);
     },
-    Ln = ({ root: e, action: t }) => {
-        we(e.element, 'webkitdirectory', t.value);
+    Pn = ({ root: e, action: t }) => {
+        Ae(e.element, 'webkitdirectory', t.value);
     },
-    Ai = ({ root: e }) => {
+    xi = ({ root: e }) => {
         let t = e.query('GET_DISABLED'),
             i = e.query('GET_ALLOW_BROWSE'),
             a = t || !i;
-        we(e.element, 'disabled', a);
+        Ae(e.element, 'disabled', a);
     },
-    Mn = ({ root: e, action: t }) => {
+    Fn = ({ root: e, action: t }) => {
         t.value
-            ? e.query('GET_TOTAL_ITEMS') === 0 && we(e.element, 'required', !0)
-            : we(e.element, 'required', !1);
+            ? e.query('GET_TOTAL_ITEMS') === 0 && Ae(e.element, 'required', !0)
+            : Ae(e.element, 'required', !1);
     },
-    On = ({ root: e, action: t }) => {
-        we(e.element, 'capture', !!t.value, t.value === !0 ? '' : t.value);
+    Cn = ({ root: e, action: t }) => {
+        Ae(e.element, 'capture', !!t.value, t.value === !0 ? '' : t.value);
     },
-    Ya = ({ root: e }) => {
+    Qa = ({ root: e }) => {
         let { element: t } = e;
         e.query('GET_TOTAL_ITEMS') > 0
-            ? (we(t, 'required', !1), we(t, 'name', !1))
-            : (we(t, 'name', !0, e.query('GET_NAME')),
+            ? (Ae(t, 'required', !1), Ae(t, 'name', !1))
+            : (Ae(t, 'name', !0, e.query('GET_NAME')),
               e.query('GET_CHECK_VALIDITY') && t.setCustomValidity(''),
-              e.query('GET_REQUIRED') && we(t, 'required', !0));
+              e.query('GET_REQUIRED') && Ae(t, 'required', !0));
     },
-    lc = ({ root: e }) => {
+    pc = ({ root: e }) => {
         e.query('GET_CHECK_VALIDITY') &&
             e.element.setCustomValidity(e.query('GET_LABEL_INVALID_FIELD'));
     },
-    sc = te({
+    mc = ae({
         tag: 'input',
         name: 'browser',
         ignoreRect: !0,
         ignoreRectUpdate: !0,
         attributes: { type: 'file' },
-        create: oc,
+        create: fc,
         destroy: ({ root: e }) => {
             e.element.removeEventListener('change', e.ref.handleChange);
         },
-        write: de({
-            DID_LOAD_ITEM: Ya,
-            DID_REMOVE_ITEM: Ya,
-            DID_THROW_ITEM_INVALID: lc,
-            DID_SET_DISABLED: Ai,
-            DID_SET_ALLOW_BROWSE: Ai,
-            DID_SET_ALLOW_DIRECTORIES_ONLY: Ln,
-            DID_SET_ALLOW_MULTIPLE: vn,
-            DID_SET_ACCEPTED_FILE_TYPES: An,
-            DID_SET_CAPTURE_METHOD: On,
-            DID_SET_REQUIRED: Mn,
+        write: he({
+            DID_LOAD_ITEM: Qa,
+            DID_REMOVE_ITEM: Qa,
+            DID_THROW_ITEM_INVALID: pc,
+            DID_SET_DISABLED: xi,
+            DID_SET_ALLOW_BROWSE: xi,
+            DID_SET_ALLOW_DIRECTORIES_ONLY: Pn,
+            DID_SET_ALLOW_MULTIPLE: Dn,
+            DID_SET_ACCEPTED_FILE_TYPES: xn,
+            DID_SET_CAPTURE_METHOD: Cn,
+            DID_SET_REQUIRED: Fn,
         }),
     }),
-    $a = { ENTER: 13, SPACE: 32 },
-    cc = ({ root: e, props: t }) => {
-        let i = Pe('label');
-        ee(i, 'for', `filepond--browser-${t.id}`),
-            ee(i, 'id', `filepond--drop-label-${t.id}`),
-            ee(i, 'aria-hidden', 'true'),
+    Za = { ENTER: 13, SPACE: 32 },
+    gc = ({ root: e, props: t }) => {
+        let i = Ce('label');
+        ie(i, 'for', `filepond--browser-${t.id}`),
+            ie(i, 'id', `filepond--drop-label-${t.id}`),
+            ie(i, 'aria-hidden', 'true'),
             (e.ref.handleKeyDown = (a) => {
-                (a.keyCode === $a.ENTER || a.keyCode === $a.SPACE) &&
+                (a.keyCode === Za.ENTER || a.keyCode === Za.SPACE) &&
                     (a.preventDefault(), e.ref.label.click());
             }),
             (e.ref.handleClick = (a) => {
@@ -3813,26 +3813,26 @@ var me = (e) => {
             }),
             i.addEventListener('keydown', e.ref.handleKeyDown),
             e.element.addEventListener('click', e.ref.handleClick),
-            Dn(i, t.caption),
+            zn(i, t.caption),
             e.appendChild(i),
             (e.ref.label = i);
     },
-    Dn = (e, t) => {
+    zn = (e, t) => {
         e.innerHTML = t;
         let i = e.querySelector('.filepond--label-action');
-        return i && ee(i, 'tabindex', '0'), t;
+        return i && ie(i, 'tabindex', '0'), t;
     },
-    dc = te({
+    Ec = ae({
         name: 'drop-label',
         ignoreRect: !0,
-        create: cc,
+        create: gc,
         destroy: ({ root: e }) => {
             e.ref.label.addEventListener('keydown', e.ref.handleKeyDown),
                 e.element.removeEventListener('click', e.ref.handleClick);
         },
-        write: de({
+        write: he({
             DID_SET_LABEL_IDLE: ({ root: e, action: t }) => {
-                Dn(e.ref.label, t.value);
+                zn(e.ref.label, t.value);
             },
         }),
         mixins: {
@@ -3844,7 +3844,7 @@ var me = (e) => {
             },
         },
     }),
-    uc = te({
+    Tc = ae({
         name: 'drip-blob',
         ignoreRect: !0,
         mixins: {
@@ -3858,11 +3858,11 @@ var me = (e) => {
             },
         },
     }),
-    hc = ({ root: e }) => {
+    Ic = ({ root: e }) => {
         let t = e.rect.element.width * 0.5,
             i = e.rect.element.height * 0.5;
         e.ref.blob = e.appendChildView(
-            e.createChildView(uc, {
+            e.createChildView(Tc, {
                 opacity: 0,
                 scaleX: 2.5,
                 scaleY: 2.5,
@@ -3871,9 +3871,9 @@ var me = (e) => {
             }),
         );
     },
-    fc = ({ root: e, action: t }) => {
+    bc = ({ root: e, action: t }) => {
         if (!e.ref.blob) {
-            hc({ root: e });
+            Ic({ root: e });
             return;
         }
         (e.ref.blob.translateX = t.position.scopeLeft),
@@ -3882,21 +3882,21 @@ var me = (e) => {
             (e.ref.blob.scaleY = 1),
             (e.ref.blob.opacity = 1);
     },
-    pc = ({ root: e }) => {
+    _c = ({ root: e }) => {
         e.ref.blob && (e.ref.blob.opacity = 0);
     },
-    mc = ({ root: e }) => {
+    Rc = ({ root: e }) => {
         e.ref.blob &&
             ((e.ref.blob.scaleX = 2.5), (e.ref.blob.scaleY = 2.5), (e.ref.blob.opacity = 0));
     },
-    gc = ({ root: e, props: t, actions: i }) => {
-        Ec({ root: e, props: t, actions: i });
+    yc = ({ root: e, props: t, actions: i }) => {
+        Sc({ root: e, props: t, actions: i });
         let { blob: a } = e.ref;
         i.length === 0 && a && a.opacity === 0 && (e.removeChildView(a), (e.ref.blob = null));
     },
-    Ec = de({ DID_DRAG: fc, DID_DROP: mc, DID_END_DRAG: pc }),
-    Tc = te({ ignoreRect: !0, ignoreRectUpdate: !0, name: 'drip', write: gc }),
-    xn = (e, t) => {
+    Sc = he({ DID_DRAG: bc, DID_DROP: Rc, DID_END_DRAG: _c }),
+    wc = ae({ ignoreRect: !0, ignoreRectUpdate: !0, name: 'drip', write: yc }),
+    Nn = (e, t) => {
         try {
             let i = new DataTransfer();
             t.forEach((a) => {
@@ -3910,27 +3910,27 @@ var me = (e) => {
         }
         return !0;
     },
-    Ic = ({ root: e }) => (e.ref.fields = {}),
-    ti = (e, t) => e.ref.fields[t],
-    Ui = (e) => {
+    vc = ({ root: e }) => (e.ref.fields = {}),
+    oi = (e, t) => e.ref.fields[t],
+    $i = (e) => {
         e.query('GET_ACTIVE_ITEMS').forEach((t) => {
             e.ref.fields[t.id] && e.element.appendChild(e.ref.fields[t.id]);
         });
     },
-    qa = ({ root: e }) => Ui(e),
-    bc = ({ root: e, action: t }) => {
+    Ka = ({ root: e }) => $i(e),
+    Ac = ({ root: e, action: t }) => {
         let n =
-                !(e.query('GET_ITEM', t.id).origin === ne.LOCAL) &&
+                !(e.query('GET_ITEM', t.id).origin === re.LOCAL) &&
                 e.query('SHOULD_UPDATE_FILE_INPUT'),
-            o = Pe('input');
-        (o.type = n ? 'file' : 'hidden'),
-            (o.name = e.query('GET_NAME')),
-            (o.disabled = e.query('GET_DISABLED')),
-            (e.ref.fields[t.id] = o),
-            Ui(e);
+            r = Ce('input');
+        (r.type = n ? 'file' : 'hidden'),
+            (r.name = e.query('GET_NAME')),
+            (r.disabled = e.query('GET_DISABLED')),
+            (e.ref.fields[t.id] = r),
+            $i(e);
     },
-    _c = ({ root: e, action: t }) => {
-        let i = ti(e, t.id);
+    Lc = ({ root: e, action: t }) => {
+        let i = oi(e, t.id);
         if (
             !i ||
             (t.serverFileReference !== null && (i.value = t.serverFileReference),
@@ -3938,104 +3938,104 @@ var me = (e) => {
         )
             return;
         let a = e.query('GET_ITEM', t.id);
-        xn(i, [a.file]);
+        Nn(i, [a.file]);
     },
-    Rc = ({ root: e, action: t }) => {
+    Mc = ({ root: e, action: t }) => {
         e.query('SHOULD_UPDATE_FILE_INPUT') &&
             setTimeout(() => {
-                let i = ti(e, t.id);
-                i && xn(i, [t.file]);
+                let i = oi(e, t.id);
+                i && Nn(i, [t.file]);
             }, 0);
     },
-    yc = ({ root: e }) => {
+    Oc = ({ root: e }) => {
         e.element.disabled = e.query('GET_DISABLED');
     },
-    Sc = ({ root: e, action: t }) => {
-        let i = ti(e, t.id);
+    xc = ({ root: e, action: t }) => {
+        let i = oi(e, t.id);
         i && (i.parentNode && i.parentNode.removeChild(i), delete e.ref.fields[t.id]);
     },
-    wc = ({ root: e, action: t }) => {
-        let i = ti(e, t.id);
-        i && (t.value === null ? i.removeAttribute('value') : (i.value = t.value), Ui(e));
+    Dc = ({ root: e, action: t }) => {
+        let i = oi(e, t.id);
+        i && (t.value === null ? i.removeAttribute('value') : (i.value = t.value), $i(e));
     },
-    Ac = de({
-        DID_SET_DISABLED: yc,
-        DID_ADD_ITEM: bc,
-        DID_LOAD_ITEM: _c,
-        DID_REMOVE_ITEM: Sc,
-        DID_DEFINE_VALUE: wc,
-        DID_PREPARE_OUTPUT: Rc,
-        DID_REORDER_ITEMS: qa,
-        DID_SORT_ITEMS: qa,
+    Pc = he({
+        DID_SET_DISABLED: Oc,
+        DID_ADD_ITEM: Ac,
+        DID_LOAD_ITEM: Lc,
+        DID_REMOVE_ITEM: xc,
+        DID_DEFINE_VALUE: Dc,
+        DID_PREPARE_OUTPUT: Mc,
+        DID_REORDER_ITEMS: Ka,
+        DID_SORT_ITEMS: Ka,
     }),
-    vc = te({ tag: 'fieldset', name: 'data', create: Ic, write: Ac, ignoreRect: !0 }),
-    Lc = (e) => ('getRootNode' in e ? e.getRootNode() : document),
-    Mc = ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'webp', 'svg', 'tiff'],
-    Oc = ['css', 'csv', 'html', 'txt'],
-    Dc = { zip: 'zip|compressed', epub: 'application/epub+zip' },
-    Pn = (e = '') => (
+    Fc = ae({ tag: 'fieldset', name: 'data', create: vc, write: Pc, ignoreRect: !0 }),
+    Cc = (e) => ('getRootNode' in e ? e.getRootNode() : document),
+    zc = ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'webp', 'svg', 'tiff'],
+    Nc = ['css', 'csv', 'html', 'txt'],
+    Bc = { zip: 'zip|compressed', epub: 'application/epub+zip' },
+    Bn = (e = '') => (
         (e = e.toLowerCase()),
-        Mc.includes(e)
+        zc.includes(e)
             ? 'image/' + (e === 'jpg' ? 'jpeg' : e === 'svg' ? 'svg+xml' : e)
-            : Oc.includes(e)
+            : Nc.includes(e)
               ? 'text/' + e
-              : Dc[e] || ''
+              : Bc[e] || ''
     ),
-    ki = (e) =>
+    qi = (e) =>
         new Promise((t, i) => {
-            let a = Gc(e);
-            if (a.length && !xc(e)) return t(a);
-            Pc(e).then(t);
+            let a = $c(e);
+            if (a.length && !Gc(e)) return t(a);
+            Vc(e).then(t);
         }),
-    xc = (e) => (e.files ? e.files.length > 0 : !1),
-    Pc = (e) =>
+    Gc = (e) => (e.files ? e.files.length > 0 : !1),
+    Vc = (e) =>
         new Promise((t, i) => {
-            let a = (e.items ? Array.from(e.items) : []).filter((n) => Cc(n)).map((n) => Fc(n));
+            let a = (e.items ? Array.from(e.items) : []).filter((n) => Uc(n)).map((n) => kc(n));
             if (!a.length) {
                 t(e.files ? Array.from(e.files) : []);
                 return;
             }
             Promise.all(a)
                 .then((n) => {
-                    let o = [];
-                    n.forEach((r) => {
-                        o.push.apply(o, r);
+                    let r = [];
+                    n.forEach((o) => {
+                        r.push.apply(r, o);
                     }),
                         t(
-                            o
-                                .filter((r) => r)
+                            r
+                                .filter((o) => o)
                                 .map(
-                                    (r) => (
-                                        r._relativePath || (r._relativePath = r.webkitRelativePath),
-                                        r
+                                    (o) => (
+                                        o._relativePath || (o._relativePath = o.webkitRelativePath),
+                                        o
                                     ),
                                 ),
                         );
                 })
                 .catch(console.error);
         }),
-    Cc = (e) => {
-        if (Cn(e)) {
-            let t = Hi(e);
+    Uc = (e) => {
+        if (Gn(e)) {
+            let t = Xi(e);
             if (t) return t.isFile || t.isDirectory;
         }
         return e.kind === 'file';
     },
-    Fc = (e) =>
+    kc = (e) =>
         new Promise((t, i) => {
-            if (Bc(e)) {
-                zc(Hi(e)).then(t).catch(i);
+            if (Yc(e)) {
+                Hc(Xi(e)).then(t).catch(i);
                 return;
             }
             t([e.getAsFile()]);
         }),
-    zc = (e) =>
+    Hc = (e) =>
         new Promise((t, i) => {
             let a = [],
                 n = 0,
-                o = 0,
-                r = () => {
-                    o === 0 && n === 0 && t(a);
+                r = 0,
+                o = () => {
+                    r === 0 && n === 0 && t(a);
                 },
                 l = (s) => {
                     n++;
@@ -4043,19 +4043,19 @@ var me = (e) => {
                         c = () => {
                             u.readEntries((d) => {
                                 if (d.length === 0) {
-                                    n--, r();
+                                    n--, o();
                                     return;
                                 }
                                 d.forEach((h) => {
                                     h.isDirectory
                                         ? l(h)
-                                        : (o++,
-                                          h.file((p) => {
-                                              let f = Nc(p);
-                                              h.fullPath && (f._relativePath = h.fullPath),
-                                                  a.push(f),
-                                                  o--,
-                                                  r();
+                                        : (r++,
+                                          h.file((f) => {
+                                              let p = Wc(f);
+                                              h.fullPath && (p._relativePath = h.fullPath),
+                                                  a.push(p),
+                                                  r--,
+                                                  o();
                                           }));
                                 }),
                                     c();
@@ -4065,29 +4065,29 @@ var me = (e) => {
                 };
             l(e);
         }),
-    Nc = (e) => {
+    Wc = (e) => {
         if (e.type.length) return e;
         let t = e.lastModifiedDate,
             i = e.name,
-            a = Pn(ei(e.name));
+            a = Bn(ri(e.name));
         return a.length && ((e = e.slice(0, e.size, a)), (e.name = i), (e.lastModifiedDate = t)), e;
     },
-    Bc = (e) => Cn(e) && (Hi(e) || {}).isDirectory,
-    Cn = (e) => 'webkitGetAsEntry' in e,
-    Hi = (e) => e.webkitGetAsEntry(),
-    Gc = (e) => {
+    Yc = (e) => Gn(e) && (Xi(e) || {}).isDirectory,
+    Gn = (e) => 'webkitGetAsEntry' in e,
+    Xi = (e) => e.webkitGetAsEntry(),
+    $c = (e) => {
         let t = [];
         try {
-            if (((t = Uc(e)), t.length)) return t;
-            t = Vc(e);
+            if (((t = Xc(e)), t.length)) return t;
+            t = qc(e);
         } catch {}
         return t;
     },
-    Vc = (e) => {
+    qc = (e) => {
         let t = e.getData('url');
         return typeof t == 'string' && t.length ? [t] : [];
     },
-    Uc = (e) => {
+    Xc = (e) => {
         let t = e.getData('text/html');
         if (typeof t == 'string' && t.length) {
             let i = t.match(/src\s*=\s*"(.+?)"/);
@@ -4095,15 +4095,15 @@ var me = (e) => {
         }
         return [];
     },
-    Xt = [],
-    Ye = (e) => ({
+    Jt = [],
+    Xe = (e) => ({
         pageLeft: e.pageX,
         pageTop: e.pageY,
         scopeLeft: e.offsetX || e.layerX,
         scopeTop: e.offsetY || e.layerY,
     }),
-    kc = (e, t, i) => {
-        let a = Hc(t),
+    jc = (e, t, i) => {
+        let a = Qc(t),
             n = {
                 element: e,
                 filterElement: i,
@@ -4117,61 +4117,61 @@ var me = (e) => {
             };
         return (n.destroy = a.addListener(n)), n;
     },
-    Hc = (e) => {
-        let t = Xt.find((a) => a.element === e);
+    Qc = (e) => {
+        let t = Jt.find((a) => a.element === e);
         if (t) return t;
-        let i = Wc(e);
-        return Xt.push(i), i;
+        let i = Zc(e);
+        return Jt.push(i), i;
     },
-    Wc = (e) => {
+    Zc = (e) => {
         let t = [],
-            i = { dragenter: $c, dragover: qc, dragleave: jc, drop: Xc },
+            i = { dragenter: Jc, dragover: ed, dragleave: id, drop: td },
             a = {};
-        Q(i, (o, r) => {
-            (a[o] = r(e, t)), e.addEventListener(o, a[o], !1);
+        J(i, (r, o) => {
+            (a[r] = o(e, t)), e.addEventListener(r, a[r], !1);
         });
         let n = {
             element: e,
-            addListener: (o) => (
-                t.push(o),
+            addListener: (r) => (
+                t.push(r),
                 () => {
-                    t.splice(t.indexOf(o), 1),
+                    t.splice(t.indexOf(r), 1),
                         t.length === 0 &&
-                            (Xt.splice(Xt.indexOf(n), 1),
-                            Q(i, (r) => {
-                                e.removeEventListener(r, a[r], !1);
+                            (Jt.splice(Jt.indexOf(n), 1),
+                            J(i, (o) => {
+                                e.removeEventListener(o, a[o], !1);
                             }));
                 }
             ),
         };
         return n;
     },
-    Yc = (e, t) => ('elementFromPoint' in e || (e = document), e.elementFromPoint(t.x, t.y)),
-    Wi = (e, t) => {
-        let i = Lc(t),
-            a = Yc(i, { x: e.pageX - window.pageXOffset, y: e.pageY - window.pageYOffset });
+    Kc = (e, t) => ('elementFromPoint' in e || (e = document), e.elementFromPoint(t.x, t.y)),
+    ji = (e, t) => {
+        let i = Cc(t),
+            a = Kc(i, { x: e.pageX - window.pageXOffset, y: e.pageY - window.pageYOffset });
         return a === t || t.contains(a);
     },
-    Fn = null,
-    Ht = (e, t) => {
+    Vn = null,
+    Xt = (e, t) => {
         try {
             e.dropEffect = t;
         } catch {}
     },
-    $c = (e, t) => (i) => {
+    Jc = (e, t) => (i) => {
         i.preventDefault(),
-            (Fn = i.target),
+            (Vn = i.target),
             t.forEach((a) => {
-                let { element: n, onenter: o } = a;
-                Wi(i, n) && ((a.state = 'enter'), o(Ye(i)));
+                let { element: n, onenter: r } = a;
+                ji(i, n) && ((a.state = 'enter'), r(Xe(i)));
             });
     },
-    qc = (e, t) => (i) => {
+    ed = (e, t) => (i) => {
         i.preventDefault();
         let a = i.dataTransfer;
-        ki(a).then((n) => {
-            let o = !1;
-            t.some((r) => {
+        qi(a).then((n) => {
+            let r = !1;
+            t.some((o) => {
                 let {
                     filterElement: l,
                     element: s,
@@ -4179,69 +4179,69 @@ var me = (e) => {
                     onexit: c,
                     ondrag: d,
                     allowdrop: h,
-                } = r;
-                Ht(a, 'copy');
-                let p = h(n);
-                if (!p) {
-                    Ht(a, 'none');
+                } = o;
+                Xt(a, 'copy');
+                let f = h(n);
+                if (!f) {
+                    Xt(a, 'none');
                     return;
                 }
-                if (Wi(i, s)) {
-                    if (((o = !0), r.state === null)) {
-                        (r.state = 'enter'), u(Ye(i));
+                if (ji(i, s)) {
+                    if (((r = !0), o.state === null)) {
+                        (o.state = 'enter'), u(Xe(i));
                         return;
                     }
-                    if (((r.state = 'over'), l && !p)) {
-                        Ht(a, 'none');
+                    if (((o.state = 'over'), l && !f)) {
+                        Xt(a, 'none');
                         return;
                     }
-                    d(Ye(i));
-                } else l && !o && Ht(a, 'none'), r.state && ((r.state = null), c(Ye(i)));
+                    d(Xe(i));
+                } else l && !r && Xt(a, 'none'), o.state && ((o.state = null), c(Xe(i)));
             });
         });
     },
-    Xc = (e, t) => (i) => {
+    td = (e, t) => (i) => {
         i.preventDefault();
         let a = i.dataTransfer;
-        ki(a).then((n) => {
-            t.forEach((o) => {
-                let { filterElement: r, element: l, ondrop: s, onexit: u, allowdrop: c } = o;
-                if (((o.state = null), !(r && !Wi(i, l)))) {
-                    if (!c(n)) return u(Ye(i));
-                    s(Ye(i), n);
+        qi(a).then((n) => {
+            t.forEach((r) => {
+                let { filterElement: o, element: l, ondrop: s, onexit: u, allowdrop: c } = r;
+                if (((r.state = null), !(o && !ji(i, l)))) {
+                    if (!c(n)) return u(Xe(i));
+                    s(Xe(i), n);
                 }
             });
         });
     },
-    jc = (e, t) => (i) => {
-        Fn === i.target &&
+    id = (e, t) => (i) => {
+        Vn === i.target &&
             t.forEach((a) => {
                 let { onexit: n } = a;
-                (a.state = null), n(Ye(i));
+                (a.state = null), n(Xe(i));
             });
     },
-    Qc = (e, t, i) => {
+    ad = (e, t, i) => {
         e.classList.add('filepond--hopper');
-        let { catchesDropsOnPage: a, requiresDropOnElement: n, filterItems: o = (c) => c } = i,
-            r = kc(e, a ? document.documentElement : e, n),
+        let { catchesDropsOnPage: a, requiresDropOnElement: n, filterItems: r = (c) => c } = i,
+            o = jc(e, a ? document.documentElement : e, n),
             l = '',
             s = '';
-        (r.allowdrop = (c) => t(o(c))),
-            (r.ondrop = (c, d) => {
-                let h = o(d);
+        (o.allowdrop = (c) => t(r(c))),
+            (o.ondrop = (c, d) => {
+                let h = r(d);
                 if (!t(h)) {
                     u.ondragend(c);
                     return;
                 }
                 (s = 'drag-drop'), u.onload(h, c);
             }),
-            (r.ondrag = (c) => {
+            (o.ondrag = (c) => {
                 u.ondrag(c);
             }),
-            (r.onenter = (c) => {
+            (o.onenter = (c) => {
                 (s = 'drag-over'), u.ondragstart(c);
             }),
-            (r.onexit = (c) => {
+            (o.onexit = (c) => {
                 (s = 'drag-exit'), u.ondragend(c);
             });
         let u = {
@@ -4253,14 +4253,14 @@ var me = (e) => {
             ondrag: () => {},
             ondragend: () => {},
             destroy: () => {
-                r.destroy();
+                o.destroy();
             },
         };
         return u;
     },
-    vi = !1,
-    it = [],
-    zn = (e) => {
+    Di = !1,
+    rt = [],
+    Un = (e) => {
         let t = document.activeElement;
         if (t && /textarea|input/i.test(t.nodeName)) {
             let i = !1,
@@ -4274,47 +4274,47 @@ var me = (e) => {
             }
             if (!i) return;
         }
-        ki(e.clipboardData).then((i) => {
-            i.length && it.forEach((a) => a(i));
+        qi(e.clipboardData).then((i) => {
+            i.length && rt.forEach((a) => a(i));
         });
     },
-    Zc = (e) => {
-        it.includes(e) || (it.push(e), !vi && ((vi = !0), document.addEventListener('paste', zn)));
+    nd = (e) => {
+        rt.includes(e) || (rt.push(e), !Di && ((Di = !0), document.addEventListener('paste', Un)));
     },
-    Kc = (e) => {
-        Fi(it, it.indexOf(e)),
-            it.length === 0 && (document.removeEventListener('paste', zn), (vi = !1));
+    rd = (e) => {
+        Vi(rt, rt.indexOf(e)),
+            rt.length === 0 && (document.removeEventListener('paste', Un), (Di = !1));
     },
-    Jc = () => {
+    od = () => {
         let e = (i) => {
                 t.onload(i);
             },
             t = {
                 destroy: () => {
-                    Kc(e);
+                    rd(e);
                 },
                 onload: () => {},
             };
-        return Zc(e), t;
+        return nd(e), t;
     },
-    ed = ({ root: e, props: t }) => {
+    ld = ({ root: e, props: t }) => {
         (e.element.id = `filepond--assistant-${t.id}`),
-            ee(e.element, 'role', 'status'),
-            ee(e.element, 'aria-live', 'polite'),
-            ee(e.element, 'aria-relevant', 'additions');
+            ie(e.element, 'role', 'status'),
+            ie(e.element, 'aria-live', 'polite'),
+            ie(e.element, 'aria-relevant', 'additions');
     },
-    Xa = null,
-    ja = null,
-    Ii = [],
-    ii = (e, t) => {
+    Ja = null,
+    en = null,
+    Si = [],
+    li = (e, t) => {
         e.element.textContent = t;
     },
-    td = (e) => {
+    sd = (e) => {
         e.element.textContent = '';
     },
-    Nn = (e, t, i) => {
+    kn = (e, t, i) => {
         let a = e.query('GET_TOTAL_ITEMS');
-        ii(
+        li(
             e,
             `${i} ${t}, ${a} ${
                 a === 1
@@ -4322,75 +4322,75 @@ var me = (e) => {
                     : e.query('GET_LABEL_FILE_COUNT_PLURAL')
             }`,
         ),
-            clearTimeout(ja),
-            (ja = setTimeout(() => {
-                td(e);
+            clearTimeout(en),
+            (en = setTimeout(() => {
+                sd(e);
             }, 1500));
     },
-    Bn = (e) => e.element.parentNode.contains(document.activeElement),
-    id = ({ root: e, action: t }) => {
-        if (!Bn(e)) return;
+    Hn = (e) => e.element.parentNode.contains(document.activeElement),
+    cd = ({ root: e, action: t }) => {
+        if (!Hn(e)) return;
         e.element.textContent = '';
         let i = e.query('GET_ITEM', t.id);
-        Ii.push(i.filename),
-            clearTimeout(Xa),
-            (Xa = setTimeout(() => {
-                Nn(e, Ii.join(', '), e.query('GET_LABEL_FILE_ADDED')), (Ii.length = 0);
+        Si.push(i.filename),
+            clearTimeout(Ja),
+            (Ja = setTimeout(() => {
+                kn(e, Si.join(', '), e.query('GET_LABEL_FILE_ADDED')), (Si.length = 0);
             }, 750));
     },
-    ad = ({ root: e, action: t }) => {
-        if (!Bn(e)) return;
+    dd = ({ root: e, action: t }) => {
+        if (!Hn(e)) return;
         let i = t.item;
-        Nn(e, i.filename, e.query('GET_LABEL_FILE_REMOVED'));
+        kn(e, i.filename, e.query('GET_LABEL_FILE_REMOVED'));
     },
-    nd = ({ root: e, action: t }) => {
+    ud = ({ root: e, action: t }) => {
         let a = e.query('GET_ITEM', t.id).filename,
             n = e.query('GET_LABEL_FILE_PROCESSING_COMPLETE');
-        ii(e, `${a} ${n}`);
+        li(e, `${a} ${n}`);
     },
-    Qa = ({ root: e, action: t }) => {
+    tn = ({ root: e, action: t }) => {
         let a = e.query('GET_ITEM', t.id).filename,
             n = e.query('GET_LABEL_FILE_PROCESSING_ABORTED');
-        ii(e, `${a} ${n}`);
+        li(e, `${a} ${n}`);
     },
-    Wt = ({ root: e, action: t }) => {
+    jt = ({ root: e, action: t }) => {
         let a = e.query('GET_ITEM', t.id).filename;
-        ii(e, `${t.status.main} ${a} ${t.status.sub}`);
+        li(e, `${t.status.main} ${a} ${t.status.sub}`);
     },
-    rd = te({
-        create: ed,
+    hd = ae({
+        create: ld,
         ignoreRect: !0,
         ignoreRectUpdate: !0,
-        write: de({
-            DID_LOAD_ITEM: id,
-            DID_REMOVE_ITEM: ad,
-            DID_COMPLETE_ITEM_PROCESSING: nd,
-            DID_ABORT_ITEM_PROCESSING: Qa,
-            DID_REVERT_ITEM_PROCESSING: Qa,
-            DID_THROW_ITEM_REMOVE_ERROR: Wt,
-            DID_THROW_ITEM_LOAD_ERROR: Wt,
-            DID_THROW_ITEM_INVALID: Wt,
-            DID_THROW_ITEM_PROCESSING_ERROR: Wt,
+        write: he({
+            DID_LOAD_ITEM: cd,
+            DID_REMOVE_ITEM: dd,
+            DID_COMPLETE_ITEM_PROCESSING: ud,
+            DID_ABORT_ITEM_PROCESSING: tn,
+            DID_REVERT_ITEM_PROCESSING: tn,
+            DID_THROW_ITEM_REMOVE_ERROR: jt,
+            DID_THROW_ITEM_LOAD_ERROR: jt,
+            DID_THROW_ITEM_INVALID: jt,
+            DID_THROW_ITEM_PROCESSING_ERROR: jt,
         }),
         tag: 'span',
         name: 'assistant',
     }),
-    Gn = (e, t = '-') => e.replace(new RegExp(`${t}.`, 'g'), (i) => i.charAt(1).toUpperCase()),
-    Vn = (e, t = 16, i = !0) => {
+    Wn = (e, t = '-') => e.replace(new RegExp(`${t}.`, 'g'), (i) => i.charAt(1).toUpperCase()),
+    Yn = (e, t = 16, i = !0) => {
         let a = Date.now(),
             n = null;
-        return (...o) => {
+        return (...r) => {
             clearTimeout(n);
-            let r = Date.now() - a,
+            let o = Date.now() - a,
                 l = () => {
-                    (a = Date.now()), e(...o);
+                    (a = Date.now()), e(...r);
                 };
-            r < t ? i || (n = setTimeout(l, t - r)) : l();
+            o < t ? i || (n = setTimeout(l, t - o)) : l();
         };
     },
-    od = 1e6,
-    jt = (e) => e.preventDefault(),
-    ld = ({ root: e, props: t }) => {
+    fd = 1e6,
+    ei = (e) => e.preventDefault(),
+    pd = ({ root: e, props: t }) => {
         let i = e.query('GET_ID');
         i && (e.element.id = i);
         let a = e.query('GET_CLASS_NAME');
@@ -4402,62 +4402,62 @@ var me = (e) => {
                     e.element.classList.add(s);
                 }),
             (e.ref.label = e.appendChildView(
-                e.createChildView(dc, {
+                e.createChildView(Ec, {
                     ...t,
                     translateY: null,
                     caption: e.query('GET_LABEL_IDLE'),
                 }),
             )),
-            (e.ref.list = e.appendChildView(e.createChildView(nc, { translateY: null }))),
-            (e.ref.panel = e.appendChildView(e.createChildView(wn, { name: 'panel-root' }))),
-            (e.ref.assistant = e.appendChildView(e.createChildView(rd, { ...t }))),
-            (e.ref.data = e.appendChildView(e.createChildView(vc, { ...t }))),
-            (e.ref.measure = Pe('div')),
+            (e.ref.list = e.appendChildView(e.createChildView(uc, { translateY: null }))),
+            (e.ref.panel = e.appendChildView(e.createChildView(On, { name: 'panel-root' }))),
+            (e.ref.assistant = e.appendChildView(e.createChildView(hd, { ...t }))),
+            (e.ref.data = e.appendChildView(e.createChildView(Fc, { ...t }))),
+            (e.ref.measure = Ce('div')),
             (e.ref.measure.style.height = '100%'),
             e.element.appendChild(e.ref.measure),
             (e.ref.bounds = null),
             e
                 .query('GET_STYLES')
-                .filter((s) => !xe(s.value))
+                .filter((s) => !Fe(s.value))
                 .map(({ name: s, value: u }) => {
                     e.element.dataset[s] = u;
                 }),
             (e.ref.widthPrevious = null),
-            (e.ref.widthUpdated = Vn(() => {
+            (e.ref.widthUpdated = Yn(() => {
                 (e.ref.updateHistory = []), e.dispatch('DID_RESIZE_ROOT');
             }, 250)),
             (e.ref.previousAspectRatio = null),
             (e.ref.updateHistory = []);
         let n = window.matchMedia('(pointer: fine) and (hover: hover)').matches,
-            o = 'PointerEvent' in window;
+            r = 'PointerEvent' in window;
         e.query('GET_ALLOW_REORDER') &&
-            o &&
+            r &&
             !n &&
-            (e.element.addEventListener('touchmove', jt, { passive: !1 }),
-            e.element.addEventListener('gesturestart', jt));
-        let r = e.query('GET_CREDITS');
-        if (r.length === 2) {
+            (e.element.addEventListener('touchmove', ei, { passive: !1 }),
+            e.element.addEventListener('gesturestart', ei));
+        let o = e.query('GET_CREDITS');
+        if (o.length === 2) {
             let s = document.createElement('a');
             (s.className = 'filepond--credits'),
                 s.setAttribute('aria-hidden', 'true'),
-                (s.href = r[0]),
+                (s.href = o[0]),
                 (s.tabindex = -1),
                 (s.target = '_blank'),
                 (s.rel = 'noopener noreferrer'),
-                (s.textContent = r[1]),
+                (s.textContent = o[1]),
                 e.element.appendChild(s),
                 (e.ref.credits = s);
         }
     },
-    sd = ({ root: e, props: t, actions: i }) => {
+    md = ({ root: e, props: t, actions: i }) => {
         if (
-            (fd({ root: e, props: t, actions: i }),
+            (bd({ root: e, props: t, actions: i }),
             i
                 .filter((I) => /^DID_SET_STYLE_/.test(I.type))
-                .filter((I) => !xe(I.data.value))
-                .map(({ type: I, data: A }) => {
-                    let R = Gn(I.substring(8).toLowerCase(), '_');
-                    (e.element.dataset[R] = A.value), e.invalidateLayout();
+                .filter((I) => !Fe(I.data.value))
+                .map(({ type: I, data: v }) => {
+                    let R = Wn(I.substring(8).toLowerCase(), '_');
+                    (e.element.dataset[R] = v.value), e.invalidateLayout();
                 }),
             e.rect.element.hidden)
         )
@@ -4466,224 +4466,224 @@ var me = (e) => {
             ((e.ref.widthPrevious = e.rect.element.width), e.ref.widthUpdated());
         let a = e.ref.bounds;
         a ||
-            ((a = e.ref.bounds = ud(e)),
+            ((a = e.ref.bounds = Td(e)),
             e.element.removeChild(e.ref.measure),
             (e.ref.measure = null));
-        let { hopper: n, label: o, list: r, panel: l } = e.ref;
+        let { hopper: n, label: r, list: o, panel: l } = e.ref;
         n && n.updateHopperState();
         let s = e.query('GET_PANEL_ASPECT_RATIO'),
             u = e.query('GET_ALLOW_MULTIPLE'),
             c = e.query('GET_TOTAL_ITEMS'),
-            d = u ? e.query('GET_MAX_FILES') || od : 1,
+            d = u ? e.query('GET_MAX_FILES') || fd : 1,
             h = c === d,
-            p = i.find((I) => I.type === 'DID_ADD_ITEM');
-        if (h && p) {
-            let I = p.data.interactionMethod;
-            (o.opacity = 0),
+            f = i.find((I) => I.type === 'DID_ADD_ITEM');
+        if (h && f) {
+            let I = f.data.interactionMethod;
+            (r.opacity = 0),
                 u
-                    ? (o.translateY = -40)
-                    : I === Ie.API
-                      ? (o.translateX = 40)
-                      : I === Ie.BROWSE
-                        ? (o.translateY = 40)
-                        : (o.translateY = 30);
-        } else h || ((o.opacity = 1), (o.translateX = 0), (o.translateY = 0));
-        let f = cd(e),
-            m = dd(e),
-            E = o.rect.element.height,
-            b = !u || h ? 0 : E,
-            g = h ? r.rect.element.marginTop : 0,
-            T = c === 0 ? 0 : r.rect.element.marginBottom,
-            _ = b + g + m.visual + T,
-            y = b + g + m.bounds + T;
-        if (((r.translateY = Math.max(0, b - r.rect.element.marginTop) - f.top), s)) {
+                    ? (r.translateY = -40)
+                    : I === _e.API
+                      ? (r.translateX = 40)
+                      : I === _e.BROWSE
+                        ? (r.translateY = 40)
+                        : (r.translateY = 30);
+        } else h || ((r.opacity = 1), (r.translateX = 0), (r.translateY = 0));
+        let p = gd(e),
+            m = Ed(e),
+            g = r.rect.element.height,
+            b = !u || h ? 0 : g,
+            E = h ? o.rect.element.marginTop : 0,
+            T = c === 0 ? 0 : o.rect.element.marginBottom,
+            _ = b + E + m.visual + T,
+            y = b + E + m.bounds + T;
+        if (((o.translateY = Math.max(0, b - o.rect.element.marginTop) - p.top), s)) {
             let I = e.rect.element.width,
-                A = I * s;
+                v = I * s;
             s !== e.ref.previousAspectRatio &&
                 ((e.ref.previousAspectRatio = s), (e.ref.updateHistory = []));
             let R = e.ref.updateHistory;
             R.push(I);
             let S = 2;
             if (R.length > S * 2) {
-                let D = R.length,
-                    O = D - 10,
-                    N = 0;
-                for (let v = D; v >= O; v--) if ((R[v] === R[v - 2] && N++, N >= S)) return;
+                let x = R.length,
+                    O = x - 10,
+                    B = 0;
+                for (let A = x; A >= O; A--) if ((R[A] === R[A - 2] && B++, B >= S)) return;
             }
-            (l.scalable = !1), (l.height = A);
-            let P = A - b - (T - f.bottom) - (h ? g : 0);
-            m.visual > P ? (r.overflow = P) : (r.overflow = null), (e.height = A);
+            (l.scalable = !1), (l.height = v);
+            let D = v - b - (T - p.bottom) - (h ? E : 0);
+            m.visual > D ? (o.overflow = D) : (o.overflow = null), (e.height = v);
         } else if (a.fixedHeight) {
             l.scalable = !1;
-            let I = a.fixedHeight - b - (T - f.bottom) - (h ? g : 0);
-            m.visual > I ? (r.overflow = I) : (r.overflow = null);
+            let I = a.fixedHeight - b - (T - p.bottom) - (h ? E : 0);
+            m.visual > I ? (o.overflow = I) : (o.overflow = null);
         } else if (a.cappedHeight) {
             let I = _ >= a.cappedHeight,
-                A = Math.min(a.cappedHeight, _);
-            (l.scalable = !0), (l.height = I ? A : A - f.top - f.bottom);
-            let R = A - b - (T - f.bottom) - (h ? g : 0);
-            _ > a.cappedHeight && m.visual > R ? (r.overflow = R) : (r.overflow = null),
-                (e.height = Math.min(a.cappedHeight, y - f.top - f.bottom));
+                v = Math.min(a.cappedHeight, _);
+            (l.scalable = !0), (l.height = I ? v : v - p.top - p.bottom);
+            let R = v - b - (T - p.bottom) - (h ? E : 0);
+            _ > a.cappedHeight && m.visual > R ? (o.overflow = R) : (o.overflow = null),
+                (e.height = Math.min(a.cappedHeight, y - p.top - p.bottom));
         } else {
-            let I = c > 0 ? f.top + f.bottom : 0;
-            (l.scalable = !0), (l.height = Math.max(E, _ - I)), (e.height = Math.max(E, y - I));
+            let I = c > 0 ? p.top + p.bottom : 0;
+            (l.scalable = !0), (l.height = Math.max(g, _ - I)), (e.height = Math.max(g, y - I));
         }
         e.ref.credits &&
             l.heightCurrent &&
             (e.ref.credits.style.transform = `translateY(${l.heightCurrent}px)`);
     },
-    cd = (e) => {
+    gd = (e) => {
         let t = e.ref.list.childViews[0].childViews[0];
         return t
             ? { top: t.rect.element.marginTop, bottom: t.rect.element.marginBottom }
             : { top: 0, bottom: 0 };
     },
-    dd = (e) => {
+    Ed = (e) => {
         let t = 0,
             i = 0,
             a = e.ref.list,
             n = a.childViews[0],
-            o = n.childViews.filter((g) => g.rect.element.height),
-            r = e
+            r = n.childViews.filter((E) => E.rect.element.height),
+            o = e
                 .query('GET_ACTIVE_ITEMS')
-                .map((g) => o.find((T) => T.id === g.id))
-                .filter((g) => g);
-        if (r.length === 0) return { visual: t, bounds: i };
+                .map((E) => r.find((T) => T.id === E.id))
+                .filter((E) => E);
+        if (o.length === 0) return { visual: t, bounds: i };
         let l = n.rect.element.width,
-            s = Vi(n, r, a.dragCoordinates),
-            u = r[0].rect.element,
+            s = Yi(n, o, a.dragCoordinates),
+            u = o[0].rect.element,
             c = u.marginTop + u.marginBottom,
             d = u.marginLeft + u.marginRight,
             h = u.width + d,
-            p = u.height + c,
-            f = typeof s < 'u' && s >= 0 ? 1 : 0,
-            m = r.find((g) => g.markedForRemoval && g.opacity < 0.45) ? -1 : 0,
-            E = r.length + f + m,
-            b = Gi(l, h);
+            f = u.height + c,
+            p = typeof s < 'u' && s >= 0 ? 1 : 0,
+            m = o.find((E) => E.markedForRemoval && E.opacity < 0.45) ? -1 : 0,
+            g = o.length + p + m,
+            b = Wi(l, h);
         return (
             b === 1
-                ? r.forEach((g) => {
-                      let T = g.rect.element.height + c;
-                      (i += T), (t += T * g.opacity);
+                ? o.forEach((E) => {
+                      let T = E.rect.element.height + c;
+                      (i += T), (t += T * E.opacity);
                   })
-                : ((i = Math.ceil(E / b) * p), (t = i)),
+                : ((i = Math.ceil(g / b) * f), (t = i)),
             { visual: t, bounds: i }
         );
     },
-    ud = (e) => {
+    Td = (e) => {
         let t = e.ref.measureHeight || null;
         return {
             cappedHeight: parseInt(e.style.maxHeight, 10) || null,
             fixedHeight: t === 0 ? null : t,
         };
     },
-    Yi = (e, t) => {
+    Qi = (e, t) => {
         let i = e.query('GET_ALLOW_REPLACE'),
             a = e.query('GET_ALLOW_MULTIPLE'),
             n = e.query('GET_TOTAL_ITEMS'),
-            o = e.query('GET_MAX_FILES'),
-            r = t.length;
-        return !a && r > 1
+            r = e.query('GET_MAX_FILES'),
+            o = t.length;
+        return !a && o > 1
             ? (e.dispatch('DID_THROW_MAX_FILES', {
                   source: t,
-                  error: K('warning', 0, 'Max files'),
+                  error: ee('warning', 0, 'Max files'),
               }),
               !0)
-            : ((o = a ? o : 1),
+            : ((r = a ? r : 1),
               !a && i
                   ? !1
-                  : lt(o) && n + r > o
+                  : dt(r) && n + o > r
                     ? (e.dispatch('DID_THROW_MAX_FILES', {
                           source: t,
-                          error: K('warning', 0, 'Max files'),
+                          error: ee('warning', 0, 'Max files'),
                       }),
                       !0)
                     : !1);
     },
-    hd = (e, t, i) => {
+    Id = (e, t, i) => {
         let a = e.childViews[0];
-        return Vi(a, t, {
+        return Yi(a, t, {
             left: i.scopeLeft - a.rect.element.left,
             top:
                 i.scopeTop -
                 (e.rect.outer.top + e.rect.element.marginTop + e.rect.element.scrollTop),
         });
     },
-    Za = (e) => {
+    an = (e) => {
         let t = e.query('GET_ALLOW_DROP'),
             i = e.query('GET_DISABLED'),
             a = t && !i;
         if (a && !e.ref.hopper) {
-            let n = Qc(
+            let n = ad(
                 e.element,
-                (o) => {
-                    let r = e.query('GET_BEFORE_DROP_FILE') || (() => !0);
+                (r) => {
+                    let o = e.query('GET_BEFORE_DROP_FILE') || (() => !0);
                     return e.query('GET_DROP_VALIDATION')
-                        ? o.every(
+                        ? r.every(
                               (s) =>
-                                  $e('ALLOW_HOPPER_ITEM', s, { query: e.query }).every(
+                                  je('ALLOW_HOPPER_ITEM', s, { query: e.query }).every(
                                       (u) => u === !0,
-                                  ) && r(s),
+                                  ) && o(s),
                           )
                         : !0;
                 },
                 {
-                    filterItems: (o) => {
-                        let r = e.query('GET_IGNORED_FILES');
-                        return o.filter((l) => (ot(l) ? !r.includes(l.name.toLowerCase()) : !0));
+                    filterItems: (r) => {
+                        let o = e.query('GET_IGNORED_FILES');
+                        return r.filter((l) => (ct(l) ? !o.includes(l.name.toLowerCase()) : !0));
                     },
                     catchesDropsOnPage: e.query('GET_DROP_ON_PAGE'),
                     requiresDropOnElement: e.query('GET_DROP_ON_ELEMENT'),
                 },
             );
-            (n.onload = (o, r) => {
+            (n.onload = (r, o) => {
                 let s = e.ref.list.childViews[0].childViews.filter((c) => c.rect.element.height),
                     u = e
                         .query('GET_ACTIVE_ITEMS')
                         .map((c) => s.find((d) => d.id === c.id))
                         .filter((c) => c);
-                ye('ADD_ITEMS', o, { dispatch: e.dispatch }).then((c) => {
-                    if (Yi(e, c)) return !1;
+                we('ADD_ITEMS', r, { dispatch: e.dispatch }).then((c) => {
+                    if (Qi(e, c)) return !1;
                     e.dispatch('ADD_ITEMS', {
                         items: c,
-                        index: hd(e.ref.list, u, r),
-                        interactionMethod: Ie.DROP,
+                        index: Id(e.ref.list, u, o),
+                        interactionMethod: _e.DROP,
                     });
                 }),
-                    e.dispatch('DID_DROP', { position: r }),
-                    e.dispatch('DID_END_DRAG', { position: r });
-            }),
-                (n.ondragstart = (o) => {
-                    e.dispatch('DID_START_DRAG', { position: o });
-                }),
-                (n.ondrag = Vn((o) => {
-                    e.dispatch('DID_DRAG', { position: o });
-                })),
-                (n.ondragend = (o) => {
+                    e.dispatch('DID_DROP', { position: o }),
                     e.dispatch('DID_END_DRAG', { position: o });
+            }),
+                (n.ondragstart = (r) => {
+                    e.dispatch('DID_START_DRAG', { position: r });
+                }),
+                (n.ondrag = Yn((r) => {
+                    e.dispatch('DID_DRAG', { position: r });
+                })),
+                (n.ondragend = (r) => {
+                    e.dispatch('DID_END_DRAG', { position: r });
                 }),
                 (e.ref.hopper = n),
-                (e.ref.drip = e.appendChildView(e.createChildView(Tc)));
+                (e.ref.drip = e.appendChildView(e.createChildView(wc)));
         } else
             !a &&
                 e.ref.hopper &&
                 (e.ref.hopper.destroy(), (e.ref.hopper = null), e.removeChildView(e.ref.drip));
     },
-    Ka = (e, t) => {
+    nn = (e, t) => {
         let i = e.query('GET_ALLOW_BROWSE'),
             a = e.query('GET_DISABLED'),
             n = i && !a;
         n && !e.ref.browser
             ? (e.ref.browser = e.appendChildView(
-                  e.createChildView(sc, {
+                  e.createChildView(mc, {
                       ...t,
-                      onload: (o) => {
-                          ye('ADD_ITEMS', o, { dispatch: e.dispatch }).then((r) => {
-                              if (Yi(e, r)) return !1;
+                      onload: (r) => {
+                          we('ADD_ITEMS', r, { dispatch: e.dispatch }).then((o) => {
+                              if (Qi(e, o)) return !1;
                               e.dispatch('ADD_ITEMS', {
-                                  items: r,
+                                  items: o,
                                   index: -1,
-                                  interactionMethod: Ie.BROWSE,
+                                  interactionMethod: _e.BROWSE,
                               });
                           });
                       },
@@ -4692,124 +4692,124 @@ var me = (e) => {
               ))
             : !n && e.ref.browser && (e.removeChildView(e.ref.browser), (e.ref.browser = null));
     },
-    Ja = (e) => {
+    rn = (e) => {
         let t = e.query('GET_ALLOW_PASTE'),
             i = e.query('GET_DISABLED'),
             a = t && !i;
         a && !e.ref.paster
-            ? ((e.ref.paster = Jc()),
+            ? ((e.ref.paster = od()),
               (e.ref.paster.onload = (n) => {
-                  ye('ADD_ITEMS', n, { dispatch: e.dispatch }).then((o) => {
-                      if (Yi(e, o)) return !1;
-                      e.dispatch('ADD_ITEMS', { items: o, index: -1, interactionMethod: Ie.PASTE });
+                  we('ADD_ITEMS', n, { dispatch: e.dispatch }).then((r) => {
+                      if (Qi(e, r)) return !1;
+                      e.dispatch('ADD_ITEMS', { items: r, index: -1, interactionMethod: _e.PASTE });
                   });
               }))
             : !a && e.ref.paster && (e.ref.paster.destroy(), (e.ref.paster = null));
     },
-    fd = de({
+    bd = he({
         DID_SET_ALLOW_BROWSE: ({ root: e, props: t }) => {
-            Ka(e, t);
+            nn(e, t);
         },
         DID_SET_ALLOW_DROP: ({ root: e }) => {
-            Za(e);
+            an(e);
         },
         DID_SET_ALLOW_PASTE: ({ root: e }) => {
-            Ja(e);
+            rn(e);
         },
         DID_SET_DISABLED: ({ root: e, props: t }) => {
-            Za(e),
-                Ja(e),
-                Ka(e, t),
+            an(e),
+                rn(e),
+                nn(e, t),
                 e.query('GET_DISABLED')
                     ? (e.element.dataset.disabled = 'disabled')
                     : e.element.removeAttribute('data-disabled');
         },
     }),
-    pd = te({
+    _d = ae({
         name: 'root',
         read: ({ root: e }) => {
             e.ref.measure && (e.ref.measureHeight = e.ref.measure.offsetHeight);
         },
-        create: ld,
-        write: sd,
+        create: pd,
+        write: md,
         destroy: ({ root: e }) => {
             e.ref.paster && e.ref.paster.destroy(),
                 e.ref.hopper && e.ref.hopper.destroy(),
-                e.element.removeEventListener('touchmove', jt),
-                e.element.removeEventListener('gesturestart', jt);
+                e.element.removeEventListener('touchmove', ei),
+                e.element.removeEventListener('gesturestart', ei);
         },
         mixins: { styles: ['height'] },
     }),
-    md = (e = {}) => {
+    Rd = (e = {}) => {
         let t = null,
-            i = qt(),
-            a = xo(El(i), [Fl, bl(i)], [os, Il(i)]);
+            i = Kt(),
+            a = Go(Sl(i), [kl, Al(i)], [fs, vl(i)]);
         a.dispatch('SET_OPTIONS', { options: e });
         let n = () => {
             document.hidden || a.dispatch('KICK');
         };
         document.addEventListener('visibilitychange', n);
-        let o = null,
-            r = !1,
+        let r = null,
+            o = !1,
             l = !1,
             s = null,
             u = null,
             c = () => {
-                r || (r = !0),
-                    clearTimeout(o),
-                    (o = setTimeout(() => {
-                        (r = !1),
+                o || (o = !0),
+                    clearTimeout(r),
+                    (r = setTimeout(() => {
+                        (o = !1),
                             (s = null),
                             (u = null),
                             l && ((l = !1), a.dispatch('DID_STOP_RESIZE'));
                     }, 500));
             };
         window.addEventListener('resize', c);
-        let d = pd(a, { id: Ci() }),
+        let d = _d(a, { id: Gi() }),
             h = !1,
-            p = !1,
-            f = {
+            f = !1,
+            p = {
                 _read: () => {
-                    r &&
+                    o &&
                         ((u = window.innerWidth),
                         s || (s = u),
                         !l && u !== s && (a.dispatch('DID_START_RESIZE'), (l = !0))),
-                        p && h && (h = d.element.offsetParent === null),
-                        !h && (d._read(), (p = d.rect.element.hidden));
+                        f && h && (h = d.element.offsetParent === null),
+                        !h && (d._read(), (f = d.rect.element.hidden));
                 },
                 _write: (w) => {
-                    let L = a.processActionQueue().filter((z) => !/^SET_/.test(z.type));
+                    let L = a.processActionQueue().filter((N) => !/^SET_/.test(N.type));
                     (h && !L.length) ||
-                        (g(L),
+                        (E(L),
                         (h = d._write(w, L, l)),
-                        yl(a.query('GET_ITEMS')),
+                        Ol(a.query('GET_ITEMS')),
                         h && a.processDispatchQueue());
                 },
             },
             m = (w) => (L) => {
-                let z = { type: w };
-                if (!L) return z;
+                let N = { type: w };
+                if (!L) return N;
                 if (
-                    (L.hasOwnProperty('error') && (z.error = L.error ? { ...L.error } : null),
-                    L.status && (z.status = { ...L.status }),
-                    L.file && (z.output = L.file),
+                    (L.hasOwnProperty('error') && (N.error = L.error ? { ...L.error } : null),
+                    L.status && (N.status = { ...L.status }),
+                    L.file && (N.output = L.file),
                     L.source)
                 )
-                    z.file = L.source;
+                    N.file = L.source;
                 else if (L.item || L.id) {
-                    let C = L.item ? L.item : a.query('GET_ITEM', L.id);
-                    z.file = C ? ue(C) : null;
+                    let P = L.item ? L.item : a.query('GET_ITEM', L.id);
+                    N.file = P ? fe(P) : null;
                 }
                 return (
-                    L.items && (z.items = L.items.map(ue)),
-                    /progress/.test(w) && (z.progress = L.progress),
+                    L.items && (N.items = L.items.map(fe)),
+                    /progress/.test(w) && (N.progress = L.progress),
                     L.hasOwnProperty('origin') &&
                         L.hasOwnProperty('target') &&
-                        ((z.origin = L.origin), (z.target = L.target)),
-                    z
+                        ((N.origin = L.origin), (N.target = L.target)),
+                    N
                 );
             },
-            E = {
+            g = {
                 DID_DESTROY: m('destroy'),
                 DID_INIT: m('init'),
                 DID_THROW_MAX_FILES: m('warning'),
@@ -4844,28 +4844,28 @@ var me = (e) => {
                             composed: !0,
                         }),
                     );
-                let z = [];
-                w.hasOwnProperty('error') && z.push(w.error),
-                    w.hasOwnProperty('file') && z.push(w.file);
-                let C = ['type', 'error', 'file'];
+                let N = [];
+                w.hasOwnProperty('error') && N.push(w.error),
+                    w.hasOwnProperty('file') && N.push(w.file);
+                let P = ['type', 'error', 'file'];
                 Object.keys(w)
-                    .filter((x) => !C.includes(x))
-                    .forEach((x) => z.push(w[x])),
-                    F.fire(w.type, ...z);
-                let G = a.query(`GET_ON${w.type.toUpperCase()}`);
-                G && G(...z);
+                    .filter((V) => !P.includes(V))
+                    .forEach((V) => N.push(w[V])),
+                    F.fire(w.type, ...N);
+                let U = a.query(`GET_ON${w.type.toUpperCase()}`);
+                U && U(...N);
             },
-            g = (w) => {
+            E = (w) => {
                 w.length &&
                     w
-                        .filter((L) => E[L.type])
+                        .filter((L) => g[L.type])
                         .forEach((L) => {
-                            let z = E[L.type];
-                            (Array.isArray(z) ? z : [z]).forEach((C) => {
+                            let N = g[L.type];
+                            (Array.isArray(N) ? N : [N]).forEach((P) => {
                                 L.type === 'DID_INIT_ITEM'
-                                    ? b(C(L.data))
+                                    ? b(P(L.data))
                                     : setTimeout(() => {
-                                          b(C(L.data));
+                                          b(P(L.data));
                                       }, 0);
                             });
                         });
@@ -4873,107 +4873,107 @@ var me = (e) => {
             T = (w) => a.dispatch('SET_OPTIONS', { options: w }),
             _ = (w) => a.query('GET_ACTIVE_ITEM', w),
             y = (w) =>
-                new Promise((L, z) => {
+                new Promise((L, N) => {
                     a.dispatch('REQUEST_ITEM_PREPARE', {
                         query: w,
-                        success: (C) => {
-                            L(C);
+                        success: (P) => {
+                            L(P);
                         },
-                        failure: (C) => {
-                            z(C);
+                        failure: (P) => {
+                            N(P);
                         },
                     });
                 }),
             I = (w, L = {}) =>
-                new Promise((z, C) => {
+                new Promise((N, P) => {
                     S([{ source: w, options: L }], { index: L.index })
-                        .then((G) => z(G && G[0]))
-                        .catch(C);
+                        .then((U) => N(U && U[0]))
+                        .catch(P);
                 }),
-            A = (w) => w.file && w.id,
+            v = (w) => w.file && w.id,
             R = (w, L) => (
-                typeof w == 'object' && !A(w) && !L && ((L = w), (w = void 0)),
+                typeof w == 'object' && !v(w) && !L && ((L = w), (w = void 0)),
                 a.dispatch('REMOVE_ITEM', { ...L, query: w }),
                 a.query('GET_ACTIVE_ITEM', w) === null
             ),
             S = (...w) =>
-                new Promise((L, z) => {
-                    let C = [],
-                        G = {};
-                    if (Qt(w[0])) C.push.apply(C, w[0]), Object.assign(G, w[1] || {});
+                new Promise((L, N) => {
+                    let P = [],
+                        U = {};
+                    if (ti(w[0])) P.push.apply(P, w[0]), Object.assign(U, w[1] || {});
                     else {
-                        let x = w[w.length - 1];
-                        typeof x == 'object' && !(x instanceof Blob) && Object.assign(G, w.pop()),
-                            C.push(...w);
+                        let V = w[w.length - 1];
+                        typeof V == 'object' && !(V instanceof Blob) && Object.assign(U, w.pop()),
+                            P.push(...w);
                     }
                     a.dispatch('ADD_ITEMS', {
-                        items: C,
-                        index: G.index,
-                        interactionMethod: Ie.API,
+                        items: P,
+                        index: U.index,
+                        interactionMethod: _e.API,
                         success: L,
-                        failure: z,
+                        failure: N,
                     });
                 }),
-            P = () => a.query('GET_ACTIVE_ITEMS'),
-            D = (w) =>
-                new Promise((L, z) => {
+            D = () => a.query('GET_ACTIVE_ITEMS'),
+            x = (w) =>
+                new Promise((L, N) => {
                     a.dispatch('REQUEST_ITEM_PROCESSING', {
                         query: w,
-                        success: (C) => {
-                            L(C);
+                        success: (P) => {
+                            L(P);
                         },
-                        failure: (C) => {
-                            z(C);
+                        failure: (P) => {
+                            N(P);
                         },
                     });
                 }),
             O = (...w) => {
                 let L = Array.isArray(w[0]) ? w[0] : w,
-                    z = L.length ? L : P();
-                return Promise.all(z.map(y));
+                    N = L.length ? L : D();
+                return Promise.all(N.map(y));
             },
-            N = (...w) => {
+            B = (...w) => {
                 let L = Array.isArray(w[0]) ? w[0] : w;
                 if (!L.length) {
-                    let z = P().filter(
-                        (C) =>
-                            !(C.status === k.IDLE && C.origin === ne.LOCAL) &&
-                            C.status !== k.PROCESSING &&
-                            C.status !== k.PROCESSING_COMPLETE &&
-                            C.status !== k.PROCESSING_REVERT_ERROR,
+                    let N = D().filter(
+                        (P) =>
+                            !(P.status === H.IDLE && P.origin === re.LOCAL) &&
+                            P.status !== H.PROCESSING &&
+                            P.status !== H.PROCESSING_COMPLETE &&
+                            P.status !== H.PROCESSING_REVERT_ERROR,
                     );
-                    return Promise.all(z.map(D));
+                    return Promise.all(N.map(x));
                 }
-                return Promise.all(L.map(D));
+                return Promise.all(L.map(x));
             },
-            v = (...w) => {
+            A = (...w) => {
                 let L = Array.isArray(w[0]) ? w[0] : w,
-                    z;
+                    N;
                 typeof L[L.length - 1] == 'object'
-                    ? (z = L.pop())
-                    : Array.isArray(w[0]) && (z = w[1]);
-                let C = P();
+                    ? (N = L.pop())
+                    : Array.isArray(w[0]) && (N = w[1]);
+                let P = D();
                 return L.length
-                    ? L.map((x) => (Ve(x) ? (C[x] ? C[x].id : null) : x))
-                          .filter((x) => x)
-                          .map((x) => R(x, z))
-                    : Promise.all(C.map((x) => R(x, z)));
+                    ? L.map((V) => (He(V) ? (P[V] ? P[V].id : null) : V))
+                          .filter((V) => V)
+                          .map((V) => R(V, N))
+                    : Promise.all(P.map((V) => R(V, N)));
             },
             F = {
-                ...Jt(),
-                ...f,
-                ...Tl(a, i),
+                ...ni(),
+                ...p,
+                ...wl(a, i),
                 setOptions: T,
                 addFile: I,
                 addFiles: S,
                 getFile: _,
-                processFile: D,
+                processFile: x,
                 prepareFile: y,
                 removeFile: R,
                 moveFile: (w, L) => a.dispatch('MOVE_ITEM', { query: w, index: L }),
-                getFiles: P,
-                processFiles: N,
-                removeFiles: v,
+                getFiles: D,
+                processFiles: B,
+                removeFiles: A,
                 prepareFiles: O,
                 sort: (w) => a.dispatch('SORT', { compare: w }),
                 browse: () => {
@@ -4988,62 +4988,62 @@ var me = (e) => {
                         document.removeEventListener('visibilitychange', n),
                         a.dispatch('DID_DESTROY');
                 },
-                insertBefore: (w) => Ra(d.element, w),
-                insertAfter: (w) => ya(d.element, w),
+                insertBefore: (w) => Aa(d.element, w),
+                insertAfter: (w) => La(d.element, w),
                 appendTo: (w) => w.appendChild(d.element),
                 replaceElement: (w) => {
-                    Ra(d.element, w), w.parentNode.removeChild(w), (t = w);
+                    Aa(d.element, w), w.parentNode.removeChild(w), (t = w);
                 },
                 restoreElement: () => {
                     t &&
-                        (ya(t, d.element), d.element.parentNode.removeChild(d.element), (t = null));
+                        (La(t, d.element), d.element.parentNode.removeChild(d.element), (t = null));
                 },
                 isAttachedTo: (w) => d.element === w || t === w,
                 element: { get: () => d.element },
                 status: { get: () => a.query('GET_STATUS') },
             };
-        return a.dispatch('DID_INIT'), Fe(F);
+        return a.dispatch('DID_INIT'), Be(F);
     },
-    Un = (e = {}) => {
+    $n = (e = {}) => {
         let t = {};
         return (
-            Q(qt(), (a, n) => {
+            J(Kt(), (a, n) => {
                 t[a] = n[0];
             }),
-            md({ ...t, ...e })
+            Rd({ ...t, ...e })
         );
     },
-    gd = (e) => e.charAt(0).toLowerCase() + e.slice(1),
-    Ed = (e) => Gn(e.replace(/^data-/, '')),
-    kn = (e, t) => {
-        Q(t, (i, a) => {
-            Q(e, (n, o) => {
-                let r = new RegExp(i);
-                if (!r.test(n) || (delete e[n], a === !1)) return;
-                if (ce(a)) {
-                    e[a] = o;
+    yd = (e) => e.charAt(0).toLowerCase() + e.slice(1),
+    Sd = (e) => Wn(e.replace(/^data-/, '')),
+    qn = (e, t) => {
+        J(t, (i, a) => {
+            J(e, (n, r) => {
+                let o = new RegExp(i);
+                if (!o.test(n) || (delete e[n], a === !1)) return;
+                if (ue(a)) {
+                    e[a] = r;
                     return;
                 }
                 let s = a.group;
-                re(a) && !e[s] && (e[s] = {}), (e[s][gd(n.replace(r, ''))] = o);
+                oe(a) && !e[s] && (e[s] = {}), (e[s][yd(n.replace(o, ''))] = r);
             }),
-                a.mapping && kn(e[a.group], a.mapping);
+                a.mapping && qn(e[a.group], a.mapping);
         });
     },
-    Td = (e, t = {}) => {
+    wd = (e, t = {}) => {
         let i = [];
-        Q(e.attributes, (n) => {
+        J(e.attributes, (n) => {
             i.push(e.attributes[n]);
         });
         let a = i
             .filter((n) => n.name)
-            .reduce((n, o) => {
-                let r = ee(e, o.name);
-                return (n[Ed(o.name)] = r === o.name ? !0 : r), n;
+            .reduce((n, r) => {
+                let o = ie(e, r.name);
+                return (n[Sd(r.name)] = o === r.name ? !0 : o), n;
             }, {});
-        return kn(a, t), a;
+        return qn(a, t), a;
     },
-    Id = (e, t = {}) => {
+    vd = (e, t = {}) => {
         let i = {
             '^class$': 'className',
             '^multiple$': 'allowMultiple',
@@ -5062,54 +5062,54 @@ var me = (e) => {
             '^type$': !1,
             '^files$': !1,
         };
-        $e('SET_ATTRIBUTE_TO_OPTION_MAP', i);
+        je('SET_ATTRIBUTE_TO_OPTION_MAP', i);
         let a = { ...t },
-            n = Td(e.nodeName === 'FIELDSET' ? e.querySelector('input[type=file]') : e, i);
-        Object.keys(n).forEach((r) => {
-            re(n[r]) ? (re(a[r]) || (a[r] = {}), Object.assign(a[r], n[r])) : (a[r] = n[r]);
+            n = wd(e.nodeName === 'FIELDSET' ? e.querySelector('input[type=file]') : e, i);
+        Object.keys(n).forEach((o) => {
+            oe(n[o]) ? (oe(a[o]) || (a[o] = {}), Object.assign(a[o], n[o])) : (a[o] = n[o]);
         }),
             (a.files = (t.files || []).concat(
-                Array.from(e.querySelectorAll('input:not([type=file])')).map((r) => ({
-                    source: r.value,
-                    options: { type: r.dataset.type },
+                Array.from(e.querySelectorAll('input:not([type=file])')).map((o) => ({
+                    source: o.value,
+                    options: { type: o.dataset.type },
                 })),
             ));
-        let o = Un(a);
+        let r = $n(a);
         return (
             e.files &&
-                Array.from(e.files).forEach((r) => {
-                    o.addFile(r);
+                Array.from(e.files).forEach((o) => {
+                    r.addFile(o);
                 }),
-            o.replaceElement(e),
-            o
+            r.replaceElement(e),
+            r
         );
     },
-    bd = (...e) => (Do(e[0]) ? Id(...e) : Un(...e)),
-    _d = ['fire', '_read', '_write'],
-    en = (e) => {
+    Ad = (...e) => (Bo(e[0]) ? vd(...e) : $n(...e)),
+    Ld = ['fire', '_read', '_write'],
+    on = (e) => {
         let t = {};
-        return cn(e, t, _d), t;
+        return pn(e, t, Ld), t;
     },
-    Rd = (e, t) => e.replace(/(?:{([a-zA-Z]+)})/g, (i, a) => t[a]),
-    yd = (e) => {
+    Md = (e, t) => e.replace(/(?:{([a-zA-Z]+)})/g, (i, a) => t[a]),
+    Od = (e) => {
         let t = new Blob(['(', e.toString(), ')()'], { type: 'application/javascript' }),
             i = URL.createObjectURL(t),
             a = new Worker(i);
         return {
-            transfer: (n, o) => {},
-            post: (n, o, r) => {
-                let l = Ci();
+            transfer: (n, r) => {},
+            post: (n, r, o) => {
+                let l = Gi();
                 (a.onmessage = (s) => {
-                    s.data.id === l && o(s.data.message);
+                    s.data.id === l && r(s.data.message);
                 }),
-                    a.postMessage({ id: l, message: n }, r);
+                    a.postMessage({ id: l, message: n }, o);
             },
             terminate: () => {
                 a.terminate(), URL.revokeObjectURL(i);
             },
         };
     },
-    Sd = (e) =>
+    xd = (e) =>
         new Promise((t, i) => {
             let a = new Image();
             (a.onload = () => {
@@ -5120,91 +5120,91 @@ var me = (e) => {
                 }),
                 (a.src = e);
         }),
-    Hn = (e, t) => {
+    Xn = (e, t) => {
         let i = e.slice(0, e.size, e.type);
         return (i.lastModifiedDate = e.lastModifiedDate), (i.name = t), i;
     },
-    wd = (e) => Hn(e, e.name),
-    tn = [],
-    Ad = (e) => {
-        if (tn.includes(e)) return;
-        tn.push(e);
+    Dd = (e) => Xn(e, e.name),
+    ln = [],
+    Pd = (e) => {
+        if (ln.includes(e)) return;
+        ln.push(e);
         let t = e({
-            addFilter: wl,
+            addFilter: Dl,
             utils: {
                 Type: M,
-                forin: Q,
-                isString: ce,
-                isFile: ot,
-                toNaturalFileSize: Rn,
-                replaceInString: Rd,
-                getExtensionFromFilename: ei,
-                getFilenameWithoutExtension: In,
-                guesstimateMimeType: Pn,
-                getFileFromBlob: rt,
-                getFilenameFromURL: St,
-                createRoute: de,
-                createWorker: yd,
-                createView: te,
-                createItemAPI: ue,
-                loadImage: Sd,
-                copyFile: wd,
-                renameFile: Hn,
-                createBlob: gn,
-                applyFilterChain: ye,
-                text: J,
-                getNumericAspectRatioFromString: hn,
+                forin: J,
+                isString: ue,
+                isFile: ct,
+                toNaturalFileSize: An,
+                replaceInString: Md,
+                getExtensionFromFilename: ri,
+                getFilenameWithoutExtension: Sn,
+                guesstimateMimeType: Bn,
+                getFileFromBlob: st,
+                getFilenameFromURL: Lt,
+                createRoute: he,
+                createWorker: Od,
+                createView: ae,
+                createItemAPI: fe,
+                loadImage: xd,
+                copyFile: Dd,
+                renameFile: Xn,
+                createBlob: _n,
+                applyFilterChain: we,
+                text: te,
+                getNumericAspectRatioFromString: En,
             },
-            views: { fileActionButton: _n },
+            views: { fileActionButton: vn },
         });
-        Al(t.options);
+        Pl(t.options);
     },
-    vd = () => Object.prototype.toString.call(window.operamini) === '[object OperaMini]',
-    Ld = () => 'Promise' in window,
-    Md = () => 'slice' in Blob.prototype,
-    Od = () => 'URL' in window && 'createObjectURL' in window.URL,
-    Dd = () => 'visibilityState' in document,
-    xd = () => 'performance' in window,
-    Pd = () => 'supports' in (window.CSS || {}),
-    Cd = () => /MSIE|Trident/.test(window.navigator.userAgent),
-    Li = (() => {
-        let e = an() && !vd() && Dd() && Ld() && Md() && Od() && xd() && (Pd() || Cd());
+    Fd = () => Object.prototype.toString.call(window.operamini) === '[object OperaMini]',
+    Cd = () => 'Promise' in window,
+    zd = () => 'slice' in Blob.prototype,
+    Nd = () => 'URL' in window && 'createObjectURL' in window.URL,
+    Bd = () => 'visibilityState' in document,
+    Gd = () => 'performance' in window,
+    Vd = () => 'supports' in (window.CSS || {}),
+    Ud = () => /MSIE|Trident/.test(window.navigator.userAgent),
+    Pi = (() => {
+        let e = sn() && !Fd() && Bd() && Cd() && zd() && Nd() && Gd() && (Vd() || Ud());
         return () => e;
     })(),
-    Ce = { apps: [] },
-    Fd = 'filepond',
-    qe = () => {},
-    Wn = {},
-    st = {},
-    wt = {},
-    Mi = {},
-    at = qe,
-    nt = qe,
-    Oi = qe,
-    Di = qe,
-    ge = qe,
-    xi = qe,
-    yt = qe;
-if (Li()) {
-    al(
+    Ne = { apps: [] },
+    kd = 'filepond',
+    Qe = () => {},
+    jn = {},
+    ut = {},
+    Mt = {},
+    Fi = {},
+    ot = Qe,
+    lt = Qe,
+    Ci = Qe,
+    zi = Qe,
+    Te = Qe,
+    Ni = Qe,
+    At = Qe;
+if (Pi()) {
+    dl(
         () => {
-            Ce.apps.forEach((i) => i._read());
+            Ne.apps.forEach((i) => i._read());
         },
         (i) => {
-            Ce.apps.forEach((a) => a._write(i));
+            Ne.apps.forEach((a) => a._write(i));
         },
     );
     let e = () => {
         document.dispatchEvent(
             new CustomEvent('FilePond:loaded', {
                 detail: {
-                    supported: Li,
-                    create: at,
-                    destroy: nt,
-                    parse: Oi,
-                    find: Di,
-                    registerPlugin: ge,
-                    setOptions: yt,
+                    supported: Pi,
+                    create: ot,
+                    destroy: lt,
+                    parse: Ci,
+                    find: zi,
+                    registerPlugin: Te,
+                    setOptions: At,
                 },
             }),
         ),
@@ -5214,52 +5214,52 @@ if (Li()) {
         ? setTimeout(() => e(), 0)
         : document.addEventListener('DOMContentLoaded', e);
     let t = () =>
-        Q(qt(), (i, a) => {
-            Mi[i] = a[1];
+        J(Kt(), (i, a) => {
+            Fi[i] = a[1];
         });
-    (Wn = { ...fn }),
-        (wt = { ...ne }),
-        (st = { ...k }),
-        (Mi = {}),
+    (jn = { ...Tn }),
+        (Mt = { ...re }),
+        (ut = { ...H }),
+        (Fi = {}),
         t(),
-        (at = (...i) => {
-            let a = bd(...i);
-            return a.on('destroy', nt), Ce.apps.push(a), en(a);
+        (ot = (...i) => {
+            let a = Ad(...i);
+            return a.on('destroy', lt), Ne.apps.push(a), on(a);
         }),
-        (nt = (i) => {
-            let a = Ce.apps.findIndex((n) => n.isAttachedTo(i));
-            return a >= 0 ? (Ce.apps.splice(a, 1)[0].restoreElement(), !0) : !1;
+        (lt = (i) => {
+            let a = Ne.apps.findIndex((n) => n.isAttachedTo(i));
+            return a >= 0 ? (Ne.apps.splice(a, 1)[0].restoreElement(), !0) : !1;
         }),
-        (Oi = (i) =>
-            Array.from(i.querySelectorAll(`.${Fd}`))
-                .filter((o) => !Ce.apps.find((r) => r.isAttachedTo(o)))
-                .map((o) => at(o))),
-        (Di = (i) => {
-            let a = Ce.apps.find((n) => n.isAttachedTo(i));
-            return a ? en(a) : null;
+        (Ci = (i) =>
+            Array.from(i.querySelectorAll(`.${kd}`))
+                .filter((r) => !Ne.apps.find((o) => o.isAttachedTo(r)))
+                .map((r) => ot(r))),
+        (zi = (i) => {
+            let a = Ne.apps.find((n) => n.isAttachedTo(i));
+            return a ? on(a) : null;
         }),
-        (ge = (...i) => {
-            i.forEach(Ad), t();
+        (Te = (...i) => {
+            i.forEach(Pd), t();
         }),
-        (xi = () => {
+        (Ni = () => {
             let i = {};
             return (
-                Q(qt(), (a, n) => {
+                J(Kt(), (a, n) => {
                     i[a] = n[0];
                 }),
                 i
             );
         }),
-        (yt = (i) => (
-            re(i) &&
-                (Ce.apps.forEach((a) => {
+        (At = (i) => (
+            oe(i) &&
+                (Ne.apps.forEach((a) => {
                     a.setOptions(i);
                 }),
-                vl(i)),
-            xi()
+                Fl(i)),
+            Ni()
         ));
 }
-function Yn(e, t) {
+function Qn(e, t) {
     var i = Object.keys(e);
     if (Object.getOwnPropertySymbols) {
         var a = Object.getOwnPropertySymbols(e);
@@ -5271,25 +5271,25 @@ function Yn(e, t) {
     }
     return i;
 }
-function lr(e) {
+function hr(e) {
     for (var t = 1; t < arguments.length; t++) {
         var i = arguments[t] != null ? arguments[t] : {};
         t % 2
-            ? Yn(Object(i), !0).forEach(function (a) {
-                  Bd(e, a, i[a]);
+            ? Qn(Object(i), !0).forEach(function (a) {
+                  Yd(e, a, i[a]);
               })
             : Object.getOwnPropertyDescriptors
               ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(i))
-              : Yn(Object(i)).forEach(function (a) {
+              : Qn(Object(i)).forEach(function (a) {
                     Object.defineProperty(e, a, Object.getOwnPropertyDescriptor(i, a));
                 });
     }
     return e;
 }
-function ji(e) {
+function ea(e) {
     '@babel/helpers - typeof';
     return (
-        (ji =
+        (ea =
             typeof Symbol == 'function' && typeof Symbol.iterator == 'symbol'
                 ? function (t) {
                       return typeof t;
@@ -5302,31 +5302,32 @@ function ji(e) {
                           ? 'symbol'
                           : typeof t;
                   }),
-        ji(e)
+        ea(e)
     );
 }
-function zd(e, t) {
+function Hd(e, t) {
     if (!(e instanceof t)) throw new TypeError('Cannot call a class as a function');
 }
-function $n(e, t) {
+function Zn(e, t) {
     for (var i = 0; i < t.length; i++) {
         var a = t[i];
         (a.enumerable = a.enumerable || !1),
             (a.configurable = !0),
             'value' in a && (a.writable = !0),
-            Object.defineProperty(e, a.key, a);
+            Object.defineProperty(e, pr(a.key), a);
     }
 }
-function Nd(e, t, i) {
+function Wd(e, t, i) {
     return (
-        t && $n(e.prototype, t),
-        i && $n(e, i),
+        t && Zn(e.prototype, t),
+        i && Zn(e, i),
         Object.defineProperty(e, 'prototype', { writable: !1 }),
         e
     );
 }
-function Bd(e, t, i) {
+function Yd(e, t, i) {
     return (
+        (t = pr(t)),
         t in e
             ? Object.defineProperty(e, t, {
                   value: i,
@@ -5338,19 +5339,19 @@ function Bd(e, t, i) {
         e
     );
 }
-function sr(e) {
-    return Gd(e) || Vd(e) || Ud(e) || kd();
+function fr(e) {
+    return $d(e) || qd(e) || Xd(e) || jd();
 }
-function Gd(e) {
-    if (Array.isArray(e)) return Qi(e);
+function $d(e) {
+    if (Array.isArray(e)) return ta(e);
 }
-function Vd(e) {
+function qd(e) {
     if ((typeof Symbol < 'u' && e[Symbol.iterator] != null) || e['@@iterator'] != null)
         return Array.from(e);
 }
-function Ud(e, t) {
+function Xd(e, t) {
     if (e) {
-        if (typeof e == 'string') return Qi(e, t);
+        if (typeof e == 'string') return ta(e, t);
         var i = Object.prototype.toString.call(e).slice(8, -1);
         if (
             (i === 'Object' && e.constructor && (i = e.constructor.name),
@@ -5358,72 +5359,86 @@ function Ud(e, t) {
         )
             return Array.from(e);
         if (i === 'Arguments' || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(i))
-            return Qi(e, t);
+            return ta(e, t);
     }
 }
-function Qi(e, t) {
+function ta(e, t) {
     (t == null || t > e.length) && (t = e.length);
     for (var i = 0, a = new Array(t); i < t; i++) a[i] = e[i];
     return a;
 }
-function kd() {
+function jd() {
     throw new TypeError(`Invalid attempt to spread non-iterable instance.
 In order to be iterable, non-array objects must have a [Symbol.iterator]() method.`);
 }
-var oi = typeof window < 'u' && typeof window.document < 'u',
-    Le = oi ? window : {},
-    ra = oi && Le.document.documentElement ? 'ontouchstart' in Le.document.documentElement : !1,
-    oa = oi ? 'PointerEvent' in Le : !1,
-    q = 'cropper',
-    la = 'all',
-    cr = 'crop',
-    dr = 'move',
-    ur = 'zoom',
-    Xe = 'e',
-    je = 'w',
-    ct = 's',
-    ze = 'n',
-    At = 'ne',
-    vt = 'nw',
-    Lt = 'se',
-    Mt = 'sw',
-    Zi = ''.concat(q, '-crop'),
-    qn = ''.concat(q, '-disabled'),
-    fe = ''.concat(q, '-hidden'),
-    Xn = ''.concat(q, '-hide'),
-    Hd = ''.concat(q, '-invisible'),
-    ri = ''.concat(q, '-modal'),
-    Ki = ''.concat(q, '-move'),
-    Dt = ''.concat(q, 'Action'),
-    ai = ''.concat(q, 'Preview'),
-    sa = 'crop',
-    hr = 'move',
-    fr = 'none',
-    Ji = 'crop',
-    ea = 'cropend',
-    ta = 'cropmove',
-    ia = 'cropstart',
-    jn = 'dblclick',
-    Wd = ra ? 'touchstart' : 'mousedown',
-    Yd = ra ? 'touchmove' : 'mousemove',
-    $d = ra ? 'touchend touchcancel' : 'mouseup',
-    Qn = oa ? 'pointerdown' : Wd,
-    Zn = oa ? 'pointermove' : Yd,
-    Kn = oa ? 'pointerup pointercancel' : $d,
-    Jn = 'ready',
-    er = 'resize',
-    tr = 'wheel',
-    aa = 'zoom',
-    ir = 'image/jpeg',
-    qd = /^e|w|s|n|se|sw|ne|nw|all|crop|move|zoom$/,
-    Xd = /^data:/,
-    jd = /^data:image\/jpeg;base64,/,
-    Qd = /^img|canvas$/i,
-    pr = 200,
-    mr = 100,
-    ar = {
+function Qd(e, t) {
+    if (typeof e != 'object' || e === null) return e;
+    var i = e[Symbol.toPrimitive];
+    if (i !== void 0) {
+        var a = i.call(e, t || 'default');
+        if (typeof a != 'object') return a;
+        throw new TypeError('@@toPrimitive must return a primitive value.');
+    }
+    return (t === 'string' ? String : Number)(e);
+}
+function pr(e) {
+    var t = Qd(e, 'string');
+    return typeof t == 'symbol' ? t : String(t);
+}
+var ui = typeof window < 'u' && typeof window.document < 'u',
+    Oe = ui ? window : {},
+    da = ui && Oe.document.documentElement ? 'ontouchstart' in Oe.document.documentElement : !1,
+    ua = ui ? 'PointerEvent' in Oe : !1,
+    Q = 'cropper',
+    ha = 'all',
+    mr = 'crop',
+    gr = 'move',
+    Er = 'zoom',
+    Ze = 'e',
+    Ke = 'w',
+    ht = 's',
+    Ge = 'n',
+    Ot = 'ne',
+    xt = 'nw',
+    Dt = 'se',
+    Pt = 'sw',
+    ia = ''.concat(Q, '-crop'),
+    Kn = ''.concat(Q, '-disabled'),
+    me = ''.concat(Q, '-hidden'),
+    Jn = ''.concat(Q, '-hide'),
+    Zd = ''.concat(Q, '-invisible'),
+    di = ''.concat(Q, '-modal'),
+    aa = ''.concat(Q, '-move'),
+    Ct = ''.concat(Q, 'Action'),
+    si = ''.concat(Q, 'Preview'),
+    fa = 'crop',
+    Tr = 'move',
+    Ir = 'none',
+    na = 'crop',
+    ra = 'cropend',
+    oa = 'cropmove',
+    la = 'cropstart',
+    er = 'dblclick',
+    Kd = da ? 'touchstart' : 'mousedown',
+    Jd = da ? 'touchmove' : 'mousemove',
+    eu = da ? 'touchend touchcancel' : 'mouseup',
+    tr = ua ? 'pointerdown' : Kd,
+    ir = ua ? 'pointermove' : Jd,
+    ar = ua ? 'pointerup pointercancel' : eu,
+    nr = 'ready',
+    rr = 'resize',
+    or = 'wheel',
+    sa = 'zoom',
+    lr = 'image/jpeg',
+    tu = /^e|w|s|n|se|sw|ne|nw|all|crop|move|zoom$/,
+    iu = /^data:/,
+    au = /^data:image\/jpeg;base64,/,
+    nu = /^img|canvas$/i,
+    br = 200,
+    _r = 100,
+    sr = {
         viewMode: 0,
-        dragMode: sa,
+        dragMode: fa,
         initialAspectRatio: NaN,
         aspectRatio: NaN,
         data: null,
@@ -5453,8 +5468,8 @@ var oi = typeof window < 'u' && typeof window.document < 'u',
         minCanvasHeight: 0,
         minCropBoxWidth: 0,
         minCropBoxHeight: 0,
-        minContainerWidth: pr,
-        minContainerHeight: mr,
+        minContainerWidth: br,
+        minContainerHeight: _r,
         ready: null,
         cropstart: null,
         cropmove: null,
@@ -5462,91 +5477,91 @@ var oi = typeof window < 'u' && typeof window.document < 'u',
         crop: null,
         zoom: null,
     },
-    Zd =
+    ru =
         '<div class="cropper-container" touch-action="none"><div class="cropper-wrap-box"><div class="cropper-canvas"></div></div><div class="cropper-drag-box"></div><div class="cropper-crop-box"><span class="cropper-view-box"></span><span class="cropper-dashed dashed-h"></span><span class="cropper-dashed dashed-v"></span><span class="cropper-center"></span><span class="cropper-face"></span><span class="cropper-line line-e" data-cropper-action="e"></span><span class="cropper-line line-n" data-cropper-action="n"></span><span class="cropper-line line-w" data-cropper-action="w"></span><span class="cropper-line line-s" data-cropper-action="s"></span><span class="cropper-point point-e" data-cropper-action="e"></span><span class="cropper-point point-n" data-cropper-action="n"></span><span class="cropper-point point-w" data-cropper-action="w"></span><span class="cropper-point point-s" data-cropper-action="s"></span><span class="cropper-point point-ne" data-cropper-action="ne"></span><span class="cropper-point point-nw" data-cropper-action="nw"></span><span class="cropper-point point-sw" data-cropper-action="sw"></span><span class="cropper-point point-se" data-cropper-action="se"></span></div></div>',
-    Kd = Number.isNaN || Le.isNaN;
+    ou = Number.isNaN || Oe.isNaN;
 function Y(e) {
-    return typeof e == 'number' && !Kd(e);
+    return typeof e == 'number' && !ou(e);
 }
-var nr = function (t) {
+var cr = function (t) {
     return t > 0 && t < 1 / 0;
 };
-function qi(e) {
+function Ki(e) {
     return typeof e > 'u';
 }
-function Qe(e) {
-    return ji(e) === 'object' && e !== null;
+function Je(e) {
+    return ea(e) === 'object' && e !== null;
 }
-var Jd = Object.prototype.hasOwnProperty;
-function dt(e) {
-    if (!Qe(e)) return !1;
+var lu = Object.prototype.hasOwnProperty;
+function ft(e) {
+    if (!Je(e)) return !1;
     try {
         var t = e.constructor,
             i = t.prototype;
-        return t && i && Jd.call(i, 'isPrototypeOf');
+        return t && i && lu.call(i, 'isPrototypeOf');
     } catch {
         return !1;
     }
 }
-function he(e) {
+function pe(e) {
     return typeof e == 'function';
 }
-var eu = Array.prototype.slice;
-function gr(e) {
-    return Array.from ? Array.from(e) : eu.call(e);
+var su = Array.prototype.slice;
+function Rr(e) {
+    return Array.from ? Array.from(e) : su.call(e);
 }
-function ie(e, t) {
+function ne(e, t) {
     return (
         e &&
-            he(t) &&
+            pe(t) &&
             (Array.isArray(e) || Y(e.length)
-                ? gr(e).forEach(function (i, a) {
+                ? Rr(e).forEach(function (i, a) {
                       t.call(e, i, a, e);
                   })
-                : Qe(e) &&
+                : Je(e) &&
                   Object.keys(e).forEach(function (i) {
                       t.call(e, e[i], i, e);
                   })),
         e
     );
 }
-var X =
+var Z =
         Object.assign ||
         function (t) {
             for (var i = arguments.length, a = new Array(i > 1 ? i - 1 : 0), n = 1; n < i; n++)
                 a[n - 1] = arguments[n];
             return (
-                Qe(t) &&
+                Je(t) &&
                     a.length > 0 &&
-                    a.forEach(function (o) {
-                        Qe(o) &&
-                            Object.keys(o).forEach(function (r) {
-                                t[r] = o[r];
+                    a.forEach(function (r) {
+                        Je(r) &&
+                            Object.keys(r).forEach(function (o) {
+                                t[o] = r[o];
                             });
                     }),
                 t
             );
         },
-    tu = /\.\d*(?:0|9){12}\d*$/;
-function ht(e) {
+    cu = /\.\d*(?:0|9){12}\d*$/;
+function mt(e) {
     var t = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : 1e11;
-    return tu.test(e) ? Math.round(e * t) / t : e;
+    return cu.test(e) ? Math.round(e * t) / t : e;
 }
-var iu = /^width|height|left|top|marginLeft|marginTop$/;
-function Ne(e, t) {
+var du = /^width|height|left|top|marginLeft|marginTop$/;
+function Ve(e, t) {
     var i = e.style;
-    ie(t, function (a, n) {
-        iu.test(n) && Y(a) && (a = ''.concat(a, 'px')), (i[n] = a);
+    ne(t, function (a, n) {
+        du.test(n) && Y(a) && (a = ''.concat(a, 'px')), (i[n] = a);
     });
 }
-function au(e, t) {
+function uu(e, t) {
     return e.classList ? e.classList.contains(t) : e.className.indexOf(t) > -1;
 }
-function oe(e, t) {
+function le(e, t) {
     if (t) {
         if (Y(e.length)) {
-            ie(e, function (a) {
-                oe(a, t);
+            ne(e, function (a) {
+                le(a, t);
             });
             return;
         }
@@ -5558,11 +5573,11 @@ function oe(e, t) {
         i ? i.indexOf(t) < 0 && (e.className = ''.concat(i, ' ').concat(t)) : (e.className = t);
     }
 }
-function ve(e, t) {
+function Me(e, t) {
     if (t) {
         if (Y(e.length)) {
-            ie(e, function (i) {
-                ve(i, t);
+            ne(e, function (i) {
+                Me(i, t);
             });
             return;
         }
@@ -5573,29 +5588,29 @@ function ve(e, t) {
         e.className.indexOf(t) >= 0 && (e.className = e.className.replace(t, ''));
     }
 }
-function ut(e, t, i) {
+function pt(e, t, i) {
     if (t) {
         if (Y(e.length)) {
-            ie(e, function (a) {
-                ut(a, t, i);
+            ne(e, function (a) {
+                pt(a, t, i);
             });
             return;
         }
-        i ? oe(e, t) : ve(e, t);
+        i ? le(e, t) : Me(e, t);
     }
 }
-var nu = /([a-z\d])([A-Z])/g;
-function ca(e) {
-    return e.replace(nu, '$1-$2').toLowerCase();
+var hu = /([a-z\d])([A-Z])/g;
+function pa(e) {
+    return e.replace(hu, '$1-$2').toLowerCase();
 }
-function na(e, t) {
-    return Qe(e[t]) ? e[t] : e.dataset ? e.dataset[t] : e.getAttribute('data-'.concat(ca(t)));
+function ca(e, t) {
+    return Je(e[t]) ? e[t] : e.dataset ? e.dataset[t] : e.getAttribute('data-'.concat(pa(t)));
 }
-function xt(e, t, i) {
-    Qe(i) ? (e[t] = i) : e.dataset ? (e.dataset[t] = i) : e.setAttribute('data-'.concat(ca(t)), i);
+function zt(e, t, i) {
+    Je(i) ? (e[t] = i) : e.dataset ? (e.dataset[t] = i) : e.setAttribute('data-'.concat(pa(t)), i);
 }
-function ru(e, t) {
-    if (Qe(e[t]))
+function fu(e, t) {
+    if (Je(e[t]))
         try {
             delete e[t];
         } catch {
@@ -5607,121 +5622,121 @@ function ru(e, t) {
         } catch {
             e.dataset[t] = void 0;
         }
-    else e.removeAttribute('data-'.concat(ca(t)));
+    else e.removeAttribute('data-'.concat(pa(t)));
 }
-var Er = /\s\s*/,
-    Tr = (function () {
+var yr = /\s\s*/,
+    Sr = (function () {
         var e = !1;
-        if (oi) {
+        if (ui) {
             var t = !1,
                 i = function () {},
                 a = Object.defineProperty({}, 'once', {
                     get: function () {
                         return (e = !0), t;
                     },
-                    set: function (o) {
-                        t = o;
+                    set: function (r) {
+                        t = r;
                     },
                 });
-            Le.addEventListener('test', i, a), Le.removeEventListener('test', i, a);
+            Oe.addEventListener('test', i, a), Oe.removeEventListener('test', i, a);
         }
         return e;
     })();
-function Ae(e, t, i) {
+function Le(e, t, i) {
     var a = arguments.length > 3 && arguments[3] !== void 0 ? arguments[3] : {},
         n = i;
     t.trim()
-        .split(Er)
-        .forEach(function (o) {
-            if (!Tr) {
-                var r = e.listeners;
-                r &&
-                    r[o] &&
-                    r[o][i] &&
-                    ((n = r[o][i]),
-                    delete r[o][i],
-                    Object.keys(r[o]).length === 0 && delete r[o],
-                    Object.keys(r).length === 0 && delete e.listeners);
+        .split(yr)
+        .forEach(function (r) {
+            if (!Sr) {
+                var o = e.listeners;
+                o &&
+                    o[r] &&
+                    o[r][i] &&
+                    ((n = o[r][i]),
+                    delete o[r][i],
+                    Object.keys(o[r]).length === 0 && delete o[r],
+                    Object.keys(o).length === 0 && delete e.listeners);
             }
-            e.removeEventListener(o, n, a);
+            e.removeEventListener(r, n, a);
         });
 }
-function be(e, t, i) {
+function Re(e, t, i) {
     var a = arguments.length > 3 && arguments[3] !== void 0 ? arguments[3] : {},
         n = i;
     t.trim()
-        .split(Er)
-        .forEach(function (o) {
-            if (a.once && !Tr) {
-                var r = e.listeners,
-                    l = r === void 0 ? {} : r;
+        .split(yr)
+        .forEach(function (r) {
+            if (a.once && !Sr) {
+                var o = e.listeners,
+                    l = o === void 0 ? {} : o;
                 (n = function () {
-                    delete l[o][i], e.removeEventListener(o, n, a);
+                    delete l[r][i], e.removeEventListener(r, n, a);
                     for (var u = arguments.length, c = new Array(u), d = 0; d < u; d++)
                         c[d] = arguments[d];
                     i.apply(e, c);
                 }),
-                    l[o] || (l[o] = {}),
-                    l[o][i] && e.removeEventListener(o, l[o][i], a),
-                    (l[o][i] = n),
+                    l[r] || (l[r] = {}),
+                    l[r][i] && e.removeEventListener(r, l[r][i], a),
+                    (l[r][i] = n),
                     (e.listeners = l);
             }
-            e.addEventListener(o, n, a);
+            e.addEventListener(r, n, a);
         });
 }
-function ft(e, t, i) {
+function gt(e, t, i) {
     var a;
     return (
-        he(Event) && he(CustomEvent)
+        pe(Event) && pe(CustomEvent)
             ? (a = new CustomEvent(t, { detail: i, bubbles: !0, cancelable: !0 }))
             : ((a = document.createEvent('CustomEvent')), a.initCustomEvent(t, !0, !0, i)),
         e.dispatchEvent(a)
     );
 }
-function Ir(e) {
+function wr(e) {
     var t = e.getBoundingClientRect();
     return {
         left: t.left + (window.pageXOffset - document.documentElement.clientLeft),
         top: t.top + (window.pageYOffset - document.documentElement.clientTop),
     };
 }
-var Xi = Le.location,
-    ou = /^(\w+:)\/\/([^:/?#]*):?(\d*)/i;
-function rr(e) {
-    var t = e.match(ou);
-    return t !== null && (t[1] !== Xi.protocol || t[2] !== Xi.hostname || t[3] !== Xi.port);
+var Ji = Oe.location,
+    pu = /^(\w+:)\/\/([^:/?#]*):?(\d*)/i;
+function dr(e) {
+    var t = e.match(pu);
+    return t !== null && (t[1] !== Ji.protocol || t[2] !== Ji.hostname || t[3] !== Ji.port);
 }
-function or(e) {
+function ur(e) {
     var t = 'timestamp='.concat(new Date().getTime());
     return e + (e.indexOf('?') === -1 ? '?' : '&') + t;
 }
-function Ot(e) {
+function Ft(e) {
     var t = e.rotate,
         i = e.scaleX,
         a = e.scaleY,
         n = e.translateX,
-        o = e.translateY,
-        r = [];
-    Y(n) && n !== 0 && r.push('translateX('.concat(n, 'px)')),
-        Y(o) && o !== 0 && r.push('translateY('.concat(o, 'px)')),
-        Y(t) && t !== 0 && r.push('rotate('.concat(t, 'deg)')),
-        Y(i) && i !== 1 && r.push('scaleX('.concat(i, ')')),
-        Y(a) && a !== 1 && r.push('scaleY('.concat(a, ')'));
-    var l = r.length ? r.join(' ') : 'none';
+        r = e.translateY,
+        o = [];
+    Y(n) && n !== 0 && o.push('translateX('.concat(n, 'px)')),
+        Y(r) && r !== 0 && o.push('translateY('.concat(r, 'px)')),
+        Y(t) && t !== 0 && o.push('rotate('.concat(t, 'deg)')),
+        Y(i) && i !== 1 && o.push('scaleX('.concat(i, ')')),
+        Y(a) && a !== 1 && o.push('scaleY('.concat(a, ')'));
+    var l = o.length ? o.join(' ') : 'none';
     return { WebkitTransform: l, msTransform: l, transform: l };
 }
-function lu(e) {
-    var t = lr({}, e),
+function mu(e) {
+    var t = hr({}, e),
         i = 0;
     return (
-        ie(e, function (a, n) {
+        ne(e, function (a, n) {
             delete t[n],
-                ie(t, function (o) {
-                    var r = Math.abs(a.startX - o.startX),
-                        l = Math.abs(a.startY - o.startY),
-                        s = Math.abs(a.endX - o.endX),
-                        u = Math.abs(a.endY - o.endY),
-                        c = Math.sqrt(r * r + l * l),
+                ne(t, function (r) {
+                    var o = Math.abs(a.startX - r.startX),
+                        l = Math.abs(a.startY - r.startY),
+                        s = Math.abs(a.endX - r.endX),
+                        u = Math.abs(a.endY - r.endY),
+                        c = Math.sqrt(o * o + l * l),
                         d = Math.sqrt(s * s + u * u),
                         h = (d - c) / c;
                     Math.abs(h) > Math.abs(i) && (i = h);
@@ -5730,97 +5745,97 @@ function lu(e) {
         i
     );
 }
-function ni(e, t) {
+function ci(e, t) {
     var i = e.pageX,
         a = e.pageY,
         n = { endX: i, endY: a };
-    return t ? n : lr({ startX: i, startY: a }, n);
+    return t ? n : hr({ startX: i, startY: a }, n);
 }
-function su(e) {
+function gu(e) {
     var t = 0,
         i = 0,
         a = 0;
     return (
-        ie(e, function (n) {
-            var o = n.startX,
-                r = n.startY;
-            (t += o), (i += r), (a += 1);
+        ne(e, function (n) {
+            var r = n.startX,
+                o = n.startY;
+            (t += r), (i += o), (a += 1);
         }),
         (t /= a),
         (i /= a),
         { pageX: t, pageY: i }
     );
 }
-function Be(e) {
+function Ue(e) {
     var t = e.aspectRatio,
         i = e.height,
         a = e.width,
         n = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : 'contain',
-        o = nr(a),
-        r = nr(i);
-    if (o && r) {
+        r = cr(a),
+        o = cr(i);
+    if (r && o) {
         var l = i * t;
         (n === 'contain' && l > a) || (n === 'cover' && l < a) ? (i = a / t) : (a = i * t);
-    } else o ? (i = a / t) : r && (a = i * t);
+    } else r ? (i = a / t) : o && (a = i * t);
     return { width: a, height: i };
 }
-function cu(e) {
+function Eu(e) {
     var t = e.width,
         i = e.height,
         a = e.degree;
     if (((a = Math.abs(a) % 180), a === 90)) return { width: i, height: t };
     var n = ((a % 90) * Math.PI) / 180,
-        o = Math.sin(n),
-        r = Math.cos(n),
-        l = t * r + i * o,
-        s = t * o + i * r;
+        r = Math.sin(n),
+        o = Math.cos(n),
+        l = t * o + i * r,
+        s = t * r + i * o;
     return a > 90 ? { width: s, height: l } : { width: l, height: s };
 }
-function du(e, t, i, a) {
+function Tu(e, t, i, a) {
     var n = t.aspectRatio,
-        o = t.naturalWidth,
-        r = t.naturalHeight,
+        r = t.naturalWidth,
+        o = t.naturalHeight,
         l = t.rotate,
         s = l === void 0 ? 0 : l,
         u = t.scaleX,
         c = u === void 0 ? 1 : u,
         d = t.scaleY,
         h = d === void 0 ? 1 : d,
-        p = i.aspectRatio,
-        f = i.naturalWidth,
+        f = i.aspectRatio,
+        p = i.naturalWidth,
         m = i.naturalHeight,
-        E = a.fillColor,
-        b = E === void 0 ? 'transparent' : E,
-        g = a.imageSmoothingEnabled,
-        T = g === void 0 ? !0 : g,
+        g = a.fillColor,
+        b = g === void 0 ? 'transparent' : g,
+        E = a.imageSmoothingEnabled,
+        T = E === void 0 ? !0 : E,
         _ = a.imageSmoothingQuality,
         y = _ === void 0 ? 'low' : _,
         I = a.maxWidth,
-        A = I === void 0 ? 1 / 0 : I,
+        v = I === void 0 ? 1 / 0 : I,
         R = a.maxHeight,
         S = R === void 0 ? 1 / 0 : R,
-        P = a.minWidth,
-        D = P === void 0 ? 0 : P,
+        D = a.minWidth,
+        x = D === void 0 ? 0 : D,
         O = a.minHeight,
-        N = O === void 0 ? 0 : O,
-        v = document.createElement('canvas'),
-        F = v.getContext('2d'),
-        w = Be({ aspectRatio: p, width: A, height: S }),
-        L = Be({ aspectRatio: p, width: D, height: N }, 'cover'),
-        z = Math.min(w.width, Math.max(L.width, f)),
-        C = Math.min(w.height, Math.max(L.height, m)),
-        G = Be({ aspectRatio: n, width: A, height: S }),
-        x = Be({ aspectRatio: n, width: D, height: N }, 'cover'),
-        B = Math.min(G.width, Math.max(x.width, o)),
-        U = Math.min(G.height, Math.max(x.height, r)),
-        W = [-B / 2, -U / 2, B, U];
+        B = O === void 0 ? 0 : O,
+        A = document.createElement('canvas'),
+        F = A.getContext('2d'),
+        w = Ue({ aspectRatio: f, width: v, height: S }),
+        L = Ue({ aspectRatio: f, width: x, height: B }, 'cover'),
+        N = Math.min(w.width, Math.max(L.width, p)),
+        P = Math.min(w.height, Math.max(L.height, m)),
+        U = Ue({ aspectRatio: n, width: v, height: S }),
+        V = Ue({ aspectRatio: n, width: x, height: B }, 'cover'),
+        q = Math.min(U.width, Math.max(V.width, r)),
+        X = Math.min(U.height, Math.max(V.height, o)),
+        j = [-q / 2, -X / 2, q, X];
     return (
-        (v.width = ht(z)),
-        (v.height = ht(C)),
+        (A.width = mt(N)),
+        (A.height = mt(P)),
         (F.fillStyle = b),
-        F.fillRect(0, 0, z, C),
+        F.fillRect(0, 0, N, P),
         F.save(),
-        F.translate(z / 2, C / 2),
+        F.translate(N / 2, P / 2),
         F.rotate((s * Math.PI) / 180),
         F.scale(c, h),
         (F.imageSmoothingEnabled = T),
@@ -5828,49 +5843,49 @@ function du(e, t, i, a) {
         F.drawImage.apply(
             F,
             [e].concat(
-                sr(
-                    W.map(function (ae) {
-                        return Math.floor(ht(ae));
+                fr(
+                    j.map(function (se) {
+                        return Math.floor(mt(se));
                     }),
                 ),
             ),
         ),
         F.restore(),
-        v
+        A
     );
 }
-var br = String.fromCharCode;
-function uu(e, t, i) {
+var vr = String.fromCharCode;
+function Iu(e, t, i) {
     var a = '';
     i += t;
-    for (var n = t; n < i; n += 1) a += br(e.getUint8(n));
+    for (var n = t; n < i; n += 1) a += vr(e.getUint8(n));
     return a;
 }
-var hu = /^data:.*,/;
-function fu(e) {
-    var t = e.replace(hu, ''),
+var bu = /^data:.*,/;
+function _u(e) {
+    var t = e.replace(bu, ''),
         i = atob(t),
         a = new ArrayBuffer(i.length),
         n = new Uint8Array(a);
     return (
-        ie(n, function (o, r) {
-            n[r] = i.charCodeAt(r);
+        ne(n, function (r, o) {
+            n[o] = i.charCodeAt(o);
         }),
         a
     );
 }
-function pu(e, t) {
+function Ru(e, t) {
     for (var i = [], a = 8192, n = new Uint8Array(e); n.length > 0; )
-        i.push(br.apply(null, gr(n.subarray(0, a)))), (n = n.subarray(a));
+        i.push(vr.apply(null, Rr(n.subarray(0, a)))), (n = n.subarray(a));
     return 'data:'.concat(t, ';base64,').concat(btoa(i.join('')));
 }
-function mu(e) {
+function yu(e) {
     var t = new DataView(e),
         i;
     try {
-        var a, n, o;
+        var a, n, r;
         if (t.getUint8(0) === 255 && t.getUint8(1) === 216)
-            for (var r = t.byteLength, l = 2; l + 1 < r; ) {
+            for (var o = t.byteLength, l = 2; l + 1 < o; ) {
                 if (t.getUint8(l) === 255 && t.getUint8(l + 1) === 225) {
                     n = l;
                     break;
@@ -5880,21 +5895,21 @@ function mu(e) {
         if (n) {
             var s = n + 4,
                 u = n + 10;
-            if (uu(t, s, 4) === 'Exif') {
+            if (Iu(t, s, 4) === 'Exif') {
                 var c = t.getUint16(u);
                 if (((a = c === 18761), (a || c === 19789) && t.getUint16(u + 2, a) === 42)) {
                     var d = t.getUint32(u + 4, a);
-                    d >= 8 && (o = u + d);
+                    d >= 8 && (r = u + d);
                 }
             }
         }
-        if (o) {
-            var h = t.getUint16(o, a),
-                p,
-                f;
-            for (f = 0; f < h; f += 1)
-                if (((p = o + f * 12 + 2), t.getUint16(p, a) === 274)) {
-                    (p += 8), (i = t.getUint16(p, a)), t.setUint16(p, 1, a);
+        if (r) {
+            var h = t.getUint16(r, a),
+                f,
+                p;
+            for (p = 0; p < h; p += 1)
+                if (((f = r + p * 12 + 2), t.getUint16(f, a) === 274)) {
+                    (f += 8), (i = t.getUint16(f, a)), t.setUint16(f, 1, a);
                     break;
                 }
         }
@@ -5903,7 +5918,7 @@ function mu(e) {
     }
     return i;
 }
-function gu(e) {
+function Su(e) {
     var t = 0,
         i = 1,
         a = 1;
@@ -5932,7 +5947,7 @@ function gu(e) {
     }
     return { rotate: t, scaleX: i, scaleY: a };
 }
-var Eu = {
+var wu = {
         render: function () {
             this.initContainer(),
                 this.initCanvas(),
@@ -5945,26 +5960,26 @@ var Eu = {
                 i = this.options,
                 a = this.container,
                 n = this.cropper,
-                o = Number(i.minContainerWidth),
-                r = Number(i.minContainerHeight);
-            oe(n, fe), ve(t, fe);
+                r = Number(i.minContainerWidth),
+                o = Number(i.minContainerHeight);
+            le(n, me), Me(t, me);
             var l = {
-                width: Math.max(a.offsetWidth, o >= 0 ? o : pr),
-                height: Math.max(a.offsetHeight, r >= 0 ? r : mr),
+                width: Math.max(a.offsetWidth, r >= 0 ? r : br),
+                height: Math.max(a.offsetHeight, o >= 0 ? o : _r),
             };
             (this.containerData = l),
-                Ne(n, { width: l.width, height: l.height }),
-                oe(t, fe),
-                ve(n, fe);
+                Ve(n, { width: l.width, height: l.height }),
+                le(t, me),
+                Me(n, me);
         },
         initCanvas: function () {
             var t = this.containerData,
                 i = this.imageData,
                 a = this.options.viewMode,
                 n = Math.abs(i.rotate) % 180 === 90,
-                o = n ? i.naturalHeight : i.naturalWidth,
-                r = n ? i.naturalWidth : i.naturalHeight,
-                l = o / r,
+                r = n ? i.naturalHeight : i.naturalWidth,
+                o = n ? i.naturalWidth : i.naturalHeight,
+                l = r / o,
                 s = t.width,
                 u = t.height;
             t.height * l > t.width
@@ -5974,7 +5989,7 @@ var Eu = {
                 : a === 3
                   ? (u = t.width / l)
                   : (s = t.height * l);
-            var c = { aspectRatio: l, naturalWidth: o, naturalHeight: r, width: s, height: u };
+            var c = { aspectRatio: l, naturalWidth: r, naturalHeight: o, width: s, height: u };
             (this.canvasData = c),
                 (this.limited = a === 1 || a === 2),
                 this.limitCanvas(!0, !0),
@@ -5984,16 +5999,16 @@ var Eu = {
                 (c.top = (t.height - c.height) / 2),
                 (c.oldLeft = c.left),
                 (c.oldTop = c.top),
-                (this.initialCanvasData = X({}, c));
+                (this.initialCanvasData = Z({}, c));
         },
         limitCanvas: function (t, i) {
             var a = this.options,
                 n = this.containerData,
-                o = this.canvasData,
-                r = this.cropBoxData,
+                r = this.canvasData,
+                o = this.cropBoxData,
                 l = a.viewMode,
-                s = o.aspectRatio,
-                u = this.cropped && r;
+                s = r.aspectRatio,
+                u = this.cropped && o;
             if (t) {
                 var c = Number(a.minCanvasWidth) || 0,
                     d = Number(a.minCanvasHeight) || 0;
@@ -6003,65 +6018,65 @@ var Eu = {
                       l === 3 && (d * s > c ? (c = d * s) : (d = c / s)))
                     : l > 0 &&
                       (c
-                          ? (c = Math.max(c, u ? r.width : 0))
+                          ? (c = Math.max(c, u ? o.width : 0))
                           : d
-                            ? (d = Math.max(d, u ? r.height : 0))
+                            ? (d = Math.max(d, u ? o.height : 0))
                             : u &&
-                              ((c = r.width),
-                              (d = r.height),
+                              ((c = o.width),
+                              (d = o.height),
                               d * s > c ? (c = d * s) : (d = c / s)));
-                var h = Be({ aspectRatio: s, width: c, height: d });
+                var h = Ue({ aspectRatio: s, width: c, height: d });
                 (c = h.width),
                     (d = h.height),
-                    (o.minWidth = c),
-                    (o.minHeight = d),
-                    (o.maxWidth = 1 / 0),
-                    (o.maxHeight = 1 / 0);
+                    (r.minWidth = c),
+                    (r.minHeight = d),
+                    (r.maxWidth = 1 / 0),
+                    (r.maxHeight = 1 / 0);
             }
             if (i)
                 if (l > (u ? 0 : 1)) {
-                    var p = n.width - o.width,
-                        f = n.height - o.height;
-                    (o.minLeft = Math.min(0, p)),
-                        (o.minTop = Math.min(0, f)),
-                        (o.maxLeft = Math.max(0, p)),
-                        (o.maxTop = Math.max(0, f)),
+                    var f = n.width - r.width,
+                        p = n.height - r.height;
+                    (r.minLeft = Math.min(0, f)),
+                        (r.minTop = Math.min(0, p)),
+                        (r.maxLeft = Math.max(0, f)),
+                        (r.maxTop = Math.max(0, p)),
                         u &&
                             this.limited &&
-                            ((o.minLeft = Math.min(r.left, r.left + (r.width - o.width))),
-                            (o.minTop = Math.min(r.top, r.top + (r.height - o.height))),
-                            (o.maxLeft = r.left),
-                            (o.maxTop = r.top),
+                            ((r.minLeft = Math.min(o.left, o.left + (o.width - r.width))),
+                            (r.minTop = Math.min(o.top, o.top + (o.height - r.height))),
+                            (r.maxLeft = o.left),
+                            (r.maxTop = o.top),
                             l === 2 &&
-                                (o.width >= n.width &&
-                                    ((o.minLeft = Math.min(0, p)), (o.maxLeft = Math.max(0, p))),
-                                o.height >= n.height &&
-                                    ((o.minTop = Math.min(0, f)), (o.maxTop = Math.max(0, f)))));
+                                (r.width >= n.width &&
+                                    ((r.minLeft = Math.min(0, f)), (r.maxLeft = Math.max(0, f))),
+                                r.height >= n.height &&
+                                    ((r.minTop = Math.min(0, p)), (r.maxTop = Math.max(0, p)))));
                 } else
-                    (o.minLeft = -o.width),
-                        (o.minTop = -o.height),
-                        (o.maxLeft = n.width),
-                        (o.maxTop = n.height);
+                    (r.minLeft = -r.width),
+                        (r.minTop = -r.height),
+                        (r.maxLeft = n.width),
+                        (r.maxTop = n.height);
         },
         renderCanvas: function (t, i) {
             var a = this.canvasData,
                 n = this.imageData;
             if (i) {
-                var o = cu({
+                var r = Eu({
                         width: n.naturalWidth * Math.abs(n.scaleX || 1),
                         height: n.naturalHeight * Math.abs(n.scaleY || 1),
                         degree: n.rotate || 0,
                     }),
-                    r = o.width,
-                    l = o.height,
-                    s = a.width * (r / a.naturalWidth),
+                    o = r.width,
+                    l = r.height,
+                    s = a.width * (o / a.naturalWidth),
                     u = a.height * (l / a.naturalHeight);
                 (a.left -= (s - a.width) / 2),
                     (a.top -= (u - a.height) / 2),
                     (a.width = s),
                     (a.height = u),
-                    (a.aspectRatio = r / l),
-                    (a.naturalWidth = r),
+                    (a.aspectRatio = o / l),
+                    (a.naturalWidth = o),
                     (a.naturalHeight = l),
                     this.limitCanvas(!0, !1);
             }
@@ -6074,11 +6089,11 @@ var Eu = {
                 (a.top = Math.min(Math.max(a.top, a.minTop), a.maxTop)),
                 (a.oldLeft = a.left),
                 (a.oldTop = a.top),
-                Ne(
+                Ve(
                     this.canvas,
-                    X(
+                    Z(
                         { width: a.width, height: a.height },
-                        Ot({ translateX: a.left, translateY: a.top }),
+                        Ft({ translateX: a.left, translateY: a.top }),
                     ),
                 ),
                 this.renderImage(t),
@@ -6088,13 +6103,13 @@ var Eu = {
             var i = this.canvasData,
                 a = this.imageData,
                 n = a.naturalWidth * (i.width / i.naturalWidth),
-                o = a.naturalHeight * (i.height / i.naturalHeight);
-            X(a, { width: n, height: o, left: (i.width - n) / 2, top: (i.height - o) / 2 }),
-                Ne(
+                r = a.naturalHeight * (i.height / i.naturalHeight);
+            Z(a, { width: n, height: r, left: (i.width - n) / 2, top: (i.height - r) / 2 }),
+                Ve(
                     this.image,
-                    X(
+                    Z(
                         { width: a.width, height: a.height },
-                        Ot(X({ translateX: a.left, translateY: a.top }, a)),
+                        Ft(Z({ translateX: a.left, translateY: a.top }, a)),
                     ),
                 ),
                 t && this.output();
@@ -6104,35 +6119,35 @@ var Eu = {
                 i = this.canvasData,
                 a = t.aspectRatio || t.initialAspectRatio,
                 n = Number(t.autoCropArea) || 0.8,
-                o = { width: i.width, height: i.height };
-            a && (i.height * a > i.width ? (o.height = o.width / a) : (o.width = o.height * a)),
-                (this.cropBoxData = o),
+                r = { width: i.width, height: i.height };
+            a && (i.height * a > i.width ? (r.height = r.width / a) : (r.width = r.height * a)),
+                (this.cropBoxData = r),
                 this.limitCropBox(!0, !0),
-                (o.width = Math.min(Math.max(o.width, o.minWidth), o.maxWidth)),
-                (o.height = Math.min(Math.max(o.height, o.minHeight), o.maxHeight)),
-                (o.width = Math.max(o.minWidth, o.width * n)),
-                (o.height = Math.max(o.minHeight, o.height * n)),
-                (o.left = i.left + (i.width - o.width) / 2),
-                (o.top = i.top + (i.height - o.height) / 2),
-                (o.oldLeft = o.left),
-                (o.oldTop = o.top),
-                (this.initialCropBoxData = X({}, o));
+                (r.width = Math.min(Math.max(r.width, r.minWidth), r.maxWidth)),
+                (r.height = Math.min(Math.max(r.height, r.minHeight), r.maxHeight)),
+                (r.width = Math.max(r.minWidth, r.width * n)),
+                (r.height = Math.max(r.minHeight, r.height * n)),
+                (r.left = i.left + (i.width - r.width) / 2),
+                (r.top = i.top + (i.height - r.height) / 2),
+                (r.oldLeft = r.left),
+                (r.oldTop = r.top),
+                (this.initialCropBoxData = Z({}, r));
         },
         limitCropBox: function (t, i) {
             var a = this.options,
                 n = this.containerData,
-                o = this.canvasData,
-                r = this.cropBoxData,
+                r = this.canvasData,
+                o = this.cropBoxData,
                 l = this.limited,
                 s = a.aspectRatio;
             if (t) {
                 var u = Number(a.minCropBoxWidth) || 0,
                     c = Number(a.minCropBoxHeight) || 0,
                     d = l
-                        ? Math.min(n.width, o.width, o.width + o.left, n.width - o.left)
+                        ? Math.min(n.width, r.width, r.width + r.left, n.width - r.left)
                         : n.width,
                     h = l
-                        ? Math.min(n.height, o.height, o.height + o.top, n.height - o.top)
+                        ? Math.min(n.height, r.height, r.height + r.top, n.height - r.top)
                         : n.height;
                 (u = Math.min(u, n.width)),
                     (c = Math.min(c, n.height)),
@@ -6145,21 +6160,21 @@ var Eu = {
                               ? (c = u / s)
                               : c && (u = c * s),
                         h * s > d ? (h = d / s) : (d = h * s)),
-                    (r.minWidth = Math.min(u, d)),
-                    (r.minHeight = Math.min(c, h)),
-                    (r.maxWidth = d),
-                    (r.maxHeight = h);
+                    (o.minWidth = Math.min(u, d)),
+                    (o.minHeight = Math.min(c, h)),
+                    (o.maxWidth = d),
+                    (o.maxHeight = h);
             }
             i &&
                 (l
-                    ? ((r.minLeft = Math.max(0, o.left)),
-                      (r.minTop = Math.max(0, o.top)),
-                      (r.maxLeft = Math.min(n.width, o.left + o.width) - r.width),
-                      (r.maxTop = Math.min(n.height, o.top + o.height) - r.height))
-                    : ((r.minLeft = 0),
-                      (r.minTop = 0),
-                      (r.maxLeft = n.width - r.width),
-                      (r.maxTop = n.height - r.height)));
+                    ? ((o.minLeft = Math.max(0, r.left)),
+                      (o.minTop = Math.max(0, r.top)),
+                      (o.maxLeft = Math.min(n.width, r.left + r.width) - o.width),
+                      (o.maxTop = Math.min(n.height, r.top + r.height) - o.height))
+                    : ((o.minLeft = 0),
+                      (o.minTop = 0),
+                      (o.maxLeft = n.width - o.width),
+                      (o.maxTop = n.height - o.height)));
         },
         renderCropBox: function () {
             var t = this.options,
@@ -6176,35 +6191,35 @@ var Eu = {
                 (a.oldTop = a.top),
                 t.movable &&
                     t.cropBoxMovable &&
-                    xt(this.face, Dt, a.width >= i.width && a.height >= i.height ? dr : la),
-                Ne(
+                    zt(this.face, Ct, a.width >= i.width && a.height >= i.height ? gr : ha),
+                Ve(
                     this.cropBox,
-                    X(
+                    Z(
                         { width: a.width, height: a.height },
-                        Ot({ translateX: a.left, translateY: a.top }),
+                        Ft({ translateX: a.left, translateY: a.top }),
                     ),
                 ),
                 this.cropped && this.limited && this.limitCanvas(!0, !0),
                 this.disabled || this.output();
         },
         output: function () {
-            this.preview(), ft(this.element, Ji, this.getData());
+            this.preview(), gt(this.element, na, this.getData());
         },
     },
-    Tu = {
+    vu = {
         initPreview: function () {
             var t = this.element,
                 i = this.crossOrigin,
                 a = this.options.preview,
                 n = i ? this.crossOriginUrl : this.url,
-                o = t.alt || 'The image to preview',
-                r = document.createElement('img');
+                r = t.alt || 'The image to preview',
+                o = document.createElement('img');
             if (
-                (i && (r.crossOrigin = i),
-                (r.src = n),
-                (r.alt = o),
-                this.viewBox.appendChild(r),
-                (this.viewBoxImage = r),
+                (i && (o.crossOrigin = i),
+                (o.src = n),
+                (o.alt = r),
+                this.viewBox.appendChild(o),
+                (this.viewBoxImage = o),
                 !!a)
             ) {
                 var l = a;
@@ -6212,16 +6227,16 @@ var Eu = {
                     ? (l = t.ownerDocument.querySelectorAll(a))
                     : a.querySelector && (l = [a]),
                     (this.previews = l),
-                    ie(l, function (s) {
+                    ne(l, function (s) {
                         var u = document.createElement('img');
-                        xt(s, ai, {
+                        zt(s, si, {
                             width: s.offsetWidth,
                             height: s.offsetHeight,
                             html: s.innerHTML,
                         }),
                             i && (u.crossOrigin = i),
                             (u.src = n),
-                            (u.alt = o),
+                            (u.alt = r),
                             (u.style.cssText =
                                 'display:block;width:100%;height:auto;min-width:0!important;min-height:0!important;max-width:none!important;max-height:none!important;image-orientation:0deg!important;"'),
                             (s.innerHTML = ''),
@@ -6230,9 +6245,9 @@ var Eu = {
             }
         },
         resetPreview: function () {
-            ie(this.previews, function (t) {
-                var i = na(t, ai);
-                Ne(t, { width: i.width, height: i.height }), (t.innerHTML = i.html), ru(t, ai);
+            ne(this.previews, function (t) {
+                var i = ca(t, si);
+                Ve(t, { width: i.width, height: i.height }), (t.innerHTML = i.html), fu(t, si);
             });
         },
         preview: function () {
@@ -6240,98 +6255,98 @@ var Eu = {
                 i = this.canvasData,
                 a = this.cropBoxData,
                 n = a.width,
-                o = a.height,
-                r = t.width,
+                r = a.height,
+                o = t.width,
                 l = t.height,
                 s = a.left - i.left - t.left,
                 u = a.top - i.top - t.top;
             !this.cropped ||
                 this.disabled ||
-                (Ne(
+                (Ve(
                     this.viewBoxImage,
-                    X({ width: r, height: l }, Ot(X({ translateX: -s, translateY: -u }, t))),
+                    Z({ width: o, height: l }, Ft(Z({ translateX: -s, translateY: -u }, t))),
                 ),
-                ie(this.previews, function (c) {
-                    var d = na(c, ai),
+                ne(this.previews, function (c) {
+                    var d = ca(c, si),
                         h = d.width,
-                        p = d.height,
-                        f = h,
-                        m = p,
-                        E = 1;
-                    n && ((E = h / n), (m = o * E)),
-                        o && m > p && ((E = p / o), (f = n * E), (m = p)),
-                        Ne(c, { width: f, height: m }),
-                        Ne(
+                        f = d.height,
+                        p = h,
+                        m = f,
+                        g = 1;
+                    n && ((g = h / n), (m = r * g)),
+                        r && m > f && ((g = f / r), (p = n * g), (m = f)),
+                        Ve(c, { width: p, height: m }),
+                        Ve(
                             c.getElementsByTagName('img')[0],
-                            X(
-                                { width: r * E, height: l * E },
-                                Ot(X({ translateX: -s * E, translateY: -u * E }, t)),
+                            Z(
+                                { width: o * g, height: l * g },
+                                Ft(Z({ translateX: -s * g, translateY: -u * g }, t)),
                             ),
                         );
                 }));
         },
     },
-    Iu = {
+    Au = {
         bind: function () {
             var t = this.element,
                 i = this.options,
                 a = this.cropper;
-            he(i.cropstart) && be(t, ia, i.cropstart),
-                he(i.cropmove) && be(t, ta, i.cropmove),
-                he(i.cropend) && be(t, ea, i.cropend),
-                he(i.crop) && be(t, Ji, i.crop),
-                he(i.zoom) && be(t, aa, i.zoom),
-                be(a, Qn, (this.onCropStart = this.cropStart.bind(this))),
+            pe(i.cropstart) && Re(t, la, i.cropstart),
+                pe(i.cropmove) && Re(t, oa, i.cropmove),
+                pe(i.cropend) && Re(t, ra, i.cropend),
+                pe(i.crop) && Re(t, na, i.crop),
+                pe(i.zoom) && Re(t, sa, i.zoom),
+                Re(a, tr, (this.onCropStart = this.cropStart.bind(this))),
                 i.zoomable &&
                     i.zoomOnWheel &&
-                    be(a, tr, (this.onWheel = this.wheel.bind(this)), { passive: !1, capture: !0 }),
+                    Re(a, or, (this.onWheel = this.wheel.bind(this)), { passive: !1, capture: !0 }),
                 i.toggleDragModeOnDblclick &&
-                    be(a, jn, (this.onDblclick = this.dblclick.bind(this))),
-                be(t.ownerDocument, Zn, (this.onCropMove = this.cropMove.bind(this))),
-                be(t.ownerDocument, Kn, (this.onCropEnd = this.cropEnd.bind(this))),
-                i.responsive && be(window, er, (this.onResize = this.resize.bind(this)));
+                    Re(a, er, (this.onDblclick = this.dblclick.bind(this))),
+                Re(t.ownerDocument, ir, (this.onCropMove = this.cropMove.bind(this))),
+                Re(t.ownerDocument, ar, (this.onCropEnd = this.cropEnd.bind(this))),
+                i.responsive && Re(window, rr, (this.onResize = this.resize.bind(this)));
         },
         unbind: function () {
             var t = this.element,
                 i = this.options,
                 a = this.cropper;
-            he(i.cropstart) && Ae(t, ia, i.cropstart),
-                he(i.cropmove) && Ae(t, ta, i.cropmove),
-                he(i.cropend) && Ae(t, ea, i.cropend),
-                he(i.crop) && Ae(t, Ji, i.crop),
-                he(i.zoom) && Ae(t, aa, i.zoom),
-                Ae(a, Qn, this.onCropStart),
+            pe(i.cropstart) && Le(t, la, i.cropstart),
+                pe(i.cropmove) && Le(t, oa, i.cropmove),
+                pe(i.cropend) && Le(t, ra, i.cropend),
+                pe(i.crop) && Le(t, na, i.crop),
+                pe(i.zoom) && Le(t, sa, i.zoom),
+                Le(a, tr, this.onCropStart),
                 i.zoomable &&
                     i.zoomOnWheel &&
-                    Ae(a, tr, this.onWheel, { passive: !1, capture: !0 }),
-                i.toggleDragModeOnDblclick && Ae(a, jn, this.onDblclick),
-                Ae(t.ownerDocument, Zn, this.onCropMove),
-                Ae(t.ownerDocument, Kn, this.onCropEnd),
-                i.responsive && Ae(window, er, this.onResize);
+                    Le(a, or, this.onWheel, { passive: !1, capture: !0 }),
+                i.toggleDragModeOnDblclick && Le(a, er, this.onDblclick),
+                Le(t.ownerDocument, ir, this.onCropMove),
+                Le(t.ownerDocument, ar, this.onCropEnd),
+                i.responsive && Le(window, rr, this.onResize);
         },
     },
-    bu = {
+    Lu = {
         resize: function () {
             if (!this.disabled) {
                 var t = this.options,
                     i = this.container,
                     a = this.containerData,
                     n = i.offsetWidth / a.width,
-                    o = i.offsetHeight / a.height,
-                    r = Math.abs(n - 1) > Math.abs(o - 1) ? n : o;
-                if (r !== 1) {
+                    r = i.offsetHeight / a.height,
+                    o = Math.abs(n - 1) > Math.abs(r - 1) ? n : r;
+                if (o !== 1) {
                     var l, s;
                     t.restore && ((l = this.getCanvasData()), (s = this.getCropBoxData())),
                         this.render(),
                         t.restore &&
                             (this.setCanvasData(
-                                ie(l, function (u, c) {
-                                    l[c] = u * r;
+                                ne(l, function (u, c) {
+                                    l[c] = u * o;
                                 }),
                             ),
                             this.setCropBoxData(
-                                ie(s, function (u, c) {
-                                    s[c] = u * r;
+                                ne(s, function (u, c) {
+                                    s[c] = u * o;
                                 }),
                             ));
                 }
@@ -6339,8 +6354,8 @@ var Eu = {
         },
         dblclick: function () {
             this.disabled ||
-                this.options.dragMode === fr ||
-                this.setDragMode(au(this.dragBox, Zi) ? hr : sa);
+                this.options.dragMode === Ir ||
+                this.setDragMode(uu(this.dragBox, ia) ? Tr : fa);
         },
         wheel: function (t) {
             var i = this,
@@ -6372,22 +6387,22 @@ var Eu = {
                 )
             ) {
                 var n = this.options,
-                    o = this.pointers,
-                    r;
+                    r = this.pointers,
+                    o;
                 t.changedTouches
-                    ? ie(t.changedTouches, function (l) {
-                          o[l.identifier] = ni(l);
+                    ? ne(t.changedTouches, function (l) {
+                          r[l.identifier] = ci(l);
                       })
-                    : (o[t.pointerId || 0] = ni(t)),
-                    Object.keys(o).length > 1 && n.zoomable && n.zoomOnTouch
-                        ? (r = ur)
-                        : (r = na(t.target, Dt)),
-                    qd.test(r) &&
-                        ft(this.element, ia, { originalEvent: t, action: r }) !== !1 &&
+                    : (r[t.pointerId || 0] = ci(t)),
+                    Object.keys(r).length > 1 && n.zoomable && n.zoomOnTouch
+                        ? (o = Er)
+                        : (o = ca(t.target, Ct)),
+                    tu.test(o) &&
+                        gt(this.element, la, { originalEvent: t, action: o }) !== !1 &&
                         (t.preventDefault(),
-                        (this.action = r),
+                        (this.action = o),
                         (this.cropping = !1),
-                        r === cr && ((this.cropping = !0), oe(this.dragBox, ri)));
+                        o === mr && ((this.cropping = !0), le(this.dragBox, di)));
             }
         },
         cropMove: function (t) {
@@ -6395,12 +6410,12 @@ var Eu = {
             if (!(this.disabled || !i)) {
                 var a = this.pointers;
                 t.preventDefault(),
-                    ft(this.element, ta, { originalEvent: t, action: i }) !== !1 &&
+                    gt(this.element, oa, { originalEvent: t, action: i }) !== !1 &&
                         (t.changedTouches
-                            ? ie(t.changedTouches, function (n) {
-                                  X(a[n.identifier] || {}, ni(n, !0));
+                            ? ne(t.changedTouches, function (n) {
+                                  Z(a[n.identifier] || {}, ci(n, !0));
                               })
-                            : X(a[t.pointerId || 0] || {}, ni(t, !0)),
+                            : Z(a[t.pointerId || 0] || {}, ci(t, !0)),
                         this.change(t));
             }
         },
@@ -6409,7 +6424,7 @@ var Eu = {
                 var i = this.action,
                     a = this.pointers;
                 t.changedTouches
-                    ? ie(t.changedTouches, function (n) {
+                    ? ne(t.changedTouches, function (n) {
                           delete a[n.identifier];
                       })
                     : delete a[t.pointerId || 0],
@@ -6418,229 +6433,229 @@ var Eu = {
                         Object.keys(a).length || (this.action = ''),
                         this.cropping &&
                             ((this.cropping = !1),
-                            ut(this.dragBox, ri, this.cropped && this.options.modal)),
-                        ft(this.element, ea, { originalEvent: t, action: i }));
+                            pt(this.dragBox, di, this.cropped && this.options.modal)),
+                        gt(this.element, ra, { originalEvent: t, action: i }));
             }
         },
     },
-    _u = {
+    Mu = {
         change: function (t) {
             var i = this.options,
                 a = this.canvasData,
                 n = this.containerData,
-                o = this.cropBoxData,
-                r = this.pointers,
+                r = this.cropBoxData,
+                o = this.pointers,
                 l = this.action,
                 s = i.aspectRatio,
-                u = o.left,
-                c = o.top,
-                d = o.width,
-                h = o.height,
-                p = u + d,
-                f = c + h,
+                u = r.left,
+                c = r.top,
+                d = r.width,
+                h = r.height,
+                f = u + d,
+                p = c + h,
                 m = 0,
-                E = 0,
+                g = 0,
                 b = n.width,
-                g = n.height,
+                E = n.height,
                 T = !0,
                 _;
             !s && t.shiftKey && (s = d && h ? d / h : 1),
                 this.limited &&
-                    ((m = o.minLeft),
-                    (E = o.minTop),
+                    ((m = r.minLeft),
+                    (g = r.minTop),
                     (b = m + Math.min(n.width, a.width, a.left + a.width)),
-                    (g = E + Math.min(n.height, a.height, a.top + a.height)));
-            var y = r[Object.keys(r)[0]],
+                    (E = g + Math.min(n.height, a.height, a.top + a.height)));
+            var y = o[Object.keys(o)[0]],
                 I = { x: y.endX - y.startX, y: y.endY - y.startY },
-                A = function (S) {
+                v = function (S) {
                     switch (S) {
-                        case Xe:
-                            p + I.x > b && (I.x = b - p);
+                        case Ze:
+                            f + I.x > b && (I.x = b - f);
                             break;
-                        case je:
+                        case Ke:
                             u + I.x < m && (I.x = m - u);
                             break;
-                        case ze:
-                            c + I.y < E && (I.y = E - c);
+                        case Ge:
+                            c + I.y < g && (I.y = g - c);
                             break;
-                        case ct:
-                            f + I.y > g && (I.y = g - f);
+                        case ht:
+                            p + I.y > E && (I.y = E - p);
                             break;
                     }
                 };
             switch (l) {
-                case la:
+                case ha:
                     (u += I.x), (c += I.y);
                     break;
-                case Xe:
-                    if (I.x >= 0 && (p >= b || (s && (c <= E || f >= g)))) {
+                case Ze:
+                    if (I.x >= 0 && (f >= b || (s && (c <= g || p >= E)))) {
                         T = !1;
                         break;
                     }
-                    A(Xe),
+                    v(Ze),
                         (d += I.x),
-                        d < 0 && ((l = je), (d = -d), (u -= d)),
-                        s && ((h = d / s), (c += (o.height - h) / 2));
+                        d < 0 && ((l = Ke), (d = -d), (u -= d)),
+                        s && ((h = d / s), (c += (r.height - h) / 2));
                     break;
-                case ze:
-                    if (I.y <= 0 && (c <= E || (s && (u <= m || p >= b)))) {
+                case Ge:
+                    if (I.y <= 0 && (c <= g || (s && (u <= m || f >= b)))) {
                         T = !1;
                         break;
                     }
-                    A(ze),
+                    v(Ge),
                         (h -= I.y),
                         (c += I.y),
-                        h < 0 && ((l = ct), (h = -h), (c -= h)),
-                        s && ((d = h * s), (u += (o.width - d) / 2));
+                        h < 0 && ((l = ht), (h = -h), (c -= h)),
+                        s && ((d = h * s), (u += (r.width - d) / 2));
                     break;
-                case je:
-                    if (I.x <= 0 && (u <= m || (s && (c <= E || f >= g)))) {
+                case Ke:
+                    if (I.x <= 0 && (u <= m || (s && (c <= g || p >= E)))) {
                         T = !1;
                         break;
                     }
-                    A(je),
+                    v(Ke),
                         (d -= I.x),
                         (u += I.x),
-                        d < 0 && ((l = Xe), (d = -d), (u -= d)),
-                        s && ((h = d / s), (c += (o.height - h) / 2));
+                        d < 0 && ((l = Ze), (d = -d), (u -= d)),
+                        s && ((h = d / s), (c += (r.height - h) / 2));
                     break;
-                case ct:
-                    if (I.y >= 0 && (f >= g || (s && (u <= m || p >= b)))) {
+                case ht:
+                    if (I.y >= 0 && (p >= E || (s && (u <= m || f >= b)))) {
                         T = !1;
                         break;
                     }
-                    A(ct),
+                    v(ht),
                         (h += I.y),
-                        h < 0 && ((l = ze), (h = -h), (c -= h)),
-                        s && ((d = h * s), (u += (o.width - d) / 2));
+                        h < 0 && ((l = Ge), (h = -h), (c -= h)),
+                        s && ((d = h * s), (u += (r.width - d) / 2));
                     break;
-                case At:
+                case Ot:
                     if (s) {
-                        if (I.y <= 0 && (c <= E || p >= b)) {
+                        if (I.y <= 0 && (c <= g || f >= b)) {
                             T = !1;
                             break;
                         }
-                        A(ze), (h -= I.y), (c += I.y), (d = h * s);
+                        v(Ge), (h -= I.y), (c += I.y), (d = h * s);
                     } else
-                        A(ze),
-                            A(Xe),
+                        v(Ge),
+                            v(Ze),
                             I.x >= 0
-                                ? p < b
+                                ? f < b
                                     ? (d += I.x)
-                                    : I.y <= 0 && c <= E && (T = !1)
+                                    : I.y <= 0 && c <= g && (T = !1)
                                 : (d += I.x),
-                            I.y <= 0 ? c > E && ((h -= I.y), (c += I.y)) : ((h -= I.y), (c += I.y));
+                            I.y <= 0 ? c > g && ((h -= I.y), (c += I.y)) : ((h -= I.y), (c += I.y));
                     d < 0 && h < 0
-                        ? ((l = Mt), (h = -h), (d = -d), (c -= h), (u -= d))
+                        ? ((l = Pt), (h = -h), (d = -d), (c -= h), (u -= d))
                         : d < 0
-                          ? ((l = vt), (d = -d), (u -= d))
-                          : h < 0 && ((l = Lt), (h = -h), (c -= h));
+                          ? ((l = xt), (d = -d), (u -= d))
+                          : h < 0 && ((l = Dt), (h = -h), (c -= h));
                     break;
-                case vt:
+                case xt:
                     if (s) {
-                        if (I.y <= 0 && (c <= E || u <= m)) {
+                        if (I.y <= 0 && (c <= g || u <= m)) {
                             T = !1;
                             break;
                         }
-                        A(ze), (h -= I.y), (c += I.y), (d = h * s), (u += o.width - d);
+                        v(Ge), (h -= I.y), (c += I.y), (d = h * s), (u += r.width - d);
                     } else
-                        A(ze),
-                            A(je),
+                        v(Ge),
+                            v(Ke),
                             I.x <= 0
                                 ? u > m
                                     ? ((d -= I.x), (u += I.x))
-                                    : I.y <= 0 && c <= E && (T = !1)
+                                    : I.y <= 0 && c <= g && (T = !1)
                                 : ((d -= I.x), (u += I.x)),
-                            I.y <= 0 ? c > E && ((h -= I.y), (c += I.y)) : ((h -= I.y), (c += I.y));
+                            I.y <= 0 ? c > g && ((h -= I.y), (c += I.y)) : ((h -= I.y), (c += I.y));
                     d < 0 && h < 0
-                        ? ((l = Lt), (h = -h), (d = -d), (c -= h), (u -= d))
+                        ? ((l = Dt), (h = -h), (d = -d), (c -= h), (u -= d))
                         : d < 0
-                          ? ((l = At), (d = -d), (u -= d))
-                          : h < 0 && ((l = Mt), (h = -h), (c -= h));
+                          ? ((l = Ot), (d = -d), (u -= d))
+                          : h < 0 && ((l = Pt), (h = -h), (c -= h));
                     break;
-                case Mt:
+                case Pt:
                     if (s) {
-                        if (I.x <= 0 && (u <= m || f >= g)) {
+                        if (I.x <= 0 && (u <= m || p >= E)) {
                             T = !1;
                             break;
                         }
-                        A(je), (d -= I.x), (u += I.x), (h = d / s);
+                        v(Ke), (d -= I.x), (u += I.x), (h = d / s);
                     } else
-                        A(ct),
-                            A(je),
+                        v(ht),
+                            v(Ke),
                             I.x <= 0
                                 ? u > m
                                     ? ((d -= I.x), (u += I.x))
-                                    : I.y >= 0 && f >= g && (T = !1)
+                                    : I.y >= 0 && p >= E && (T = !1)
                                 : ((d -= I.x), (u += I.x)),
-                            I.y >= 0 ? f < g && (h += I.y) : (h += I.y);
+                            I.y >= 0 ? p < E && (h += I.y) : (h += I.y);
                     d < 0 && h < 0
-                        ? ((l = At), (h = -h), (d = -d), (c -= h), (u -= d))
+                        ? ((l = Ot), (h = -h), (d = -d), (c -= h), (u -= d))
                         : d < 0
-                          ? ((l = Lt), (d = -d), (u -= d))
-                          : h < 0 && ((l = vt), (h = -h), (c -= h));
+                          ? ((l = Dt), (d = -d), (u -= d))
+                          : h < 0 && ((l = xt), (h = -h), (c -= h));
                     break;
-                case Lt:
+                case Dt:
                     if (s) {
-                        if (I.x >= 0 && (p >= b || f >= g)) {
+                        if (I.x >= 0 && (f >= b || p >= E)) {
                             T = !1;
                             break;
                         }
-                        A(Xe), (d += I.x), (h = d / s);
+                        v(Ze), (d += I.x), (h = d / s);
                     } else
-                        A(ct),
-                            A(Xe),
+                        v(ht),
+                            v(Ze),
                             I.x >= 0
-                                ? p < b
+                                ? f < b
                                     ? (d += I.x)
-                                    : I.y >= 0 && f >= g && (T = !1)
+                                    : I.y >= 0 && p >= E && (T = !1)
                                 : (d += I.x),
-                            I.y >= 0 ? f < g && (h += I.y) : (h += I.y);
+                            I.y >= 0 ? p < E && (h += I.y) : (h += I.y);
                     d < 0 && h < 0
-                        ? ((l = vt), (h = -h), (d = -d), (c -= h), (u -= d))
+                        ? ((l = xt), (h = -h), (d = -d), (c -= h), (u -= d))
                         : d < 0
-                          ? ((l = Mt), (d = -d), (u -= d))
-                          : h < 0 && ((l = At), (h = -h), (c -= h));
+                          ? ((l = Pt), (d = -d), (u -= d))
+                          : h < 0 && ((l = Ot), (h = -h), (c -= h));
                     break;
-                case dr:
+                case gr:
                     this.move(I.x, I.y), (T = !1);
                     break;
-                case ur:
-                    this.zoom(lu(r), t), (T = !1);
+                case Er:
+                    this.zoom(mu(o), t), (T = !1);
                     break;
-                case cr:
+                case mr:
                     if (!I.x || !I.y) {
                         T = !1;
                         break;
                     }
-                    (_ = Ir(this.cropper)),
+                    (_ = wr(this.cropper)),
                         (u = y.startX - _.left),
                         (c = y.startY - _.top),
-                        (d = o.minWidth),
-                        (h = o.minHeight),
+                        (d = r.minWidth),
+                        (h = r.minHeight),
                         I.x > 0
-                            ? (l = I.y > 0 ? Lt : At)
-                            : I.x < 0 && ((u -= d), (l = I.y > 0 ? Mt : vt)),
+                            ? (l = I.y > 0 ? Dt : Ot)
+                            : I.x < 0 && ((u -= d), (l = I.y > 0 ? Pt : xt)),
                         I.y < 0 && (c -= h),
                         this.cropped ||
-                            (ve(this.cropBox, fe),
+                            (Me(this.cropBox, me),
                             (this.cropped = !0),
                             this.limited && this.limitCropBox(!0, !0));
                     break;
             }
             T &&
-                ((o.width = d),
-                (o.height = h),
-                (o.left = u),
-                (o.top = c),
+                ((r.width = d),
+                (r.height = h),
+                (r.left = u),
+                (r.top = c),
                 (this.action = l),
                 this.renderCropBox()),
-                ie(r, function (R) {
+                ne(o, function (R) {
                     (R.startX = R.endX), (R.startY = R.endY);
                 });
         },
     },
-    Ru = {
+    Ou = {
         crop: function () {
             return (
                 this.ready &&
@@ -6648,8 +6663,8 @@ var Eu = {
                     !this.disabled &&
                     ((this.cropped = !0),
                     this.limitCropBox(!0, !0),
-                    this.options.modal && oe(this.dragBox, ri),
-                    ve(this.cropBox, fe),
+                    this.options.modal && le(this.dragBox, di),
+                    Me(this.cropBox, me),
                     this.setCropBoxData(this.initialCropBoxData)),
                 this
             );
@@ -6658,9 +6673,9 @@ var Eu = {
             return (
                 this.ready &&
                     !this.disabled &&
-                    ((this.imageData = X({}, this.initialImageData)),
-                    (this.canvasData = X({}, this.initialCanvasData)),
-                    (this.cropBoxData = X({}, this.initialCropBoxData)),
+                    ((this.imageData = Z({}, this.initialImageData)),
+                    (this.canvasData = Z({}, this.initialCanvasData)),
+                    (this.cropBoxData = Z({}, this.initialCropBoxData)),
                     this.renderCanvas(),
                     this.cropped && this.renderCropBox()),
                 this
@@ -6670,13 +6685,13 @@ var Eu = {
             return (
                 this.cropped &&
                     !this.disabled &&
-                    (X(this.cropBoxData, { left: 0, top: 0, width: 0, height: 0 }),
+                    (Z(this.cropBoxData, { left: 0, top: 0, width: 0, height: 0 }),
                     (this.cropped = !1),
                     this.renderCropBox(),
                     this.limitCanvas(!0, !0),
                     this.renderCanvas(),
-                    ve(this.dragBox, ri),
-                    oe(this.cropBox, fe)),
+                    Me(this.dragBox, di),
+                    le(this.cropBox, me)),
                 this
             );
         },
@@ -6691,7 +6706,7 @@ var Eu = {
                           (this.image.src = t),
                           this.ready &&
                               ((this.viewBoxImage.src = t),
-                              ie(this.previews, function (a) {
+                              ne(this.previews, function (a) {
                                   a.getElementsByTagName('img')[0].src = t;
                               })))
                         : (this.isImg && (this.replaced = !0),
@@ -6703,18 +6718,18 @@ var Eu = {
         },
         enable: function () {
             return (
-                this.ready && this.disabled && ((this.disabled = !1), ve(this.cropper, qn)), this
+                this.ready && this.disabled && ((this.disabled = !1), Me(this.cropper, Kn)), this
             );
         },
         disable: function () {
             return (
-                this.ready && !this.disabled && ((this.disabled = !0), oe(this.cropper, qn)), this
+                this.ready && !this.disabled && ((this.disabled = !0), le(this.cropper, Kn)), this
             );
         },
         destroy: function () {
             var t = this.element;
-            return t[q]
-                ? ((t[q] = void 0),
+            return t[Q]
+                ? ((t[Q] = void 0),
                   this.isImg && this.replaced && (t.src = this.originalUrl),
                   this.uncreate(),
                   this)
@@ -6724,8 +6739,8 @@ var Eu = {
             var i = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : t,
                 a = this.canvasData,
                 n = a.left,
-                o = a.top;
-            return this.moveTo(qi(t) ? t : n + Number(t), qi(i) ? i : o + Number(i));
+                r = a.top;
+            return this.moveTo(Ki(t) ? t : n + Number(t), Ki(i) ? i : r + Number(i));
         },
         moveTo: function (t) {
             var i = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : t,
@@ -6753,28 +6768,28 @@ var Eu = {
         },
         zoomTo: function (t, i, a) {
             var n = this.options,
-                o = this.canvasData,
-                r = o.width,
-                l = o.height,
-                s = o.naturalWidth,
-                u = o.naturalHeight;
+                r = this.canvasData,
+                o = r.width,
+                l = r.height,
+                s = r.naturalWidth,
+                u = r.naturalHeight;
             if (((t = Number(t)), t >= 0 && this.ready && !this.disabled && n.zoomable)) {
                 var c = s * t,
                     d = u * t;
-                if (ft(this.element, aa, { ratio: t, oldRatio: r / s, originalEvent: a }) === !1)
+                if (gt(this.element, sa, { ratio: t, oldRatio: o / s, originalEvent: a }) === !1)
                     return this;
                 if (a) {
                     var h = this.pointers,
-                        p = Ir(this.cropper),
-                        f = h && Object.keys(h).length ? su(h) : { pageX: a.pageX, pageY: a.pageY };
-                    (o.left -= (c - r) * ((f.pageX - p.left - o.left) / r)),
-                        (o.top -= (d - l) * ((f.pageY - p.top - o.top) / l));
+                        f = wr(this.cropper),
+                        p = h && Object.keys(h).length ? gu(h) : { pageX: a.pageX, pageY: a.pageY };
+                    (r.left -= (c - o) * ((p.pageX - f.left - r.left) / o)),
+                        (r.top -= (d - l) * ((p.pageY - f.top - r.top) / l));
                 } else
-                    dt(i) && Y(i.x) && Y(i.y)
-                        ? ((o.left -= (c - r) * ((i.x - o.left) / r)),
-                          (o.top -= (d - l) * ((i.y - o.top) / l)))
-                        : ((o.left -= (c - r) / 2), (o.top -= (d - l) / 2));
-                (o.width = c), (o.height = d), this.renderCanvas(!0);
+                    ft(i) && Y(i.x) && Y(i.y)
+                        ? ((r.left -= (c - o) * ((i.x - r.left) / o)),
+                          (r.top -= (d - l) * ((i.y - r.top) / l)))
+                        : ((r.left -= (c - o) / 2), (r.top -= (d - l) / 2));
+                (r.width = c), (r.height = d), this.renderCanvas(!0);
             }
             return this;
         },
@@ -6821,67 +6836,67 @@ var Eu = {
                 i = this.options,
                 a = this.imageData,
                 n = this.canvasData,
-                o = this.cropBoxData,
-                r;
+                r = this.cropBoxData,
+                o;
             if (this.ready && this.cropped) {
-                r = { x: o.left - n.left, y: o.top - n.top, width: o.width, height: o.height };
+                o = { x: r.left - n.left, y: r.top - n.top, width: r.width, height: r.height };
                 var l = a.width / a.naturalWidth;
                 if (
-                    (ie(r, function (c, d) {
-                        r[d] = c / l;
+                    (ne(o, function (c, d) {
+                        o[d] = c / l;
                     }),
                     t)
                 ) {
-                    var s = Math.round(r.y + r.height),
-                        u = Math.round(r.x + r.width);
-                    (r.x = Math.round(r.x)),
-                        (r.y = Math.round(r.y)),
-                        (r.width = u - r.x),
-                        (r.height = s - r.y);
+                    var s = Math.round(o.y + o.height),
+                        u = Math.round(o.x + o.width);
+                    (o.x = Math.round(o.x)),
+                        (o.y = Math.round(o.y)),
+                        (o.width = u - o.x),
+                        (o.height = s - o.y);
                 }
-            } else r = { x: 0, y: 0, width: 0, height: 0 };
+            } else o = { x: 0, y: 0, width: 0, height: 0 };
             return (
-                i.rotatable && (r.rotate = a.rotate || 0),
-                i.scalable && ((r.scaleX = a.scaleX || 1), (r.scaleY = a.scaleY || 1)),
-                r
+                i.rotatable && (o.rotate = a.rotate || 0),
+                i.scalable && ((o.scaleX = a.scaleX || 1), (o.scaleY = a.scaleY || 1)),
+                o
             );
         },
         setData: function (t) {
             var i = this.options,
                 a = this.imageData,
                 n = this.canvasData,
-                o = {};
-            if (this.ready && !this.disabled && dt(t)) {
-                var r = !1;
+                r = {};
+            if (this.ready && !this.disabled && ft(t)) {
+                var o = !1;
                 i.rotatable &&
                     Y(t.rotate) &&
                     t.rotate !== a.rotate &&
-                    ((a.rotate = t.rotate), (r = !0)),
+                    ((a.rotate = t.rotate), (o = !0)),
                     i.scalable &&
-                        (Y(t.scaleX) && t.scaleX !== a.scaleX && ((a.scaleX = t.scaleX), (r = !0)),
-                        Y(t.scaleY) && t.scaleY !== a.scaleY && ((a.scaleY = t.scaleY), (r = !0))),
-                    r && this.renderCanvas(!0, !0);
+                        (Y(t.scaleX) && t.scaleX !== a.scaleX && ((a.scaleX = t.scaleX), (o = !0)),
+                        Y(t.scaleY) && t.scaleY !== a.scaleY && ((a.scaleY = t.scaleY), (o = !0))),
+                    o && this.renderCanvas(!0, !0);
                 var l = a.width / a.naturalWidth;
-                Y(t.x) && (o.left = t.x * l + n.left),
-                    Y(t.y) && (o.top = t.y * l + n.top),
-                    Y(t.width) && (o.width = t.width * l),
-                    Y(t.height) && (o.height = t.height * l),
-                    this.setCropBoxData(o);
+                Y(t.x) && (r.left = t.x * l + n.left),
+                    Y(t.y) && (r.top = t.y * l + n.top),
+                    Y(t.width) && (r.width = t.width * l),
+                    Y(t.height) && (r.height = t.height * l),
+                    this.setCropBoxData(r);
             }
             return this;
         },
         getContainerData: function () {
-            return this.ready ? X({}, this.containerData) : {};
+            return this.ready ? Z({}, this.containerData) : {};
         },
         getImageData: function () {
-            return this.sized ? X({}, this.imageData) : {};
+            return this.sized ? Z({}, this.imageData) : {};
         },
         getCanvasData: function () {
             var t = this.canvasData,
                 i = {};
             return (
                 this.ready &&
-                    ie(
+                    ne(
                         ['left', 'top', 'width', 'height', 'naturalWidth', 'naturalHeight'],
                         function (a) {
                             i[a] = t[a];
@@ -6896,7 +6911,7 @@ var Eu = {
             return (
                 this.ready &&
                     !this.disabled &&
-                    dt(t) &&
+                    ft(t) &&
                     (Y(t.left) && (i.left = t.left),
                     Y(t.top) && (i.top = t.top),
                     Y(t.width)
@@ -6920,17 +6935,17 @@ var Eu = {
             var i = this.cropBoxData,
                 a = this.options.aspectRatio,
                 n,
-                o;
+                r;
             return (
                 this.ready &&
                     this.cropped &&
                     !this.disabled &&
-                    dt(t) &&
+                    ft(t) &&
                     (Y(t.left) && (i.left = t.left),
                     Y(t.top) && (i.top = t.top),
                     Y(t.width) && t.width !== i.width && ((n = !0), (i.width = t.width)),
-                    Y(t.height) && t.height !== i.height && ((o = !0), (i.height = t.height)),
-                    a && (n ? (i.height = i.width / a) : o && (i.width = i.height * a)),
+                    Y(t.height) && t.height !== i.height && ((r = !0), (i.height = t.height)),
+                    a && (n ? (i.height = i.width / a) : r && (i.width = i.height * a)),
                     this.renderCropBox()),
                 this
             );
@@ -6939,88 +6954,88 @@ var Eu = {
             var t = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {};
             if (!this.ready || !window.HTMLCanvasElement) return null;
             var i = this.canvasData,
-                a = du(this.image, this.imageData, i, t);
+                a = Tu(this.image, this.imageData, i, t);
             if (!this.cropped) return a;
-            var n = this.getData(),
-                o = n.x,
-                r = n.y,
+            var n = this.getData(t.rounded),
+                r = n.x,
+                o = n.y,
                 l = n.width,
                 s = n.height,
                 u = a.width / Math.floor(i.naturalWidth);
-            u !== 1 && ((o *= u), (r *= u), (l *= u), (s *= u));
+            u !== 1 && ((r *= u), (o *= u), (l *= u), (s *= u));
             var c = l / s,
-                d = Be({
+                d = Ue({
                     aspectRatio: c,
                     width: t.maxWidth || 1 / 0,
                     height: t.maxHeight || 1 / 0,
                 }),
-                h = Be(
+                h = Ue(
                     { aspectRatio: c, width: t.minWidth || 0, height: t.minHeight || 0 },
                     'cover',
                 ),
-                p = Be({
+                f = Ue({
                     aspectRatio: c,
                     width: t.width || (u !== 1 ? a.width : l),
                     height: t.height || (u !== 1 ? a.height : s),
                 }),
-                f = p.width,
-                m = p.height;
-            (f = Math.min(d.width, Math.max(h.width, f))),
+                p = f.width,
+                m = f.height;
+            (p = Math.min(d.width, Math.max(h.width, p))),
                 (m = Math.min(d.height, Math.max(h.height, m)));
-            var E = document.createElement('canvas'),
-                b = E.getContext('2d');
-            (E.width = ht(f)),
-                (E.height = ht(m)),
+            var g = document.createElement('canvas'),
+                b = g.getContext('2d');
+            (g.width = mt(p)),
+                (g.height = mt(m)),
                 (b.fillStyle = t.fillColor || 'transparent'),
-                b.fillRect(0, 0, f, m);
-            var g = t.imageSmoothingEnabled,
-                T = g === void 0 ? !0 : g,
+                b.fillRect(0, 0, p, m);
+            var E = t.imageSmoothingEnabled,
+                T = E === void 0 ? !0 : E,
                 _ = t.imageSmoothingQuality;
             (b.imageSmoothingEnabled = T), _ && (b.imageSmoothingQuality = _);
             var y = a.width,
                 I = a.height,
-                A = o,
-                R = r,
+                v = r,
+                R = o,
                 S,
-                P,
                 D,
+                x,
                 O,
-                N,
-                v;
-            A <= -l || A > y
-                ? ((A = 0), (S = 0), (D = 0), (N = 0))
-                : A <= 0
-                  ? ((D = -A), (A = 0), (S = Math.min(y, l + A)), (N = S))
-                  : A <= y && ((D = 0), (S = Math.min(l, y - A)), (N = S)),
+                B,
+                A;
+            v <= -l || v > y
+                ? ((v = 0), (S = 0), (x = 0), (B = 0))
+                : v <= 0
+                  ? ((x = -v), (v = 0), (S = Math.min(y, l + v)), (B = S))
+                  : v <= y && ((x = 0), (S = Math.min(l, y - v)), (B = S)),
                 S <= 0 || R <= -s || R > I
-                    ? ((R = 0), (P = 0), (O = 0), (v = 0))
+                    ? ((R = 0), (D = 0), (O = 0), (A = 0))
                     : R <= 0
-                      ? ((O = -R), (R = 0), (P = Math.min(I, s + R)), (v = P))
-                      : R <= I && ((O = 0), (P = Math.min(s, I - R)), (v = P));
-            var F = [A, R, S, P];
-            if (N > 0 && v > 0) {
-                var w = f / l;
-                F.push(D * w, O * w, N * w, v * w);
+                      ? ((O = -R), (R = 0), (D = Math.min(I, s + R)), (A = D))
+                      : R <= I && ((O = 0), (D = Math.min(s, I - R)), (A = D));
+            var F = [v, R, S, D];
+            if (B > 0 && A > 0) {
+                var w = p / l;
+                F.push(x * w, O * w, B * w, A * w);
             }
             return (
                 b.drawImage.apply(
                     b,
                     [a].concat(
-                        sr(
+                        fr(
                             F.map(function (L) {
-                                return Math.floor(ht(L));
+                                return Math.floor(mt(L));
                             }),
                         ),
                     ),
                 ),
-                E
+                g
             );
         },
         setAspectRatio: function (t) {
             var i = this.options;
             return (
                 !this.disabled &&
-                    !qi(t) &&
+                    !Ki(t) &&
                     ((i.aspectRatio = Math.max(0, t) || NaN),
                     this.ready && (this.initCropBox(), this.cropped && this.renderCropBox())),
                 this
@@ -7031,28 +7046,28 @@ var Eu = {
                 a = this.dragBox,
                 n = this.face;
             if (this.ready && !this.disabled) {
-                var o = t === sa,
-                    r = i.movable && t === hr;
-                (t = o || r ? t : fr),
+                var r = t === fa,
+                    o = i.movable && t === Tr;
+                (t = r || o ? t : Ir),
                     (i.dragMode = t),
-                    xt(a, Dt, t),
-                    ut(a, Zi, o),
-                    ut(a, Ki, r),
-                    i.cropBoxMovable || (xt(n, Dt, t), ut(n, Zi, o), ut(n, Ki, r));
+                    zt(a, Ct, t),
+                    pt(a, ia, r),
+                    pt(a, aa, o),
+                    i.cropBoxMovable || (zt(n, Ct, t), pt(n, ia, r), pt(n, aa, o));
             }
             return this;
         },
     },
-    yu = Le.Cropper,
-    da = (function () {
+    xu = Oe.Cropper,
+    ma = (function () {
         function e(t) {
             var i = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
-            if ((zd(this, e), !t || !Qd.test(t.tagName)))
+            if ((Hd(this, e), !t || !nu.test(t.tagName)))
                 throw new Error(
                     'The first argument is required and must be an <img> or <canvas> element.',
                 );
             (this.element = t),
-                (this.options = X({}, ar, dt(i) && i)),
+                (this.options = Z({}, sr, ft(i) && i)),
                 (this.cropped = !1),
                 (this.disabled = !1),
                 (this.pointers = {}),
@@ -7064,7 +7079,7 @@ var Eu = {
                 this.init();
         }
         return (
-            Nd(
+            Wd(
                 e,
                 [
                     {
@@ -7073,8 +7088,8 @@ var Eu = {
                             var i = this.element,
                                 a = i.tagName.toLowerCase(),
                                 n;
-                            if (!i[q]) {
-                                if (((i[q] = this), a === 'img')) {
+                            if (!i[Q]) {
+                                if (((i[Q] = this), a === 'img')) {
                                     if (
                                         ((this.isImg = !0),
                                         (n = i.getAttribute('src') || ''),
@@ -7098,39 +7113,39 @@ var Eu = {
                             if (i) {
                                 (this.url = i), (this.imageData = {});
                                 var n = this.element,
-                                    o = this.options;
+                                    r = this.options;
                                 if (
-                                    (!o.rotatable && !o.scalable && (o.checkOrientation = !1),
-                                    !o.checkOrientation || !window.ArrayBuffer)
+                                    (!r.rotatable && !r.scalable && (r.checkOrientation = !1),
+                                    !r.checkOrientation || !window.ArrayBuffer)
                                 ) {
                                     this.clone();
                                     return;
                                 }
-                                if (Xd.test(i)) {
-                                    jd.test(i) ? this.read(fu(i)) : this.clone();
+                                if (iu.test(i)) {
+                                    au.test(i) ? this.read(_u(i)) : this.clone();
                                     return;
                                 }
-                                var r = new XMLHttpRequest(),
+                                var o = new XMLHttpRequest(),
                                     l = this.clone.bind(this);
                                 (this.reloading = !0),
-                                    (this.xhr = r),
-                                    (r.onabort = l),
-                                    (r.onerror = l),
-                                    (r.ontimeout = l),
-                                    (r.onprogress = function () {
-                                        r.getResponseHeader('content-type') !== ir && r.abort();
+                                    (this.xhr = o),
+                                    (o.onabort = l),
+                                    (o.onerror = l),
+                                    (o.ontimeout = l),
+                                    (o.onprogress = function () {
+                                        o.getResponseHeader('content-type') !== lr && o.abort();
                                     }),
-                                    (r.onload = function () {
-                                        a.read(r.response);
+                                    (o.onload = function () {
+                                        a.read(o.response);
                                     }),
-                                    (r.onloadend = function () {
+                                    (o.onloadend = function () {
                                         (a.reloading = !1), (a.xhr = null);
                                     }),
-                                    o.checkCrossOrigin && rr(i) && n.crossOrigin && (i = or(i)),
-                                    r.open('GET', i, !0),
-                                    (r.responseType = 'arraybuffer'),
-                                    (r.withCredentials = n.crossOrigin === 'use-credentials'),
-                                    r.send();
+                                    r.checkCrossOrigin && dr(i) && n.crossOrigin && (i = ur(i)),
+                                    o.open('GET', i, !0),
+                                    (o.responseType = 'arraybuffer'),
+                                    (o.withCredentials = n.crossOrigin === 'use-credentials'),
+                                    o.send();
                             }
                         },
                     },
@@ -7139,16 +7154,16 @@ var Eu = {
                         value: function (i) {
                             var a = this.options,
                                 n = this.imageData,
-                                o = mu(i),
-                                r = 0,
+                                r = yu(i),
+                                o = 0,
                                 l = 1,
                                 s = 1;
-                            if (o > 1) {
-                                this.url = pu(i, ir);
-                                var u = gu(o);
-                                (r = u.rotate), (l = u.scaleX), (s = u.scaleY);
+                            if (r > 1) {
+                                this.url = Ru(i, lr);
+                                var u = Su(r);
+                                (o = u.rotate), (l = u.scaleX), (s = u.scaleY);
                             }
-                            a.rotatable && (n.rotate = r),
+                            a.rotatable && (n.rotate = o),
                                 a.scalable && ((n.scaleX = l), (n.scaleY = s)),
                                 this.clone();
                         },
@@ -7159,21 +7174,21 @@ var Eu = {
                             var i = this.element,
                                 a = this.url,
                                 n = i.crossOrigin,
-                                o = a;
+                                r = a;
                             this.options.checkCrossOrigin &&
-                                rr(a) &&
-                                (n || (n = 'anonymous'), (o = or(a))),
+                                dr(a) &&
+                                (n || (n = 'anonymous'), (r = ur(a))),
                                 (this.crossOrigin = n),
-                                (this.crossOriginUrl = o);
-                            var r = document.createElement('img');
-                            n && (r.crossOrigin = n),
-                                (r.src = o || a),
-                                (r.alt = i.alt || 'The image to crop'),
-                                (this.image = r),
-                                (r.onload = this.start.bind(this)),
-                                (r.onerror = this.stop.bind(this)),
-                                oe(r, Xn),
-                                i.parentNode.insertBefore(r, i.nextSibling);
+                                (this.crossOriginUrl = r);
+                            var o = document.createElement('img');
+                            n && (o.crossOrigin = n),
+                                (o.src = r || a),
+                                (o.alt = i.alt || 'The image to crop'),
+                                (this.image = o),
+                                (o.onload = this.start.bind(this)),
+                                (o.onerror = this.stop.bind(this)),
+                                le(o, Jn),
+                                i.parentNode.insertBefore(o, i.nextSibling);
                         },
                     },
                     {
@@ -7183,36 +7198,36 @@ var Eu = {
                                 a = this.image;
                             (a.onload = null), (a.onerror = null), (this.sizing = !0);
                             var n =
-                                    Le.navigator &&
+                                    Oe.navigator &&
                                     /(?:iPad|iPhone|iPod).*?AppleWebKit/i.test(
-                                        Le.navigator.userAgent,
+                                        Oe.navigator.userAgent,
                                     ),
-                                o = function (u, c) {
-                                    X(i.imageData, {
+                                r = function (u, c) {
+                                    Z(i.imageData, {
                                         naturalWidth: u,
                                         naturalHeight: c,
                                         aspectRatio: u / c,
                                     }),
-                                        (i.initialImageData = X({}, i.imageData)),
+                                        (i.initialImageData = Z({}, i.imageData)),
                                         (i.sizing = !1),
                                         (i.sized = !0),
                                         i.build();
                                 };
                             if (a.naturalWidth && !n) {
-                                o(a.naturalWidth, a.naturalHeight);
+                                r(a.naturalWidth, a.naturalHeight);
                                 return;
                             }
-                            var r = document.createElement('img'),
+                            var o = document.createElement('img'),
                                 l = document.body || document.documentElement;
-                            (this.sizingImage = r),
-                                (r.onload = function () {
-                                    o(r.width, r.height), n || l.removeChild(r);
+                            (this.sizingImage = o),
+                                (o.onload = function () {
+                                    r(o.width, o.height), n || l.removeChild(o);
                                 }),
-                                (r.src = a.src),
+                                (o.src = a.src),
                                 n ||
-                                    ((r.style.cssText =
+                                    ((o.style.cssText =
                                         'left:0;max-height:none!important;max-width:none!important;min-height:0!important;min-width:0!important;opacity:0;position:absolute;top:0;z-index:-1;'),
-                                    l.appendChild(r));
+                                    l.appendChild(o));
                         },
                     },
                     {
@@ -7232,25 +7247,25 @@ var Eu = {
                                 var i = this.element,
                                     a = this.options,
                                     n = this.image,
-                                    o = i.parentNode,
-                                    r = document.createElement('div');
-                                r.innerHTML = Zd;
-                                var l = r.querySelector('.'.concat(q, '-container')),
-                                    s = l.querySelector('.'.concat(q, '-canvas')),
-                                    u = l.querySelector('.'.concat(q, '-drag-box')),
-                                    c = l.querySelector('.'.concat(q, '-crop-box')),
-                                    d = c.querySelector('.'.concat(q, '-face'));
-                                (this.container = o),
+                                    r = i.parentNode,
+                                    o = document.createElement('div');
+                                o.innerHTML = ru;
+                                var l = o.querySelector('.'.concat(Q, '-container')),
+                                    s = l.querySelector('.'.concat(Q, '-canvas')),
+                                    u = l.querySelector('.'.concat(Q, '-drag-box')),
+                                    c = l.querySelector('.'.concat(Q, '-crop-box')),
+                                    d = c.querySelector('.'.concat(Q, '-face'));
+                                (this.container = r),
                                     (this.cropper = l),
                                     (this.canvas = s),
                                     (this.dragBox = u),
                                     (this.cropBox = c),
-                                    (this.viewBox = l.querySelector('.'.concat(q, '-view-box'))),
+                                    (this.viewBox = l.querySelector('.'.concat(Q, '-view-box'))),
                                     (this.face = d),
                                     s.appendChild(n),
-                                    oe(i, fe),
-                                    o.insertBefore(l, i.nextSibling),
-                                    ve(n, Xn),
+                                    le(i, me),
+                                    r.insertBefore(l, i.nextSibling),
+                                    Me(n, Jn),
                                     this.initPreview(),
                                     this.bind(),
                                     (a.initialAspectRatio =
@@ -7258,24 +7273,24 @@ var Eu = {
                                     (a.aspectRatio = Math.max(0, a.aspectRatio) || NaN),
                                     (a.viewMode =
                                         Math.max(0, Math.min(3, Math.round(a.viewMode))) || 0),
-                                    oe(c, fe),
+                                    le(c, me),
                                     a.guides ||
-                                        oe(c.getElementsByClassName(''.concat(q, '-dashed')), fe),
+                                        le(c.getElementsByClassName(''.concat(Q, '-dashed')), me),
                                     a.center ||
-                                        oe(c.getElementsByClassName(''.concat(q, '-center')), fe),
-                                    a.background && oe(l, ''.concat(q, '-bg')),
-                                    a.highlight || oe(d, Hd),
-                                    a.cropBoxMovable && (oe(d, Ki), xt(d, Dt, la)),
+                                        le(c.getElementsByClassName(''.concat(Q, '-center')), me),
+                                    a.background && le(l, ''.concat(Q, '-bg')),
+                                    a.highlight || le(d, Zd),
+                                    a.cropBoxMovable && (le(d, aa), zt(d, Ct, ha)),
                                     a.cropBoxResizable ||
-                                        (oe(c.getElementsByClassName(''.concat(q, '-line')), fe),
-                                        oe(c.getElementsByClassName(''.concat(q, '-point')), fe)),
+                                        (le(c.getElementsByClassName(''.concat(Q, '-line')), me),
+                                        le(c.getElementsByClassName(''.concat(Q, '-point')), me)),
                                     this.render(),
                                     (this.ready = !0),
                                     this.setDragMode(a.dragMode),
                                     a.autoCrop && this.crop(),
                                     this.setData(a.data),
-                                    he(a.ready) && be(i, Jn, a.ready, { once: !0 }),
-                                    ft(i, Jn);
+                                    pe(a.ready) && Re(i, nr, a.ready, { once: !0 }),
+                                    gt(i, nr);
                             }
                         },
                     },
@@ -7285,7 +7300,7 @@ var Eu = {
                             if (this.ready) {
                                 (this.ready = !1), this.unbind(), this.resetPreview();
                                 var i = this.cropper.parentNode;
-                                i && i.removeChild(this.cropper), ve(this.element, fe);
+                                i && i.removeChild(this.cropper), Me(this.element, me);
                             }
                         },
                     },
@@ -7308,13 +7323,13 @@ var Eu = {
                     {
                         key: 'noConflict',
                         value: function () {
-                            return (window.Cropper = yu), e;
+                            return (window.Cropper = xu), e;
                         },
                     },
                     {
                         key: 'setDefaults',
                         value: function (i) {
-                            X(ar, dt(i) && i);
+                            Z(sr, ft(i) && i);
                         },
                     },
                 ],
@@ -7322,79 +7337,79 @@ var Eu = {
             e
         );
     })();
-X(da.prototype, Eu, Tu, Iu, bu, _u, Ru);
-var _r = ({ addFilter: e, utils: t }) => {
+Z(ma.prototype, wu, vu, Au, Lu, Mu, Ou);
+var Ar = ({ addFilter: e, utils: t }) => {
         let { Type: i, replaceInString: a, toNaturalFileSize: n } = t;
         return (
-            e('ALLOW_HOPPER_ITEM', (o, { query: r }) => {
-                if (!r('GET_ALLOW_FILE_SIZE_VALIDATION')) return !0;
-                let l = r('GET_MAX_FILE_SIZE');
-                if (l !== null && o.size > l) return !1;
-                let s = r('GET_MIN_FILE_SIZE');
-                return !(s !== null && o.size < s);
+            e('ALLOW_HOPPER_ITEM', (r, { query: o }) => {
+                if (!o('GET_ALLOW_FILE_SIZE_VALIDATION')) return !0;
+                let l = o('GET_MAX_FILE_SIZE');
+                if (l !== null && r.size > l) return !1;
+                let s = o('GET_MIN_FILE_SIZE');
+                return !(s !== null && r.size < s);
             }),
             e(
                 'LOAD_FILE',
-                (o, { query: r }) =>
+                (r, { query: o }) =>
                     new Promise((l, s) => {
-                        if (!r('GET_ALLOW_FILE_SIZE_VALIDATION')) return l(o);
-                        let u = r('GET_FILE_VALIDATE_SIZE_FILTER');
-                        if (u && !u(o)) return l(o);
-                        let c = r('GET_MAX_FILE_SIZE');
-                        if (c !== null && o.size > c) {
+                        if (!o('GET_ALLOW_FILE_SIZE_VALIDATION')) return l(r);
+                        let u = o('GET_FILE_VALIDATE_SIZE_FILTER');
+                        if (u && !u(r)) return l(r);
+                        let c = o('GET_MAX_FILE_SIZE');
+                        if (c !== null && r.size > c) {
                             s({
                                 status: {
-                                    main: r('GET_LABEL_MAX_FILE_SIZE_EXCEEDED'),
-                                    sub: a(r('GET_LABEL_MAX_FILE_SIZE'), {
+                                    main: o('GET_LABEL_MAX_FILE_SIZE_EXCEEDED'),
+                                    sub: a(o('GET_LABEL_MAX_FILE_SIZE'), {
                                         filesize: n(
                                             c,
                                             '.',
-                                            r('GET_FILE_SIZE_BASE'),
-                                            r('GET_FILE_SIZE_LABELS', r),
+                                            o('GET_FILE_SIZE_BASE'),
+                                            o('GET_FILE_SIZE_LABELS', o),
                                         ),
                                     }),
                                 },
                             });
                             return;
                         }
-                        let d = r('GET_MIN_FILE_SIZE');
-                        if (d !== null && o.size < d) {
+                        let d = o('GET_MIN_FILE_SIZE');
+                        if (d !== null && r.size < d) {
                             s({
                                 status: {
-                                    main: r('GET_LABEL_MIN_FILE_SIZE_EXCEEDED'),
-                                    sub: a(r('GET_LABEL_MIN_FILE_SIZE'), {
+                                    main: o('GET_LABEL_MIN_FILE_SIZE_EXCEEDED'),
+                                    sub: a(o('GET_LABEL_MIN_FILE_SIZE'), {
                                         filesize: n(
                                             d,
                                             '.',
-                                            r('GET_FILE_SIZE_BASE'),
-                                            r('GET_FILE_SIZE_LABELS', r),
+                                            o('GET_FILE_SIZE_BASE'),
+                                            o('GET_FILE_SIZE_LABELS', o),
                                         ),
                                     }),
                                 },
                             });
                             return;
                         }
-                        let h = r('GET_MAX_TOTAL_FILE_SIZE');
+                        let h = o('GET_MAX_TOTAL_FILE_SIZE');
                         if (
                             h !== null &&
-                            r('GET_ACTIVE_ITEMS').reduce((f, m) => f + m.fileSize, 0) > h
+                            o('GET_ACTIVE_ITEMS').reduce((p, m) => p + m.fileSize, 0) > h
                         ) {
                             s({
                                 status: {
-                                    main: r('GET_LABEL_MAX_TOTAL_FILE_SIZE_EXCEEDED'),
-                                    sub: a(r('GET_LABEL_MAX_TOTAL_FILE_SIZE'), {
+                                    main: o('GET_LABEL_MAX_TOTAL_FILE_SIZE_EXCEEDED'),
+                                    sub: a(o('GET_LABEL_MAX_TOTAL_FILE_SIZE'), {
                                         filesize: n(
                                             h,
                                             '.',
-                                            r('GET_FILE_SIZE_BASE'),
-                                            r('GET_FILE_SIZE_LABELS', r),
+                                            o('GET_FILE_SIZE_BASE'),
+                                            o('GET_FILE_SIZE_LABELS', o),
                                         ),
                                     }),
                                 },
                             });
                             return;
                         }
-                        l(o);
+                        l(r);
                     }),
             ),
             {
@@ -7414,78 +7429,78 @@ var _r = ({ addFilter: e, utils: t }) => {
             }
         );
     },
-    Su = typeof window < 'u' && typeof window.document < 'u';
-Su && document.dispatchEvent(new CustomEvent('FilePond:pluginloaded', { detail: _r }));
-var Rr = _r;
-var yr = ({ addFilter: e, utils: t }) => {
+    Du = typeof window < 'u' && typeof window.document < 'u';
+Du && document.dispatchEvent(new CustomEvent('FilePond:pluginloaded', { detail: Ar }));
+var Lr = Ar;
+var Mr = ({ addFilter: e, utils: t }) => {
         let {
                 Type: i,
                 isString: a,
                 replaceInString: n,
-                guesstimateMimeType: o,
-                getExtensionFromFilename: r,
+                guesstimateMimeType: r,
+                getExtensionFromFilename: o,
                 getFilenameFromURL: l,
             } = t,
-            s = (p, f) => {
-                let m = (/^[^/]+/.exec(p) || []).pop(),
-                    E = f.slice(0, -2);
-                return m === E;
+            s = (f, p) => {
+                let m = (/^[^/]+/.exec(f) || []).pop(),
+                    g = p.slice(0, -2);
+                return m === g;
             },
-            u = (p, f) => p.some((m) => (/\*$/.test(m) ? s(f, m) : m === f)),
-            c = (p) => {
-                let f = '';
-                if (a(p)) {
-                    let m = l(p),
-                        E = r(m);
-                    E && (f = o(E));
-                } else f = p.type;
-                return f;
+            u = (f, p) => f.some((m) => (/\*$/.test(m) ? s(p, m) : m === p)),
+            c = (f) => {
+                let p = '';
+                if (a(f)) {
+                    let m = l(f),
+                        g = o(m);
+                    g && (p = r(g));
+                } else p = f.type;
+                return p;
             },
-            d = (p, f, m) => {
-                if (f.length === 0) return !0;
-                let E = c(p);
+            d = (f, p, m) => {
+                if (p.length === 0) return !0;
+                let g = c(f);
                 return m
-                    ? new Promise((b, g) => {
-                          m(p, E)
+                    ? new Promise((b, E) => {
+                          m(f, g)
                               .then((T) => {
-                                  u(f, T) ? b() : g();
+                                  u(p, T) ? b() : E();
                               })
-                              .catch(g);
+                              .catch(E);
                       })
-                    : u(f, E);
+                    : u(p, g);
             },
-            h = (p) => (f) => (p[f] === null ? !1 : p[f] || f);
+            h = (f) => (p) => (f[p] === null ? !1 : f[p] || p);
         return (
-            e('SET_ATTRIBUTE_TO_OPTION_MAP', (p) =>
-                Object.assign(p, { accept: 'acceptedFileTypes' }),
+            e('SET_ATTRIBUTE_TO_OPTION_MAP', (f) =>
+                Object.assign(f, { accept: 'acceptedFileTypes' }),
             ),
-            e('ALLOW_HOPPER_ITEM', (p, { query: f }) =>
-                f('GET_ALLOW_FILE_TYPE_VALIDATION') ? d(p, f('GET_ACCEPTED_FILE_TYPES')) : !0,
+            e('ALLOW_HOPPER_ITEM', (f, { query: p }) =>
+                p('GET_ALLOW_FILE_TYPE_VALIDATION') ? d(f, p('GET_ACCEPTED_FILE_TYPES')) : !0,
             ),
             e(
                 'LOAD_FILE',
-                (p, { query: f }) =>
-                    new Promise((m, E) => {
-                        if (!f('GET_ALLOW_FILE_TYPE_VALIDATION')) {
-                            m(p);
+                (f, { query: p }) =>
+                    new Promise((m, g) => {
+                        if (!p('GET_ALLOW_FILE_TYPE_VALIDATION')) {
+                            m(f);
                             return;
                         }
-                        let b = f('GET_ACCEPTED_FILE_TYPES'),
-                            g = f('GET_FILE_VALIDATE_TYPE_DETECT_TYPE'),
-                            T = d(p, b, g),
+                        let b = p('GET_ACCEPTED_FILE_TYPES'),
+                            E = p('GET_FILE_VALIDATE_TYPE_DETECT_TYPE'),
+                            T = d(f, b, E),
                             _ = () => {
                                 let y = b
                                         .map(
-                                            h(f('GET_FILE_VALIDATE_TYPE_LABEL_EXPECTED_TYPES_MAP')),
+                                            h(p('GET_FILE_VALIDATE_TYPE_LABEL_EXPECTED_TYPES_MAP')),
                                         )
-                                        .filter((A) => A !== !1),
-                                    I = y.filter(function (A, R) {
-                                        return y.indexOf(A) === R;
+                                        .filter((v) => v !== !1),
+                                    I = y.filter(function (v, R) {
+                                        return y.indexOf(v) === R;
                                     });
-                                E({
+                                g({
                                     status: {
-                                        main: f('GET_LABEL_FILE_TYPE_NOT_ALLOWED'),
-                                        sub: n(f('GET_FILE_VALIDATE_TYPE_LABEL_EXPECTED_TYPES'), {
+                                        main: p('GET_LABEL_FILE_TYPE_NOT_ALLOWED'),
+                                        sub: n(p('GET_FILE_VALIDATE_TYPE_LABEL_EXPECTED_TYPES'), {
                                             allTypes: I.join(', '),
                                             allButLastType: I.slice(0, -1).join(', '),
                                             lastType: I[y.length - 1],
@@ -7493,9 +7508,9 @@ var yr = ({ addFilter: e, utils: t }) => {
                                     },
                                 });
                             };
-                        if (typeof T == 'boolean') return T ? m(p) : _();
+                        if (typeof T == 'boolean') return T ? m(f) : _();
                         T.then(() => {
-                            m(p);
+                            m(f);
                         }).catch(_);
                     }),
             ),
@@ -7514,55 +7529,55 @@ var yr = ({ addFilter: e, utils: t }) => {
             }
         );
     },
-    wu = typeof window < 'u' && typeof window.document < 'u';
-wu && document.dispatchEvent(new CustomEvent('FilePond:pluginloaded', { detail: yr }));
-var Sr = yr;
-var wr = (e) => /^image/.test(e.type),
-    Ar = ({ addFilter: e, utils: t }) => {
+    Pu = typeof window < 'u' && typeof window.document < 'u';
+Pu && document.dispatchEvent(new CustomEvent('FilePond:pluginloaded', { detail: Mr }));
+var Or = Mr;
+var xr = (e) => /^image/.test(e.type),
+    Dr = ({ addFilter: e, utils: t }) => {
         let { Type: i, isFile: a, getNumericAspectRatioFromString: n } = t,
-            o = (u, c) => !(!wr(u.file) || !c('GET_ALLOW_IMAGE_CROP')),
-            r = (u) => typeof u == 'object',
+            r = (u, c) => !(!xr(u.file) || !c('GET_ALLOW_IMAGE_CROP')),
+            o = (u) => typeof u == 'object',
             l = (u) => typeof u == 'number',
             s = (u, c) => u.setMetadata('crop', Object.assign({}, u.getMetadata('crop'), c));
         return (
             e('DID_CREATE_ITEM', (u, { query: c }) => {
                 u.extend('setImageCrop', (d) => {
-                    if (!(!o(u, c) || !r(center))) return u.setMetadata('crop', d), d;
+                    if (!(!r(u, c) || !o(center))) return u.setMetadata('crop', d), d;
                 }),
                     u.extend('setImageCropCenter', (d) => {
-                        if (!(!o(u, c) || !r(d))) return s(u, { center: d });
+                        if (!(!r(u, c) || !o(d))) return s(u, { center: d });
                     }),
                     u.extend('setImageCropZoom', (d) => {
-                        if (!(!o(u, c) || !l(d))) return s(u, { zoom: Math.max(1, d) });
+                        if (!(!r(u, c) || !l(d))) return s(u, { zoom: Math.max(1, d) });
                     }),
                     u.extend('setImageCropRotation', (d) => {
-                        if (!(!o(u, c) || !l(d))) return s(u, { rotation: d });
+                        if (!(!r(u, c) || !l(d))) return s(u, { rotation: d });
                     }),
                     u.extend('setImageCropFlip', (d) => {
-                        if (!(!o(u, c) || !r(d))) return s(u, { flip: d });
+                        if (!(!r(u, c) || !o(d))) return s(u, { flip: d });
                     }),
                     u.extend('setImageCropAspectRatio', (d) => {
-                        if (!o(u, c) || typeof d > 'u') return;
+                        if (!r(u, c) || typeof d > 'u') return;
                         let h = u.getMetadata('crop'),
-                            p = n(d),
-                            f = {
+                            f = n(d),
+                            p = {
                                 center: { x: 0.5, y: 0.5 },
                                 flip: h
                                     ? Object.assign({}, h.flip)
                                     : { horizontal: !1, vertical: !1 },
                                 rotation: 0,
                                 zoom: 1,
-                                aspectRatio: p,
+                                aspectRatio: f,
                             };
-                        return u.setMetadata('crop', f), f;
+                        return u.setMetadata('crop', p), p;
                     });
             }),
             e(
                 'DID_LOAD_ITEM',
                 (u, { query: c }) =>
                     new Promise((d, h) => {
-                        let p = u.file;
-                        if (!a(p) || !wr(p) || !c('GET_ALLOW_IMAGE_CROP') || u.getMetadata('crop'))
+                        let f = u.file;
+                        if (!a(f) || !xr(f) || !c('GET_ALLOW_IMAGE_CROP') || u.getMetadata('crop'))
                             return d(u);
                         let m = c('GET_IMAGE_CROP_ASPECT_RATIO');
                         u.setMetadata('crop', {
@@ -7578,49 +7593,49 @@ var wr = (e) => /^image/.test(e.type),
             { options: { allowImageCrop: [!0, i.BOOLEAN], imageCropAspectRatio: [null, i.STRING] } }
         );
     },
-    Au = typeof window < 'u' && typeof window.document < 'u';
-Au && document.dispatchEvent(new CustomEvent('FilePond:pluginloaded', { detail: Ar }));
-var vr = Ar;
-var ua = (e) => /^image/.test(e.type),
-    Lr = (e) => {
+    Fu = typeof window < 'u' && typeof window.document < 'u';
+Fu && document.dispatchEvent(new CustomEvent('FilePond:pluginloaded', { detail: Dr }));
+var Pr = Dr;
+var ga = (e) => /^image/.test(e.type),
+    Fr = (e) => {
         let { addFilter: t, utils: i, views: a } = e,
-            { Type: n, createRoute: o, createItemAPI: r = (c) => c } = i,
+            { Type: n, createRoute: r, createItemAPI: o = (c) => c } = i,
             { fileActionButton: l } = a;
         t(
             'SHOULD_REMOVE_ON_REVERT',
             (c, { item: d, query: h }) =>
-                new Promise((p) => {
-                    let { file: f } = d,
-                        m = h('GET_ALLOW_IMAGE_EDIT') && h('GET_IMAGE_EDIT_ALLOW_EDIT') && ua(f);
-                    p(!m);
+                new Promise((f) => {
+                    let { file: p } = d,
+                        m = h('GET_ALLOW_IMAGE_EDIT') && h('GET_IMAGE_EDIT_ALLOW_EDIT') && ga(p);
+                    f(!m);
                 }),
         ),
             t(
                 'DID_LOAD_ITEM',
                 (c, { query: d, dispatch: h }) =>
-                    new Promise((p, f) => {
+                    new Promise((f, p) => {
                         if (c.origin > 1) {
-                            p(c);
+                            f(c);
                             return;
                         }
                         let { file: m } = c;
                         if (!d('GET_ALLOW_IMAGE_EDIT') || !d('GET_IMAGE_EDIT_INSTANT_EDIT')) {
-                            p(c);
+                            f(c);
                             return;
                         }
-                        if (!ua(m)) {
-                            p(c);
+                        if (!ga(m)) {
+                            f(c);
                             return;
                         }
-                        let E = (g, T, _) => (y) => {
-                                s.shift(), y ? T(g) : _(g), h('KICK'), b();
+                        let g = (E, T, _) => (y) => {
+                                s.shift(), y ? T(E) : _(E), h('KICK'), b();
                             },
                             b = () => {
                                 if (!s.length) return;
-                                let { item: g, resolve: T, reject: _ } = s[0];
-                                h('EDIT_ITEM', { id: g.id, handleEditorResponse: E(g, T, _) });
+                                let { item: E, resolve: T, reject: _ } = s[0];
+                                h('EDIT_ITEM', { id: E.id, handleEditorResponse: g(E, T, _) });
                             };
-                        u({ item: c, resolve: p, reject: f }), s.length === 1 && b();
+                        u({ item: c, resolve: f, reject: p }), s.length === 1 && b();
                     }),
             ),
             t('DID_CREATE_ITEM', (c, { query: d, dispatch: h }) => {
@@ -7632,31 +7647,31 @@ var ua = (e) => /^image/.test(e.type),
             u = (c) => (s.push(c), c);
         return (
             t('CREATE_VIEW', (c) => {
-                let { is: d, view: h, query: p } = c;
-                if (!p('GET_ALLOW_IMAGE_EDIT')) return;
-                let f = p('GET_ALLOW_IMAGE_PREVIEW');
-                if (!((d('file-info') && !f) || (d('file') && f))) return;
-                let E = p('GET_IMAGE_EDIT_EDITOR');
-                if (!E) return;
-                E.filepondCallbackBridge ||
-                    ((E.outputData = !0),
-                    (E.outputFile = !1),
-                    (E.filepondCallbackBridge = {
-                        onconfirm: E.onconfirm || (() => {}),
-                        oncancel: E.oncancel || (() => {}),
+                let { is: d, view: h, query: f } = c;
+                if (!f('GET_ALLOW_IMAGE_EDIT')) return;
+                let p = f('GET_ALLOW_IMAGE_PREVIEW');
+                if (!((d('file-info') && !p) || (d('file') && p))) return;
+                let g = f('GET_IMAGE_EDIT_EDITOR');
+                if (!g) return;
+                g.filepondCallbackBridge ||
+                    ((g.outputData = !0),
+                    (g.outputFile = !1),
+                    (g.filepondCallbackBridge = {
+                        onconfirm: g.onconfirm || (() => {}),
+                        oncancel: g.oncancel || (() => {}),
                     }));
                 let b = ({ root: _, props: y, action: I }) => {
-                        let { id: A } = y,
+                        let { id: v } = y,
                             { handleEditorResponse: R } = I;
-                        (E.cropAspectRatio =
-                            _.query('GET_IMAGE_CROP_ASPECT_RATIO') || E.cropAspectRatio),
-                            (E.outputCanvasBackgroundColor =
+                        (g.cropAspectRatio =
+                            _.query('GET_IMAGE_CROP_ASPECT_RATIO') || g.cropAspectRatio),
+                            (g.outputCanvasBackgroundColor =
                                 _.query('GET_IMAGE_TRANSFORM_CANVAS_BACKGROUND_COLOR') ||
-                                E.outputCanvasBackgroundColor);
-                        let S = _.query('GET_ITEM', A);
+                                g.outputCanvasBackgroundColor);
+                        let S = _.query('GET_ITEM', v);
                         if (!S) return;
-                        let P = S.file,
-                            D = S.getMetadata('crop'),
+                        let D = S.file,
+                            x = S.getMetadata('crop'),
                             O = {
                                 center: { x: 0.5, y: 0.5 },
                                 flip: { horizontal: !1, vertical: !1 },
@@ -7664,19 +7679,19 @@ var ua = (e) => /^image/.test(e.type),
                                 rotation: 0,
                                 aspectRatio: null,
                             },
-                            N = S.getMetadata('resize'),
-                            v = S.getMetadata('filter') || null,
+                            B = S.getMetadata('resize'),
+                            A = S.getMetadata('filter') || null,
                             F = S.getMetadata('filters') || null,
                             w = S.getMetadata('colors') || null,
                             L = S.getMetadata('markup') || null,
-                            z = {
-                                crop: D || O,
-                                size: N
+                            N = {
+                                crop: x || O,
+                                size: B
                                     ? {
-                                          upscale: N.upscale,
-                                          mode: N.mode,
-                                          width: N.size.width,
-                                          height: N.size.height,
+                                          upscale: B.upscale,
+                                          mode: B.mode,
+                                          width: B.size.width,
+                                          height: B.size.height,
                                       }
                                     : null,
                                 filter: F
@@ -7684,83 +7699,83 @@ var ua = (e) => /^image/.test(e.type),
                                     : _.query('GET_ALLOW_IMAGE_FILTER') &&
                                         _.query('GET_IMAGE_FILTER_COLOR_MATRIX') &&
                                         !w
-                                      ? v
+                                      ? A
                                       : null,
                                 color: w,
                                 markup: L,
                             };
-                        (E.onconfirm = ({ data: C }) => {
+                        (g.onconfirm = ({ data: P }) => {
                             let {
-                                    crop: G,
-                                    size: x,
-                                    filter: B,
-                                    color: U,
-                                    colorMatrix: W,
-                                    markup: ae,
-                                } = C,
-                                V = {};
-                            if ((G && (V.crop = G), x)) {
-                                let H = (S.getMetadata('resize') || {}).size,
-                                    $ = { width: x.width, height: x.height };
-                                !($.width && $.height) &&
-                                    H &&
-                                    (($.width = H.width), ($.height = H.height)),
-                                    ($.width || $.height) &&
-                                        (V.resize = { upscale: x.upscale, mode: x.mode, size: $ });
+                                    crop: U,
+                                    size: V,
+                                    filter: q,
+                                    color: X,
+                                    colorMatrix: j,
+                                    markup: se,
+                                } = P,
+                                k = {};
+                            if ((U && (k.crop = U), V)) {
+                                let W = (S.getMetadata('resize') || {}).size,
+                                    C = { width: V.width, height: V.height };
+                                !(C.width && C.height) &&
+                                    W &&
+                                    ((C.width = W.width), (C.height = W.height)),
+                                    (C.width || C.height) &&
+                                        (k.resize = { upscale: V.upscale, mode: V.mode, size: C });
                             }
-                            ae && (V.markup = ae),
-                                (V.colors = U),
-                                (V.filters = B),
-                                (V.filter = W),
-                                S.setMetadata(V),
-                                E.filepondCallbackBridge.onconfirm(C, r(S)),
+                            se && (k.markup = se),
+                                (k.colors = X),
+                                (k.filters = q),
+                                (k.filter = j),
+                                S.setMetadata(k),
+                                g.filepondCallbackBridge.onconfirm(P, o(S)),
                                 R &&
-                                    (E.onclose = () => {
-                                        R(!0), (E.onclose = null);
+                                    (g.onclose = () => {
+                                        R(!0), (g.onclose = null);
                                     });
                         }),
-                            (E.oncancel = () => {
-                                E.filepondCallbackBridge.oncancel(r(S)),
+                            (g.oncancel = () => {
+                                g.filepondCallbackBridge.oncancel(o(S)),
                                     R &&
-                                        (E.onclose = () => {
-                                            R(!1), (E.onclose = null);
+                                        (g.onclose = () => {
+                                            R(!1), (g.onclose = null);
                                         });
                             }),
-                            E.open(P, z);
+                            g.open(D, N);
                     },
-                    g = ({ root: _, props: y }) => {
-                        if (!p('GET_IMAGE_EDIT_ALLOW_EDIT')) return;
+                    E = ({ root: _, props: y }) => {
+                        if (!f('GET_IMAGE_EDIT_ALLOW_EDIT')) return;
                         let { id: I } = y,
-                            A = p('GET_ITEM', I);
-                        if (!A) return;
-                        let R = A.file;
-                        if (ua(R))
+                            v = f('GET_ITEM', I);
+                        if (!v) return;
+                        let R = v.file;
+                        if (ga(R))
                             if (
                                 ((_.ref.handleEdit = (S) => {
                                     S.stopPropagation(), _.dispatch('EDIT_ITEM', { id: I });
                                 }),
-                                f)
+                                p)
                             ) {
                                 let S = h.createChildView(l, {
                                     label: 'edit',
-                                    icon: p('GET_IMAGE_EDIT_ICON_EDIT'),
+                                    icon: f('GET_IMAGE_EDIT_ICON_EDIT'),
                                     opacity: 0,
                                 });
                                 S.element.classList.add('filepond--action-edit-item'),
-                                    (S.element.dataset.align = p(
+                                    (S.element.dataset.align = f(
                                         'GET_STYLE_IMAGE_EDIT_BUTTON_EDIT_ITEM_POSITION',
                                     )),
                                     S.on('click', _.ref.handleEdit),
                                     (_.ref.buttonEditItem = h.appendChildView(S));
                             } else {
                                 let S = h.element.querySelector('.filepond--file-info-main'),
-                                    P = document.createElement('button');
-                                (P.className = 'filepond--action-edit-item-alt'),
-                                    (P.innerHTML =
-                                        p('GET_IMAGE_EDIT_ICON_EDIT') + '<span>edit</span>'),
-                                    P.addEventListener('click', _.ref.handleEdit),
-                                    S.appendChild(P),
-                                    (_.ref.editButton = P);
+                                    D = document.createElement('button');
+                                (D.className = 'filepond--action-edit-item-alt'),
+                                    (D.innerHTML =
+                                        f('GET_IMAGE_EDIT_ICON_EDIT') + '<span>edit</span>'),
+                                    D.addEventListener('click', _.ref.handleEdit),
+                                    S.appendChild(D),
+                                    (_.ref.editButton = D);
                             }
                     };
                 h.registerDestroyer(({ root: _ }) => {
@@ -7768,14 +7783,14 @@ var ua = (e) => /^image/.test(e.type),
                         _.ref.editButton &&
                             _.ref.editButton.removeEventListener('click', _.ref.handleEdit);
                 });
-                let T = { EDIT_ITEM: b, DID_LOAD_ITEM: g };
-                if (f) {
+                let T = { EDIT_ITEM: b, DID_LOAD_ITEM: E };
+                if (p) {
                     let _ = ({ root: y }) => {
                         y.ref.buttonEditItem && (y.ref.buttonEditItem.opacity = 1);
                     };
                     T.DID_IMAGE_PREVIEW_SHOW = _;
                 }
-                h.registerWriter(o(T));
+                h.registerWriter(r(T));
             }),
             {
                 options: {
@@ -7792,11 +7807,11 @@ var ua = (e) => /^image/.test(e.type),
             }
         );
     },
-    vu = typeof window < 'u' && typeof window.document < 'u';
-vu && document.dispatchEvent(new CustomEvent('FilePond:pluginloaded', { detail: Lr }));
-var Mr = Lr;
-var Lu = (e) => /^image\/jpeg/.test(e.type),
-    Ze = {
+    Cu = typeof window < 'u' && typeof window.document < 'u';
+Cu && document.dispatchEvent(new CustomEvent('FilePond:pluginloaded', { detail: Fr }));
+var Cr = Fr;
+var zu = (e) => /^image\/jpeg/.test(e.type),
+    et = {
         JPEG: 65496,
         APP1: 65505,
         EXIF: 1165519206,
@@ -7804,197 +7819,197 @@ var Lu = (e) => /^image\/jpeg/.test(e.type),
         Orientation: 274,
         Unknown: 65280,
     },
-    Ke = (e, t, i = !1) => e.getUint16(t, i),
-    Or = (e, t, i = !1) => e.getUint32(t, i),
-    Mu = (e) =>
+    tt = (e, t, i = !1) => e.getUint16(t, i),
+    zr = (e, t, i = !1) => e.getUint32(t, i),
+    Nu = (e) =>
         new Promise((t, i) => {
             let a = new FileReader();
             (a.onload = function (n) {
-                let o = new DataView(n.target.result);
-                if (Ke(o, 0) !== Ze.JPEG) {
+                let r = new DataView(n.target.result);
+                if (tt(r, 0) !== et.JPEG) {
                     t(-1);
                     return;
                 }
-                let r = o.byteLength,
+                let o = r.byteLength,
                     l = 2;
-                for (; l < r; ) {
-                    let s = Ke(o, l);
-                    if (((l += 2), s === Ze.APP1)) {
-                        if (Or(o, (l += 2)) !== Ze.EXIF) break;
-                        let u = Ke(o, (l += 6)) === Ze.TIFF;
-                        l += Or(o, l + 4, u);
-                        let c = Ke(o, l, u);
+                for (; l < o; ) {
+                    let s = tt(r, l);
+                    if (((l += 2), s === et.APP1)) {
+                        if (zr(r, (l += 2)) !== et.EXIF) break;
+                        let u = tt(r, (l += 6)) === et.TIFF;
+                        l += zr(r, l + 4, u);
+                        let c = tt(r, l, u);
                         l += 2;
                         for (let d = 0; d < c; d++)
-                            if (Ke(o, l + d * 12, u) === Ze.Orientation) {
-                                t(Ke(o, l + d * 12 + 8, u));
+                            if (tt(r, l + d * 12, u) === et.Orientation) {
+                                t(tt(r, l + d * 12 + 8, u));
                                 return;
                             }
                     } else {
-                        if ((s & Ze.Unknown) !== Ze.Unknown) break;
-                        l += Ke(o, l);
+                        if ((s & et.Unknown) !== et.Unknown) break;
+                        l += tt(r, l);
                     }
                 }
                 t(-1);
             }),
                 a.readAsArrayBuffer(e.slice(0, 64 * 1024));
         }),
-    Ou = (() => typeof window < 'u' && typeof window.document < 'u')(),
-    Du = () => Ou,
-    xu =
+    Bu = (() => typeof window < 'u' && typeof window.document < 'u')(),
+    Gu = () => Bu,
+    Vu =
         'data:image/jpg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/4QA6RXhpZgAATU0AKgAAAAgAAwESAAMAAAABAAYAAAEoAAMAAAABAAIAAAITAAMAAAABAAEAAAAAAAD/2wBDAP//////////////////////////////////////////////////////////////////////////////////////wAALCAABAAIBASIA/8QAJgABAAAAAAAAAAAAAAAAAAAAAxABAAAAAAAAAAAAAAAAAAAAAP/aAAgBAQAAPwBH/9k=',
-    Dr,
-    li = Du() ? new Image() : {};
-li.onload = () => (Dr = li.naturalWidth > li.naturalHeight);
-li.src = xu;
-var Pu = () => Dr,
-    xr = ({ addFilter: e, utils: t }) => {
+    Nr,
+    hi = Gu() ? new Image() : {};
+hi.onload = () => (Nr = hi.naturalWidth > hi.naturalHeight);
+hi.src = Vu;
+var Uu = () => Nr,
+    Br = ({ addFilter: e, utils: t }) => {
         let { Type: i, isFile: a } = t;
         return (
             e(
                 'DID_LOAD_ITEM',
-                (n, { query: o }) =>
-                    new Promise((r, l) => {
+                (n, { query: r }) =>
+                    new Promise((o, l) => {
                         let s = n.file;
-                        if (!a(s) || !Lu(s) || !o('GET_ALLOW_IMAGE_EXIF_ORIENTATION') || !Pu())
-                            return r(n);
-                        Mu(s).then((u) => {
-                            n.setMetadata('exif', { orientation: u }), r(n);
+                        if (!a(s) || !zu(s) || !r('GET_ALLOW_IMAGE_EXIF_ORIENTATION') || !Uu())
+                            return o(n);
+                        Nu(s).then((u) => {
+                            n.setMetadata('exif', { orientation: u }), o(n);
                         });
                     }),
             ),
             { options: { allowImageExifOrientation: [!0, i.BOOLEAN] } }
         );
     },
-    Cu = typeof window < 'u' && typeof window.document < 'u';
-Cu && document.dispatchEvent(new CustomEvent('FilePond:pluginloaded', { detail: xr }));
-var Pr = xr;
-var Fu = (e) => /^image/.test(e.type),
-    Cr = (e, t) => Ct(e.x * t, e.y * t),
-    Fr = (e, t) => Ct(e.x + t.x, e.y + t.y),
-    zu = (e) => {
+    ku = typeof window < 'u' && typeof window.document < 'u';
+ku && document.dispatchEvent(new CustomEvent('FilePond:pluginloaded', { detail: Br }));
+var Gr = Br;
+var Hu = (e) => /^image/.test(e.type),
+    Vr = (e, t) => Bt(e.x * t, e.y * t),
+    Ur = (e, t) => Bt(e.x + t.x, e.y + t.y),
+    Wu = (e) => {
         let t = Math.sqrt(e.x * e.x + e.y * e.y);
-        return t === 0 ? { x: 0, y: 0 } : Ct(e.x / t, e.y / t);
+        return t === 0 ? { x: 0, y: 0 } : Bt(e.x / t, e.y / t);
     },
-    si = (e, t, i) => {
+    fi = (e, t, i) => {
         let a = Math.cos(t),
             n = Math.sin(t),
-            o = Ct(e.x - i.x, e.y - i.y);
-        return Ct(i.x + a * o.x - n * o.y, i.y + n * o.x + a * o.y);
+            r = Bt(e.x - i.x, e.y - i.y);
+        return Bt(i.x + a * r.x - n * r.y, i.y + n * r.x + a * r.y);
     },
-    Ct = (e = 0, t = 0) => ({ x: e, y: t }),
-    pe = (e, t, i = 1, a) => {
+    Bt = (e = 0, t = 0) => ({ x: e, y: t }),
+    ge = (e, t, i = 1, a) => {
         if (typeof e == 'string') return parseFloat(e) * i;
         if (typeof e == 'number') return e * (a ? t[a] : Math.min(t.width, t.height));
     },
-    Nu = (e, t, i) => {
+    Yu = (e, t, i) => {
         let a = e.borderStyle || e.lineStyle || 'solid',
             n = e.backgroundColor || e.fontColor || 'transparent',
-            o = e.borderColor || e.lineColor || 'transparent',
-            r = pe(e.borderWidth || e.lineWidth, t, i),
+            r = e.borderColor || e.lineColor || 'transparent',
+            o = ge(e.borderWidth || e.lineWidth, t, i),
             l = e.lineCap || 'round',
             s = e.lineJoin || 'round',
-            u = typeof a == 'string' ? '' : a.map((d) => pe(d, t, i)).join(','),
+            u = typeof a == 'string' ? '' : a.map((d) => ge(d, t, i)).join(','),
             c = e.opacity || 1;
         return {
             'stroke-linecap': l,
             'stroke-linejoin': s,
-            'stroke-width': r || 0,
+            'stroke-width': o || 0,
             'stroke-dasharray': u,
-            stroke: o,
+            stroke: r,
             fill: n,
             opacity: c,
         };
     },
-    _e = (e) => e != null,
-    Bu = (e, t, i = 1) => {
-        let a = pe(e.x, t, i, 'width') || pe(e.left, t, i, 'width'),
-            n = pe(e.y, t, i, 'height') || pe(e.top, t, i, 'height'),
-            o = pe(e.width, t, i, 'width'),
-            r = pe(e.height, t, i, 'height'),
-            l = pe(e.right, t, i, 'width'),
-            s = pe(e.bottom, t, i, 'height');
+    ye = (e) => e != null,
+    $u = (e, t, i = 1) => {
+        let a = ge(e.x, t, i, 'width') || ge(e.left, t, i, 'width'),
+            n = ge(e.y, t, i, 'height') || ge(e.top, t, i, 'height'),
+            r = ge(e.width, t, i, 'width'),
+            o = ge(e.height, t, i, 'height'),
+            l = ge(e.right, t, i, 'width'),
+            s = ge(e.bottom, t, i, 'height');
         return (
-            _e(n) || (_e(r) && _e(s) ? (n = t.height - r - s) : (n = s)),
-            _e(a) || (_e(o) && _e(l) ? (a = t.width - o - l) : (a = l)),
-            _e(o) || (_e(a) && _e(l) ? (o = t.width - a - l) : (o = 0)),
-            _e(r) || (_e(n) && _e(s) ? (r = t.height - n - s) : (r = 0)),
-            { x: a || 0, y: n || 0, width: o || 0, height: r || 0 }
+            ye(n) || (ye(o) && ye(s) ? (n = t.height - o - s) : (n = s)),
+            ye(a) || (ye(r) && ye(l) ? (a = t.width - r - l) : (a = l)),
+            ye(r) || (ye(a) && ye(l) ? (r = t.width - a - l) : (r = 0)),
+            ye(o) || (ye(n) && ye(s) ? (o = t.height - n - s) : (o = 0)),
+            { x: a || 0, y: n || 0, width: r || 0, height: o || 0 }
         );
     },
-    Gu = (e) => e.map((t, i) => `${i === 0 ? 'M' : 'L'} ${t.x} ${t.y}`).join(' '),
-    Oe = (e, t) => Object.keys(t).forEach((i) => e.setAttribute(i, t[i])),
-    Vu = 'http://www.w3.org/2000/svg',
-    pt = (e, t) => {
-        let i = document.createElementNS(Vu, e);
-        return t && Oe(i, t), i;
+    qu = (e) => e.map((t, i) => `${i === 0 ? 'M' : 'L'} ${t.x} ${t.y}`).join(' '),
+    De = (e, t) => Object.keys(t).forEach((i) => e.setAttribute(i, t[i])),
+    Xu = 'http://www.w3.org/2000/svg',
+    Et = (e, t) => {
+        let i = document.createElementNS(Xu, e);
+        return t && De(i, t), i;
     },
-    Uu = (e) => Oe(e, { ...e.rect, ...e.styles }),
-    ku = (e) => {
+    ju = (e) => De(e, { ...e.rect, ...e.styles }),
+    Qu = (e) => {
         let t = e.rect.x + e.rect.width * 0.5,
             i = e.rect.y + e.rect.height * 0.5,
             a = e.rect.width * 0.5,
             n = e.rect.height * 0.5;
-        return Oe(e, { cx: t, cy: i, rx: a, ry: n, ...e.styles });
+        return De(e, { cx: t, cy: i, rx: a, ry: n, ...e.styles });
     },
-    Hu = { contain: 'xMidYMid meet', cover: 'xMidYMid slice' },
-    Wu = (e, t) => {
-        Oe(e, { ...e.rect, ...e.styles, preserveAspectRatio: Hu[t.fit] || 'none' });
+    Zu = { contain: 'xMidYMid meet', cover: 'xMidYMid slice' },
+    Ku = (e, t) => {
+        De(e, { ...e.rect, ...e.styles, preserveAspectRatio: Zu[t.fit] || 'none' });
     },
-    Yu = { left: 'start', center: 'middle', right: 'end' },
-    $u = (e, t, i, a) => {
-        let n = pe(t.fontSize, i, a),
-            o = t.fontFamily || 'sans-serif',
-            r = t.fontWeight || 'normal',
-            l = Yu[t.textAlign] || 'start';
-        Oe(e, {
+    Ju = { left: 'start', center: 'middle', right: 'end' },
+    eh = (e, t, i, a) => {
+        let n = ge(t.fontSize, i, a),
+            r = t.fontFamily || 'sans-serif',
+            o = t.fontWeight || 'normal',
+            l = Ju[t.textAlign] || 'start';
+        De(e, {
             ...e.rect,
             ...e.styles,
             'stroke-width': 0,
-            'font-weight': r,
+            'font-weight': o,
             'font-size': n,
-            'font-family': o,
+            'font-family': r,
             'text-anchor': l,
         }),
             e.text !== t.text &&
                 ((e.text = t.text), (e.textContent = t.text.length ? t.text : ' '));
     },
-    qu = (e, t, i, a) => {
-        Oe(e, { ...e.rect, ...e.styles, fill: 'none' });
+    th = (e, t, i, a) => {
+        De(e, { ...e.rect, ...e.styles, fill: 'none' });
         let n = e.childNodes[0],
-            o = e.childNodes[1],
-            r = e.childNodes[2],
+            r = e.childNodes[1],
+            o = e.childNodes[2],
             l = e.rect,
             s = { x: e.rect.x + e.rect.width, y: e.rect.y + e.rect.height };
-        if ((Oe(n, { x1: l.x, y1: l.y, x2: s.x, y2: s.y }), !t.lineDecoration)) return;
-        (o.style.display = 'none'), (r.style.display = 'none');
-        let u = zu({ x: s.x - l.x, y: s.y - l.y }),
-            c = pe(0.05, i, a);
+        if ((De(n, { x1: l.x, y1: l.y, x2: s.x, y2: s.y }), !t.lineDecoration)) return;
+        (r.style.display = 'none'), (o.style.display = 'none');
+        let u = Wu({ x: s.x - l.x, y: s.y - l.y }),
+            c = ge(0.05, i, a);
         if (t.lineDecoration.indexOf('arrow-begin') !== -1) {
-            let d = Cr(u, c),
-                h = Fr(l, d),
-                p = si(l, 2, h),
-                f = si(l, -2, h);
-            Oe(o, { style: 'display:block;', d: `M${p.x},${p.y} L${l.x},${l.y} L${f.x},${f.y}` });
+            let d = Vr(u, c),
+                h = Ur(l, d),
+                f = fi(l, 2, h),
+                p = fi(l, -2, h);
+            De(r, { style: 'display:block;', d: `M${f.x},${f.y} L${l.x},${l.y} L${p.x},${p.y}` });
         }
         if (t.lineDecoration.indexOf('arrow-end') !== -1) {
-            let d = Cr(u, -c),
-                h = Fr(s, d),
-                p = si(s, 2, h),
-                f = si(s, -2, h);
-            Oe(r, { style: 'display:block;', d: `M${p.x},${p.y} L${s.x},${s.y} L${f.x},${f.y}` });
+            let d = Vr(u, -c),
+                h = Ur(s, d),
+                f = fi(s, 2, h),
+                p = fi(s, -2, h);
+            De(o, { style: 'display:block;', d: `M${f.x},${f.y} L${s.x},${s.y} L${p.x},${p.y}` });
         }
     },
-    Xu = (e, t, i, a) => {
-        Oe(e, {
+    ih = (e, t, i, a) => {
+        De(e, {
             ...e.styles,
             fill: 'none',
-            d: Gu(t.points.map((n) => ({ x: pe(n.x, i, a, 'width'), y: pe(n.y, i, a, 'height') }))),
+            d: qu(t.points.map((n) => ({ x: ge(n.x, i, a, 'width'), y: ge(n.y, i, a, 'height') }))),
         });
     },
-    ci = (e) => (t) => pt(e, { id: t.id }),
-    ju = (e) => {
-        let t = pt('image', {
+    pi = (e) => (t) => Et(e, { id: t.id }),
+    ah = (e) => {
+        let t = Et('image', {
             id: e.id,
             'stroke-linecap': 'round',
             'stroke-linejoin': 'round',
@@ -8008,37 +8023,37 @@ var Fu = (e) => /^image/.test(e.type),
             t
         );
     },
-    Qu = (e) => {
-        let t = pt('g', { id: e.id, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }),
-            i = pt('line');
+    nh = (e) => {
+        let t = Et('g', { id: e.id, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }),
+            i = Et('line');
         t.appendChild(i);
-        let a = pt('path');
+        let a = Et('path');
         t.appendChild(a);
-        let n = pt('path');
+        let n = Et('path');
         return t.appendChild(n), t;
     },
-    Zu = {
-        image: ju,
-        rect: ci('rect'),
-        ellipse: ci('ellipse'),
-        text: ci('text'),
-        path: ci('path'),
-        line: Qu,
+    rh = {
+        image: ah,
+        rect: pi('rect'),
+        ellipse: pi('ellipse'),
+        text: pi('text'),
+        path: pi('path'),
+        line: nh,
     },
-    Ku = { rect: Uu, ellipse: ku, image: Wu, text: $u, path: Xu, line: qu },
-    Ju = (e, t) => Zu[e](t),
-    eh = (e, t, i, a, n) => {
-        t !== 'path' && (e.rect = Bu(i, a, n)), (e.styles = Nu(i, a, n)), Ku[t](e, i, a, n);
+    oh = { rect: ju, ellipse: Qu, image: Ku, text: eh, path: ih, line: th },
+    lh = (e, t) => rh[e](t),
+    sh = (e, t, i, a, n) => {
+        t !== 'path' && (e.rect = $u(i, a, n)), (e.styles = Yu(i, a, n)), oh[t](e, i, a, n);
     },
-    th = ['x', 'y', 'left', 'top', 'right', 'bottom', 'width', 'height'],
-    ih = (e) => (typeof e == 'string' && /%/.test(e) ? parseFloat(e) / 100 : e),
-    ah = (e) => {
+    ch = ['x', 'y', 'left', 'top', 'right', 'bottom', 'width', 'height'],
+    dh = (e) => (typeof e == 'string' && /%/.test(e) ? parseFloat(e) / 100 : e),
+    uh = (e) => {
         let [t, i] = e,
-            a = i.points ? {} : th.reduce((n, o) => ((n[o] = ih(i[o])), n), {});
+            a = i.points ? {} : ch.reduce((n, r) => ((n[r] = dh(i[r])), n), {});
         return [t, { zIndex: 0, ...i, ...a }];
     },
-    nh = (e, t) => (e[1].zIndex > t[1].zIndex ? 1 : e[1].zIndex < t[1].zIndex ? -1 : 0),
-    rh = (e) =>
+    hh = (e, t) => (e[1].zIndex > t[1].zIndex ? 1 : e[1].zIndex < t[1].zIndex ? -1 : 0),
+    fh = (e) =>
         e.utils.createView({
             name: 'image-preview-markup',
             tag: 'svg',
@@ -8046,124 +8061,124 @@ var Fu = (e) => /^image/.test(e.type),
             mixins: { apis: ['width', 'height', 'crop', 'markup', 'resize', 'dirty'] },
             write: ({ root: t, props: i }) => {
                 if (!i.dirty) return;
-                let { crop: a, resize: n, markup: o } = i,
-                    r = i.width,
+                let { crop: a, resize: n, markup: r } = i,
+                    o = i.width,
                     l = i.height,
                     s = a.width,
                     u = a.height;
                 if (n) {
-                    let { size: p } = n,
-                        f = p && p.width,
-                        m = p && p.height,
-                        E = n.mode,
+                    let { size: f } = n,
+                        p = f && f.width,
+                        m = f && f.height,
+                        g = n.mode,
                         b = n.upscale;
-                    f && !m && (m = f), m && !f && (f = m);
-                    let g = s < f && u < m;
-                    if (!g || (g && b)) {
-                        let T = f / s,
+                    p && !m && (m = p), m && !p && (p = m);
+                    let E = s < p && u < m;
+                    if (!E || (E && b)) {
+                        let T = p / s,
                             _ = m / u;
-                        if (E === 'force') (s = f), (u = m);
+                        if (g === 'force') (s = p), (u = m);
                         else {
                             let y;
-                            E === 'cover'
+                            g === 'cover'
                                 ? (y = Math.max(T, _))
-                                : E === 'contain' && (y = Math.min(T, _)),
+                                : g === 'contain' && (y = Math.min(T, _)),
                                 (s = s * y),
                                 (u = u * y);
                         }
                     }
                 }
-                let c = { width: r, height: l };
+                let c = { width: o, height: l };
                 t.element.setAttribute('width', c.width),
                     t.element.setAttribute('height', c.height);
-                let d = Math.min(r / s, l / u);
+                let d = Math.min(o / s, l / u);
                 t.element.innerHTML = '';
                 let h = t.query('GET_IMAGE_PREVIEW_MARKUP_FILTER');
-                o.filter(h)
-                    .map(ah)
-                    .sort(nh)
-                    .forEach((p) => {
-                        let [f, m] = p,
-                            E = Ju(f, m);
-                        eh(E, f, m, c, d), t.element.appendChild(E);
+                r.filter(h)
+                    .map(uh)
+                    .sort(hh)
+                    .forEach((f) => {
+                        let [p, m] = f,
+                            g = lh(p, m);
+                        sh(g, p, m, c, d), t.element.appendChild(g);
                     });
             },
         }),
-    Pt = (e, t) => ({ x: e, y: t }),
-    oh = (e, t) => e.x * t.x + e.y * t.y,
-    zr = (e, t) => Pt(e.x - t.x, e.y - t.y),
-    lh = (e, t) => oh(zr(e, t), zr(e, t)),
-    Nr = (e, t) => Math.sqrt(lh(e, t)),
-    Br = (e, t) => {
+    Nt = (e, t) => ({ x: e, y: t }),
+    ph = (e, t) => e.x * t.x + e.y * t.y,
+    kr = (e, t) => Nt(e.x - t.x, e.y - t.y),
+    mh = (e, t) => ph(kr(e, t), kr(e, t)),
+    Hr = (e, t) => Math.sqrt(mh(e, t)),
+    Wr = (e, t) => {
         let i = e,
             a = 1.5707963267948966,
             n = t,
-            o = 1.5707963267948966 - t,
-            r = Math.sin(a),
+            r = 1.5707963267948966 - t,
+            o = Math.sin(a),
             l = Math.sin(n),
-            s = Math.sin(o),
-            u = Math.cos(o),
-            c = i / r,
+            s = Math.sin(r),
+            u = Math.cos(r),
+            c = i / o,
             d = c * l,
             h = c * s;
-        return Pt(u * d, u * h);
+        return Nt(u * d, u * h);
     },
-    sh = (e, t) => {
+    gh = (e, t) => {
         let i = e.width,
             a = e.height,
-            n = Br(i, t),
-            o = Br(a, t),
-            r = Pt(e.x + Math.abs(n.x), e.y - Math.abs(n.y)),
-            l = Pt(e.x + e.width + Math.abs(o.y), e.y + Math.abs(o.x)),
-            s = Pt(e.x - Math.abs(o.y), e.y + e.height - Math.abs(o.x));
-        return { width: Nr(r, l), height: Nr(r, s) };
+            n = Wr(i, t),
+            r = Wr(a, t),
+            o = Nt(e.x + Math.abs(n.x), e.y - Math.abs(n.y)),
+            l = Nt(e.x + e.width + Math.abs(r.y), e.y + Math.abs(r.x)),
+            s = Nt(e.x - Math.abs(r.y), e.y + e.height - Math.abs(r.x));
+        return { width: Hr(o, l), height: Hr(o, s) };
     },
-    ch = (e, t, i = 1) => {
+    Eh = (e, t, i = 1) => {
         let a = e.height / e.width,
             n = 1,
-            o = t,
-            r = 1,
+            r = t,
+            o = 1,
             l = a;
-        l > o && ((l = o), (r = l / a));
-        let s = Math.max(n / r, o / l),
-            u = e.width / (i * s * r),
+        l > r && ((l = r), (o = l / a));
+        let s = Math.max(n / o, r / l),
+            u = e.width / (i * s * o),
             c = u * t;
         return { width: u, height: c };
     },
-    Vr = (e, t, i, a) => {
+    $r = (e, t, i, a) => {
         let n = a.x > 0.5 ? 1 - a.x : a.x,
-            o = a.y > 0.5 ? 1 - a.y : a.y,
-            r = n * 2 * e.width,
-            l = o * 2 * e.height,
-            s = sh(t, i);
-        return Math.max(s.width / r, s.height / l);
+            r = a.y > 0.5 ? 1 - a.y : a.y,
+            o = n * 2 * e.width,
+            l = r * 2 * e.height,
+            s = gh(t, i);
+        return Math.max(s.width / o, s.height / l);
     },
-    Ur = (e, t) => {
+    qr = (e, t) => {
         let i = e.width,
             a = i * t;
         a > e.height && ((a = e.height), (i = a / t));
         let n = (e.width - i) * 0.5,
-            o = (e.height - a) * 0.5;
-        return { x: n, y: o, width: i, height: a };
+            r = (e.height - a) * 0.5;
+        return { x: n, y: r, width: i, height: a };
     },
-    dh = (e, t = {}) => {
-        let { zoom: i, rotation: a, center: n, aspectRatio: o } = t;
-        o || (o = e.height / e.width);
-        let r = ch(e, o, i),
-            l = { x: r.width * 0.5, y: r.height * 0.5 },
-            s = { x: 0, y: 0, width: r.width, height: r.height, center: l },
+    Th = (e, t = {}) => {
+        let { zoom: i, rotation: a, center: n, aspectRatio: r } = t;
+        r || (r = e.height / e.width);
+        let o = Eh(e, r, i),
+            l = { x: o.width * 0.5, y: o.height * 0.5 },
+            s = { x: 0, y: 0, width: o.width, height: o.height, center: l },
             u = typeof t.scaleToFit > 'u' || t.scaleToFit,
-            c = Vr(e, Ur(s, o), a, u ? n : { x: 0.5, y: 0.5 }),
+            c = $r(e, qr(s, r), a, u ? n : { x: 0.5, y: 0.5 }),
             d = i * c;
         return {
-            widthFloat: r.width / d,
-            heightFloat: r.height / d,
-            width: Math.round(r.width / d),
-            height: Math.round(r.height / d),
+            widthFloat: o.width / d,
+            heightFloat: o.height / d,
+            width: Math.round(o.width / d),
+            height: Math.round(o.height / d),
         };
     },
-    Me = { type: 'spring', stiffness: 0.5, damping: 0.45, mass: 10 },
-    uh = (e) =>
+    xe = { type: 'spring', stiffness: 0.5, damping: 0.45, mass: 10 },
+    Ih = (e) =>
         e.utils.createView({
             name: 'image-bitmap',
             ignoreRect: !0,
@@ -8172,7 +8187,7 @@ var Fu = (e) => /^image/.test(e.type),
                 t.appendChild(i.image);
             },
         }),
-    hh = (e) =>
+    bh = (e) =>
         e.utils.createView({
             name: 'image-canvas-wrapper',
             tag: 'div',
@@ -8189,20 +8204,20 @@ var Fu = (e) => /^image/.test(e.type),
                     'rotateZ',
                 ],
                 animations: {
-                    originX: Me,
-                    originY: Me,
-                    scaleX: Me,
-                    scaleY: Me,
-                    translateX: Me,
-                    translateY: Me,
-                    rotateZ: Me,
+                    originX: xe,
+                    originY: xe,
+                    scaleX: xe,
+                    scaleY: xe,
+                    translateX: xe,
+                    translateY: xe,
+                    rotateZ: xe,
                 },
             },
             create: ({ root: t, props: i }) => {
                 (i.width = i.image.width),
                     (i.height = i.image.height),
                     (t.ref.bitmap = t.appendChildView(
-                        t.createChildView(uh(e), { image: i.image }),
+                        t.createChildView(Ih(e), { image: i.image }),
                     ));
             },
             write: ({ root: t, props: i }) => {
@@ -8211,7 +8226,7 @@ var Fu = (e) => /^image/.test(e.type),
                 (n.scaleX = a.horizontal ? -1 : 1), (n.scaleY = a.vertical ? -1 : 1);
             },
         }),
-    fh = (e) =>
+    _h = (e) =>
         e.utils.createView({
             name: 'image-clip',
             tag: 'div',
@@ -8225,11 +8240,11 @@ var Fu = (e) => /^image/.test(e.type),
                 i.background && (t.element.style.backgroundColor = i.background);
             },
             create: ({ root: t, props: i }) => {
-                (t.ref.image = t.appendChildView(t.createChildView(hh(e), Object.assign({}, i)))),
+                (t.ref.image = t.appendChildView(t.createChildView(bh(e), Object.assign({}, i)))),
                     (t.ref.createMarkup = () => {
                         t.ref.markup ||
                             (t.ref.markup = t.appendChildView(
-                                t.createChildView(rh(e), Object.assign({}, i)),
+                                t.createChildView(fh(e), Object.assign({}, i)),
                             ));
                     }),
                     (t.ref.destroyMarkup = () => {
@@ -8242,28 +8257,28 @@ var Fu = (e) => /^image/.test(e.type),
                         : (t.element.dataset.transparencyIndicator = 'color'));
             },
             write: ({ root: t, props: i, shouldOptimize: a }) => {
-                let { crop: n, markup: o, resize: r, dirty: l, width: s, height: u } = i;
+                let { crop: n, markup: r, resize: o, dirty: l, width: s, height: u } = i;
                 t.ref.image.crop = n;
                 let c = { x: 0, y: 0, width: s, height: u, center: { x: s * 0.5, y: u * 0.5 } },
                     d = { width: t.ref.image.width, height: t.ref.image.height },
                     h = { x: n.center.x * d.width, y: n.center.y * d.height },
-                    p = {
+                    f = {
                         x: c.center.x - d.width * n.center.x,
                         y: c.center.y - d.height * n.center.y,
                     },
-                    f = Math.PI * 2 + (n.rotation % (Math.PI * 2)),
+                    p = Math.PI * 2 + (n.rotation % (Math.PI * 2)),
                     m = n.aspectRatio || d.height / d.width,
-                    E = typeof n.scaleToFit > 'u' || n.scaleToFit,
-                    b = Vr(d, Ur(c, m), f, E ? n.center : { x: 0.5, y: 0.5 }),
-                    g = n.zoom * b;
-                o && o.length
+                    g = typeof n.scaleToFit > 'u' || n.scaleToFit,
+                    b = $r(d, qr(c, m), p, g ? n.center : { x: 0.5, y: 0.5 }),
+                    E = n.zoom * b;
+                r && r.length
                     ? (t.ref.createMarkup(),
                       (t.ref.markup.width = s),
                       (t.ref.markup.height = u),
-                      (t.ref.markup.resize = r),
+                      (t.ref.markup.resize = o),
                       (t.ref.markup.dirty = l),
-                      (t.ref.markup.markup = o),
-                      (t.ref.markup.crop = dh(d, n)))
+                      (t.ref.markup.markup = r),
+                      (t.ref.markup.crop = Th(d, n)))
                     : t.ref.markup && t.ref.destroyMarkup();
                 let T = t.ref.image;
                 if (a) {
@@ -8278,14 +8293,14 @@ var Fu = (e) => /^image/.test(e.type),
                 }
                 (T.originX = h.x),
                     (T.originY = h.y),
-                    (T.translateX = p.x),
-                    (T.translateY = p.y),
-                    (T.rotateZ = f),
-                    (T.scaleX = g),
-                    (T.scaleY = g);
+                    (T.translateX = f.x),
+                    (T.translateY = f.y),
+                    (T.rotateZ = p),
+                    (T.scaleX = E),
+                    (T.scaleY = E);
             },
         }),
-    ph = (e) =>
+    Rh = (e) =>
         e.utils.createView({
             name: 'image-preview',
             tag: 'div',
@@ -8294,15 +8309,15 @@ var Fu = (e) => /^image/.test(e.type),
                 apis: ['image', 'crop', 'markup', 'resize', 'dirty', 'background'],
                 styles: ['translateY', 'scaleX', 'scaleY', 'opacity'],
                 animations: {
-                    scaleX: Me,
-                    scaleY: Me,
-                    translateY: Me,
+                    scaleX: xe,
+                    scaleY: xe,
+                    translateY: xe,
                     opacity: { type: 'tween', duration: 400 },
                 },
             },
             create: ({ root: t, props: i }) => {
                 t.ref.clip = t.appendChildView(
-                    t.createChildView(fh(e), {
+                    t.createChildView(_h(e), {
                         id: i.id,
                         image: i.image,
                         crop: i.crop,
@@ -8315,9 +8330,9 @@ var Fu = (e) => /^image/.test(e.type),
             },
             write: ({ root: t, props: i, shouldOptimize: a }) => {
                 let { clip: n } = t.ref,
-                    { image: o, crop: r, markup: l, resize: s, dirty: u } = i;
+                    { image: r, crop: o, markup: l, resize: s, dirty: u } = i;
                 if (
-                    ((n.crop = r),
+                    ((n.crop = o),
                     (n.markup = l),
                     (n.resize = s),
                     (n.dirty = u),
@@ -8325,25 +8340,25 @@ var Fu = (e) => /^image/.test(e.type),
                     a || t.rect.element.hidden)
                 )
                     return;
-                let c = o.height / o.width,
-                    d = r.aspectRatio || c,
+                let c = r.height / r.width,
+                    d = o.aspectRatio || c,
                     h = t.rect.inner.width,
-                    p = t.rect.inner.height,
-                    f = t.query('GET_IMAGE_PREVIEW_HEIGHT'),
+                    f = t.rect.inner.height,
+                    p = t.query('GET_IMAGE_PREVIEW_HEIGHT'),
                     m = t.query('GET_IMAGE_PREVIEW_MIN_HEIGHT'),
-                    E = t.query('GET_IMAGE_PREVIEW_MAX_HEIGHT'),
+                    g = t.query('GET_IMAGE_PREVIEW_MAX_HEIGHT'),
                     b = t.query('GET_PANEL_ASPECT_RATIO'),
-                    g = t.query('GET_ALLOW_MULTIPLE');
-                b && !g && ((f = h * b), (d = b));
-                let T = f !== null ? f : Math.max(m, Math.min(h * d, E)),
+                    E = t.query('GET_ALLOW_MULTIPLE');
+                b && !E && ((p = h * b), (d = b));
+                let T = p !== null ? p : Math.max(m, Math.min(h * d, g)),
                     _ = T / d;
                 _ > h && ((_ = h), (T = _ * d)),
-                    T > p && ((T = p), (_ = p / d)),
+                    T > f && ((T = f), (_ = f / d)),
                     (n.width = _),
                     (n.height = T);
             },
         }),
-    mh = `<svg width="500" height="200" viewBox="0 0 500 200" preserveAspectRatio="none">
+    yh = `<svg width="500" height="200" viewBox="0 0 500 200" preserveAspectRatio="none">
     <defs>
         <radialGradient id="gradient-__UID__" cx=".5" cy="1.25" r="1.15">
             <stop offset='50%' stop-color='#000000'/>
@@ -8362,84 +8377,84 @@ var Fu = (e) => /^image/.test(e.type),
     </defs>
     <rect x="0" width="500" height="200" fill="currentColor" mask="url(#mask-__UID__)"></rect>
 </svg>`,
-    Gr = 0,
-    gh = (e) =>
+    Yr = 0,
+    Sh = (e) =>
         e.utils.createView({
             name: 'image-preview-overlay',
             tag: 'div',
             ignoreRect: !0,
             create: ({ root: t, props: i }) => {
-                let a = mh;
+                let a = yh;
                 if (document.querySelector('base')) {
                     let n = new URL(window.location.href.replace(window.location.hash, '')).href;
                     a = a.replace(/url\(\#/g, 'url(' + n + '#');
                 }
-                Gr++,
+                Yr++,
                     t.element.classList.add(`filepond--image-preview-overlay-${i.status}`),
-                    (t.element.innerHTML = a.replace(/__UID__/g, Gr));
+                    (t.element.innerHTML = a.replace(/__UID__/g, Yr));
             },
             mixins: { styles: ['opacity'], animations: { opacity: { type: 'spring', mass: 25 } } },
         }),
-    Eh = function () {
+    wh = function () {
         self.onmessage = (e) => {
             createImageBitmap(e.data.message.file).then((t) => {
                 self.postMessage({ id: e.data.id, message: t }, [t]);
             });
         };
     },
-    Th = function () {
+    vh = function () {
         self.onmessage = (e) => {
             let t = e.data.message.imageData,
                 i = e.data.message.colorMatrix,
                 a = t.data,
                 n = a.length,
-                o = i[0],
-                r = i[1],
+                r = i[0],
+                o = i[1],
                 l = i[2],
                 s = i[3],
                 u = i[4],
                 c = i[5],
                 d = i[6],
                 h = i[7],
-                p = i[8],
-                f = i[9],
+                f = i[8],
+                p = i[9],
                 m = i[10],
-                E = i[11],
+                g = i[11],
                 b = i[12],
-                g = i[13],
+                E = i[13],
                 T = i[14],
                 _ = i[15],
                 y = i[16],
                 I = i[17],
-                A = i[18],
+                v = i[18],
                 R = i[19],
                 S = 0,
-                P = 0,
                 D = 0,
+                x = 0,
                 O = 0,
-                N = 0;
+                B = 0;
             for (; S < n; S += 4)
-                (P = a[S] / 255),
-                    (D = a[S + 1] / 255),
+                (D = a[S] / 255),
+                    (x = a[S + 1] / 255),
                     (O = a[S + 2] / 255),
-                    (N = a[S + 3] / 255),
-                    (a[S] = Math.max(0, Math.min((P * o + D * r + O * l + N * s + u) * 255, 255))),
+                    (B = a[S + 3] / 255),
+                    (a[S] = Math.max(0, Math.min((D * r + x * o + O * l + B * s + u) * 255, 255))),
                     (a[S + 1] = Math.max(
                         0,
-                        Math.min((P * c + D * d + O * h + N * p + f) * 255, 255),
+                        Math.min((D * c + x * d + O * h + B * f + p) * 255, 255),
                     )),
                     (a[S + 2] = Math.max(
                         0,
-                        Math.min((P * m + D * E + O * b + N * g + T) * 255, 255),
+                        Math.min((D * m + x * g + O * b + B * E + T) * 255, 255),
                     )),
                     (a[S + 3] = Math.max(
                         0,
-                        Math.min((P * _ + D * y + O * I + N * A + R) * 255, 255),
+                        Math.min((D * _ + x * y + O * I + B * v + R) * 255, 255),
                     ));
             self.postMessage({ id: e.data.id, message: t }, [t.data.buffer]);
         };
     },
-    Ih = (e, t) => {
+    Ah = (e, t) => {
         let i = new Image();
         (i.onload = () => {
             let a = i.naturalWidth,
@@ -8448,7 +8463,7 @@ var Fu = (e) => /^image/.test(e.type),
         }),
             (i.src = e);
     },
-    bh = {
+    Lh = {
         1: () => [1, 0, 0, 1, 0, 0],
         2: (e) => [-1, 0, 0, 1, e, 0],
         3: (e, t) => [-1, 0, 0, -1, e, t],
@@ -8458,50 +8473,50 @@ var Fu = (e) => /^image/.test(e.type),
         7: (e, t) => [0, -1, -1, 0, t, e],
         8: (e) => [0, -1, 1, 0, 0, e],
     },
-    _h = (e, t, i, a) => {
-        a !== -1 && e.transform.apply(e, bh[a](t, i));
+    Mh = (e, t, i, a) => {
+        a !== -1 && e.transform.apply(e, Lh[a](t, i));
     },
-    Rh = (e, t, i, a) => {
+    Oh = (e, t, i, a) => {
         (t = Math.round(t)), (i = Math.round(i));
         let n = document.createElement('canvas');
         (n.width = t), (n.height = i);
-        let o = n.getContext('2d');
-        return a >= 5 && a <= 8 && ([t, i] = [i, t]), _h(o, t, i, a), o.drawImage(e, 0, 0, t, i), n;
+        let r = n.getContext('2d');
+        return a >= 5 && a <= 8 && ([t, i] = [i, t]), Mh(r, t, i, a), r.drawImage(e, 0, 0, t, i), n;
     },
-    kr = (e) => /^image/.test(e.type) && !/svg/.test(e.type),
-    yh = 10,
-    Sh = 10,
-    wh = (e) => {
-        let t = Math.min(yh / e.width, Sh / e.height),
+    Xr = (e) => /^image/.test(e.type) && !/svg/.test(e.type),
+    xh = 10,
+    Dh = 10,
+    Ph = (e) => {
+        let t = Math.min(xh / e.width, Dh / e.height),
             i = document.createElement('canvas'),
             a = i.getContext('2d'),
             n = (i.width = Math.ceil(e.width * t)),
-            o = (i.height = Math.ceil(e.height * t));
-        a.drawImage(e, 0, 0, n, o);
-        let r = null;
+            r = (i.height = Math.ceil(e.height * t));
+        a.drawImage(e, 0, 0, n, r);
+        let o = null;
         try {
-            r = a.getImageData(0, 0, n, o).data;
+            o = a.getImageData(0, 0, n, r).data;
         } catch {
             return null;
         }
-        let l = r.length,
+        let l = o.length,
             s = 0,
             u = 0,
             c = 0,
             d = 0;
         for (; d < l; d += 4)
-            (s += r[d] * r[d]), (u += r[d + 1] * r[d + 1]), (c += r[d + 2] * r[d + 2]);
-        return (s = ha(s, l)), (u = ha(u, l)), (c = ha(c, l)), { r: s, g: u, b: c };
+            (s += o[d] * o[d]), (u += o[d + 1] * o[d + 1]), (c += o[d + 2] * o[d + 2]);
+        return (s = Ea(s, l)), (u = Ea(u, l)), (c = Ea(c, l)), { r: s, g: u, b: c };
     },
-    ha = (e, t) => Math.floor(Math.sqrt(e / (t / 4))),
-    Ah = (e, t) => (
+    Ea = (e, t) => Math.floor(Math.sqrt(e / (t / 4))),
+    Fh = (e, t) => (
         (t = t || document.createElement('canvas')),
         (t.width = e.width),
         (t.height = e.height),
         t.getContext('2d').drawImage(e, 0, 0),
         t
     ),
-    vh = (e) => {
+    Ch = (e) => {
         let t;
         try {
             t = new ImageData(e.width, e.height);
@@ -8513,7 +8528,7 @@ var Fu = (e) => /^image/.test(e.type),
         }
         return t.data.set(new Uint8ClampedArray(e.data)), t;
     },
-    Lh = (e) =>
+    zh = (e) =>
         new Promise((t, i) => {
             let a = new Image();
             (a.crossOrigin = 'Anonymous'),
@@ -8525,205 +8540,205 @@ var Fu = (e) => /^image/.test(e.type),
                 }),
                 (a.src = e);
         }),
-    Mh = (e) => {
-        let t = gh(e),
-            i = ph(e),
+    Nh = (e) => {
+        let t = Sh(e),
+            i = Rh(e),
             { createWorker: a } = e.utils,
-            n = (g, T, _) =>
+            n = (E, T, _) =>
                 new Promise((y) => {
-                    g.ref.imageData ||
-                        (g.ref.imageData = _.getContext('2d').getImageData(
+                    E.ref.imageData ||
+                        (E.ref.imageData = _.getContext('2d').getImageData(
                             0,
                             0,
                             _.width,
                             _.height,
                         ));
-                    let I = vh(g.ref.imageData);
+                    let I = Ch(E.ref.imageData);
                     if (!T || T.length !== 20) return _.getContext('2d').putImageData(I, 0, 0), y();
-                    let A = a(Th);
-                    A.post(
+                    let v = a(vh);
+                    v.post(
                         { imageData: I, colorMatrix: T },
                         (R) => {
-                            _.getContext('2d').putImageData(R, 0, 0), A.terminate(), y();
+                            _.getContext('2d').putImageData(R, 0, 0), v.terminate(), y();
                         },
                         [I.data.buffer],
                     );
                 }),
-            o = (g, T) => {
-                g.removeChildView(T), (T.image.width = 1), (T.image.height = 1), T._destroy();
+            r = (E, T) => {
+                E.removeChildView(T), (T.image.width = 1), (T.image.height = 1), T._destroy();
             },
-            r = ({ root: g }) => {
-                let T = g.ref.images.shift();
-                return (T.opacity = 0), (T.translateY = -15), g.ref.imageViewBin.push(T), T;
+            o = ({ root: E }) => {
+                let T = E.ref.images.shift();
+                return (T.opacity = 0), (T.translateY = -15), E.ref.imageViewBin.push(T), T;
             },
-            l = ({ root: g, props: T, image: _ }) => {
+            l = ({ root: E, props: T, image: _ }) => {
                 let y = T.id,
-                    I = g.query('GET_ITEM', { id: y });
+                    I = E.query('GET_ITEM', { id: y });
                 if (!I) return;
-                let A = I.getMetadata('crop') || {
+                let v = I.getMetadata('crop') || {
                         center: { x: 0.5, y: 0.5 },
                         flip: { horizontal: !1, vertical: !1 },
                         zoom: 1,
                         rotation: 0,
                         aspectRatio: null,
                     },
-                    R = g.query('GET_IMAGE_TRANSFORM_CANVAS_BACKGROUND_COLOR'),
+                    R = E.query('GET_IMAGE_TRANSFORM_CANVAS_BACKGROUND_COLOR'),
                     S,
-                    P,
-                    D = !1;
-                g.query('GET_IMAGE_PREVIEW_MARKUP_SHOW') &&
-                    ((S = I.getMetadata('markup') || []), (P = I.getMetadata('resize')), (D = !0));
-                let O = g.appendChildView(
-                    g.createChildView(i, {
+                    D,
+                    x = !1;
+                E.query('GET_IMAGE_PREVIEW_MARKUP_SHOW') &&
+                    ((S = I.getMetadata('markup') || []), (D = I.getMetadata('resize')), (x = !0));
+                let O = E.appendChildView(
+                    E.createChildView(i, {
                         id: y,
                         image: _,
-                        crop: A,
-                        resize: P,
+                        crop: v,
+                        resize: D,
                         markup: S,
-                        dirty: D,
+                        dirty: x,
                         background: R,
                         opacity: 0,
                         scaleX: 1.15,
                         scaleY: 1.15,
                         translateY: 15,
                     }),
-                    g.childViews.length,
+                    E.childViews.length,
                 );
-                g.ref.images.push(O),
+                E.ref.images.push(O),
                     (O.opacity = 1),
                     (O.scaleX = 1),
                     (O.scaleY = 1),
                     (O.translateY = 0),
                     setTimeout(() => {
-                        g.dispatch('DID_IMAGE_PREVIEW_SHOW', { id: y });
+                        E.dispatch('DID_IMAGE_PREVIEW_SHOW', { id: y });
                     }, 250);
             },
-            s = ({ root: g, props: T }) => {
-                let _ = g.query('GET_ITEM', { id: T.id });
+            s = ({ root: E, props: T }) => {
+                let _ = E.query('GET_ITEM', { id: T.id });
                 if (!_) return;
-                let y = g.ref.images[g.ref.images.length - 1];
+                let y = E.ref.images[E.ref.images.length - 1];
                 (y.crop = _.getMetadata('crop')),
-                    (y.background = g.query('GET_IMAGE_TRANSFORM_CANVAS_BACKGROUND_COLOR')),
-                    g.query('GET_IMAGE_PREVIEW_MARKUP_SHOW') &&
+                    (y.background = E.query('GET_IMAGE_TRANSFORM_CANVAS_BACKGROUND_COLOR')),
+                    E.query('GET_IMAGE_PREVIEW_MARKUP_SHOW') &&
                         ((y.dirty = !0),
                         (y.resize = _.getMetadata('resize')),
                         (y.markup = _.getMetadata('markup')));
             },
-            u = ({ root: g, props: T, action: _ }) => {
-                if (!/crop|filter|markup|resize/.test(_.change.key) || !g.ref.images.length) return;
-                let y = g.query('GET_ITEM', { id: T.id });
+            u = ({ root: E, props: T, action: _ }) => {
+                if (!/crop|filter|markup|resize/.test(_.change.key) || !E.ref.images.length) return;
+                let y = E.query('GET_ITEM', { id: T.id });
                 if (y) {
                     if (/filter/.test(_.change.key)) {
-                        let I = g.ref.images[g.ref.images.length - 1];
-                        n(g, _.change.value, I.image);
+                        let I = E.ref.images[E.ref.images.length - 1];
+                        n(E, _.change.value, I.image);
                         return;
                     }
                     if (/crop|markup|resize/.test(_.change.key)) {
                         let I = y.getMetadata('crop'),
-                            A = g.ref.images[g.ref.images.length - 1];
+                            v = E.ref.images[E.ref.images.length - 1];
                         if (
                             I &&
                             I.aspectRatio &&
-                            A.crop &&
-                            A.crop.aspectRatio &&
-                            Math.abs(I.aspectRatio - A.crop.aspectRatio) > 1e-5
+                            v.crop &&
+                            v.crop.aspectRatio &&
+                            Math.abs(I.aspectRatio - v.crop.aspectRatio) > 1e-5
                         ) {
-                            let R = r({ root: g });
-                            l({ root: g, props: T, image: Ah(R.image) });
-                        } else s({ root: g, props: T });
+                            let R = o({ root: E });
+                            l({ root: E, props: T, image: Fh(R.image) });
+                        } else s({ root: E, props: T });
                     }
                 }
             },
-            c = (g) => {
+            c = (E) => {
                 let _ = window.navigator.userAgent.match(/Firefox\/([0-9]+)\./);
                 return (_ ? parseInt(_[1]) : null) <= 58
                     ? !1
-                    : 'createImageBitmap' in window && kr(g);
+                    : 'createImageBitmap' in window && Xr(E);
             },
-            d = ({ root: g, props: T }) => {
+            d = ({ root: E, props: T }) => {
                 let { id: _ } = T,
-                    y = g.query('GET_ITEM', _);
+                    y = E.query('GET_ITEM', _);
                 if (!y) return;
                 let I = URL.createObjectURL(y.file);
-                Ih(I, (A, R) => {
-                    g.dispatch('DID_IMAGE_PREVIEW_CALCULATE_SIZE', { id: _, width: A, height: R });
+                Ah(I, (v, R) => {
+                    E.dispatch('DID_IMAGE_PREVIEW_CALCULATE_SIZE', { id: _, width: v, height: R });
                 });
             },
-            h = ({ root: g, props: T }) => {
+            h = ({ root: E, props: T }) => {
                 let { id: _ } = T,
-                    y = g.query('GET_ITEM', _);
+                    y = E.query('GET_ITEM', _);
                 if (!y) return;
                 let I = URL.createObjectURL(y.file),
-                    A = () => {
-                        Lh(I).then(R);
+                    v = () => {
+                        zh(I).then(R);
                     },
                     R = (S) => {
                         URL.revokeObjectURL(I);
-                        let D = (y.getMetadata('exif') || {}).orientation || -1,
-                            { width: O, height: N } = S;
-                        if (!O || !N) return;
-                        D >= 5 && D <= 8 && ([O, N] = [N, O]);
-                        let v = Math.max(1, window.devicePixelRatio * 0.75),
-                            w = g.query('GET_IMAGE_PREVIEW_ZOOM_FACTOR') * v,
-                            L = N / O,
-                            z = g.rect.element.width,
-                            C = g.rect.element.height,
-                            G = z,
-                            x = G * L;
+                        let x = (y.getMetadata('exif') || {}).orientation || -1,
+                            { width: O, height: B } = S;
+                        if (!O || !B) return;
+                        x >= 5 && x <= 8 && ([O, B] = [B, O]);
+                        let A = Math.max(1, window.devicePixelRatio * 0.75),
+                            w = E.query('GET_IMAGE_PREVIEW_ZOOM_FACTOR') * A,
+                            L = B / O,
+                            N = E.rect.element.width,
+                            P = E.rect.element.height,
+                            U = N,
+                            V = U * L;
                         L > 1
-                            ? ((G = Math.min(O, z * w)), (x = G * L))
-                            : ((x = Math.min(N, C * w)), (G = x / L));
-                        let B = Rh(S, G, x, D),
-                            U = () => {
-                                let ae = g.query('GET_IMAGE_PREVIEW_CALCULATE_AVERAGE_IMAGE_COLOR')
-                                    ? wh(data)
+                            ? ((U = Math.min(O, N * w)), (V = U * L))
+                            : ((V = Math.min(B, P * w)), (U = V / L));
+                        let q = Oh(S, U, V, x),
+                            X = () => {
+                                let se = E.query('GET_IMAGE_PREVIEW_CALCULATE_AVERAGE_IMAGE_COLOR')
+                                    ? Ph(data)
                                     : null;
-                                y.setMetadata('color', ae, !0),
+                                y.setMetadata('color', se, !0),
                                     'close' in S && S.close(),
-                                    (g.ref.overlayShadow.opacity = 1),
-                                    l({ root: g, props: T, image: B });
+                                    (E.ref.overlayShadow.opacity = 1),
+                                    l({ root: E, props: T, image: q });
                             },
-                            W = y.getMetadata('filter');
-                        W ? n(g, W, B).then(U) : U();
+                            j = y.getMetadata('filter');
+                        j ? n(E, j, q).then(X) : X();
                     };
                 if (c(y.file)) {
-                    let S = a(Eh);
-                    S.post({ file: y.file }, (P) => {
-                        if ((S.terminate(), !P)) {
-                            A();
+                    let S = a(wh);
+                    S.post({ file: y.file }, (D) => {
+                        if ((S.terminate(), !D)) {
+                            v();
                             return;
                         }
-                        R(P);
+                        R(D);
                     });
-                } else A();
+                } else v();
             },
-            p = ({ root: g }) => {
-                let T = g.ref.images[g.ref.images.length - 1];
+            f = ({ root: E }) => {
+                let T = E.ref.images[E.ref.images.length - 1];
                 (T.translateY = 0), (T.scaleX = 1), (T.scaleY = 1), (T.opacity = 1);
             },
-            f = ({ root: g }) => {
-                (g.ref.overlayShadow.opacity = 1),
-                    (g.ref.overlayError.opacity = 0),
-                    (g.ref.overlaySuccess.opacity = 0);
+            p = ({ root: E }) => {
+                (E.ref.overlayShadow.opacity = 1),
+                    (E.ref.overlayError.opacity = 0),
+                    (E.ref.overlaySuccess.opacity = 0);
             },
-            m = ({ root: g }) => {
-                (g.ref.overlayShadow.opacity = 0.25), (g.ref.overlayError.opacity = 1);
+            m = ({ root: E }) => {
+                (E.ref.overlayShadow.opacity = 0.25), (E.ref.overlayError.opacity = 1);
             },
-            E = ({ root: g }) => {
-                (g.ref.overlayShadow.opacity = 0.25), (g.ref.overlaySuccess.opacity = 1);
+            g = ({ root: E }) => {
+                (E.ref.overlayShadow.opacity = 0.25), (E.ref.overlaySuccess.opacity = 1);
             },
-            b = ({ root: g }) => {
-                (g.ref.images = []),
-                    (g.ref.imageData = null),
-                    (g.ref.imageViewBin = []),
-                    (g.ref.overlayShadow = g.appendChildView(
-                        g.createChildView(t, { opacity: 0, status: 'idle' }),
+            b = ({ root: E }) => {
+                (E.ref.images = []),
+                    (E.ref.imageData = null),
+                    (E.ref.imageViewBin = []),
+                    (E.ref.overlayShadow = E.appendChildView(
+                        E.createChildView(t, { opacity: 0, status: 'idle' }),
                     )),
-                    (g.ref.overlaySuccess = g.appendChildView(
-                        g.createChildView(t, { opacity: 0, status: 'success' }),
+                    (E.ref.overlaySuccess = E.appendChildView(
+                        E.createChildView(t, { opacity: 0, status: 'success' }),
                     )),
-                    (g.ref.overlayError = g.appendChildView(
-                        g.createChildView(t, { opacity: 0, status: 'failure' }),
+                    (E.ref.overlayError = E.appendChildView(
+                        E.createChildView(t, { opacity: 0, status: 'failure' }),
                     ));
             };
         return e.utils.createView({
@@ -8731,124 +8746,124 @@ var Fu = (e) => /^image/.test(e.type),
             create: b,
             styles: ['height'],
             apis: ['height'],
-            destroy: ({ root: g }) => {
-                g.ref.images.forEach((T) => {
+            destroy: ({ root: E }) => {
+                E.ref.images.forEach((T) => {
                     (T.image.width = 1), (T.image.height = 1);
                 });
             },
-            didWriteView: ({ root: g }) => {
-                g.ref.images.forEach((T) => {
+            didWriteView: ({ root: E }) => {
+                E.ref.images.forEach((T) => {
                     T.dirty = !1;
                 });
             },
             write: e.utils.createRoute(
                 {
-                    DID_IMAGE_PREVIEW_DRAW: p,
+                    DID_IMAGE_PREVIEW_DRAW: f,
                     DID_IMAGE_PREVIEW_CONTAINER_CREATE: d,
                     DID_FINISH_CALCULATE_PREVIEWSIZE: h,
                     DID_UPDATE_ITEM_METADATA: u,
                     DID_THROW_ITEM_LOAD_ERROR: m,
                     DID_THROW_ITEM_PROCESSING_ERROR: m,
                     DID_THROW_ITEM_INVALID: m,
-                    DID_COMPLETE_ITEM_PROCESSING: E,
-                    DID_START_ITEM_PROCESSING: f,
-                    DID_REVERT_ITEM_PROCESSING: f,
+                    DID_COMPLETE_ITEM_PROCESSING: g,
+                    DID_START_ITEM_PROCESSING: p,
+                    DID_REVERT_ITEM_PROCESSING: p,
                 },
-                ({ root: g }) => {
-                    let T = g.ref.imageViewBin.filter((_) => _.opacity === 0);
-                    (g.ref.imageViewBin = g.ref.imageViewBin.filter((_) => _.opacity > 0)),
-                        T.forEach((_) => o(g, _)),
+                ({ root: E }) => {
+                    let T = E.ref.imageViewBin.filter((_) => _.opacity === 0);
+                    (E.ref.imageViewBin = E.ref.imageViewBin.filter((_) => _.opacity > 0)),
+                        T.forEach((_) => r(E, _)),
                         (T.length = 0);
                 },
             ),
         });
     },
-    Hr = (e) => {
+    jr = (e) => {
         let { addFilter: t, utils: i } = e,
-            { Type: a, createRoute: n, isFile: o } = i,
-            r = Mh(e);
+            { Type: a, createRoute: n, isFile: r } = i,
+            o = Nh(e);
         return (
             t('CREATE_VIEW', (l) => {
                 let { is: s, view: u, query: c } = l;
                 if (!s('file') || !c('GET_ALLOW_IMAGE_PREVIEW')) return;
-                let d = ({ root: E, props: b }) => {
-                        let { id: g } = b,
-                            T = c('GET_ITEM', g);
-                        if (!T || !o(T.file) || T.archived) return;
+                let d = ({ root: g, props: b }) => {
+                        let { id: E } = b,
+                            T = c('GET_ITEM', E);
+                        if (!T || !r(T.file) || T.archived) return;
                         let _ = T.file;
-                        if (!Fu(_) || !c('GET_IMAGE_PREVIEW_FILTER_ITEM')(T)) return;
+                        if (!Hu(_) || !c('GET_IMAGE_PREVIEW_FILTER_ITEM')(T)) return;
                         let y = 'createImageBitmap' in (window || {}),
                             I = c('GET_IMAGE_PREVIEW_MAX_FILE_SIZE');
                         if (!y && I && _.size > I) return;
-                        E.ref.imagePreview = u.appendChildView(u.createChildView(r, { id: g }));
-                        let A = E.query('GET_IMAGE_PREVIEW_HEIGHT');
-                        A && E.dispatch('DID_UPDATE_PANEL_HEIGHT', { id: T.id, height: A });
+                        g.ref.imagePreview = u.appendChildView(u.createChildView(o, { id: E }));
+                        let v = g.query('GET_IMAGE_PREVIEW_HEIGHT');
+                        v && g.dispatch('DID_UPDATE_PANEL_HEIGHT', { id: T.id, height: v });
                         let R = !y && _.size > c('GET_IMAGE_PREVIEW_MAX_INSTANT_PREVIEW_FILE_SIZE');
-                        E.dispatch('DID_IMAGE_PREVIEW_CONTAINER_CREATE', { id: g }, R);
+                        g.dispatch('DID_IMAGE_PREVIEW_CONTAINER_CREATE', { id: E }, R);
                     },
-                    h = (E, b) => {
-                        if (!E.ref.imagePreview) return;
-                        let { id: g } = b,
-                            T = E.query('GET_ITEM', { id: g });
+                    h = (g, b) => {
+                        if (!g.ref.imagePreview) return;
+                        let { id: E } = b,
+                            T = g.query('GET_ITEM', { id: E });
                         if (!T) return;
-                        let _ = E.query('GET_PANEL_ASPECT_RATIO'),
-                            y = E.query('GET_ITEM_PANEL_ASPECT_RATIO'),
-                            I = E.query('GET_IMAGE_PREVIEW_HEIGHT');
+                        let _ = g.query('GET_PANEL_ASPECT_RATIO'),
+                            y = g.query('GET_ITEM_PANEL_ASPECT_RATIO'),
+                            I = g.query('GET_IMAGE_PREVIEW_HEIGHT');
                         if (_ || y || I) return;
-                        let { imageWidth: A, imageHeight: R } = E.ref;
-                        if (!A || !R) return;
-                        let S = E.query('GET_IMAGE_PREVIEW_MIN_HEIGHT'),
-                            P = E.query('GET_IMAGE_PREVIEW_MAX_HEIGHT'),
+                        let { imageWidth: v, imageHeight: R } = g.ref;
+                        if (!v || !R) return;
+                        let S = g.query('GET_IMAGE_PREVIEW_MIN_HEIGHT'),
+                            D = g.query('GET_IMAGE_PREVIEW_MAX_HEIGHT'),
                             O = (T.getMetadata('exif') || {}).orientation || -1;
                         if (
-                            (O >= 5 && O <= 8 && ([A, R] = [R, A]),
-                            !kr(T.file) || E.query('GET_IMAGE_PREVIEW_UPSCALE'))
+                            (O >= 5 && O <= 8 && ([v, R] = [R, v]),
+                            !Xr(T.file) || g.query('GET_IMAGE_PREVIEW_UPSCALE'))
                         ) {
-                            let z = 2048 / A;
-                            (A *= z), (R *= z);
+                            let N = 2048 / v;
+                            (v *= N), (R *= N);
                         }
-                        let N = R / A,
-                            v = (T.getMetadata('crop') || {}).aspectRatio || N,
-                            F = Math.max(S, Math.min(R, P)),
-                            w = E.rect.element.width,
-                            L = Math.min(w * v, F);
-                        E.dispatch('DID_UPDATE_PANEL_HEIGHT', { id: T.id, height: L });
+                        let B = R / v,
+                            A = (T.getMetadata('crop') || {}).aspectRatio || B,
+                            F = Math.max(S, Math.min(R, D)),
+                            w = g.rect.element.width,
+                            L = Math.min(w * A, F);
+                        g.dispatch('DID_UPDATE_PANEL_HEIGHT', { id: T.id, height: L });
                     },
-                    p = ({ root: E }) => {
-                        E.ref.shouldRescale = !0;
+                    f = ({ root: g }) => {
+                        g.ref.shouldRescale = !0;
                     },
-                    f = ({ root: E, action: b }) => {
-                        b.change.key === 'crop' && (E.ref.shouldRescale = !0);
+                    p = ({ root: g, action: b }) => {
+                        b.change.key === 'crop' && (g.ref.shouldRescale = !0);
                     },
-                    m = ({ root: E, action: b }) => {
-                        (E.ref.imageWidth = b.width),
-                            (E.ref.imageHeight = b.height),
-                            (E.ref.shouldRescale = !0),
-                            (E.ref.shouldDrawPreview = !0),
-                            E.dispatch('KICK');
+                    m = ({ root: g, action: b }) => {
+                        (g.ref.imageWidth = b.width),
+                            (g.ref.imageHeight = b.height),
+                            (g.ref.shouldRescale = !0),
+                            (g.ref.shouldDrawPreview = !0),
+                            g.dispatch('KICK');
                     };
                 u.registerWriter(
                     n(
                         {
-                            DID_RESIZE_ROOT: p,
-                            DID_STOP_RESIZE: p,
+                            DID_RESIZE_ROOT: f,
+                            DID_STOP_RESIZE: f,
                             DID_LOAD_ITEM: d,
                             DID_IMAGE_PREVIEW_CALCULATE_SIZE: m,
-                            DID_UPDATE_ITEM_METADATA: f,
+                            DID_UPDATE_ITEM_METADATA: p,
                         },
-                        ({ root: E, props: b }) => {
-                            E.ref.imagePreview &&
-                                (E.rect.element.hidden ||
-                                    (E.ref.shouldRescale && (h(E, b), (E.ref.shouldRescale = !1)),
-                                    E.ref.shouldDrawPreview &&
+                        ({ root: g, props: b }) => {
+                            g.ref.imagePreview &&
+                                (g.rect.element.hidden ||
+                                    (g.ref.shouldRescale && (h(g, b), (g.ref.shouldRescale = !1)),
+                                    g.ref.shouldDrawPreview &&
                                         (requestAnimationFrame(() => {
                                             requestAnimationFrame(() => {
-                                                E.dispatch('DID_FINISH_CALCULATE_PREVIEWSIZE', {
+                                                g.dispatch('DID_FINISH_CALCULATE_PREVIEWSIZE', {
                                                     id: b.id,
                                                 });
                                             });
                                         }),
-                                        (E.ref.shouldDrawPreview = !1))));
+                                        (g.ref.shouldDrawPreview = !1))));
                         },
                     ),
                 );
@@ -8872,11 +8887,11 @@ var Fu = (e) => /^image/.test(e.type),
             }
         );
     },
-    Oh = typeof window < 'u' && typeof window.document < 'u';
-Oh && document.dispatchEvent(new CustomEvent('FilePond:pluginloaded', { detail: Hr }));
-var Wr = Hr;
-var Dh = (e) => /^image/.test(e.type),
-    xh = (e, t) => {
+    Bh = typeof window < 'u' && typeof window.document < 'u';
+Bh && document.dispatchEvent(new CustomEvent('FilePond:pluginloaded', { detail: jr }));
+var Qr = jr;
+var Gh = (e) => /^image/.test(e.type),
+    Vh = (e, t) => {
         let i = new Image();
         (i.onload = () => {
             let a = i.naturalWidth,
@@ -8886,40 +8901,40 @@ var Dh = (e) => /^image/.test(e.type),
             (i.onerror = () => t(null)),
             (i.src = e);
     },
-    Yr = ({ addFilter: e, utils: t }) => {
+    Zr = ({ addFilter: e, utils: t }) => {
         let { Type: i } = t;
         return (
             e(
                 'DID_LOAD_ITEM',
                 (a, { query: n }) =>
-                    new Promise((o, r) => {
+                    new Promise((r, o) => {
                         let l = a.file;
-                        if (!Dh(l) || !n('GET_ALLOW_IMAGE_RESIZE')) return o(a);
+                        if (!Gh(l) || !n('GET_ALLOW_IMAGE_RESIZE')) return r(a);
                         let s = n('GET_IMAGE_RESIZE_MODE'),
                             u = n('GET_IMAGE_RESIZE_TARGET_WIDTH'),
                             c = n('GET_IMAGE_RESIZE_TARGET_HEIGHT'),
                             d = n('GET_IMAGE_RESIZE_UPSCALE');
-                        if (u === null && c === null) return o(a);
+                        if (u === null && c === null) return r(a);
                         let h = u === null ? c : u,
-                            p = c === null ? h : c,
-                            f = URL.createObjectURL(l);
-                        xh(f, (m) => {
-                            if ((URL.revokeObjectURL(f), !m)) return o(a);
-                            let { width: E, height: b } = m,
-                                g = (a.getMetadata('exif') || {}).orientation || -1;
-                            if ((g >= 5 && g <= 8 && ([E, b] = [b, E]), E === h && b === p))
-                                return o(a);
+                            f = c === null ? h : c,
+                            p = URL.createObjectURL(l);
+                        Vh(p, (m) => {
+                            if ((URL.revokeObjectURL(p), !m)) return r(a);
+                            let { width: g, height: b } = m,
+                                E = (a.getMetadata('exif') || {}).orientation || -1;
+                            if ((E >= 5 && E <= 8 && ([g, b] = [b, g]), g === h && b === f))
+                                return r(a);
                             if (!d) {
                                 if (s === 'cover') {
-                                    if (E <= h || b <= p) return o(a);
-                                } else if (E <= h && b <= h) return o(a);
+                                    if (g <= h || b <= f) return r(a);
+                                } else if (g <= h && b <= h) return r(a);
                             }
                             a.setMetadata('resize', {
                                 mode: s,
                                 upscale: d,
-                                size: { width: h, height: p },
+                                size: { width: h, height: f },
                             }),
-                                o(a);
+                                r(a);
                         });
                     }),
             ),
@@ -8934,21 +8949,21 @@ var Dh = (e) => /^image/.test(e.type),
             }
         );
     },
-    Ph = typeof window < 'u' && typeof window.document < 'u';
-Ph && document.dispatchEvent(new CustomEvent('FilePond:pluginloaded', { detail: Yr }));
-var $r = Yr;
-var Ch = (e) => /^image/.test(e.type),
-    Fh = (e) => e.substr(0, e.lastIndexOf('.')) || e,
-    zh = { jpeg: 'jpg', 'svg+xml': 'svg' },
-    Nh = (e, t) => {
-        let i = Fh(e),
+    Uh = typeof window < 'u' && typeof window.document < 'u';
+Uh && document.dispatchEvent(new CustomEvent('FilePond:pluginloaded', { detail: Zr }));
+var Kr = Zr;
+var kh = (e) => /^image/.test(e.type),
+    Hh = (e) => e.substr(0, e.lastIndexOf('.')) || e,
+    Wh = { jpeg: 'jpg', 'svg+xml': 'svg' },
+    Yh = (e, t) => {
+        let i = Hh(e),
             a = t.split('/')[1],
-            n = zh[a] || a;
+            n = Wh[a] || a;
         return `${i}.${n}`;
     },
-    Bh = (e) => (/jpeg|png|svg\+xml/.test(e) ? e : 'image/jpeg'),
-    Gh = (e) => /^image/.test(e.type),
-    Vh = {
+    $h = (e) => (/jpeg|png|svg\+xml/.test(e) ? e : 'image/jpeg'),
+    qh = (e) => /^image/.test(e.type),
+    Xh = {
         1: () => [1, 0, 0, 1, 0, 0],
         2: (e) => [-1, 0, 0, 1, e, 0],
         3: (e, t) => [-1, 0, 0, -1, e, t],
@@ -8958,266 +8973,266 @@ var Ch = (e) => /^image/.test(e.type),
         7: (e, t) => [0, -1, -1, 0, t, e],
         8: (e) => [0, -1, 1, 0, 0, e],
     },
-    Uh = (e, t, i) => (i === -1 && (i = 1), Vh[i](e, t)),
-    Ft = (e, t) => ({ x: e, y: t }),
-    kh = (e, t) => e.x * t.x + e.y * t.y,
-    qr = (e, t) => Ft(e.x - t.x, e.y - t.y),
-    Hh = (e, t) => kh(qr(e, t), qr(e, t)),
-    Xr = (e, t) => Math.sqrt(Hh(e, t)),
-    jr = (e, t) => {
+    jh = (e, t, i) => (i === -1 && (i = 1), Xh[i](e, t)),
+    Gt = (e, t) => ({ x: e, y: t }),
+    Qh = (e, t) => e.x * t.x + e.y * t.y,
+    Jr = (e, t) => Gt(e.x - t.x, e.y - t.y),
+    Zh = (e, t) => Qh(Jr(e, t), Jr(e, t)),
+    eo = (e, t) => Math.sqrt(Zh(e, t)),
+    to = (e, t) => {
         let i = e,
             a = 1.5707963267948966,
             n = t,
-            o = 1.5707963267948966 - t,
-            r = Math.sin(a),
+            r = 1.5707963267948966 - t,
+            o = Math.sin(a),
             l = Math.sin(n),
-            s = Math.sin(o),
-            u = Math.cos(o),
-            c = i / r,
+            s = Math.sin(r),
+            u = Math.cos(r),
+            c = i / o,
             d = c * l,
             h = c * s;
-        return Ft(u * d, u * h);
+        return Gt(u * d, u * h);
     },
-    Wh = (e, t) => {
+    Kh = (e, t) => {
         let i = e.width,
             a = e.height,
-            n = jr(i, t),
-            o = jr(a, t),
-            r = Ft(e.x + Math.abs(n.x), e.y - Math.abs(n.y)),
-            l = Ft(e.x + e.width + Math.abs(o.y), e.y + Math.abs(o.x)),
-            s = Ft(e.x - Math.abs(o.y), e.y + e.height - Math.abs(o.x));
-        return { width: Xr(r, l), height: Xr(r, s) };
+            n = to(i, t),
+            r = to(a, t),
+            o = Gt(e.x + Math.abs(n.x), e.y - Math.abs(n.y)),
+            l = Gt(e.x + e.width + Math.abs(r.y), e.y + Math.abs(r.x)),
+            s = Gt(e.x - Math.abs(r.y), e.y + e.height - Math.abs(r.x));
+        return { width: eo(o, l), height: eo(o, s) };
     },
-    Kr = (e, t, i = 0, a = { x: 0.5, y: 0.5 }) => {
+    no = (e, t, i = 0, a = { x: 0.5, y: 0.5 }) => {
         let n = a.x > 0.5 ? 1 - a.x : a.x,
-            o = a.y > 0.5 ? 1 - a.y : a.y,
-            r = n * 2 * e.width,
-            l = o * 2 * e.height,
-            s = Wh(t, i);
-        return Math.max(s.width / r, s.height / l);
+            r = a.y > 0.5 ? 1 - a.y : a.y,
+            o = n * 2 * e.width,
+            l = r * 2 * e.height,
+            s = Kh(t, i);
+        return Math.max(s.width / o, s.height / l);
     },
-    Jr = (e, t) => {
+    ro = (e, t) => {
         let i = e.width,
             a = i * t;
         a > e.height && ((a = e.height), (i = a / t));
         let n = (e.width - i) * 0.5,
-            o = (e.height - a) * 0.5;
-        return { x: n, y: o, width: i, height: a };
+            r = (e.height - a) * 0.5;
+        return { x: n, y: r, width: i, height: a };
     },
-    Qr = (e, t, i = 1) => {
+    io = (e, t, i = 1) => {
         let a = e.height / e.width,
             n = 1,
-            o = t,
-            r = 1,
+            r = t,
+            o = 1,
             l = a;
-        l > o && ((l = o), (r = l / a));
-        let s = Math.max(n / r, o / l),
-            u = e.width / (i * s * r),
+        l > r && ((l = r), (o = l / a));
+        let s = Math.max(n / o, r / l),
+            u = e.width / (i * s * o),
             c = u * t;
         return { width: u, height: c };
     },
-    eo = (e) => {
+    oo = (e) => {
         (e.width = 1), (e.height = 1), e.getContext('2d').clearRect(0, 0, 1, 1);
     },
-    Zr = (e) => e && (e.horizontal || e.vertical),
-    Yh = (e, t, i) => {
-        if (t <= 1 && !Zr(i)) return (e.width = e.naturalWidth), (e.height = e.naturalHeight), e;
+    ao = (e) => e && (e.horizontal || e.vertical),
+    Jh = (e, t, i) => {
+        if (t <= 1 && !ao(i)) return (e.width = e.naturalWidth), (e.height = e.naturalHeight), e;
         let a = document.createElement('canvas'),
             n = e.naturalWidth,
-            o = e.naturalHeight,
-            r = t >= 5 && t <= 8;
-        r ? ((a.width = o), (a.height = n)) : ((a.width = n), (a.height = o));
+            r = e.naturalHeight,
+            o = t >= 5 && t <= 8;
+        o ? ((a.width = r), (a.height = n)) : ((a.width = n), (a.height = r));
         let l = a.getContext('2d');
-        if ((t && l.transform.apply(l, Uh(n, o, t)), Zr(i))) {
+        if ((t && l.transform.apply(l, jh(n, r, t)), ao(i))) {
             let s = [1, 0, 0, 1, 0, 0];
-            ((!r && i.horizontal) || r & i.vertical) && ((s[0] = -1), (s[4] = n)),
-                ((!r && i.vertical) || (r && i.horizontal)) && ((s[3] = -1), (s[5] = o)),
+            ((!o && i.horizontal) || o & i.vertical) && ((s[0] = -1), (s[4] = n)),
+                ((!o && i.vertical) || (o && i.horizontal)) && ((s[3] = -1), (s[5] = r)),
                 l.transform(...s);
         }
-        return l.drawImage(e, 0, 0, n, o), a;
+        return l.drawImage(e, 0, 0, n, r), a;
     },
-    $h = (e, t, i = {}, a = {}) => {
-        let { canvasMemoryLimit: n, background: o = null } = a,
-            r = i.zoom || 1,
-            l = Yh(e, t, i.flip),
+    ef = (e, t, i = {}, a = {}) => {
+        let { canvasMemoryLimit: n, background: r = null } = a,
+            o = i.zoom || 1,
+            l = Jh(e, t, i.flip),
             s = { width: l.width, height: l.height },
             u = i.aspectRatio || s.height / s.width,
-            c = Qr(s, u, r);
+            c = io(s, u, o);
         if (n) {
             let T = c.width * c.height;
             if (T > n) {
                 let _ = Math.sqrt(n) / Math.sqrt(T);
                 (s.width = Math.floor(s.width * _)),
                     (s.height = Math.floor(s.height * _)),
-                    (c = Qr(s, u, r));
+                    (c = io(s, u, o));
             }
         }
         let d = document.createElement('canvas'),
             h = { x: c.width * 0.5, y: c.height * 0.5 },
-            p = { x: 0, y: 0, width: c.width, height: c.height, center: h },
-            f = typeof i.scaleToFit > 'u' || i.scaleToFit,
-            m = r * Kr(s, Jr(p, u), i.rotation, f ? i.center : { x: 0.5, y: 0.5 });
+            f = { x: 0, y: 0, width: c.width, height: c.height, center: h },
+            p = typeof i.scaleToFit > 'u' || i.scaleToFit,
+            m = o * no(s, ro(f, u), i.rotation, p ? i.center : { x: 0.5, y: 0.5 });
         (d.width = Math.round(c.width / m)),
             (d.height = Math.round(c.height / m)),
             (h.x /= m),
             (h.y /= m);
-        let E = {
+        let g = {
                 x: h.x - s.width * (i.center ? i.center.x : 0.5),
                 y: h.y - s.height * (i.center ? i.center.y : 0.5),
             },
             b = d.getContext('2d');
-        o && ((b.fillStyle = o), b.fillRect(0, 0, d.width, d.height)),
+        r && ((b.fillStyle = r), b.fillRect(0, 0, d.width, d.height)),
             b.translate(h.x, h.y),
             b.rotate(i.rotation || 0),
-            b.drawImage(l, E.x - h.x, E.y - h.y, s.width, s.height);
-        let g = b.getImageData(0, 0, d.width, d.height);
-        return eo(d), g;
+            b.drawImage(l, g.x - h.x, g.y - h.y, s.width, s.height);
+        let E = b.getImageData(0, 0, d.width, d.height);
+        return oo(d), E;
     },
-    qh = (() => typeof window < 'u' && typeof window.document < 'u')();
-qh &&
+    tf = (() => typeof window < 'u' && typeof window.document < 'u')();
+tf &&
     (HTMLCanvasElement.prototype.toBlob ||
         Object.defineProperty(HTMLCanvasElement.prototype, 'toBlob', {
             value: function (e, t, i) {
                 var a = this.toDataURL(t, i).split(',')[1];
                 setTimeout(function () {
-                    for (var n = atob(a), o = n.length, r = new Uint8Array(o), l = 0; l < o; l++)
-                        r[l] = n.charCodeAt(l);
-                    e(new Blob([r], { type: t || 'image/png' }));
+                    for (var n = atob(a), r = n.length, o = new Uint8Array(r), l = 0; l < r; l++)
+                        o[l] = n.charCodeAt(l);
+                    e(new Blob([o], { type: t || 'image/png' }));
                 });
             },
         }));
-var Xh = (e, t, i = null) =>
+var af = (e, t, i = null) =>
         new Promise((a) => {
             let n = i ? i(e) : e;
-            Promise.resolve(n).then((o) => {
-                o.toBlob(a, t.type, t.quality);
+            Promise.resolve(n).then((r) => {
+                r.toBlob(a, t.type, t.quality);
             });
         }),
-    ui = (e, t) => zt(e.x * t, e.y * t),
-    hi = (e, t) => zt(e.x + t.x, e.y + t.y),
-    to = (e) => {
+    gi = (e, t) => Vt(e.x * t, e.y * t),
+    Ei = (e, t) => Vt(e.x + t.x, e.y + t.y),
+    lo = (e) => {
         let t = Math.sqrt(e.x * e.x + e.y * e.y);
-        return t === 0 ? { x: 0, y: 0 } : zt(e.x / t, e.y / t);
+        return t === 0 ? { x: 0, y: 0 } : Vt(e.x / t, e.y / t);
     },
-    Ge = (e, t, i) => {
+    ke = (e, t, i) => {
         let a = Math.cos(t),
             n = Math.sin(t),
-            o = zt(e.x - i.x, e.y - i.y);
-        return zt(i.x + a * o.x - n * o.y, i.y + n * o.x + a * o.y);
+            r = Vt(e.x - i.x, e.y - i.y);
+        return Vt(i.x + a * r.x - n * r.y, i.y + n * r.x + a * r.y);
     },
-    zt = (e = 0, t = 0) => ({ x: e, y: t }),
-    le = (e, t, i = 1, a) => {
+    Vt = (e = 0, t = 0) => ({ x: e, y: t }),
+    ce = (e, t, i = 1, a) => {
         if (typeof e == 'string') return parseFloat(e) * i;
         if (typeof e == 'number') return e * (a ? t[a] : Math.min(t.width, t.height));
     },
-    Je = (e, t, i) => {
+    it = (e, t, i) => {
         let a = e.borderStyle || e.lineStyle || 'solid',
             n = e.backgroundColor || e.fontColor || 'transparent',
-            o = e.borderColor || e.lineColor || 'transparent',
-            r = le(e.borderWidth || e.lineWidth, t, i),
+            r = e.borderColor || e.lineColor || 'transparent',
+            o = ce(e.borderWidth || e.lineWidth, t, i),
             l = e.lineCap || 'round',
             s = e.lineJoin || 'round',
-            u = typeof a == 'string' ? '' : a.map((d) => le(d, t, i)).join(','),
+            u = typeof a == 'string' ? '' : a.map((d) => ce(d, t, i)).join(','),
             c = e.opacity || 1;
         return {
             'stroke-linecap': l,
             'stroke-linejoin': s,
-            'stroke-width': r || 0,
+            'stroke-width': o || 0,
             'stroke-dasharray': u,
-            stroke: o,
+            stroke: r,
             fill: n,
             opacity: c,
         };
     },
-    Re = (e) => e != null,
-    gt = (e, t, i = 1) => {
-        let a = le(e.x, t, i, 'width') || le(e.left, t, i, 'width'),
-            n = le(e.y, t, i, 'height') || le(e.top, t, i, 'height'),
-            o = le(e.width, t, i, 'width'),
-            r = le(e.height, t, i, 'height'),
-            l = le(e.right, t, i, 'width'),
-            s = le(e.bottom, t, i, 'height');
+    Se = (e) => e != null,
+    It = (e, t, i = 1) => {
+        let a = ce(e.x, t, i, 'width') || ce(e.left, t, i, 'width'),
+            n = ce(e.y, t, i, 'height') || ce(e.top, t, i, 'height'),
+            r = ce(e.width, t, i, 'width'),
+            o = ce(e.height, t, i, 'height'),
+            l = ce(e.right, t, i, 'width'),
+            s = ce(e.bottom, t, i, 'height');
         return (
-            Re(n) || (Re(r) && Re(s) ? (n = t.height - r - s) : (n = s)),
-            Re(a) || (Re(o) && Re(l) ? (a = t.width - o - l) : (a = l)),
-            Re(o) || (Re(a) && Re(l) ? (o = t.width - a - l) : (o = 0)),
-            Re(r) || (Re(n) && Re(s) ? (r = t.height - n - s) : (r = 0)),
-            { x: a || 0, y: n || 0, width: o || 0, height: r || 0 }
+            Se(n) || (Se(o) && Se(s) ? (n = t.height - o - s) : (n = s)),
+            Se(a) || (Se(r) && Se(l) ? (a = t.width - r - l) : (a = l)),
+            Se(r) || (Se(a) && Se(l) ? (r = t.width - a - l) : (r = 0)),
+            Se(o) || (Se(n) && Se(s) ? (o = t.height - n - s) : (o = 0)),
+            { x: a || 0, y: n || 0, width: r || 0, height: o || 0 }
         );
     },
-    jh = (e) => e.map((t, i) => `${i === 0 ? 'M' : 'L'} ${t.x} ${t.y}`).join(' '),
-    De = (e, t) => Object.keys(t).forEach((i) => e.setAttribute(i, t[i])),
-    Qh = 'http://www.w3.org/2000/svg',
-    mt = (e, t) => {
-        let i = document.createElementNS(Qh, e);
-        return t && De(i, t), i;
+    nf = (e) => e.map((t, i) => `${i === 0 ? 'M' : 'L'} ${t.x} ${t.y}`).join(' '),
+    Pe = (e, t) => Object.keys(t).forEach((i) => e.setAttribute(i, t[i])),
+    rf = 'http://www.w3.org/2000/svg',
+    Tt = (e, t) => {
+        let i = document.createElementNS(rf, e);
+        return t && Pe(i, t), i;
     },
-    Zh = (e) => De(e, { ...e.rect, ...e.styles }),
-    Kh = (e) => {
+    of = (e) => Pe(e, { ...e.rect, ...e.styles }),
+    lf = (e) => {
         let t = e.rect.x + e.rect.width * 0.5,
             i = e.rect.y + e.rect.height * 0.5,
             a = e.rect.width * 0.5,
             n = e.rect.height * 0.5;
-        return De(e, { cx: t, cy: i, rx: a, ry: n, ...e.styles });
+        return Pe(e, { cx: t, cy: i, rx: a, ry: n, ...e.styles });
     },
-    Jh = { contain: 'xMidYMid meet', cover: 'xMidYMid slice' },
-    ef = (e, t) => {
-        De(e, { ...e.rect, ...e.styles, preserveAspectRatio: Jh[t.fit] || 'none' });
+    sf = { contain: 'xMidYMid meet', cover: 'xMidYMid slice' },
+    cf = (e, t) => {
+        Pe(e, { ...e.rect, ...e.styles, preserveAspectRatio: sf[t.fit] || 'none' });
     },
-    tf = { left: 'start', center: 'middle', right: 'end' },
-    af = (e, t, i, a) => {
-        let n = le(t.fontSize, i, a),
-            o = t.fontFamily || 'sans-serif',
-            r = t.fontWeight || 'normal',
-            l = tf[t.textAlign] || 'start';
-        De(e, {
+    df = { left: 'start', center: 'middle', right: 'end' },
+    uf = (e, t, i, a) => {
+        let n = ce(t.fontSize, i, a),
+            r = t.fontFamily || 'sans-serif',
+            o = t.fontWeight || 'normal',
+            l = df[t.textAlign] || 'start';
+        Pe(e, {
             ...e.rect,
             ...e.styles,
             'stroke-width': 0,
-            'font-weight': r,
+            'font-weight': o,
             'font-size': n,
-            'font-family': o,
+            'font-family': r,
             'text-anchor': l,
         }),
             e.text !== t.text &&
                 ((e.text = t.text), (e.textContent = t.text.length ? t.text : ' '));
     },
-    nf = (e, t, i, a) => {
-        De(e, { ...e.rect, ...e.styles, fill: 'none' });
+    hf = (e, t, i, a) => {
+        Pe(e, { ...e.rect, ...e.styles, fill: 'none' });
         let n = e.childNodes[0],
-            o = e.childNodes[1],
-            r = e.childNodes[2],
+            r = e.childNodes[1],
+            o = e.childNodes[2],
             l = e.rect,
             s = { x: e.rect.x + e.rect.width, y: e.rect.y + e.rect.height };
-        if ((De(n, { x1: l.x, y1: l.y, x2: s.x, y2: s.y }), !t.lineDecoration)) return;
-        (o.style.display = 'none'), (r.style.display = 'none');
-        let u = to({ x: s.x - l.x, y: s.y - l.y }),
-            c = le(0.05, i, a);
+        if ((Pe(n, { x1: l.x, y1: l.y, x2: s.x, y2: s.y }), !t.lineDecoration)) return;
+        (r.style.display = 'none'), (o.style.display = 'none');
+        let u = lo({ x: s.x - l.x, y: s.y - l.y }),
+            c = ce(0.05, i, a);
         if (t.lineDecoration.indexOf('arrow-begin') !== -1) {
-            let d = ui(u, c),
-                h = hi(l, d),
-                p = Ge(l, 2, h),
-                f = Ge(l, -2, h);
-            De(o, { style: 'display:block;', d: `M${p.x},${p.y} L${l.x},${l.y} L${f.x},${f.y}` });
+            let d = gi(u, c),
+                h = Ei(l, d),
+                f = ke(l, 2, h),
+                p = ke(l, -2, h);
+            Pe(r, { style: 'display:block;', d: `M${f.x},${f.y} L${l.x},${l.y} L${p.x},${p.y}` });
         }
         if (t.lineDecoration.indexOf('arrow-end') !== -1) {
-            let d = ui(u, -c),
-                h = hi(s, d),
-                p = Ge(s, 2, h),
-                f = Ge(s, -2, h);
-            De(r, { style: 'display:block;', d: `M${p.x},${p.y} L${s.x},${s.y} L${f.x},${f.y}` });
+            let d = gi(u, -c),
+                h = Ei(s, d),
+                f = ke(s, 2, h),
+                p = ke(s, -2, h);
+            Pe(o, { style: 'display:block;', d: `M${f.x},${f.y} L${s.x},${s.y} L${p.x},${p.y}` });
         }
     },
-    rf = (e, t, i, a) => {
-        De(e, {
+    ff = (e, t, i, a) => {
+        Pe(e, {
             ...e.styles,
             fill: 'none',
-            d: jh(t.points.map((n) => ({ x: le(n.x, i, a, 'width'), y: le(n.y, i, a, 'height') }))),
+            d: nf(t.points.map((n) => ({ x: ce(n.x, i, a, 'width'), y: ce(n.y, i, a, 'height') }))),
         });
     },
-    di = (e) => (t) => mt(e, { id: t.id }),
-    of = (e) => {
-        let t = mt('image', {
+    mi = (e) => (t) => Tt(e, { id: t.id }),
+    pf = (e) => {
+        let t = Tt('image', {
             id: e.id,
             'stroke-linecap': 'round',
             'stroke-linejoin': 'round',
@@ -9231,35 +9246,35 @@ var Xh = (e, t, i = null) =>
             t
         );
     },
-    lf = (e) => {
-        let t = mt('g', { id: e.id, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }),
-            i = mt('line');
+    mf = (e) => {
+        let t = Tt('g', { id: e.id, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }),
+            i = Tt('line');
         t.appendChild(i);
-        let a = mt('path');
+        let a = Tt('path');
         t.appendChild(a);
-        let n = mt('path');
+        let n = Tt('path');
         return t.appendChild(n), t;
     },
-    sf = {
-        image: of,
-        rect: di('rect'),
-        ellipse: di('ellipse'),
-        text: di('text'),
-        path: di('path'),
-        line: lf,
+    gf = {
+        image: pf,
+        rect: mi('rect'),
+        ellipse: mi('ellipse'),
+        text: mi('text'),
+        path: mi('path'),
+        line: mf,
     },
-    cf = { rect: Zh, ellipse: Kh, image: ef, text: af, path: rf, line: nf },
-    df = (e, t) => sf[e](t),
-    uf = (e, t, i, a, n) => {
-        t !== 'path' && (e.rect = gt(i, a, n)), (e.styles = Je(i, a, n)), cf[t](e, i, a, n);
+    Ef = { rect: of, ellipse: lf, image: cf, text: uf, path: ff, line: hf },
+    Tf = (e, t) => gf[e](t),
+    If = (e, t, i, a, n) => {
+        t !== 'path' && (e.rect = It(i, a, n)), (e.styles = it(i, a, n)), Ef[t](e, i, a, n);
     },
-    io = (e, t) => (e[1].zIndex > t[1].zIndex ? 1 : e[1].zIndex < t[1].zIndex ? -1 : 0),
-    hf = (e, t = {}, i, a) =>
+    so = (e, t) => (e[1].zIndex > t[1].zIndex ? 1 : e[1].zIndex < t[1].zIndex ? -1 : 0),
+    bf = (e, t = {}, i, a) =>
         new Promise((n) => {
-            let { background: o = null } = a,
-                r = new FileReader();
-            (r.onloadend = () => {
-                let l = r.result,
+            let { background: r = null } = a,
+                o = new FileReader();
+            (o.onloadend = () => {
+                let l = o.result,
                     s = document.createElement('div');
                 (s.style.cssText =
                     'position:absolute;pointer-events:none;width:0;height:0;visibility:hidden;'),
@@ -9270,90 +9285,90 @@ var Xh = (e, t, i = null) =>
                 s.parentNode.removeChild(s);
                 let d = s.querySelector('title'),
                     h = u.getAttribute('viewBox') || '',
-                    p = u.getAttribute('width') || '',
-                    f = u.getAttribute('height') || '',
-                    m = parseFloat(p) || null,
-                    E = parseFloat(f) || null,
-                    b = (p.match(/[a-z]+/) || [])[0] || '',
-                    g = (f.match(/[a-z]+/) || [])[0] || '',
+                    f = u.getAttribute('width') || '',
+                    p = u.getAttribute('height') || '',
+                    m = parseFloat(f) || null,
+                    g = parseFloat(p) || null,
+                    b = (f.match(/[a-z]+/) || [])[0] || '',
+                    E = (p.match(/[a-z]+/) || [])[0] || '',
                     T = h.split(' ').map(parseFloat),
                     _ = T.length ? { x: T[0], y: T[1], width: T[2], height: T[3] } : c,
                     y = m ?? _.width,
-                    I = E ?? _.height;
+                    I = g ?? _.height;
                 (u.style.overflow = 'visible'),
                     u.setAttribute('width', y),
                     u.setAttribute('height', I);
-                let A = '';
+                let v = '';
                 if (i && i.length) {
-                    let W = { width: y, height: I };
-                    (A = i.sort(io).reduce((ae, V) => {
-                        let H = df(V[0], V[1]);
+                    let j = { width: y, height: I };
+                    (v = i.sort(so).reduce((se, k) => {
+                        let W = Tf(k[0], k[1]);
                         return (
-                            uf(H, V[0], V[1], W),
-                            H.removeAttribute('id'),
-                            H.getAttribute('opacity') === 1 && H.removeAttribute('opacity'),
-                            ae +
+                            If(W, k[0], k[1], j),
+                            W.removeAttribute('id'),
+                            W.getAttribute('opacity') === 1 && W.removeAttribute('opacity'),
+                            se +
                                 `
 ` +
-                                H.outerHTML +
+                                W.outerHTML +
                                 `
 `
                         );
                     }, '')),
-                        (A = `
+                        (v = `
 
-<g>${A.replace(/&nbsp;/g, ' ')}</g>
+<g>${v.replace(/&nbsp;/g, ' ')}</g>
 
 `);
                 }
                 let R = t.aspectRatio || I / y,
                     S = y,
-                    P = S * R,
-                    D = typeof t.scaleToFit > 'u' || t.scaleToFit,
+                    D = S * R,
+                    x = typeof t.scaleToFit > 'u' || t.scaleToFit,
                     O = t.center ? t.center.x : 0.5,
-                    N = t.center ? t.center.y : 0.5,
-                    v = Kr(
+                    B = t.center ? t.center.y : 0.5,
+                    A = no(
                         { width: y, height: I },
-                        Jr({ width: S, height: P }, R),
+                        ro({ width: S, height: D }, R),
                         t.rotation,
-                        D ? { x: O, y: N } : { x: 0.5, y: 0.5 },
+                        x ? { x: O, y: B } : { x: 0.5, y: 0.5 },
                     ),
-                    F = t.zoom * v,
+                    F = t.zoom * A,
                     w = t.rotation * (180 / Math.PI),
-                    L = { x: S * 0.5, y: P * 0.5 },
-                    z = { x: L.x - y * O, y: L.y - I * N },
-                    C = [
+                    L = { x: S * 0.5, y: D * 0.5 },
+                    N = { x: L.x - y * O, y: L.y - I * B },
+                    P = [
                         `rotate(${w} ${L.x} ${L.y})`,
                         `translate(${L.x} ${L.y})`,
                         `scale(${F})`,
                         `translate(${-L.x} ${-L.y})`,
-                        `translate(${z.x} ${z.y})`,
+                        `translate(${N.x} ${N.y})`,
                     ],
-                    G = t.flip && t.flip.horizontal,
-                    x = t.flip && t.flip.vertical,
-                    B = [
-                        `scale(${G ? -1 : 1} ${x ? -1 : 1})`,
-                        `translate(${G ? -y : 0} ${x ? -I : 0})`,
+                    U = t.flip && t.flip.horizontal,
+                    V = t.flip && t.flip.vertical,
+                    q = [
+                        `scale(${U ? -1 : 1} ${V ? -1 : 1})`,
+                        `translate(${U ? -y : 0} ${V ? -I : 0})`,
                     ],
-                    U = `<?xml version="1.0" encoding="UTF-8"?>
-<svg width="${S}${b}" height="${P}${g}" 
-viewBox="0 0 ${S} ${P}" ${o ? 'style="background:' + o + '" ' : ''}
+                    X = `<?xml version="1.0" encoding="UTF-8"?>
+<svg width="${S}${b}" height="${D}${E}" 
+viewBox="0 0 ${S} ${D}" ${r ? 'style="background:' + r + '" ' : ''}
 preserveAspectRatio="xMinYMin"
 xmlns:xlink="http://www.w3.org/1999/xlink"
 xmlns="http://www.w3.org/2000/svg">
 <!-- Generated by PQINA - https://pqina.nl/ -->
 <title>${d ? d.textContent : ''}</title>
-<g transform="${C.join(' ')}">
-<g transform="${B.join(' ')}">
-${u.outerHTML}${A}
+<g transform="${P.join(' ')}">
+<g transform="${q.join(' ')}">
+${u.outerHTML}${v}
 </g>
 </g>
 </svg>`;
-                n(U);
+                n(X);
             }),
-                r.readAsText(e);
+                o.readAsText(e);
         }),
-    ff = (e) => {
+    _f = (e) => {
         let t;
         try {
             t = new ImageData(e.width, e.height);
@@ -9365,30 +9380,30 @@ ${u.outerHTML}${A}
         }
         return t.data.set(e.data), t;
     },
-    pf = () => {
+    Rf = () => {
         let e = { resize: c, filter: u },
             t = (d, h) => (
-                d.forEach((p) => {
-                    h = e[p.type](h, p.data);
+                d.forEach((f) => {
+                    h = e[f.type](h, f.data);
                 }),
                 h
             ),
             i = (d, h) => {
-                let p = d.transforms,
-                    f = null;
+                let f = d.transforms,
+                    p = null;
                 if (
-                    (p.forEach((m) => {
-                        m.type === 'filter' && (f = m);
+                    (f.forEach((m) => {
+                        m.type === 'filter' && (p = m);
                     }),
-                    f)
+                    p)
                 ) {
                     let m = null;
-                    p.forEach((E) => {
-                        E.type === 'resize' && (m = E);
+                    f.forEach((g) => {
+                        g.type === 'resize' && (m = g);
                     }),
-                        m && ((m.data.matrix = f.data), (p = p.filter((E) => E.type !== 'filter')));
+                        m && ((m.data.matrix = p.data), (f = f.filter((g) => g.type !== 'filter')));
                 }
-                h(t(p, d.imageData));
+                h(t(f, d.imageData));
             };
         self.onmessage = (d) => {
             i(d.data.message, (h) => {
@@ -9397,21 +9412,21 @@ ${u.outerHTML}${A}
         };
         let a = 1,
             n = 1,
-            o = 1;
-        function r(d, h, p) {
-            let f = h[d] / 255,
+            r = 1;
+        function o(d, h, f) {
+            let p = h[d] / 255,
                 m = h[d + 1] / 255,
-                E = h[d + 2] / 255,
+                g = h[d + 2] / 255,
                 b = h[d + 3] / 255,
-                g = f * p[0] + m * p[1] + E * p[2] + b * p[3] + p[4],
-                T = f * p[5] + m * p[6] + E * p[7] + b * p[8] + p[9],
-                _ = f * p[10] + m * p[11] + E * p[12] + b * p[13] + p[14],
-                y = f * p[15] + m * p[16] + E * p[17] + b * p[18] + p[19],
-                I = Math.max(0, g * y) + a * (1 - y),
-                A = Math.max(0, T * y) + n * (1 - y),
-                R = Math.max(0, _ * y) + o * (1 - y);
+                E = p * f[0] + m * f[1] + g * f[2] + b * f[3] + f[4],
+                T = p * f[5] + m * f[6] + g * f[7] + b * f[8] + f[9],
+                _ = p * f[10] + m * f[11] + g * f[12] + b * f[13] + f[14],
+                y = p * f[15] + m * f[16] + g * f[17] + b * f[18] + f[19],
+                I = Math.max(0, E * y) + a * (1 - y),
+                v = Math.max(0, T * y) + n * (1 - y),
+                R = Math.max(0, _ * y) + r * (1 - y);
             (h[d] = Math.max(0, Math.min(1, I)) * 255),
-                (h[d + 1] = Math.max(0, Math.min(1, A)) * 255),
+                (h[d + 1] = Math.max(0, Math.min(1, v)) * 255),
                 (h[d + 2] = Math.max(0, Math.min(1, R)) * 255);
         }
         let l = self.JSON.stringify([1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0]);
@@ -9420,122 +9435,122 @@ ${u.outerHTML}${A}
         }
         function u(d, h) {
             if (!h || s(h)) return d;
-            let p = d.data,
-                f = p.length,
+            let f = d.data,
+                p = f.length,
                 m = h[0],
-                E = h[1],
+                g = h[1],
                 b = h[2],
-                g = h[3],
+                E = h[3],
                 T = h[4],
                 _ = h[5],
                 y = h[6],
                 I = h[7],
-                A = h[8],
+                v = h[8],
                 R = h[9],
                 S = h[10],
-                P = h[11],
-                D = h[12],
+                D = h[11],
+                x = h[12],
                 O = h[13],
-                N = h[14],
-                v = h[15],
+                B = h[14],
+                A = h[15],
                 F = h[16],
                 w = h[17],
                 L = h[18],
-                z = h[19],
-                C = 0,
-                G = 0,
-                x = 0,
-                B = 0,
+                N = h[19],
+                P = 0,
                 U = 0,
-                W = 0,
-                ae = 0,
                 V = 0,
-                H = 0,
-                $ = 0,
+                q = 0,
+                X = 0,
                 j = 0,
-                Z = 0;
-            for (; C < f; C += 4)
-                (G = p[C] / 255),
-                    (x = p[C + 1] / 255),
-                    (B = p[C + 2] / 255),
-                    (U = p[C + 3] / 255),
-                    (W = G * m + x * E + B * b + U * g + T),
-                    (ae = G * _ + x * y + B * I + U * A + R),
-                    (V = G * S + x * P + B * D + U * O + N),
-                    (H = G * v + x * F + B * w + U * L + z),
-                    ($ = Math.max(0, W * H) + a * (1 - H)),
-                    (j = Math.max(0, ae * H) + n * (1 - H)),
-                    (Z = Math.max(0, V * H) + o * (1 - H)),
-                    (p[C] = Math.max(0, Math.min(1, $)) * 255),
-                    (p[C + 1] = Math.max(0, Math.min(1, j)) * 255),
-                    (p[C + 2] = Math.max(0, Math.min(1, Z)) * 255);
+                se = 0,
+                k = 0,
+                W = 0,
+                C = 0,
+                z = 0,
+                G = 0;
+            for (; P < p; P += 4)
+                (U = f[P] / 255),
+                    (V = f[P + 1] / 255),
+                    (q = f[P + 2] / 255),
+                    (X = f[P + 3] / 255),
+                    (j = U * m + V * g + q * b + X * E + T),
+                    (se = U * _ + V * y + q * I + X * v + R),
+                    (k = U * S + V * D + q * x + X * O + B),
+                    (W = U * A + V * F + q * w + X * L + N),
+                    (C = Math.max(0, j * W) + a * (1 - W)),
+                    (z = Math.max(0, se * W) + n * (1 - W)),
+                    (G = Math.max(0, k * W) + r * (1 - W)),
+                    (f[P] = Math.max(0, Math.min(1, C)) * 255),
+                    (f[P + 1] = Math.max(0, Math.min(1, z)) * 255),
+                    (f[P + 2] = Math.max(0, Math.min(1, G)) * 255);
             return d;
         }
         function c(d, h) {
-            let { mode: p = 'contain', upscale: f = !1, width: m, height: E, matrix: b } = h;
-            if (((b = !b || s(b) ? null : b), !m && !E)) return u(d, b);
-            if ((m === null ? (m = E) : E === null && (E = m), p !== 'force')) {
+            let { mode: f = 'contain', upscale: p = !1, width: m, height: g, matrix: b } = h;
+            if (((b = !b || s(b) ? null : b), !m && !g)) return u(d, b);
+            if ((m === null ? (m = g) : g === null && (g = m), f !== 'force')) {
                 let O = m / d.width,
-                    N = E / d.height,
-                    v = 1;
+                    B = g / d.height,
+                    A = 1;
                 if (
-                    (p === 'cover' ? (v = Math.max(O, N)) : p === 'contain' && (v = Math.min(O, N)),
-                    v > 1 && f === !1)
+                    (f === 'cover' ? (A = Math.max(O, B)) : f === 'contain' && (A = Math.min(O, B)),
+                    A > 1 && p === !1)
                 )
                     return u(d, b);
-                (m = d.width * v), (E = d.height * v);
+                (m = d.width * A), (g = d.height * A);
             }
-            let g = d.width,
+            let E = d.width,
                 T = d.height,
                 _ = Math.round(m),
-                y = Math.round(E),
+                y = Math.round(g),
                 I = d.data,
-                A = new Uint8ClampedArray(_ * y * 4),
-                R = g / _,
+                v = new Uint8ClampedArray(_ * y * 4),
+                R = E / _,
                 S = T / y,
-                P = Math.ceil(R * 0.5),
-                D = Math.ceil(S * 0.5);
+                D = Math.ceil(R * 0.5),
+                x = Math.ceil(S * 0.5);
             for (let O = 0; O < y; O++)
-                for (let N = 0; N < _; N++) {
-                    let v = (N + O * _) * 4,
+                for (let B = 0; B < _; B++) {
+                    let A = (B + O * _) * 4,
                         F = 0,
                         w = 0,
                         L = 0,
-                        z = 0,
-                        C = 0,
-                        G = 0,
-                        x = 0,
-                        B = (O + 0.5) * S;
-                    for (let U = Math.floor(O * S); U < (O + 1) * S; U++) {
-                        let W = Math.abs(B - (U + 0.5)) / D,
-                            ae = (N + 0.5) * R,
-                            V = W * W;
-                        for (let H = Math.floor(N * R); H < (N + 1) * R; H++) {
-                            let $ = Math.abs(ae - (H + 0.5)) / P,
-                                j = Math.sqrt(V + $ * $);
-                            if (j >= -1 && j <= 1 && ((F = 2 * j * j * j - 3 * j * j + 1), F > 0)) {
-                                $ = 4 * (H + U * g);
-                                let Z = I[$ + 3];
-                                (x += F * Z),
+                        N = 0,
+                        P = 0,
+                        U = 0,
+                        V = 0,
+                        q = (O + 0.5) * S;
+                    for (let X = Math.floor(O * S); X < (O + 1) * S; X++) {
+                        let j = Math.abs(q - (X + 0.5)) / x,
+                            se = (B + 0.5) * R,
+                            k = j * j;
+                        for (let W = Math.floor(B * R); W < (B + 1) * R; W++) {
+                            let C = Math.abs(se - (W + 0.5)) / D,
+                                z = Math.sqrt(k + C * C);
+                            if (z >= -1 && z <= 1 && ((F = 2 * z * z * z - 3 * z * z + 1), F > 0)) {
+                                C = 4 * (W + X * E);
+                                let G = I[C + 3];
+                                (V += F * G),
                                     (L += F),
-                                    Z < 255 && (F = (F * Z) / 250),
-                                    (z += F * I[$]),
-                                    (C += F * I[$ + 1]),
-                                    (G += F * I[$ + 2]),
+                                    G < 255 && (F = (F * G) / 250),
+                                    (N += F * I[C]),
+                                    (P += F * I[C + 1]),
+                                    (U += F * I[C + 2]),
                                     (w += F);
                             }
                         }
                     }
-                    (A[v] = z / w),
-                        (A[v + 1] = C / w),
-                        (A[v + 2] = G / w),
-                        (A[v + 3] = x / L),
-                        b && r(v, A, b);
+                    (v[A] = N / w),
+                        (v[A + 1] = P / w),
+                        (v[A + 2] = U / w),
+                        (v[A + 3] = V / L),
+                        b && o(A, v, b);
                 }
-            return { data: A, width: _, height: y };
+            return { data: v, width: _, height: y };
         }
     },
-    mf = (e, t) => {
+    yf = (e, t) => {
         if (e.getUint32(t + 4, !1) !== 1165519206) return;
         t += 4;
         let i = e.getUint16((t += 6), !1) === 18761;
@@ -9546,13 +9561,13 @@ ${u.outerHTML}${A}
             if (e.getUint16(t + n * 12, i) === 274) return e.setUint16(t + n * 12 + 8, 1, i), !0;
         return !1;
     },
-    gf = (e) => {
+    Sf = (e) => {
         let t = new DataView(e);
         if (t.getUint16(0) !== 65496) return null;
         let i = 2,
             a,
             n,
-            o = !1;
+            r = !1;
         for (
             ;
             i < t.byteLength &&
@@ -9560,55 +9575,55 @@ ${u.outerHTML}${A}
             (n = t.getUint16(i + 2, !1) + 2),
             !(
                 !((a >= 65504 && a <= 65519) || a === 65534) ||
-                (o || (o = mf(t, i, n)), i + n > t.byteLength)
+                (r || (r = yf(t, i, n)), i + n > t.byteLength)
             ));
 
         )
             i += n;
         return e.slice(0, i);
     },
-    Ef = (e) =>
+    wf = (e) =>
         new Promise((t) => {
             let i = new FileReader();
-            (i.onload = () => t(gf(i.result) || null)), i.readAsArrayBuffer(e.slice(0, 256 * 1024));
+            (i.onload = () => t(Sf(i.result) || null)), i.readAsArrayBuffer(e.slice(0, 256 * 1024));
         }),
-    Tf = () =>
+    vf = () =>
         (window.BlobBuilder =
             window.BlobBuilder ||
             window.WebKitBlobBuilder ||
             window.MozBlobBuilder ||
             window.MSBlobBuilder),
-    If = (e, t) => {
-        let i = Tf();
+    Af = (e, t) => {
+        let i = vf();
         if (i) {
             let a = new i();
             return a.append(e), a.getBlob(t);
         }
         return new Blob([e], { type: t });
     },
-    bf = () => Math.random().toString(36).substr(2, 9),
-    _f = (e) => {
+    Lf = () => Math.random().toString(36).substr(2, 9),
+    Mf = (e) => {
         let t = new Blob(['(', e.toString(), ')()'], { type: 'application/javascript' }),
             i = URL.createObjectURL(t),
             a = new Worker(i),
             n = [];
         return {
             transfer: () => {},
-            post: (o, r, l) => {
-                let s = bf();
-                (n[s] = r),
+            post: (r, o, l) => {
+                let s = Lf();
+                (n[s] = o),
                     (a.onmessage = (u) => {
                         let c = n[u.data.id];
                         c && (c(u.data.message), delete n[u.data.id]);
                     }),
-                    a.postMessage({ id: s, message: o }, l);
+                    a.postMessage({ id: s, message: r }, l);
             },
             terminate: () => {
                 a.terminate(), URL.revokeObjectURL(i);
             },
         };
     },
-    Rf = (e) =>
+    Of = (e) =>
         new Promise((t, i) => {
             let a = new Image();
             (a.onload = () => {
@@ -9619,24 +9634,24 @@ ${u.outerHTML}${A}
                 }),
                 (a.src = e);
         }),
-    yf = (e) =>
+    xf = (e) =>
         e.reduce(
             (t, i) => t.then((a) => i().then(Array.prototype.concat.bind(a))),
             Promise.resolve([]),
         ),
-    Sf = (e, t) =>
+    Df = (e, t) =>
         new Promise((i) => {
             let a = { width: e.width, height: e.height },
                 n = e.getContext('2d'),
-                o = t.sort(io).map(
-                    (r) => () =>
+                r = t.sort(so).map(
+                    (o) => () =>
                         new Promise((l) => {
-                            Df[r[0]](n, a, r[1], l) && l();
+                            Gf[o[0]](n, a, o[1], l) && l();
                         }),
                 );
-            yf(o).then(() => i(e));
+            xf(r).then(() => i(e));
         }),
-    Et = (e, t) => {
+    bt = (e, t) => {
         e.beginPath(),
             (e.lineCap = t['stroke-linecap']),
             (e.lineJoin = t['stroke-linejoin']),
@@ -9646,160 +9661,160 @@ ${u.outerHTML}${A}
             (e.strokeStyle = t.stroke),
             (e.globalAlpha = t.opacity || 1);
     },
-    Tt = (e) => {
+    _t = (e) => {
         e.fill(), e.stroke(), (e.globalAlpha = 1);
     },
-    wf = (e, t, i) => {
-        let a = gt(i, t),
-            n = Je(i, t);
-        return Et(e, n), e.rect(a.x, a.y, a.width, a.height), Tt(e, n), !0;
+    Pf = (e, t, i) => {
+        let a = It(i, t),
+            n = it(i, t);
+        return bt(e, n), e.rect(a.x, a.y, a.width, a.height), _t(e, n), !0;
     },
-    Af = (e, t, i) => {
-        let a = gt(i, t),
-            n = Je(i, t);
-        Et(e, n);
-        let o = a.x,
-            r = a.y,
+    Ff = (e, t, i) => {
+        let a = It(i, t),
+            n = it(i, t);
+        bt(e, n);
+        let r = a.x,
+            o = a.y,
             l = a.width,
             s = a.height,
             u = 0.5522848,
             c = (l / 2) * u,
             d = (s / 2) * u,
-            h = o + l,
-            p = r + s,
-            f = o + l / 2,
-            m = r + s / 2;
+            h = r + l,
+            f = o + s,
+            p = r + l / 2,
+            m = o + s / 2;
         return (
-            e.moveTo(o, m),
-            e.bezierCurveTo(o, m - d, f - c, r, f, r),
-            e.bezierCurveTo(f + c, r, h, m - d, h, m),
-            e.bezierCurveTo(h, m + d, f + c, p, f, p),
-            e.bezierCurveTo(f - c, p, o, m + d, o, m),
-            Tt(e, n),
+            e.moveTo(r, m),
+            e.bezierCurveTo(r, m - d, p - c, o, p, o),
+            e.bezierCurveTo(p + c, o, h, m - d, h, m),
+            e.bezierCurveTo(h, m + d, p + c, f, p, f),
+            e.bezierCurveTo(p - c, f, r, m + d, r, m),
+            _t(e, n),
             !0
         );
     },
-    vf = (e, t, i, a) => {
-        let n = gt(i, t),
-            o = Je(i, t);
-        Et(e, o);
-        let r = new Image();
+    Cf = (e, t, i, a) => {
+        let n = It(i, t),
+            r = it(i, t);
+        bt(e, r);
+        let o = new Image();
         new URL(i.src, window.location.href).origin !== window.location.origin &&
-            (r.crossOrigin = ''),
-            (r.onload = () => {
+            (o.crossOrigin = ''),
+            (o.onload = () => {
                 if (i.fit === 'cover') {
                     let s = n.width / n.height,
-                        u = s > 1 ? r.width : r.height * s,
-                        c = s > 1 ? r.width / s : r.height,
-                        d = r.width * 0.5 - u * 0.5,
-                        h = r.height * 0.5 - c * 0.5;
-                    e.drawImage(r, d, h, u, c, n.x, n.y, n.width, n.height);
+                        u = s > 1 ? o.width : o.height * s,
+                        c = s > 1 ? o.width / s : o.height,
+                        d = o.width * 0.5 - u * 0.5,
+                        h = o.height * 0.5 - c * 0.5;
+                    e.drawImage(o, d, h, u, c, n.x, n.y, n.width, n.height);
                 } else if (i.fit === 'contain') {
-                    let s = Math.min(n.width / r.width, n.height / r.height),
-                        u = s * r.width,
-                        c = s * r.height,
+                    let s = Math.min(n.width / o.width, n.height / o.height),
+                        u = s * o.width,
+                        c = s * o.height,
                         d = n.x + n.width * 0.5 - u * 0.5,
                         h = n.y + n.height * 0.5 - c * 0.5;
-                    e.drawImage(r, 0, 0, r.width, r.height, d, h, u, c);
-                } else e.drawImage(r, 0, 0, r.width, r.height, n.x, n.y, n.width, n.height);
-                Tt(e, o), a();
+                    e.drawImage(o, 0, 0, o.width, o.height, d, h, u, c);
+                } else e.drawImage(o, 0, 0, o.width, o.height, n.x, n.y, n.width, n.height);
+                _t(e, r), a();
             }),
-            (r.src = i.src);
+            (o.src = i.src);
     },
-    Lf = (e, t, i) => {
-        let a = gt(i, t),
-            n = Je(i, t);
-        Et(e, n);
-        let o = le(i.fontSize, t),
-            r = i.fontFamily || 'sans-serif',
+    zf = (e, t, i) => {
+        let a = It(i, t),
+            n = it(i, t);
+        bt(e, n);
+        let r = ce(i.fontSize, t),
+            o = i.fontFamily || 'sans-serif',
             l = i.fontWeight || 'normal',
             s = i.textAlign || 'left';
         return (
-            (e.font = `${l} ${o}px ${r}`),
+            (e.font = `${l} ${r}px ${o}`),
             (e.textAlign = s),
             e.fillText(i.text, a.x, a.y),
-            Tt(e, n),
+            _t(e, n),
             !0
         );
     },
-    Mf = (e, t, i) => {
-        let a = Je(i, t);
-        Et(e, a), e.beginPath();
-        let n = i.points.map((r) => ({ x: le(r.x, t, 1, 'width'), y: le(r.y, t, 1, 'height') }));
+    Nf = (e, t, i) => {
+        let a = it(i, t);
+        bt(e, a), e.beginPath();
+        let n = i.points.map((o) => ({ x: ce(o.x, t, 1, 'width'), y: ce(o.y, t, 1, 'height') }));
         e.moveTo(n[0].x, n[0].y);
-        let o = n.length;
-        for (let r = 1; r < o; r++) e.lineTo(n[r].x, n[r].y);
-        return Tt(e, a), !0;
+        let r = n.length;
+        for (let o = 1; o < r; o++) e.lineTo(n[o].x, n[o].y);
+        return _t(e, a), !0;
     },
-    Of = (e, t, i) => {
-        let a = gt(i, t),
-            n = Je(i, t);
-        Et(e, n), e.beginPath();
-        let o = { x: a.x, y: a.y },
-            r = { x: a.x + a.width, y: a.y + a.height };
-        e.moveTo(o.x, o.y), e.lineTo(r.x, r.y);
-        let l = to({ x: r.x - o.x, y: r.y - o.y }),
+    Bf = (e, t, i) => {
+        let a = It(i, t),
+            n = it(i, t);
+        bt(e, n), e.beginPath();
+        let r = { x: a.x, y: a.y },
+            o = { x: a.x + a.width, y: a.y + a.height };
+        e.moveTo(r.x, r.y), e.lineTo(o.x, o.y);
+        let l = lo({ x: o.x - r.x, y: o.y - r.y }),
             s = 0.04 * Math.min(t.width, t.height);
         if (i.lineDecoration.indexOf('arrow-begin') !== -1) {
-            let u = ui(l, s),
-                c = hi(o, u),
-                d = Ge(o, 2, c),
-                h = Ge(o, -2, c);
-            e.moveTo(d.x, d.y), e.lineTo(o.x, o.y), e.lineTo(h.x, h.y);
-        }
-        if (i.lineDecoration.indexOf('arrow-end') !== -1) {
-            let u = ui(l, -s),
-                c = hi(r, u),
-                d = Ge(r, 2, c),
-                h = Ge(r, -2, c);
+            let u = gi(l, s),
+                c = Ei(r, u),
+                d = ke(r, 2, c),
+                h = ke(r, -2, c);
             e.moveTo(d.x, d.y), e.lineTo(r.x, r.y), e.lineTo(h.x, h.y);
         }
-        return Tt(e, n), !0;
+        if (i.lineDecoration.indexOf('arrow-end') !== -1) {
+            let u = gi(l, -s),
+                c = Ei(o, u),
+                d = ke(o, 2, c),
+                h = ke(o, -2, c);
+            e.moveTo(d.x, d.y), e.lineTo(o.x, o.y), e.lineTo(h.x, h.y);
+        }
+        return _t(e, n), !0;
     },
-    Df = { rect: wf, ellipse: Af, image: vf, text: Lf, line: Of, path: Mf },
-    xf = (e) => {
+    Gf = { rect: Pf, ellipse: Ff, image: Cf, text: zf, line: Bf, path: Nf },
+    Vf = (e) => {
         let t = document.createElement('canvas');
         return (
             (t.width = e.width), (t.height = e.height), t.getContext('2d').putImageData(e, 0, 0), t
         );
     },
-    Pf = (e, t, i = {}) =>
+    Uf = (e, t, i = {}) =>
         new Promise((a, n) => {
-            if (!e || !Gh(e)) return n({ status: 'not an image file', file: e });
+            if (!e || !qh(e)) return n({ status: 'not an image file', file: e });
             let {
-                    stripImageHead: o,
-                    beforeCreateBlob: r,
+                    stripImageHead: r,
+                    beforeCreateBlob: o,
                     afterCreateBlob: l,
                     canvasMemoryLimit: s,
                 } = i,
-                { crop: u, size: c, filter: d, markup: h, output: p } = t,
-                f =
+                { crop: u, size: c, filter: d, markup: h, output: f } = t,
+                p =
                     t.image && t.image.orientation
                         ? Math.max(1, Math.min(8, t.image.orientation))
                         : null,
-                m = p && p.quality,
-                E = m === null ? null : m / 100,
-                b = (p && p.type) || null,
-                g = (p && p.background) || null,
+                m = f && f.quality,
+                g = m === null ? null : m / 100,
+                b = (f && f.type) || null,
+                E = (f && f.background) || null,
                 T = [];
             c &&
                 (typeof c.width == 'number' || typeof c.height == 'number') &&
                 T.push({ type: 'resize', data: c }),
                 d && d.length === 20 && T.push({ type: 'filter', data: d });
-            let _ = (A) => {
-                    let R = l ? l(A) : A;
+            let _ = (v) => {
+                    let R = l ? l(v) : v;
                     Promise.resolve(R).then(a);
                 },
-                y = (A, R) => {
-                    let S = xf(A),
-                        P = h.length ? Sf(S, h) : S;
-                    Promise.resolve(P).then((D) => {
-                        Xh(D, R, r)
+                y = (v, R) => {
+                    let S = Vf(v),
+                        D = h.length ? Df(S, h) : S;
+                    Promise.resolve(D).then((x) => {
+                        af(x, R, o)
                             .then((O) => {
-                                if ((eo(D), o)) return _(O);
-                                Ef(e).then((N) => {
-                                    N !== null &&
-                                        (O = new Blob([N, O.slice(20)], { type: O.type })),
+                                if ((oo(x), r)) return _(O);
+                                wf(e).then((B) => {
+                                    B !== null &&
+                                        (O = new Blob([B, O.slice(20)], { type: O.type })),
                                         _(O);
                                 });
                             })
@@ -9807,49 +9822,49 @@ ${u.outerHTML}${A}
                     });
                 };
             if (/svg/.test(e.type) && b === null)
-                return hf(e, u, h, { background: g }).then((A) => {
-                    a(If(A, 'image/svg+xml'));
+                return bf(e, u, h, { background: E }).then((v) => {
+                    a(Af(v, 'image/svg+xml'));
                 });
             let I = URL.createObjectURL(e);
-            Rf(I)
-                .then((A) => {
+            Of(I)
+                .then((v) => {
                     URL.revokeObjectURL(I);
-                    let R = $h(A, f, u, { canvasMemoryLimit: s, background: g }),
-                        S = { quality: E, type: b || e.type };
+                    let R = ef(v, p, u, { canvasMemoryLimit: s, background: E }),
+                        S = { quality: g, type: b || e.type };
                     if (!T.length) return y(R, S);
-                    let P = _f(pf);
-                    P.post(
+                    let D = Mf(Rf);
+                    D.post(
                         { transforms: T, imageData: R },
-                        (D) => {
-                            y(ff(D), S), P.terminate();
+                        (x) => {
+                            y(_f(x), S), D.terminate();
                         },
                         [R.data.buffer],
                     );
                 })
                 .catch(n);
         }),
-    Cf = ['x', 'y', 'left', 'top', 'right', 'bottom', 'width', 'height'],
-    Ff = (e) => (typeof e == 'string' && /%/.test(e) ? parseFloat(e) / 100 : e),
-    zf = (e) => {
+    kf = ['x', 'y', 'left', 'top', 'right', 'bottom', 'width', 'height'],
+    Hf = (e) => (typeof e == 'string' && /%/.test(e) ? parseFloat(e) / 100 : e),
+    Wf = (e) => {
         let [t, i] = e,
-            a = i.points ? {} : Cf.reduce((n, o) => ((n[o] = Ff(i[o])), n), {});
+            a = i.points ? {} : kf.reduce((n, r) => ((n[r] = Hf(i[r])), n), {});
         return [t, { zIndex: 0, ...i, ...a }];
     },
-    Nf = (e) =>
+    Yf = (e) =>
         new Promise((t, i) => {
             let a = new Image();
             a.src = URL.createObjectURL(e);
             let n = () => {
-                let r = a.naturalWidth,
+                let o = a.naturalWidth,
                     l = a.naturalHeight;
-                r &&
+                o &&
                     l &&
-                    (URL.revokeObjectURL(a.src), clearInterval(o), t({ width: r, height: l }));
+                    (URL.revokeObjectURL(a.src), clearInterval(r), t({ width: o, height: l }));
             };
-            a.onerror = (r) => {
-                URL.revokeObjectURL(a.src), clearInterval(o), i(r);
+            a.onerror = (o) => {
+                URL.revokeObjectURL(a.src), clearInterval(r), i(o);
             };
-            let o = setInterval(n, 1);
+            let r = setInterval(n, 1);
             n();
         });
 typeof window < 'u' &&
@@ -9860,20 +9875,20 @@ typeof window < 'u' &&
                 let a = this;
                 setTimeout(() => {
                     let n = a.toDataURL(t, i).split(',')[1],
-                        o = atob(n),
-                        r = o.length,
-                        l = new Uint8Array(r);
-                    for (; r--; ) l[r] = o.charCodeAt(r);
+                        r = atob(n),
+                        o = r.length,
+                        l = new Uint8Array(o);
+                    for (; o--; ) l[o] = r.charCodeAt(o);
                     e(new Blob([l], { type: t || 'image/png' }));
                 });
             },
         }));
-var fa = typeof window < 'u' && typeof window.document < 'u',
-    Bf = fa && /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream,
-    ao = ({ addFilter: e, utils: t }) => {
-        let { Type: i, forin: a, getFileFromBlob: n, isFile: o } = t,
-            r = ['crop', 'resize', 'filter', 'markup', 'output'],
-            l = (c) => (d, h, p) => d(h, c ? c(p) : p),
+var Ta = typeof window < 'u' && typeof window.document < 'u',
+    $f = Ta && /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream,
+    co = ({ addFilter: e, utils: t }) => {
+        let { Type: i, forin: a, getFileFromBlob: n, isFile: r } = t,
+            o = ['crop', 'resize', 'filter', 'markup', 'output'],
+            l = (c) => (d, h, f) => d(h, c ? c(f) : f),
             s = (c) =>
                 c.aspectRatio === null &&
                 c.rotation === 0 &&
@@ -9892,21 +9907,21 @@ var fa = typeof window < 'u' && typeof window.document < 'u',
                 }),
         );
         let u = (c, d, h) =>
-            new Promise((p) => {
-                if (!c('GET_ALLOW_IMAGE_TRANSFORM') || h.archived || !o(d) || !Ch(d)) return p(!1);
-                Nf(d)
+            new Promise((f) => {
+                if (!c('GET_ALLOW_IMAGE_TRANSFORM') || h.archived || !r(d) || !kh(d)) return f(!1);
+                Yf(d)
                     .then(() => {
-                        let f = c('GET_IMAGE_TRANSFORM_IMAGE_FILTER');
-                        if (f) {
-                            let m = f(d);
+                        let p = c('GET_IMAGE_TRANSFORM_IMAGE_FILTER');
+                        if (p) {
+                            let m = p(d);
                             if (m == null) return handleRevert(!0);
-                            if (typeof m == 'boolean') return p(m);
-                            if (typeof m.then == 'function') return m.then(p);
+                            if (typeof m == 'boolean') return f(m);
+                            if (typeof m.then == 'function') return m.then(f);
                         }
-                        p(!0);
+                        f(!0);
                     })
-                    .catch((f) => {
-                        p(!1);
+                    .catch((p) => {
+                        f(!1);
                     });
             });
         return (
@@ -9915,10 +9930,10 @@ var fa = typeof window < 'u' && typeof window.document < 'u',
                     c.extend(
                         'requestPrepare',
                         () =>
-                            new Promise((p, f) => {
+                            new Promise((f, p) => {
                                 h(
                                     'REQUEST_PREPARE_OUTPUT',
-                                    { query: c.id, item: c, success: p, failure: f },
+                                    { query: c.id, item: c, success: f, failure: p },
                                     !0,
                                 );
                             }),
@@ -9927,9 +9942,9 @@ var fa = typeof window < 'u' && typeof window.document < 'u',
             e(
                 'PREPARE_OUTPUT',
                 (c, { query: d, item: h }) =>
-                    new Promise((p) => {
-                        u(d, c, h).then((f) => {
-                            if (!f) return p(c);
+                    new Promise((f) => {
+                        u(d, c, h).then((p) => {
+                            if (!p) return f(c);
                             let m = [];
                             d('GET_IMAGE_TRANSFORM_VARIANTS_INCLUDE_ORIGINAL') &&
                                 m.push(
@@ -9945,10 +9960,10 @@ var fa = typeof window < 'u' && typeof window.document < 'u',
                                 ),
                                 d('GET_IMAGE_TRANSFORM_VARIANTS_INCLUDE_DEFAULT') &&
                                     m.push(
-                                        (R, S, P) =>
-                                            new Promise((D) => {
-                                                R(S, P).then((O) =>
-                                                    D({
+                                        (R, S, D) =>
+                                            new Promise((x) => {
+                                                R(S, D).then((O) =>
+                                                    x({
                                                         name: d(
                                                             'GET_IMAGE_TRANSFORM_VARIANTS_DEFAULT_NAME',
                                                         ),
@@ -9957,40 +9972,40 @@ var fa = typeof window < 'u' && typeof window.document < 'u',
                                                 );
                                             }),
                                     );
-                            let E = d('GET_IMAGE_TRANSFORM_VARIANTS') || {};
-                            a(E, (R, S) => {
-                                let P = l(S);
+                            let g = d('GET_IMAGE_TRANSFORM_VARIANTS') || {};
+                            a(g, (R, S) => {
+                                let D = l(S);
                                 m.push(
-                                    (D, O, N) =>
-                                        new Promise((v) => {
-                                            P(D, O, N).then((F) => v({ name: R, file: F }));
+                                    (x, O, B) =>
+                                        new Promise((A) => {
+                                            D(x, O, B).then((F) => A({ name: R, file: F }));
                                         }),
                                 );
                             });
                             let b = d('GET_IMAGE_TRANSFORM_OUTPUT_QUALITY'),
-                                g = d('GET_IMAGE_TRANSFORM_OUTPUT_QUALITY_MODE'),
+                                E = d('GET_IMAGE_TRANSFORM_OUTPUT_QUALITY_MODE'),
                                 T = b === null ? null : b / 100,
                                 _ = d('GET_IMAGE_TRANSFORM_OUTPUT_MIME_TYPE'),
-                                y = d('GET_IMAGE_TRANSFORM_CLIENT_TRANSFORMS') || r;
+                                y = d('GET_IMAGE_TRANSFORM_CLIENT_TRANSFORMS') || o;
                             h.setMetadata('output', { type: _, quality: T, client: y }, !0);
                             let I = (R, S) =>
-                                    new Promise((P, D) => {
+                                    new Promise((D, x) => {
                                         let O = { ...S };
                                         Object.keys(O)
-                                            .filter((x) => x !== 'exif')
-                                            .forEach((x) => {
-                                                y.indexOf(x) === -1 && delete O[x];
+                                            .filter((V) => V !== 'exif')
+                                            .forEach((V) => {
+                                                y.indexOf(V) === -1 && delete O[V];
                                             });
                                         let {
-                                                resize: N,
-                                                exif: v,
+                                                resize: B,
+                                                exif: A,
                                                 output: F,
                                                 crop: w,
                                                 filter: L,
-                                                markup: z,
+                                                markup: N,
                                             } = O,
-                                            C = {
-                                                image: { orientation: v ? v.orientation : null },
+                                            P = {
+                                                image: { orientation: A ? A.orientation : null },
                                                 output:
                                                     F &&
                                                     (F.type ||
@@ -10011,25 +10026,25 @@ var fa = typeof window < 'u' && typeof window.document < 'u',
                                                           }
                                                         : void 0,
                                                 size:
-                                                    N && (N.size.width || N.size.height)
+                                                    B && (B.size.width || B.size.height)
                                                         ? {
-                                                              mode: N.mode,
-                                                              upscale: N.upscale,
-                                                              ...N.size,
+                                                              mode: B.mode,
+                                                              upscale: B.upscale,
+                                                              ...B.size,
                                                           }
                                                         : void 0,
                                                 crop: w && !s(w) ? { ...w } : void 0,
-                                                markup: z && z.length ? z.map(zf) : [],
+                                                markup: N && N.length ? N.map(Wf) : [],
                                                 filter: L,
                                             };
-                                        if (C.output) {
-                                            let x = F.type ? F.type !== R.type : !1,
-                                                B = /\/jpe?g$/.test(R.type),
-                                                U = F.quality !== null ? B && g === 'always' : !1;
-                                            if (!!!(C.size || C.crop || C.filter || x || U))
-                                                return P(R);
+                                        if (P.output) {
+                                            let V = F.type ? F.type !== R.type : !1,
+                                                q = /\/jpe?g$/.test(R.type),
+                                                X = F.quality !== null ? q && E === 'always' : !1;
+                                            if (!!!(P.size || P.crop || P.filter || V || X))
+                                                return D(R);
                                         }
-                                        let G = {
+                                        let U = {
                                             beforeCreateBlob: d(
                                                 'GET_IMAGE_TRANSFORM_BEFORE_CREATE_BLOB',
                                             ),
@@ -10043,16 +10058,16 @@ var fa = typeof window < 'u' && typeof window.document < 'u',
                                                 'GET_IMAGE_TRANSFORM_OUTPUT_STRIP_IMAGE_HEAD',
                                             ),
                                         };
-                                        Pf(R, C, G)
-                                            .then((x) => {
-                                                let B = n(x, Nh(R.name, Bh(x.type)));
-                                                P(B);
+                                        Uf(R, P, U)
+                                            .then((V) => {
+                                                let q = n(V, Yh(R.name, $h(V.type)));
+                                                D(q);
                                             })
-                                            .catch(D);
+                                            .catch(x);
                                     }),
-                                A = m.map((R) => R(I, c, h.getMetadata()));
-                            Promise.all(A).then((R) => {
-                                p(R.length === 1 && R[0].name === null ? R[0].file : R);
+                                v = m.map((R) => R(I, c, h.getMetadata()));
+                            Promise.all(v).then((R) => {
+                                f(R.length === 1 && R[0].name === null ? R[0].file : R);
                             });
                         });
                     }),
@@ -10073,17 +10088,17 @@ var fa = typeof window < 'u' && typeof window.document < 'u',
                     imageTransformVariantsOriginalName: ['original_', i.STRING],
                     imageTransformBeforeCreateBlob: [null, i.FUNCTION],
                     imageTransformAfterCreateBlob: [null, i.FUNCTION],
-                    imageTransformCanvasMemoryLimit: [fa && Bf ? 4096 * 4096 : null, i.INT],
+                    imageTransformCanvasMemoryLimit: [Ta && $f ? 4096 * 4096 : null, i.INT],
                     imageTransformCanvasBackgroundColor: [null, i.STRING],
                 },
             }
         );
     };
-fa && document.dispatchEvent(new CustomEvent('FilePond:pluginloaded', { detail: ao }));
-var no = ao;
-var pa = (e) => /^video/.test(e.type),
-    Nt = (e) => /^audio/.test(e.type),
-    ma = class {
+Ta && document.dispatchEvent(new CustomEvent('FilePond:pluginloaded', { detail: co }));
+var uo = co;
+var Ia = (e) => /^video/.test(e.type),
+    Ut = (e) => /^audio/.test(e.type),
+    ba = class {
         constructor(t, i) {
             (this.mediaEl = t),
                 (this.audioElems = i),
@@ -10158,7 +10173,7 @@ var pa = (e) => /^video/.test(e.type),
             return t.getBoundingClientRect().left;
         }
     },
-    Gf = (e) =>
+    qf = (e) =>
         e.utils.createView({
             name: 'media-preview',
             tag: 'div',
@@ -10166,14 +10181,14 @@ var pa = (e) => /^video/.test(e.type),
             create: ({ root: t, props: i }) => {
                 let { id: a } = i,
                     n = t.query('GET_ITEM', { id: i.id }),
-                    o = Nt(n.file) ? 'audio' : 'video';
+                    r = Ut(n.file) ? 'audio' : 'video';
                 if (
-                    ((t.ref.media = document.createElement(o)),
+                    ((t.ref.media = document.createElement(r)),
                     t.ref.media.setAttribute('controls', !0),
                     t.element.appendChild(t.ref.media),
-                    Nt(n.file))
+                    Ut(n.file))
                 ) {
-                    let r = document.createDocumentFragment();
+                    let o = document.createDocumentFragment();
                     (t.ref.audio = []),
                         (t.ref.audio.container = document.createElement('div')),
                         (t.ref.audio.button = document.createElement('span')),
@@ -10186,8 +10201,8 @@ var pa = (e) => /^video/.test(e.type),
                         t.ref.audio.timeline.appendChild(t.ref.audio.playhead),
                         t.ref.audio.container.appendChild(t.ref.audio.button),
                         t.ref.audio.container.appendChild(t.ref.audio.timeline),
-                        r.appendChild(t.ref.audio.container),
-                        t.element.appendChild(r);
+                        o.appendChild(t.ref.audio.container),
+                        t.element.appendChild(o);
                 }
             },
             write: e.utils.createRoute({
@@ -10195,16 +10210,16 @@ var pa = (e) => /^video/.test(e.type),
                     let { id: a } = i,
                         n = t.query('GET_ITEM', { id: i.id });
                     if (!n) return;
-                    let o = window.URL || window.webkitURL,
-                        r = new Blob([n.file], { type: n.file.type });
+                    let r = window.URL || window.webkitURL,
+                        o = new Blob([n.file], { type: n.file.type });
                     (t.ref.media.type = n.file.type),
-                        (t.ref.media.src = (n.file.mock && n.file.url) || o.createObjectURL(r)),
-                        Nt(n.file) && new ma(t.ref.media, t.ref.audio),
+                        (t.ref.media.src = (n.file.mock && n.file.url) || r.createObjectURL(o)),
+                        Ut(n.file) && new ba(t.ref.media, t.ref.audio),
                         t.ref.media.addEventListener(
                             'loadeddata',
                             () => {
                                 let l = 75;
-                                if (pa(n.file)) {
+                                if (Ia(n.file)) {
                                     let s = t.ref.media.offsetWidth,
                                         u = t.ref.media.videoWidth / s;
                                     l = t.ref.media.videoHeight / u;
@@ -10216,14 +10231,14 @@ var pa = (e) => /^video/.test(e.type),
                 },
             }),
         }),
-    Vf = (e) => {
+    Xf = (e) => {
         let t = ({ root: a, props: n }) => {
-                let { id: o } = n;
-                a.query('GET_ITEM', o) && a.dispatch('DID_MEDIA_PREVIEW_LOAD', { id: o });
+                let { id: r } = n;
+                a.query('GET_ITEM', r) && a.dispatch('DID_MEDIA_PREVIEW_LOAD', { id: r });
             },
             i = ({ root: a, props: n }) => {
-                let o = Gf(e);
-                a.ref.media = a.appendChildView(a.createChildView(o, { id: n.id }));
+                let r = qf(e);
+                a.ref.media = a.appendChildView(a.createChildView(r, { id: n.id }));
             };
         return e.utils.createView({
             name: 'media-preview-wrapper',
@@ -10231,41 +10246,41 @@ var pa = (e) => /^video/.test(e.type),
             write: e.utils.createRoute({ DID_MEDIA_PREVIEW_CONTAINER_CREATE: t }),
         });
     },
-    ga = (e) => {
+    _a = (e) => {
         let { addFilter: t, utils: i } = e,
             { Type: a, createRoute: n } = i,
-            o = Vf(e);
+            r = Xf(e);
         return (
-            t('CREATE_VIEW', (r) => {
-                let { is: l, view: s, query: u } = r;
+            t('CREATE_VIEW', (o) => {
+                let { is: l, view: s, query: u } = o;
                 if (!l('file')) return;
                 let c = ({ root: d, props: h }) => {
-                    let { id: p } = h,
-                        f = u('GET_ITEM', p),
+                    let { id: f } = h,
+                        p = u('GET_ITEM', f),
                         m = u('GET_ALLOW_VIDEO_PREVIEW'),
-                        E = u('GET_ALLOW_AUDIO_PREVIEW');
-                    !f ||
-                        f.archived ||
-                        ((!pa(f.file) || !m) && (!Nt(f.file) || !E)) ||
-                        ((d.ref.mediaPreview = s.appendChildView(s.createChildView(o, { id: p }))),
-                        d.dispatch('DID_MEDIA_PREVIEW_CONTAINER_CREATE', { id: p }));
+                        g = u('GET_ALLOW_AUDIO_PREVIEW');
+                    !p ||
+                        p.archived ||
+                        ((!Ia(p.file) || !m) && (!Ut(p.file) || !g)) ||
+                        ((d.ref.mediaPreview = s.appendChildView(s.createChildView(r, { id: f }))),
+                        d.dispatch('DID_MEDIA_PREVIEW_CONTAINER_CREATE', { id: f }));
                 };
                 s.registerWriter(
                     n({ DID_LOAD_ITEM: c }, ({ root: d, props: h }) => {
-                        let { id: p } = h,
-                            f = u('GET_ITEM', p),
+                        let { id: f } = h,
+                            p = u('GET_ITEM', f),
                             m = d.query('GET_ALLOW_VIDEO_PREVIEW'),
-                            E = d.query('GET_ALLOW_AUDIO_PREVIEW');
-                        !f || ((!pa(f.file) || !m) && (!Nt(f.file) || !E)) || d.rect.element.hidden;
+                            g = d.query('GET_ALLOW_AUDIO_PREVIEW');
+                        !p || ((!Ia(p.file) || !m) && (!Ut(p.file) || !g)) || d.rect.element.hidden;
                     }),
                 );
             }),
             { options: { allowVideoPreview: [!0, a.BOOLEAN], allowAudioPreview: [!0, a.BOOLEAN] } }
         );
     },
-    Uf = typeof window < 'u' && typeof window.document < 'u';
-Uf && document.dispatchEvent(new CustomEvent('FilePond:pluginloaded', { detail: ga }));
-var ro = {
+    jf = typeof window < 'u' && typeof window.document < 'u';
+jf && document.dispatchEvent(new CustomEvent('FilePond:pluginloaded', { detail: _a }));
+var ho = {
     labelIdle:
         '\u0627\u0633\u062D\u0628 \u0648 \u0627\u062F\u0631\u062C \u0645\u0644\u0641\u0627\u062A\u0643 \u0623\u0648 <span class="filepond--label-action"> \u062A\u0635\u0641\u062D </span>',
     labelInvalidField:
@@ -10329,7 +10344,7 @@ var ro = {
     imageValidateSizeLabelExpectedMaxResolution:
         '\u0623\u0642\u0635\u0649 \u062F\u0642\u0629: {maxResolution}',
 };
-var oo = {
+var fo = {
     labelIdle:
         'P\u0159et\xE1hn\u011Bte soubor sem (drag&drop) nebo <span class="filepond--label-action"> Vyhledat </span>',
     labelInvalidField: 'Pole obsahuje chybn\xE9 soubory',
@@ -10375,7 +10390,7 @@ var oo = {
     imageValidateSizeLabelExpectedMaxResolution:
         'Maxim\xE1ln\xED rozli\u0161en\xED je {maxResolution}',
 };
-var lo = {
+var po = {
     labelIdle:
         'Tr\xE6k & slip filer eller <span class = "filepond - label-action"> Gennemse </span>',
     labelInvalidField: 'Felt indeholder ugyldige filer',
@@ -10415,7 +10430,7 @@ var lo = {
     imageValidateSizeLabelExpectedMinResolution: 'Minimum opl\xF8sning er {minResolution}',
     imageValidateSizeLabelExpectedMaxResolution: 'Maksimal opl\xF8sning er {maxResolution}',
 };
-var so = {
+var mo = {
     labelIdle: 'Dateien ablegen oder <span class="filepond--label-action"> ausw\xE4hlen </span>',
     labelInvalidField: 'Feld beinhaltet ung\xFCltige Dateien',
     labelFileWaitingForSize: 'Dateigr\xF6\xDFe berechnen',
@@ -10454,7 +10469,7 @@ var so = {
     imageValidateSizeLabelExpectedMinResolution: 'Mindestaufl\xF6sung: {minResolution}',
     imageValidateSizeLabelExpectedMaxResolution: 'Maximale Aufl\xF6sung: {maxResolution}',
 };
-var co = {
+var go = {
     labelIdle: 'Drag & Drop your files or <span class="filepond--label-action"> Browse </span>',
     labelInvalidField: 'Field contains invalid files',
     labelFileWaitingForSize: 'Waiting for size',
@@ -10493,7 +10508,7 @@ var co = {
     imageValidateSizeLabelExpectedMinResolution: 'Minimum resolution is {minResolution}',
     imageValidateSizeLabelExpectedMaxResolution: 'Maximum resolution is {maxResolution}',
 };
-var uo = {
+var Eo = {
     labelIdle:
         'Arrastra y suelta tus archivos o <span class = "filepond--label-action"> Examinar <span>',
     labelInvalidField: 'El campo contiene archivos inv\xE1lidos',
@@ -10533,7 +10548,7 @@ var uo = {
     imageValidateSizeLabelExpectedMinResolution: 'La resoluci\xF3n m\xEDnima es {minResolution}',
     imageValidateSizeLabelExpectedMaxResolution: 'La resoluci\xF3n m\xE1xima es {maxResolution}',
 };
-var ho = {
+var To = {
     labelIdle:
         '\u0641\u0627\u06CC\u0644 \u0631\u0627 \u0627\u06CC\u0646\u062C\u0627 \u0628\u06A9\u0634\u06CC\u062F \u0648 \u0631\u0647\u0627 \u06A9\u0646\u06CC\u062F\u060C \u06CC\u0627 <span class="filepond--label-action"> \u062C\u0633\u062A\u062C\u0648 \u06A9\u0646\u06CC\u062F </span>',
     labelInvalidField:
@@ -10601,7 +10616,7 @@ var ho = {
     imageValidateSizeLabelExpectedMaxResolution:
         '\u062D\u062F\u0627\u06A9\u062B\u0631 \u0648\u0636\u0648\u062D \u062A\u0635\u0648\u06CC\u0631 {maxResolution} \u0627\u0633\u062A',
 };
-var fo = {
+var Io = {
     labelIdle:
         'Ved\xE4 ja pudota tiedostoja tai <span class="filepond--label-action"> Selaa </span>',
     labelInvalidField: 'Kent\xE4ss\xE4 on virheellisi\xE4 tiedostoja',
@@ -10641,7 +10656,7 @@ var fo = {
     imageValidateSizeLabelExpectedMinResolution: 'Minimiresoluutio on {minResolution}',
     imageValidateSizeLabelExpectedMaxResolution: 'Maksimiresoluutio on {maxResolution}',
 };
-var po = {
+var bo = {
     labelIdle:
         'Faites glisser vos fichiers ou <span class = "filepond--label-action"> Parcourir <span>',
     labelInvalidField: 'Le champ contient des fichiers invalides',
@@ -10681,7 +10696,7 @@ var po = {
     imageValidateSizeLabelExpectedMinResolution: 'La r\xE9solution minimale est {minResolution}',
     imageValidateSizeLabelExpectedMaxResolution: 'La r\xE9solution maximale est {maxResolution}',
 };
-var mo = {
+var _o = {
     labelIdle:
         'Mozgasd ide a f\xE1jlt a felt\xF6lt\xE9shez, vagy <span class="filepond--label-action"> tall\xF3z\xE1s </span>',
     labelInvalidField: 'A mez\u0151 \xE9rv\xE9nytelen f\xE1jlokat tartalmaz',
@@ -10722,7 +10737,7 @@ var mo = {
     imageValidateSizeLabelExpectedMinResolution: 'Minim\xE1is felbont\xE1s: {minResolution}',
     imageValidateSizeLabelExpectedMaxResolution: 'Maxim\xE1lis felbont\xE1s: {maxResolution}',
 };
-var go = {
+var Ro = {
     labelIdle:
         'Seret dan Jatuhkan file Anda atau <span class="filepond--label-action">Jelajahi</span>',
     labelInvalidField: 'Field berisi file tidak valid',
@@ -10762,7 +10777,7 @@ var go = {
     imageValidateSizeLabelExpectedMinResolution: 'Resolusi minimum adalah {minResolution}',
     imageValidateSizeLabelExpectedMaxResolution: 'Resolusi maksimum adalah {maxResolution}',
 };
-var Eo = {
+var yo = {
     labelIdle:
         'Trascina e rilascia i tuoi file oppure <span class = "filepond--label-action"> Carica <span>',
     labelInvalidField: 'Il campo contiene dei file non validi',
@@ -10802,7 +10817,7 @@ var Eo = {
     imageValidateSizeLabelExpectedMinResolution: 'La risoluzione minima \xE8 {minResolution}',
     imageValidateSizeLabelExpectedMaxResolution: 'La risoluzione massima \xE8 {maxResolution}',
 };
-var To = {
+var So = {
     labelIdle: 'Drag & Drop je bestanden of <span class="filepond--label-action"> Bladeren </span>',
     labelInvalidField: 'Veld bevat ongeldige bestanden',
     labelFileWaitingForSize: 'Wachten op grootte',
@@ -10841,7 +10856,47 @@ var To = {
     imageValidateSizeLabelExpectedMinResolution: 'Minimale resolutie is {minResolution}',
     imageValidateSizeLabelExpectedMaxResolution: 'Maximale resolutie is {maxResolution}',
 };
-var Io = {
+var wo = {
+    labelIdle:
+        'Dra og slipp filene dine, eller <span class="filepond--label-action"> Bla gjennom... </span>',
+    labelInvalidField: 'Feltet inneholder ugyldige filer',
+    labelFileWaitingForSize: 'Venter p\xE5 st\xF8rrelse',
+    labelFileSizeNotAvailable: 'St\xF8rrelse ikke tilgjengelig',
+    labelFileLoading: 'Laster',
+    labelFileLoadError: 'Feil under lasting',
+    labelFileProcessing: 'Laster opp',
+    labelFileProcessingComplete: 'Opplasting ferdig',
+    labelFileProcessingAborted: 'Opplasting avbrutt',
+    labelFileProcessingError: 'Feil under opplasting',
+    labelFileProcessingRevertError: 'Feil under reversering',
+    labelFileRemoveError: 'Feil under flytting',
+    labelTapToCancel: 'klikk for \xE5 avbryte',
+    labelTapToRetry: 'klikk for \xE5 pr\xF8ve p\xE5 nytt',
+    labelTapToUndo: 'klikk for \xE5 angre',
+    labelButtonRemoveItem: 'Fjern',
+    labelButtonAbortItemLoad: 'Avbryt',
+    labelButtonRetryItemLoad: 'Pr\xF8v p\xE5 nytt',
+    labelButtonAbortItemProcessing: 'Avbryt',
+    labelButtonUndoItemProcessing: 'Angre',
+    labelButtonRetryItemProcessing: 'Pr\xF8v p\xE5 nytt',
+    labelButtonProcessItem: 'Last opp',
+    labelMaxFileSizeExceeded: 'Filen er for stor',
+    labelMaxFileSize: 'Maksimal filst\xF8rrelse er {filesize}',
+    labelMaxTotalFileSizeExceeded: 'Maksimal total st\xF8rrelse oversteget',
+    labelMaxTotalFileSize: 'Maksimal total st\xF8rrelse er {filesize}',
+    labelFileTypeNotAllowed: 'Ugyldig filtype',
+    fileValidateTypeLabelExpectedTypes: 'Forventer {allButLastType} eller {lastType}',
+    imageValidateSizeLabelFormatError: 'Bildeformat ikke st\xF8ttet',
+    imageValidateSizeLabelImageSizeTooSmall: 'Bildet er for lite',
+    imageValidateSizeLabelImageSizeTooBig: 'Bildet er for stort',
+    imageValidateSizeLabelExpectedMinSize: 'Minimumsst\xF8rrelse er {minWidth} \xD7 {minHeight}',
+    imageValidateSizeLabelExpectedMaxSize: 'Maksimumsst\xF8rrelse er {maxWidth} \xD7 {maxHeight}',
+    imageValidateSizeLabelImageResolutionTooLow: 'Oppl\xF8sningen er for lav',
+    imageValidateSizeLabelImageResolutionTooHigh: 'Oppl\xF8sningen er for h\xF8y',
+    imageValidateSizeLabelExpectedMinResolution: 'Minimum oppl\xF8sning er {minResolution}',
+    imageValidateSizeLabelExpectedMaxResolution: 'Maksimal oppl\xF8sning er {maxResolution}',
+};
+var vo = {
     labelIdle:
         'Przeci\u0105gnij i upu\u015B\u0107 lub <span class="filepond--label-action">wybierz</span> pliki',
     labelInvalidField: 'Nieprawid\u0142owe pliki',
@@ -10884,7 +10939,7 @@ var Io = {
     imageValidateSizeLabelExpectedMaxResolution:
         'Maksymalna rozdzielczo\u015B\u0107 to {maxResolution}',
 };
-var fi = {
+var Ti = {
     labelIdle:
         'Arraste e solte os arquivos ou <span class="filepond--label-action"> Clique aqui </span>',
     labelInvalidField: 'Arquivos inv\xE1lidos',
@@ -10929,7 +10984,7 @@ var fi = {
     imageValidateSizeLabelExpectedMaxResolution:
         'Resolu\xE7\xE3o m\xE1xima permitida: {maxResolution}',
 };
-var bo = {
+var Ao = {
     labelIdle:
         'Trage \u0219i plaseaz\u0103 fi\u0219iere sau <span class="filepond--label-action"> Caut\u0103-le </span>',
     labelInvalidField: 'C\xE2mpul con\u021Bine fi\u0219iere care nu sunt valide',
@@ -10975,7 +11030,7 @@ var bo = {
     imageValidateSizeLabelExpectedMaxResolution:
         'Rezolu\u021Bia maxim\u0103 este de {maxResolution}',
 };
-var _o = {
+var Lo = {
     labelIdle:
         '\u041F\u0435\u0440\u0435\u0442\u0430\u0449\u0438\u0442\u0435 \u0444\u0430\u0439\u043B\u044B \u0438\u043B\u0438 <span class="filepond--label-action"> \u0432\u044B\u0431\u0435\u0440\u0438\u0442\u0435 </span>',
     labelInvalidField:
@@ -11045,7 +11100,7 @@ var _o = {
     imageValidateSizeLabelExpectedMaxResolution:
         '\u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u043E\u0435 \u0440\u0430\u0437\u0440\u0435\u0448\u0435\u043D\u0438\u0435: {maxResolution}',
 };
-var Ro = {
+var Mo = {
     labelIdle:
         'Drag och sl\xE4pp dina filer eller <span class="filepond--label-action"> Bl\xE4ddra </span>',
     labelInvalidField: 'F\xE4ltet inneh\xE5ller felaktiga filer',
@@ -11087,7 +11142,7 @@ var Ro = {
     imageValidateSizeLabelExpectedMaxResolution:
         'H\xF6gsta till\xE5tna uppl\xF6sning \xE4r {maxResolution}',
 };
-var yo = {
+var Oo = {
     labelIdle:
         'Dosyan\u0131z\u0131 S\xFCr\xFCkleyin & B\u0131rak\u0131n ya da <span class="filepond--label-action"> Se\xE7in </span>',
     labelInvalidField: 'Alan ge\xE7ersiz dosyalar i\xE7eriyor',
@@ -11131,7 +11186,7 @@ var yo = {
     imageValidateSizeLabelExpectedMaxResolution:
         'Maximum \xE7\xF6z\xFCn\xFCrl\xFCk {maxResolution}',
 };
-var So = {
+var xo = {
     labelIdle:
         '\u041F\u0435\u0440\u0435\u0442\u044F\u0433\u043D\u0456\u0442\u044C \u0444\u0430\u0439\u043B\u0438 \u0430\u0431\u043E <span class="filepond--label-action"> \u0432\u0438\u0431\u0435\u0440\u0456\u0442\u044C </span>',
     labelInvalidField:
@@ -11201,7 +11256,7 @@ var So = {
     imageValidateSizeLabelExpectedMaxResolution:
         '\u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u0456 \u0440\u043E\u0437\u043C\u0456\u0440\u0438: {maxResolution}',
 };
-var wo = {
+var Do = {
     labelIdle:
         'K\xE9o th\u1EA3 t\u1EC7p c\u1EE7a b\u1EA1n ho\u1EB7c <span class="filepond--label-action"> T\xECm ki\u1EBFm </span>',
     labelInvalidField: 'Tr\u01B0\u1EDDng ch\u1EE9a c\xE1c t\u1EC7p kh\xF4ng h\u1EE3p l\u1EC7',
@@ -11249,7 +11304,7 @@ var wo = {
     imageValidateSizeLabelExpectedMaxResolution:
         '\u0110\u1ED9 ph\xE2n gi\u1EA3i t\u1ED1i \u0111a l\xE0 {maxResolution}',
 };
-var Ao = {
+var Po = {
     labelIdle:
         '\u62D6\u653E\u6587\u4EF6\uFF0C\u6216\u8005 <span class="filepond--label-action"> \u6D4F\u89C8 </span>',
     labelInvalidField: '\u5B57\u6BB5\u5305\u542B\u65E0\u6548\u6587\u4EF6',
@@ -11291,7 +11346,7 @@ var Ao = {
     imageValidateSizeLabelExpectedMaxResolution:
         '\u6700\u5927\u5206\u8FA8\u7387\uFF1A{maxResolution}',
 };
-var vo = {
+var Fo = {
     labelIdle:
         '\u62D6\u653E\u6A94\u6848\uFF0C\u6216\u8005 <span class="filepond--label-action"> \u700F\u89BD </span>',
     labelInvalidField: '\u4E0D\u652F\u63F4\u6B64\u6A94\u6848',
@@ -11335,60 +11390,67 @@ var vo = {
     imageValidateSizeLabelExpectedMaxResolution:
         '\u6700\u9AD8\u89E3\u6790\u5EA6\uFF1A{maxResolution}',
 };
-ge(Rr);
-ge(Sr);
-ge(vr);
-ge(Mr);
-ge(Pr);
-ge(Wr);
-ge($r);
-ge(no);
-ge(ga);
-window.FilePond = $i;
-function kf({
+Te(Lr);
+Te(Or);
+Te(Pr);
+Te(Cr);
+Te(Gr);
+Te(Qr);
+Te(Kr);
+Te(uo);
+Te(_a);
+window.FilePond = Zi;
+function Qf({
     acceptedFileTypes: e,
     imageEditorEmptyFillColor: t,
     imageEditorMode: i,
     imageEditorViewportHeight: a,
     imageEditorViewportWidth: n,
-    deleteUploadedFileUsing: o,
-    isDisabled: r,
-    getUploadedFilesUsing: l,
-    imageCropAspectRatio: s,
-    imagePreviewHeight: u,
-    imageResizeMode: c,
-    imageResizeTargetHeight: d,
-    imageResizeTargetWidth: h,
+    deleteUploadedFileUsing: r,
+    isDeletable: o,
+    isDisabled: l,
+    getUploadedFilesUsing: s,
+    imageCropAspectRatio: u,
+    imagePreviewHeight: c,
+    imageResizeMode: d,
+    imageResizeTargetHeight: h,
+    imageResizeTargetWidth: f,
     imageResizeUpscale: p,
-    isAvatar: f,
-    hasImageEditor: m,
-    isDownloadable: E,
-    isOpenable: b,
-    isPreviewable: g,
-    isReorderable: T,
-    loadingIndicatorPosition: _,
-    locale: y,
-    maxSize: I,
+    isAvatar: m,
+    hasImageEditor: g,
+    hasCircleCropper: b,
+    canEditSvgs: E,
+    isSvgEditingConfirmed: T,
+    confirmSvgEditingMessage: _,
+    disabledSvgEditingMessage: y,
+    isDownloadable: I,
+    isMultiple: v,
+    isOpenable: R,
+    isPreviewable: S,
+    isReorderable: D,
+    loadingIndicatorPosition: x,
+    locale: O,
+    maxSize: B,
     minSize: A,
-    panelAspectRatio: R,
-    panelLayout: S,
-    placeholder: P,
-    removeUploadedFileButtonPosition: D,
-    removeUploadedFileUsing: O,
-    reorderUploadedFilesUsing: N,
-    shouldAppendFiles: v,
-    shouldOrientImageFromExif: F,
-    shouldTransformImage: w,
-    state: L,
-    uploadButtonPosition: z,
-    uploadProgressIndicatorPosition: C,
-    uploadUsing: G,
+    panelAspectRatio: F,
+    panelLayout: w,
+    placeholder: L,
+    removeUploadedFileButtonPosition: N,
+    removeUploadedFileUsing: P,
+    reorderUploadedFilesUsing: U,
+    shouldAppendFiles: V,
+    shouldOrientImageFromExif: q,
+    shouldTransformImage: X,
+    state: j,
+    uploadButtonPosition: se,
+    uploadProgressIndicatorPosition: k,
+    uploadUsing: W,
 }) {
     return {
         fileKeyIndex: {},
         pond: null,
         shouldUpdateState: !0,
-        state: L,
+        state: j,
         lastState: null,
         uploadedFileIndex: {},
         isEditorOpen: !1,
@@ -11396,68 +11458,70 @@ function kf({
         currentRatio: '',
         editor: {},
         init: async function () {
-            yt(Lo[y] ?? Lo.en),
-                (this.pond = at(this.$refs.input, {
+            At(Co[O] ?? Co.en),
+                (this.pond = ot(this.$refs.input, {
                     acceptedFileTypes: e,
-                    allowImageExifOrientation: F,
+                    allowImageExifOrientation: q,
                     allowPaste: !1,
-                    allowReorder: T,
-                    allowImagePreview: g,
-                    allowVideoPreview: g,
-                    allowAudioPreview: g,
-                    allowImageTransform: w,
+                    allowRemove: o,
+                    allowReorder: D,
+                    allowImagePreview: S,
+                    allowVideoPreview: S,
+                    allowAudioPreview: S,
+                    allowImageTransform: X,
                     credits: !1,
                     files: await this.getFiles(),
-                    imageCropAspectRatio: s,
-                    imagePreviewHeight: u,
-                    imageResizeTargetHeight: d,
-                    imageResizeTargetWidth: h,
-                    imageResizeMode: c,
+                    imageCropAspectRatio: u,
+                    imagePreviewHeight: c,
+                    imageResizeTargetHeight: h,
+                    imageResizeTargetWidth: f,
+                    imageResizeMode: d,
                     imageResizeUpscale: p,
-                    itemInsertLocation: v ? 'after' : 'before',
-                    ...(P && { labelIdle: P }),
-                    maxFileSize: I,
+                    itemInsertLocation: V ? 'after' : 'before',
+                    ...(L && { labelIdle: L }),
+                    maxFileSize: B,
                     minFileSize: A,
-                    styleButtonProcessItemPosition: z,
-                    styleButtonRemoveItemPosition: D,
-                    styleLoadIndicatorPosition: _,
-                    stylePanelAspectRatio: R,
-                    stylePanelLayout: S,
-                    styleProgressIndicatorPosition: C,
+                    styleButtonProcessItemPosition: se,
+                    styleButtonRemoveItemPosition: N,
+                    styleLoadIndicatorPosition: x,
+                    stylePanelAspectRatio: F,
+                    stylePanelLayout: w,
+                    styleProgressIndicatorPosition: k,
                     server: {
-                        load: async (B, U) => {
-                            let ae = await (await fetch(B, { cache: 'no-store' })).blob();
-                            U(ae);
+                        load: async (z, G) => {
+                            let K = await (await fetch(z, { cache: 'no-store' })).blob();
+                            G(K);
                         },
-                        process: (B, U, W, ae, V, H) => {
+                        process: (z, G, $, K, Rt, ze) => {
                             this.shouldUpdateState = !1;
-                            let $ = ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, (j) =>
+                            let kt = ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, (Ht) =>
                                 (
-                                    j ^
-                                    (crypto.getRandomValues(new Uint8Array(1))[0] & (15 >> (j / 4)))
+                                    Ht ^
+                                    (crypto.getRandomValues(new Uint8Array(1))[0] &
+                                        (15 >> (Ht / 4)))
                                 ).toString(16),
                             );
-                            G(
-                                $,
-                                U,
-                                (j) => {
-                                    (this.shouldUpdateState = !0), ae(j);
+                            W(
+                                kt,
+                                G,
+                                (Ht) => {
+                                    (this.shouldUpdateState = !0), K(Ht);
                                 },
-                                V,
-                                H,
+                                Rt,
+                                ze,
                             );
                         },
-                        remove: async (B, U) => {
-                            let W = this.uploadedFileIndex[B] ?? null;
-                            W && (await o(W), U());
+                        remove: async (z, G) => {
+                            let $ = this.uploadedFileIndex[z] ?? null;
+                            $ && (await r($), G());
                         },
-                        revert: async (B, U) => {
-                            await O(B), U();
+                        revert: async (z, G) => {
+                            await P(z), G();
                         },
                     },
-                    allowImageEdit: m,
+                    allowImageEdit: g,
                     imageEditEditor: {
-                        open: (B) => this.loadEditor(B),
+                        open: (z) => this.loadEditor(z),
                         onconfirm: () => {},
                         oncancel: () => this.closeEditor(),
                         onclose: () => this.closeEditor(),
@@ -11467,7 +11531,7 @@ function kf({
                     if (this.pond && this.shouldUpdateState) {
                         if (
                             this.state !== null &&
-                            Object.values(this.state).filter((B) => B.startsWith('livewire-file:'))
+                            Object.values(this.state).filter((z) => z.startsWith('livewire-file:'))
                                 .length
                         ) {
                             this.lastState = null;
@@ -11478,113 +11542,115 @@ function kf({
                             (this.pond.files = await this.getFiles()));
                     }
                 }),
-                this.pond.on('reorderfiles', async (B) => {
-                    let U = B.map((W) =>
-                        W.source instanceof File
-                            ? W.serverId
-                            : this.uploadedFileIndex[W.source] ?? null,
-                    ).filter((W) => W);
-                    await N(v ? U : U.reverse());
+                this.pond.on('reorderfiles', async (z) => {
+                    let G = z
+                        .map(($) =>
+                            $.source instanceof File
+                                ? $.serverId
+                                : this.uploadedFileIndex[$.source] ?? null,
+                        )
+                        .filter(($) => $);
+                    await U(V ? G : G.reverse());
                 }),
-                this.pond.on('initfile', async (B) => {
-                    E && (f || this.insertDownloadLink(B));
+                this.pond.on('initfile', async (z) => {
+                    I && (m || this.insertDownloadLink(z));
                 }),
-                this.pond.on('initfile', async (B) => {
-                    b && (f || this.insertOpenLink(B));
+                this.pond.on('initfile', async (z) => {
+                    R && (m || this.insertOpenLink(z));
                 }),
-                this.pond.on('addfilestart', async (B) => {
-                    B.status === st.PROCESSING_QUEUED &&
+                this.pond.on('addfilestart', async (z) => {
+                    z.status === ut.PROCESSING_QUEUED &&
                         this.dispatchFormEvent('file-upload-started');
                 });
-            let x = async () => {
+            let C = async () => {
                 this.pond
                     .getFiles()
-                    .filter((B) => B.status === st.PROCESSING || B.status === st.PROCESSING_QUEUED)
+                    .filter((z) => z.status === ut.PROCESSING || z.status === ut.PROCESSING_QUEUED)
                     .length || this.dispatchFormEvent('file-upload-finished');
             };
-            this.pond.on('processfile', x),
-                this.pond.on('processfileabort', x),
-                this.pond.on('processfilerevert', x);
+            this.pond.on('processfile', C),
+                this.pond.on('processfileabort', C),
+                this.pond.on('processfilerevert', C);
         },
         destroy: function () {
-            this.destroyEditor(), nt(this.$refs.input), (this.pond = null);
+            this.destroyEditor(), lt(this.$refs.input), (this.pond = null);
         },
-        dispatchFormEvent: function (x) {
+        dispatchFormEvent: function (C) {
             this.$el
                 .closest('form')
-                ?.dispatchEvent(new CustomEvent(x, { composed: !0, cancelable: !0 }));
+                ?.dispatchEvent(new CustomEvent(C, { composed: !0, cancelable: !0 }));
         },
         getUploadedFiles: async function () {
-            let x = await l();
-            (this.fileKeyIndex = x ?? {}),
+            let C = await s();
+            (this.fileKeyIndex = C ?? {}),
                 (this.uploadedFileIndex = Object.entries(this.fileKeyIndex)
-                    .filter(([B, U]) => U?.url)
-                    .reduce((B, [U, W]) => ((B[W.url] = U), B), {}));
+                    .filter(([z, G]) => G?.url)
+                    .reduce((z, [G, $]) => ((z[$.url] = G), z), {}));
         },
         getFiles: async function () {
             await this.getUploadedFiles();
-            let x = [];
-            for (let B of Object.values(this.fileKeyIndex))
-                B &&
-                    x.push({
-                        source: B.url,
+            let C = [];
+            for (let z of Object.values(this.fileKeyIndex))
+                z &&
+                    C.push({
+                        source: z.url,
                         options: {
                             type: 'local',
-                            ...(/^image/.test(B.type)
+                            ...(!z.type || /^image/.test(z.type)
                                 ? {}
-                                : { file: { name: B.name, size: B.size, type: B.type } }),
+                                : { file: { name: z.name, size: z.size, type: z.type } }),
                         },
                     });
-            return v ? x : x.reverse();
+            return V ? C : C.reverse();
         },
-        insertDownloadLink: function (x) {
-            if (x.origin !== wt.LOCAL) return;
-            let B = this.getDownloadLink(x);
-            B &&
+        insertDownloadLink: function (C) {
+            if (C.origin !== Mt.LOCAL) return;
+            let z = this.getDownloadLink(C);
+            z &&
                 document
-                    .getElementById(`filepond--item-${x.id}`)
+                    .getElementById(`filepond--item-${C.id}`)
                     .querySelector('.filepond--file-info-main')
-                    .prepend(B);
+                    .prepend(z);
         },
-        insertOpenLink: function (x) {
-            if (x.origin !== wt.LOCAL) return;
-            let B = this.getOpenLink(x);
-            B &&
+        insertOpenLink: function (C) {
+            if (C.origin !== Mt.LOCAL) return;
+            let z = this.getOpenLink(C);
+            z &&
                 document
-                    .getElementById(`filepond--item-${x.id}`)
+                    .getElementById(`filepond--item-${C.id}`)
                     .querySelector('.filepond--file-info-main')
-                    .prepend(B);
+                    .prepend(z);
         },
-        getDownloadLink: function (x) {
-            let B = x.source;
-            if (!B) return;
-            let U = document.createElement('a');
+        getDownloadLink: function (C) {
+            let z = C.source;
+            if (!z) return;
+            let G = document.createElement('a');
             return (
-                (U.className = 'filepond--download-icon'),
-                (U.href = B),
-                (U.download = x.file.name),
-                U
+                (G.className = 'filepond--download-icon'),
+                (G.href = z),
+                (G.download = C.file.name),
+                G
             );
         },
-        getOpenLink: function (x) {
-            let B = x.source;
-            if (!B) return;
-            let U = document.createElement('a');
-            return (U.className = 'filepond--open-icon'), (U.href = B), (U.target = '_blank'), U;
+        getOpenLink: function (C) {
+            let z = C.source;
+            if (!z) return;
+            let G = document.createElement('a');
+            return (G.className = 'filepond--open-icon'), (G.href = z), (G.target = '_blank'), G;
         },
         initEditor: function () {
-            r ||
-                (m &&
-                    (this.editor = new da(this.$refs.editor, {
+            l ||
+                (g &&
+                    (this.editor = new ma(this.$refs.editor, {
                         aspectRatio: n / a,
                         autoCropArea: 1,
                         center: !0,
-                        crop: (x) => {
-                            (this.$refs.xPositionInput.value = Math.round(x.detail.x)),
-                                (this.$refs.yPositionInput.value = Math.round(x.detail.y)),
-                                (this.$refs.heightInput.value = Math.round(x.detail.height)),
-                                (this.$refs.widthInput.value = Math.round(x.detail.width)),
-                                (this.$refs.rotationInput.value = x.detail.rotate);
+                        crop: (C) => {
+                            (this.$refs.xPositionInput.value = Math.round(C.detail.x)),
+                                (this.$refs.yPositionInput.value = Math.round(C.detail.y)),
+                                (this.$refs.heightInput.value = Math.round(C.detail.height)),
+                                (this.$refs.widthInput.value = Math.round(C.detail.width)),
+                                (this.$refs.rotationInput.value = C.detail.rotate);
                         },
                         cropBoxResizable: !0,
                         guides: !0,
@@ -11598,50 +11664,120 @@ function kf({
         closeEditor: function () {
             (this.editingFile = {}), (this.isEditorOpen = !1), this.destroyEditor();
         },
-        loadEditor: function (x) {
-            if (r || !m || !x) return;
-            (this.editingFile = x), this.initEditor();
-            let B = new FileReader();
-            (B.onload = (U) => {
-                (this.isEditorOpen = !0),
-                    setTimeout(() => this.editor.replace(U.target.result), 200);
+        fixImageDimensions: function (C, z) {
+            if (C.type !== 'image/svg+xml') return z(C);
+            let G = new FileReader();
+            (G.onload = ($) => {
+                let K = new DOMParser()
+                    .parseFromString($.target.result, 'image/svg+xml')
+                    ?.querySelector('svg');
+                if (!K) return z(C);
+                let Rt = ['viewBox', 'ViewBox', 'viewbox'].find((kt) => K.hasAttribute(kt));
+                if (!Rt) return z(C);
+                let ze = K.getAttribute(Rt).split(' ');
+                return !ze || ze.length !== 4
+                    ? z(C)
+                    : (K.setAttribute('width', parseFloat(ze[2]) + 'pt'),
+                      K.setAttribute('height', parseFloat(ze[3]) + 'pt'),
+                      z(
+                          new File(
+                              [
+                                  new Blob([new XMLSerializer().serializeToString(K)], {
+                                      type: 'image/svg+xml',
+                                  }),
+                              ],
+                              C.name,
+                              { type: 'image/svg+xml', _relativePath: '' },
+                          ),
+                      ));
             }),
-                B.readAsDataURL(x);
+                G.readAsText(C);
+        },
+        loadEditor: function (C) {
+            if (l || !g || !C) return;
+            let z = C.type === 'image/svg+xml';
+            if (!E && z) {
+                alert(y);
+                return;
+            }
+            (T && z && !confirm(_)) ||
+                this.fixImageDimensions(C, (G) => {
+                    (this.editingFile = G), this.initEditor();
+                    let $ = new FileReader();
+                    ($.onload = (K) => {
+                        (this.isEditorOpen = !0),
+                            setTimeout(() => this.editor.replace(K.target.result), 200);
+                    }),
+                        $.readAsDataURL(C);
+                });
+        },
+        getRoundedCanvas: function (C) {
+            let z = C.width,
+                G = C.height,
+                $ = document.createElement('canvas');
+            ($.width = z), ($.height = G);
+            let K = $.getContext('2d');
+            return (
+                (K.imageSmoothingEnabled = !0),
+                K.drawImage(C, 0, 0, z, G),
+                (K.globalCompositeOperation = 'destination-in'),
+                K.beginPath(),
+                K.ellipse(z / 2, G / 2, z / 2, G / 2, 0, 0, 2 * Math.PI),
+                K.fill(),
+                $
+            );
         },
         saveEditor: function () {
-            r ||
-                (m &&
-                    this.editor
-                        .getCroppedCanvas({
-                            fillColor: t ?? 'transparent',
-                            height: d,
-                            imageSmoothingEnabled: !0,
-                            imageSmoothingQuality: 'high',
-                            width: h,
-                        })
-                        .toBlob((x) => {
+            if (l || !g) return;
+            let C = this.editor.getCroppedCanvas({
+                fillColor: t ?? 'transparent',
+                height: h,
+                imageSmoothingEnabled: !0,
+                imageSmoothingQuality: 'high',
+                width: f,
+            });
+            b && (C = this.getRoundedCanvas(C)),
+                C.toBlob(
+                    (z) => {
+                        v &&
                             this.pond.removeFile(
                                 this.pond
                                     .getFiles()
-                                    .find((B) => B.filename === this.editingFile.name),
+                                    .find((G) => G.filename === this.editingFile.name)?.id,
+                                { revert: !0 },
                             ),
-                                this.$nextTick(() => {
-                                    (this.shouldUpdateState = !1),
-                                        this.pond
-                                            .addFile(
-                                                new File([x], this.editingFile.name, {
-                                                    type:
-                                                        this.editingFile.type === 'image/svg+xml'
-                                                            ? 'image/png'
-                                                            : this.editingFile.type,
-                                                    lastModified: new Date().getTime(),
-                                                }),
-                                            )
-                                            .then(() => {
-                                                this.closeEditor();
-                                            });
-                                });
-                        }, this.editingFile.type));
+                            this.$nextTick(() => {
+                                this.shouldUpdateState = !1;
+                                let G = this.editingFile.name.slice(
+                                        0,
+                                        this.editingFile.name.lastIndexOf('.'),
+                                    ),
+                                    $ = this.editingFile.name.split('.').pop();
+                                $ === 'svg' && ($ = 'png');
+                                let K = /-v(\d+)/;
+                                K.test(G)
+                                    ? (G = G.replace(K, (Rt, ze) => `-v${Number(ze) + 1}`))
+                                    : (G += '-v1'),
+                                    this.pond
+                                        .addFile(
+                                            new File([z], `${G}.${$}`, {
+                                                type:
+                                                    this.editingFile.type === 'image/svg+xml' || b
+                                                        ? 'image/png'
+                                                        : this.editingFile.type,
+                                                lastModified: new Date().getTime(),
+                                            }),
+                                        )
+                                        .then(() => {
+                                            this.closeEditor();
+                                        })
+                                        .catch(() => {
+                                            this.closeEditor();
+                                        });
+                            });
+                    },
+                    b ? 'image/png' : this.editingFile.type,
+                );
         },
         destroyEditor: function () {
             this.editor && typeof this.editor.destroy == 'function' && this.editor.destroy(),
@@ -11649,33 +11785,34 @@ function kf({
         },
     };
 }
-var Lo = {
-    ar: ro,
-    cs: oo,
-    da: lo,
-    de: so,
-    en: co,
-    es: uo,
-    fa: ho,
-    fi: fo,
-    fr: po,
-    hu: mo,
-    id: go,
-    it: Eo,
-    nl: To,
-    pl: Io,
-    pt_BR: fi,
-    pt_PT: fi,
-    ro: bo,
-    ru: _o,
-    sv: Ro,
-    tr: yo,
-    uk: So,
-    vi: wo,
-    zh_CN: Ao,
-    zh_TW: vo,
+var Co = {
+    ar: ho,
+    cs: fo,
+    da: po,
+    de: mo,
+    en: go,
+    es: Eo,
+    fa: To,
+    fi: Io,
+    fr: bo,
+    hu: _o,
+    id: Ro,
+    it: yo,
+    nl: So,
+    no: wo,
+    pl: vo,
+    pt_BR: Ti,
+    pt_PT: Ti,
+    ro: Ao,
+    ru: Lo,
+    sv: Mo,
+    tr: Oo,
+    uk: xo,
+    vi: Do,
+    zh_CN: Po,
+    zh_TW: Fo,
 };
-export { kf as default };
+export { Qf as default };
 /*! Bundled license information:
 
 filepond/dist/filepond.esm.js:
@@ -11687,13 +11824,13 @@ filepond/dist/filepond.esm.js:
 
 cropperjs/dist/cropper.esm.js:
   (*!
-   * Cropper.js v1.5.13
+   * Cropper.js v1.6.1
    * https://fengyuanchen.github.io/cropperjs
    *
    * Copyright 2015-present Chen Fengyuan
    * Released under the MIT license
    *
-   * Date: 2022-11-20T05:30:46.114Z
+   * Date: 2023-09-17T03:44:19.860Z
    *)
 
 filepond-plugin-file-validate-size/dist/filepond-plugin-file-validate-size.esm.js:

@@ -1,9 +1,11 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Models\Content\App;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use SnowBuilds\Insights\Models\Record;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +19,9 @@ use Inertia\Inertia;
 */
 
 Route::get('/', function () {
+    Record::groupBy('model_type', 'model_id', 'identifier', 'type')->getAmounts(90);
+
+    // dd(App::find(89)->insights);
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),

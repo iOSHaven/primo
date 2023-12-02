@@ -19,6 +19,7 @@ return [
     'models' => [
         // represents 7 days worth of stats for given model
         'record' => \SnowBuilds\Stats\Models\Record::class,
+        'summary' => \SnowBuilds\Insights\Models\Summary::class,
     ],
 
     // /**
@@ -52,5 +53,6 @@ return [
         'summarized_at' => 'summarized_at',
         'extra' => 'extra',
         'json' => 'json',
+        'total' => 'total',
     ],
 ];

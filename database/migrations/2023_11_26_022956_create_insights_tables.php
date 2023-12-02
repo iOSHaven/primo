@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration
 {
@@ -32,11 +33,11 @@ return new class extends Migration
             $table->string($identifier)->nullable();
 
             for ($i = 1; $i <= 7; $i++) {
-                $table->timestamp($date_prefix.'_'.$i);
+                $table->timestamp($date_prefix . "_" . $i);
             }
 
             for ($i = 1; $i <= 7; $i++) {
-                $table->integer($amount_prefix.'_'.$i);
+                $table->integer($amount_prefix . "_" . $i);
             }
 
             $table->timestamp($summarized_at);

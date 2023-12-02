@@ -1,0 +1,84 @@
+
+  Dropping all tables ......................................... 102ms DONE
+
+   INFO  Preparing database.  
+
+  Creating migration table ...................................... 6ms DONE
+
+   INFO  Running migrations.  
+
+  2014_10_11_000000_create_teams_table ......................... 10ms DONE
+  2014_10_12_000000_create_users_table ......................... 22ms DONE
+  2014_10_12_100000_create_password_reset_tokens_table .......... 5ms DONE
+  2019_08_19_000000_create_failed_jobs_table .................... 6ms DONE
+  2019_12_14_000001_create_personal_access_tokens_table ......... 8ms DONE
+  2023_10_11_000001_create_team_member_table ................... 22ms DONE
+  2023_11_19_202003_create_purchasables_table ................... 6ms DONE
+  2023_11_19_203943_create_i18ns_table .......................... 6ms DONE
+  2023_11_19_203954_create_purchases_table ..................... 17ms DONE
+  2023_11_19_204008_create_prices_table ......................... 3ms DONE
+  2023_11_19_204028_create_content_table ........................ 3ms DONE
+  2023_11_19_204033_create_releases_table ...................... 18ms DONE
+  2023_11_19_204037_create_links_table ......................... 20ms DONE
+  2023_11_19_204132_laratrust_setup_tables ..................... 54ms DONE
+  2023_11_19_204233_create_media_table ......................... 15ms DONE
+  2023_11_19_212236_create_recommendation_tables ............... 13ms DONE
+  2023_11_19_222147_create_comments_table ...................... 27ms DONE
+  2023_11_19_222152_create_reactions_table ...................... 9ms DONE
+  2023_11_19_225809_add_approval_columns_to_teams .............. 14ms DONE
+  2023_11_26_022956_create_insights_summaries_table ............ 29ms DONE
+  2023_11_26_022956_create_insights_tables ...................... 9ms DONE
+
+
+   INFO  Seeding database.  
+
+  Database\Seeders\ProductionSeeder .............................. RUNNING  
+  Database\Seeders\Production\AdminSeeder ........................ RUNNING  
+  Database\Seeders\Production\AdminSeeder .................... 515 ms DONE  
+
+  Database\Seeders\Production\UserSeeder ......................... RUNNING  
+
+
+  Database\Seeders\Production\UserSeeder ................... 6,643 ms DONE  
+
+  Database\Seeders\Production\AppSeeder .......................... RUNNING  
+
+
+  Database\Seeders\Production\ItmsLinkSeeder ..................... RUNNING  
+
+
+  Database\Seeders\Production\ItmsLinkSeeder ................. 567 ms DONE  
+
+  Database\Seeders\Production\IpaLinkSeeder ...................... RUNNING  
+
+
+  Database\Seeders\Production\IpaLinkSeeder .................. 399 ms DONE  
+
+  Database\Seeders\Production\TeamSeeder ......................... RUNNING  
+
+
+  Database\Seeders\Production\TeamSeeder ..................... 203 ms DONE  
+
+  Database\Seeders\Production\AppSeeder .................... 1,677 ms DONE  
+
+  Database\Seeders\Production\ShortcutSeeder ..................... RUNNING  
+
+
+  Database\Seeders\Production\ShortcutSeeder ................. 229 ms DONE  
+
+  Database\Seeders\Production\StatSeeder ......................... RUNNING  
+
+ [INFO] Fetching all stats! This will take a while.                         
+
+
+
+  Database\Seeders\Production\StatSeeder ................. 176,440 ms DONE  
+
+  Database\Seeders\ProductionSeeder ...................... 185,518 ms DONE  
+
+  Database\Seeders\DevelopmentSeeder ............................. RUNNING  
+  Database\Seeders\Development\UserSeeder ........................ RUNNING  
+  Database\Seeders\Development\UserSeeder .................... 987 ms DONE  
+
+  Database\Seeders\DevelopmentSeeder ......................... 989 ms DONE  
+

@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use SnowBuilds\Insights\Insights;
 
 return new class extends Migration
 {
@@ -27,12 +28,16 @@ return new class extends Migration
 
             $table->id();
             $table->nullableMorphs($model);
-            $table->string($event);
-            $table->string($identifier)->nullable();
+            $table->string($event)->nullable();
+            $table->string($identifier, 100)->nullable();
             $table->timestamp($start_at);
             $table->timestamp($end_at);
             $table->json($json);
+            $table->integer('total');
+            $table->softDeletes();
             $table->timestamps();
+
+            $table->unique(Insights::summaryUniqueColumns(), 'unique_summary');
         });
     }
 

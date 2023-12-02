@@ -2,11 +2,12 @@
 
 namespace App\Models;
 
+use App\Events\ViewEvent;
 use App\Models\Concerns\HasContentType;
-use App\Models\Enum\StatType;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use SnowBuilds\Insights\Concerns\Insights;
+use SnowBuilds\Insights\Models\Summary;
 use SnowBuilds\Mirror\Concerns\Recommendations;
 
 class Content extends Model
@@ -24,7 +25,7 @@ class Content extends Model
 
     public function views()
     {
-        return $this->morphMany(Stat::class, 'model')
-            ->where('type', StatType::View);
+        return $this->morphMany(Summary::class, 'model')
+            ->where('event', ViewEvent::class);
     }
 }

@@ -2,6 +2,8 @@
 
 namespace Database\Seeders\Production;
 
+use App\Events\DownloadEvent;
+use App\Events\ViewEvent;
 use App\Models\Link;
 use App\Models\Link\Ipa;
 use Carbon\Carbon;
@@ -67,7 +69,10 @@ class StatSeeder extends Seeder
                         'updated_at' => data_get($model, 'updated_at'),
                         'model_type' => $type,
                         'model_id' => $type === Ipa::class ? $ipaLinkIdOffset + data_get($model, 'target_id') : data_get($model, 'target_id'),
-                        'type' => data_get($model, 'event') === 'view' ? 'view' : 'download',
+                        'event' => match (data_get($model, 'event')) {
+                            'view' => ViewEvent::class,
+                            default => DownloadEvent::class,
+                        },
                         'amount_1' => data_get($model, 'day_1'),
                         'amount_2' => data_get($model, 'day_2'),
                         'amount_3' => data_get($model, 'day_3'),

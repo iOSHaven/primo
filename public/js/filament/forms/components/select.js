@@ -39,7 +39,7 @@ var $e = ft((Ae, Ye) => {
                                     void 0);
                         var _ = b(883),
                             h = function (c) {
-                                var a = c.value,
+                                var l = c.value,
                                     O = c.label,
                                     L = c.id,
                                     y = c.groupId,
@@ -50,7 +50,7 @@ var $e = ft((Ae, Ye) => {
                                     ne = c.keyCode;
                                 return {
                                     type: _.ACTION_TYPES.ADD_CHOICE,
-                                    value: a,
+                                    value: l,
                                     label: O,
                                     id: L,
                                     groupId: y,
@@ -62,17 +62,17 @@ var $e = ft((Ae, Ye) => {
                                 };
                             };
                         i.addChoice = h;
-                        var f = function (c) {
+                        var d = function (c) {
                             return { type: _.ACTION_TYPES.FILTER_CHOICES, results: c };
                         };
-                        i.filterChoices = f;
-                        var o = function (c) {
+                        i.filterChoices = d;
+                        var a = function (c) {
                             return (
                                 c === void 0 && (c = !0),
                                 { type: _.ACTION_TYPES.ACTIVATE_CHOICES, active: c }
                             );
                         };
-                        i.activateChoices = o;
+                        i.activateChoices = a;
                         var r = function () {
                             return { type: _.ACTION_TYPES.CLEAR_CHOICES };
                         };
@@ -82,17 +82,17 @@ var $e = ft((Ae, Ye) => {
                         Object.defineProperty(i, '__esModule', { value: !0 }),
                             (i.addGroup = void 0);
                         var _ = b(883),
-                            h = function (f) {
-                                var o = f.value,
-                                    r = f.id,
-                                    c = f.active,
-                                    a = f.disabled;
+                            h = function (d) {
+                                var a = d.value,
+                                    r = d.id,
+                                    c = d.active,
+                                    l = d.disabled;
                                 return {
                                     type: _.ACTION_TYPES.ADD_GROUP,
-                                    value: o,
+                                    value: a,
                                     id: r,
                                     active: c,
-                                    disabled: a,
+                                    disabled: l,
                                 };
                             };
                         i.addGroup = h;
@@ -103,7 +103,7 @@ var $e = ft((Ae, Ye) => {
                         var _ = b(883),
                             h = function (r) {
                                 var c = r.value,
-                                    a = r.label,
+                                    l = r.label,
                                     O = r.id,
                                     L = r.choiceId,
                                     y = r.groupId,
@@ -113,7 +113,7 @@ var $e = ft((Ae, Ye) => {
                                 return {
                                     type: _.ACTION_TYPES.ADD_ITEM,
                                     value: c,
-                                    label: a,
+                                    label: l,
                                     id: O,
                                     choiceId: L,
                                     groupId: y,
@@ -123,14 +123,14 @@ var $e = ft((Ae, Ye) => {
                                 };
                             };
                         i.addItem = h;
-                        var f = function (r, c) {
+                        var d = function (r, c) {
                             return { type: _.ACTION_TYPES.REMOVE_ITEM, id: r, choiceId: c };
                         };
-                        i.removeItem = f;
-                        var o = function (r, c) {
+                        i.removeItem = d;
+                        var a = function (r, c) {
                             return { type: _.ACTION_TYPES.HIGHLIGHT_ITEM, id: r, highlighted: c };
                         };
-                        i.highlightItem = o;
+                        i.highlightItem = a;
                     },
                     137: function (j, i, b) {
                         Object.defineProperty(i, '__esModule', { value: !0 }),
@@ -140,37 +140,37 @@ var $e = ft((Ae, Ye) => {
                                 return { type: _.ACTION_TYPES.CLEAR_ALL };
                             };
                         i.clearAll = h;
-                        var f = function (r) {
+                        var d = function (r) {
                             return { type: _.ACTION_TYPES.RESET_TO, state: r };
                         };
-                        i.resetTo = f;
-                        var o = function (r) {
+                        i.resetTo = d;
+                        var a = function (r) {
                             return { type: _.ACTION_TYPES.SET_IS_LOADING, isLoading: r };
                         };
-                        i.setIsLoading = o;
+                        i.setIsLoading = a;
                     },
                     373: function (j, i, b) {
                         var _ =
                                 (this && this.__spreadArray) ||
-                                function (d, e, t) {
+                                function (g, e, t) {
                                     if (t || arguments.length === 2)
-                                        for (var n = 0, l = e.length, g; n < l; n++)
-                                            (g || !(n in e)) &&
-                                                (g || (g = Array.prototype.slice.call(e, 0, n)),
-                                                (g[n] = e[n]));
-                                    return d.concat(g || Array.prototype.slice.call(e));
+                                        for (var n = 0, s = e.length, v; n < s; n++)
+                                            (v || !(n in e)) &&
+                                                (v || (v = Array.prototype.slice.call(e, 0, n)),
+                                                (v[n] = e[n]));
+                                    return g.concat(v || Array.prototype.slice.call(e));
                                 },
                             h =
                                 (this && this.__importDefault) ||
-                                function (d) {
-                                    return d && d.__esModule ? d : { default: d };
+                                function (g) {
+                                    return g && g.__esModule ? g : { default: g };
                                 };
                         Object.defineProperty(i, '__esModule', { value: !0 });
-                        var f = h(b(996)),
-                            o = h(b(221)),
+                        var d = h(b(996)),
+                            a = h(b(221)),
                             r = b(282),
                             c = b(783),
-                            a = b(464),
+                            l = b(464),
                             O = b(137),
                             L = b(520),
                             y = b(883),
@@ -184,42 +184,42 @@ var $e = ft((Ae, Ye) => {
                                 '-ms-ime-align' in document.documentElement.style,
                             w = {},
                             N = (function () {
-                                function d(e, t) {
+                                function g(e, t) {
                                     e === void 0 && (e = '[data-choice]'), t === void 0 && (t = {});
                                     var n = this;
                                     t.allowHTML === void 0 &&
                                         console.warn(
                                             'Deprecation warning: allowHTML will default to false in a future release. To render HTML in Choices, you will need to set it to true. Setting allowHTML will suppress this message.',
                                         ),
-                                        (this.config = f.default.all(
-                                            [D.DEFAULT_CONFIG, d.defaults.options, t],
+                                        (this.config = d.default.all(
+                                            [D.DEFAULT_CONFIG, g.defaults.options, t],
                                             {
                                                 arrayMerge: function (u, C) {
                                                     return _([], C, !0);
                                                 },
                                             },
                                         ));
-                                    var l = (0, k.diff)(this.config, D.DEFAULT_CONFIG);
-                                    l.length &&
+                                    var s = (0, k.diff)(this.config, D.DEFAULT_CONFIG);
+                                    s.length &&
                                         console.warn(
                                             'Unknown config option(s) passed',
-                                            l.join(', '),
+                                            s.join(', '),
                                         );
-                                    var g = typeof e == 'string' ? document.querySelector(e) : e;
+                                    var v = typeof e == 'string' ? document.querySelector(e) : e;
                                     if (
                                         !(
-                                            g instanceof HTMLInputElement ||
-                                            g instanceof HTMLSelectElement
+                                            v instanceof HTMLInputElement ||
+                                            v instanceof HTMLSelectElement
                                         )
                                     )
                                         throw TypeError(
                                             'Expected one of the following types text|select-one|select-multiple',
                                         );
                                     if (
-                                        ((this._isTextElement = g.type === y.TEXT_TYPE),
-                                        (this._isSelectOneElement = g.type === y.SELECT_ONE_TYPE),
+                                        ((this._isTextElement = v.type === y.TEXT_TYPE),
+                                        (this._isSelectOneElement = v.type === y.SELECT_ONE_TYPE),
                                         (this._isSelectMultipleElement =
-                                            g.type === y.SELECT_MULTIPLE_TYPE),
+                                            v.type === y.SELECT_MULTIPLE_TYPE),
                                         (this._isSelectElement =
                                             this._isSelectOneElement ||
                                             this._isSelectMultipleElement),
@@ -240,12 +240,12 @@ var $e = ft((Ae, Ye) => {
                                     if (
                                         (this._isTextElement
                                             ? (this.passedElement = new L.WrappedInput({
-                                                  element: g,
+                                                  element: v,
                                                   classNames: this.config.classNames,
                                                   delimiter: this.config.delimiter,
                                               }))
                                             : (this.passedElement = new L.WrappedSelect({
-                                                  element: g,
+                                                  element: v,
                                                   classNames: this.config.classNames,
                                                   template: function (u) {
                                                       return n._templates.option(u);
@@ -286,10 +286,10 @@ var $e = ft((Ae, Ye) => {
                                         (this._presetItems = this.config.items),
                                         this.passedElement.value && this._isTextElement)
                                     ) {
-                                        var p = this.passedElement.value.split(
+                                        var f = this.passedElement.value.split(
                                             this.config.delimiter,
                                         );
-                                        this._presetItems = this._presetItems.concat(p);
+                                        this._presetItems = this._presetItems.concat(f);
                                     }
                                     if (
                                         (this.passedElement.options &&
@@ -336,7 +336,7 @@ var $e = ft((Ae, Ye) => {
                                     this.init();
                                 }
                                 return (
-                                    Object.defineProperty(d, 'defaults', {
+                                    Object.defineProperty(g, 'defaults', {
                                         get: function () {
                                             return Object.preventExtensions({
                                                 get options() {
@@ -350,7 +350,7 @@ var $e = ft((Ae, Ye) => {
                                         enumerable: !1,
                                         configurable: !0,
                                     }),
-                                    (d.prototype.init = function () {
+                                    (g.prototype.init = function () {
                                         if (!this.initialised) {
                                             this._createTemplates(),
                                                 this._createElements(),
@@ -366,7 +366,7 @@ var $e = ft((Ae, Ye) => {
                                             t && typeof t == 'function' && t.call(this);
                                         }
                                     }),
-                                    (d.prototype.destroy = function () {
+                                    (g.prototype.destroy = function () {
                                         this.initialised &&
                                             (this._removeEventListeners(),
                                             this.passedElement.reveal(),
@@ -377,7 +377,7 @@ var $e = ft((Ae, Ye) => {
                                             (this._templates = ne.default),
                                             (this.initialised = !1));
                                     }),
-                                    (d.prototype.enable = function () {
+                                    (g.prototype.enable = function () {
                                         return (
                                             this.passedElement.isDisabled &&
                                                 this.passedElement.enable(),
@@ -388,7 +388,7 @@ var $e = ft((Ae, Ye) => {
                                             this
                                         );
                                     }),
-                                    (d.prototype.disable = function () {
+                                    (g.prototype.disable = function () {
                                         return (
                                             this.passedElement.isDisabled ||
                                                 this.passedElement.disable(),
@@ -399,56 +399,56 @@ var $e = ft((Ae, Ye) => {
                                             this
                                         );
                                     }),
-                                    (d.prototype.highlightItem = function (e, t) {
+                                    (g.prototype.highlightItem = function (e, t) {
                                         if ((t === void 0 && (t = !0), !e || !e.id)) return this;
                                         var n = e.id,
-                                            l = e.groupId,
-                                            g = l === void 0 ? -1 : l,
+                                            s = e.groupId,
+                                            v = s === void 0 ? -1 : s,
                                             P = e.value,
                                             M = P === void 0 ? '' : P,
                                             K = e.label,
-                                            p = K === void 0 ? '' : K,
-                                            u = g >= 0 ? this._store.getGroupById(g) : null;
+                                            f = K === void 0 ? '' : K,
+                                            u = v >= 0 ? this._store.getGroupById(v) : null;
                                         return (
-                                            this._store.dispatch((0, a.highlightItem)(n, !0)),
+                                            this._store.dispatch((0, l.highlightItem)(n, !0)),
                                             t &&
                                                 this.passedElement.triggerEvent(
                                                     y.EVENTS.highlightItem,
                                                     {
                                                         id: n,
                                                         value: M,
-                                                        label: p,
+                                                        label: f,
                                                         groupValue: u && u.value ? u.value : null,
                                                     },
                                                 ),
                                             this
                                         );
                                     }),
-                                    (d.prototype.unhighlightItem = function (e) {
+                                    (g.prototype.unhighlightItem = function (e) {
                                         if (!e || !e.id) return this;
                                         var t = e.id,
                                             n = e.groupId,
-                                            l = n === void 0 ? -1 : n,
-                                            g = e.value,
-                                            P = g === void 0 ? '' : g,
+                                            s = n === void 0 ? -1 : n,
+                                            v = e.value,
+                                            P = v === void 0 ? '' : v,
                                             M = e.label,
                                             K = M === void 0 ? '' : M,
-                                            p = l >= 0 ? this._store.getGroupById(l) : null;
+                                            f = s >= 0 ? this._store.getGroupById(s) : null;
                                         return (
-                                            this._store.dispatch((0, a.highlightItem)(t, !1)),
+                                            this._store.dispatch((0, l.highlightItem)(t, !1)),
                                             this.passedElement.triggerEvent(
                                                 y.EVENTS.highlightItem,
                                                 {
                                                     id: t,
                                                     value: P,
                                                     label: K,
-                                                    groupValue: p && p.value ? p.value : null,
+                                                    groupValue: f && f.value ? f.value : null,
                                                 },
                                             ),
                                             this
                                         );
                                     }),
-                                    (d.prototype.highlightAll = function () {
+                                    (g.prototype.highlightAll = function () {
                                         var e = this;
                                         return (
                                             this._store.items.forEach(function (t) {
@@ -457,7 +457,7 @@ var $e = ft((Ae, Ye) => {
                                             this
                                         );
                                     }),
-                                    (d.prototype.unhighlightAll = function () {
+                                    (g.prototype.unhighlightAll = function () {
                                         var e = this;
                                         return (
                                             this._store.items.forEach(function (t) {
@@ -466,7 +466,7 @@ var $e = ft((Ae, Ye) => {
                                             this
                                         );
                                     }),
-                                    (d.prototype.removeActiveItemsByValue = function (e) {
+                                    (g.prototype.removeActiveItemsByValue = function (e) {
                                         var t = this;
                                         return (
                                             this._store.activeItems
@@ -479,13 +479,13 @@ var $e = ft((Ae, Ye) => {
                                             this
                                         );
                                     }),
-                                    (d.prototype.removeActiveItems = function (e) {
+                                    (g.prototype.removeActiveItems = function (e) {
                                         var t = this;
                                         return (
                                             this._store.activeItems
                                                 .filter(function (n) {
-                                                    var l = n.id;
-                                                    return l !== e;
+                                                    var s = n.id;
+                                                    return s !== e;
                                                 })
                                                 .forEach(function (n) {
                                                     return t._removeItem(n);
@@ -493,7 +493,7 @@ var $e = ft((Ae, Ye) => {
                                             this
                                         );
                                     }),
-                                    (d.prototype.removeHighlightedItems = function (e) {
+                                    (g.prototype.removeHighlightedItems = function (e) {
                                         var t = this;
                                         return (
                                             e === void 0 && (e = !1),
@@ -506,7 +506,7 @@ var $e = ft((Ae, Ye) => {
                                             this
                                         );
                                     }),
-                                    (d.prototype.showDropdown = function (e) {
+                                    (g.prototype.showDropdown = function (e) {
                                         var t = this;
                                         return this.dropdown.isActive
                                             ? this
@@ -523,7 +523,7 @@ var $e = ft((Ae, Ye) => {
                                               }),
                                               this);
                                     }),
-                                    (d.prototype.hideDropdown = function (e) {
+                                    (g.prototype.hideDropdown = function (e) {
                                         var t = this;
                                         return this.dropdown.isActive
                                             ? (requestAnimationFrame(function () {
@@ -541,15 +541,15 @@ var $e = ft((Ae, Ye) => {
                                               this)
                                             : this;
                                     }),
-                                    (d.prototype.getValue = function (e) {
+                                    (g.prototype.getValue = function (e) {
                                         e === void 0 && (e = !1);
-                                        var t = this._store.activeItems.reduce(function (n, l) {
-                                            var g = e ? l.value : l;
-                                            return n.push(g), n;
+                                        var t = this._store.activeItems.reduce(function (n, s) {
+                                            var v = e ? s.value : s;
+                                            return n.push(v), n;
                                         }, []);
                                         return this._isSelectOneElement ? t[0] : t;
                                     }),
-                                    (d.prototype.setValue = function (e) {
+                                    (g.prototype.setValue = function (e) {
                                         var t = this;
                                         return this.initialised
                                             ? (e.forEach(function (n) {
@@ -558,24 +558,24 @@ var $e = ft((Ae, Ye) => {
                                               this)
                                             : this;
                                     }),
-                                    (d.prototype.setChoiceByValue = function (e) {
+                                    (g.prototype.setChoiceByValue = function (e) {
                                         var t = this;
                                         if (!this.initialised || this._isTextElement) return this;
                                         var n = Array.isArray(e) ? e : [e];
                                         return (
-                                            n.forEach(function (l) {
-                                                return t._findAndSelectChoiceByValue(l);
+                                            n.forEach(function (s) {
+                                                return t._findAndSelectChoiceByValue(s);
                                             }),
                                             this
                                         );
                                     }),
-                                    (d.prototype.setChoices = function (e, t, n, l) {
-                                        var g = this;
+                                    (g.prototype.setChoices = function (e, t, n, s) {
+                                        var v = this;
                                         if (
                                             (e === void 0 && (e = []),
                                             t === void 0 && (t = 'value'),
                                             n === void 0 && (n = 'label'),
-                                            l === void 0 && (l = !1),
+                                            s === void 0 && (s = !1),
                                             !this.initialised)
                                         )
                                             throw new ReferenceError(
@@ -589,7 +589,7 @@ var $e = ft((Ae, Ye) => {
                                             throw new TypeError(
                                                 "value parameter must be a name of 'value' field in passed objects",
                                             );
-                                        if ((l && this.clearChoices(), typeof e == 'function')) {
+                                        if ((s && this.clearChoices(), typeof e == 'function')) {
                                             var P = e(this);
                                             if (
                                                 typeof Promise == 'function' &&
@@ -599,22 +599,22 @@ var $e = ft((Ae, Ye) => {
                                                     return requestAnimationFrame(M);
                                                 })
                                                     .then(function () {
-                                                        return g._handleLoadingState(!0);
+                                                        return v._handleLoadingState(!0);
                                                     })
                                                     .then(function () {
                                                         return P;
                                                     })
                                                     .then(function (M) {
-                                                        return g.setChoices(M, t, n, l);
+                                                        return v.setChoices(M, t, n, s);
                                                     })
                                                     .catch(function (M) {
-                                                        g.config.silent || console.error(M);
+                                                        v.config.silent || console.error(M);
                                                     })
                                                     .then(function () {
-                                                        return g._handleLoadingState(!1);
+                                                        return v._handleLoadingState(!1);
                                                     })
                                                     .then(function () {
-                                                        return g;
+                                                        return v;
                                                     });
                                             if (!Array.isArray(P))
                                                 throw new TypeError(
@@ -633,7 +633,7 @@ var $e = ft((Ae, Ye) => {
                                             this._startLoading(),
                                             e.forEach(function (M) {
                                                 if (M.choices)
-                                                    g._addGroup({
+                                                    v._addGroup({
                                                         id: M.id
                                                             ? parseInt(''.concat(M.id), 10)
                                                             : null,
@@ -643,7 +643,7 @@ var $e = ft((Ae, Ye) => {
                                                     });
                                                 else {
                                                     var K = M;
-                                                    g._addChoice({
+                                                    v._addChoice({
                                                         value: K[t],
                                                         label: K[n],
                                                         isSelected: !!K.selected,
@@ -657,13 +657,13 @@ var $e = ft((Ae, Ye) => {
                                             this
                                         );
                                     }),
-                                    (d.prototype.clearChoices = function () {
+                                    (g.prototype.clearChoices = function () {
                                         return this._store.dispatch((0, r.clearChoices)()), this;
                                     }),
-                                    (d.prototype.clearStore = function () {
+                                    (g.prototype.clearStore = function () {
                                         return this._store.dispatch((0, O.clearAll)()), this;
                                     }),
-                                    (d.prototype.clearInput = function () {
+                                    (g.prototype.clearInput = function () {
                                         var e = !this._isSelectOneElement;
                                         return (
                                             this.input.clear(e),
@@ -674,7 +674,7 @@ var $e = ft((Ae, Ye) => {
                                             this
                                         );
                                     }),
-                                    (d.prototype._render = function () {
+                                    (g.prototype._render = function () {
                                         if (!this._store.isLoading()) {
                                             this._currentState = this._store.state;
                                             var e =
@@ -694,12 +694,12 @@ var $e = ft((Ae, Ye) => {
                                                 (this._prevState = this._currentState));
                                         }
                                     }),
-                                    (d.prototype._renderChoices = function () {
+                                    (g.prototype._renderChoices = function () {
                                         var e = this,
                                             t = this._store,
                                             n = t.activeGroups,
-                                            l = t.activeChoices,
-                                            g = document.createDocumentFragment();
+                                            s = t.activeChoices,
+                                            v = document.createDocumentFragment();
                                         if (
                                             (this.choiceList.clear(),
                                             this.config.resetScrollPosition &&
@@ -708,64 +708,64 @@ var $e = ft((Ae, Ye) => {
                                                 }),
                                             n.length >= 1 && !this._isSearching)
                                         ) {
-                                            var P = l.filter(function (C) {
+                                            var P = s.filter(function (C) {
                                                 return C.placeholder === !0 && C.groupId === -1;
                                             });
                                             P.length >= 1 &&
-                                                (g = this._createChoicesFragment(P, g)),
-                                                (g = this._createGroupsFragment(n, l, g));
+                                                (v = this._createChoicesFragment(P, v)),
+                                                (v = this._createGroupsFragment(n, s, v));
                                         } else
-                                            l.length >= 1 &&
-                                                (g = this._createChoicesFragment(l, g));
-                                        if (g.childNodes && g.childNodes.length > 0) {
+                                            s.length >= 1 &&
+                                                (v = this._createChoicesFragment(s, v));
+                                        if (v.childNodes && v.childNodes.length > 0) {
                                             var M = this._store.activeItems,
                                                 K = this._canAddItem(M, this.input.value);
                                             if (K.response)
-                                                this.choiceList.append(g), this._highlightChoice();
+                                                this.choiceList.append(v), this._highlightChoice();
                                             else {
-                                                var p = this._getTemplate('notice', K.notice);
-                                                this.choiceList.append(p);
+                                                var f = this._getTemplate('notice', K.notice);
+                                                this.choiceList.append(f);
                                             }
                                         } else {
                                             var u = void 0,
-                                                p = void 0;
+                                                f = void 0;
                                             this._isSearching
-                                                ? ((p =
+                                                ? ((f =
                                                       typeof this.config.noResultsText == 'function'
                                                           ? this.config.noResultsText()
                                                           : this.config.noResultsText),
                                                   (u = this._getTemplate(
                                                       'notice',
-                                                      p,
+                                                      f,
                                                       'no-results',
                                                   )))
-                                                : ((p =
+                                                : ((f =
                                                       typeof this.config.noChoicesText == 'function'
                                                           ? this.config.noChoicesText()
                                                           : this.config.noChoicesText),
                                                   (u = this._getTemplate(
                                                       'notice',
-                                                      p,
+                                                      f,
                                                       'no-choices',
                                                   ))),
                                                 this.choiceList.append(u);
                                         }
                                     }),
-                                    (d.prototype._renderItems = function () {
+                                    (g.prototype._renderItems = function () {
                                         var e = this._store.activeItems || [];
                                         this.itemList.clear();
                                         var t = this._createItemsFragment(e);
                                         t.childNodes && this.itemList.append(t);
                                     }),
-                                    (d.prototype._createGroupsFragment = function (e, t, n) {
-                                        var l = this;
+                                    (g.prototype._createGroupsFragment = function (e, t, n) {
+                                        var s = this;
                                         n === void 0 && (n = document.createDocumentFragment());
-                                        var g = function (P) {
+                                        var v = function (P) {
                                             return t.filter(function (M) {
-                                                return l._isSelectOneElement
+                                                return s._isSelectOneElement
                                                     ? M.groupId === P.id
                                                     : M.groupId === P.id &&
-                                                          (l.config.renderSelectedChoices ===
+                                                          (s.config.renderSelectedChoices ===
                                                               'always' ||
                                                               !M.selected);
                                             });
@@ -773,37 +773,37 @@ var $e = ft((Ae, Ye) => {
                                         return (
                                             this.config.shouldSort && e.sort(this.config.sorter),
                                             e.forEach(function (P) {
-                                                var M = g(P);
+                                                var M = v(P);
                                                 if (M.length >= 1) {
-                                                    var K = l._getTemplate('choiceGroup', P);
+                                                    var K = s._getTemplate('choiceGroup', P);
                                                     n.appendChild(K),
-                                                        l._createChoicesFragment(M, n, !0);
+                                                        s._createChoicesFragment(M, n, !0);
                                                 }
                                             }),
                                             n
                                         );
                                     }),
-                                    (d.prototype._createChoicesFragment = function (e, t, n) {
-                                        var l = this;
+                                    (g.prototype._createChoicesFragment = function (e, t, n) {
+                                        var s = this;
                                         t === void 0 && (t = document.createDocumentFragment()),
                                             n === void 0 && (n = !1);
-                                        var g = this.config,
-                                            P = g.renderSelectedChoices,
-                                            M = g.searchResultLimit,
-                                            K = g.renderChoiceLimit,
-                                            p = this._isSearching
+                                        var v = this.config,
+                                            P = v.renderSelectedChoices,
+                                            M = v.searchResultLimit,
+                                            K = v.renderChoiceLimit,
+                                            f = this._isSearching
                                                 ? k.sortByScore
                                                 : this.config.sorter,
                                             u = function (z) {
                                                 var ee =
                                                     P === 'auto'
-                                                        ? l._isSelectOneElement || !z.selected
+                                                        ? s._isSelectOneElement || !z.selected
                                                         : !0;
                                                 if (ee) {
-                                                    var ae = l._getTemplate(
+                                                    var ae = s._getTemplate(
                                                         'choice',
                                                         z,
-                                                        l.config.itemSelectText,
+                                                        s.config.itemSelectText,
                                                     );
                                                     t.appendChild(ae);
                                                 }
@@ -827,7 +827,7 @@ var $e = ft((Ae, Ye) => {
                                             ),
                                             V = Y.placeholderChoices,
                                             U = Y.normalChoices;
-                                        (this.config.shouldSort || this._isSearching) && U.sort(p);
+                                        (this.config.shouldSort || this._isSearching) && U.sort(f);
                                         var $ = C.length,
                                             W = this._isSelectOneElement
                                                 ? _(_([], V, !0), U, !0)
@@ -836,35 +836,35 @@ var $e = ft((Ae, Ye) => {
                                         for (var J = 0; J < $; J += 1) W[J] && u(W[J]);
                                         return t;
                                     }),
-                                    (d.prototype._createItemsFragment = function (e, t) {
+                                    (g.prototype._createItemsFragment = function (e, t) {
                                         var n = this;
                                         t === void 0 && (t = document.createDocumentFragment());
-                                        var l = this.config,
-                                            g = l.shouldSortItems,
-                                            P = l.sorter,
-                                            M = l.removeItemButton;
-                                        g && !this._isSelectOneElement && e.sort(P),
+                                        var s = this.config,
+                                            v = s.shouldSortItems,
+                                            P = s.sorter,
+                                            M = s.removeItemButton;
+                                        v && !this._isSelectOneElement && e.sort(P),
                                             this._isTextElement
                                                 ? (this.passedElement.value = e
-                                                      .map(function (p) {
-                                                          var u = p.value;
+                                                      .map(function (f) {
+                                                          var u = f.value;
                                                           return u;
                                                       })
                                                       .join(this.config.delimiter))
                                                 : (this.passedElement.options = e);
-                                        var K = function (p) {
-                                            var u = n._getTemplate('item', p, M);
+                                        var K = function (f) {
+                                            var u = n._getTemplate('item', f, M);
                                             t.appendChild(u);
                                         };
                                         return e.forEach(K), t;
                                     }),
-                                    (d.prototype._triggerChange = function (e) {
+                                    (g.prototype._triggerChange = function (e) {
                                         e != null &&
                                             this.passedElement.triggerEvent(y.EVENTS.change, {
                                                 value: e,
                                             });
                                     }),
-                                    (d.prototype._selectPlaceholderChoice = function (e) {
+                                    (g.prototype._selectPlaceholderChoice = function (e) {
                                         this._addItem({
                                             value: e.value,
                                             label: e.label,
@@ -874,7 +874,7 @@ var $e = ft((Ae, Ye) => {
                                         }),
                                             this._triggerChange(e.value);
                                     }),
-                                    (d.prototype._handleButtonAction = function (e, t) {
+                                    (g.prototype._handleButtonAction = function (e, t) {
                                         if (
                                             !(
                                                 !e ||
@@ -884,14 +884,14 @@ var $e = ft((Ae, Ye) => {
                                             )
                                         ) {
                                             var n = t.parentNode && t.parentNode.dataset.id,
-                                                l =
+                                                s =
                                                     n &&
-                                                    e.find(function (g) {
-                                                        return g.id === parseInt(n, 10);
+                                                    e.find(function (v) {
+                                                        return v.id === parseInt(n, 10);
                                                     });
-                                            l &&
-                                                (this._removeItem(l),
-                                                this._triggerChange(l.value),
+                                            s &&
+                                                (this._removeItem(s),
+                                                this._triggerChange(s.value),
                                                 this._isSelectOneElement &&
                                                     this._store.placeholderChoice &&
                                                     this._selectPlaceholderChoice(
@@ -899,8 +899,8 @@ var $e = ft((Ae, Ye) => {
                                                     ));
                                         }
                                     }),
-                                    (d.prototype._handleItemAction = function (e, t, n) {
-                                        var l = this;
+                                    (g.prototype._handleItemAction = function (e, t, n) {
+                                        var s = this;
                                         if (
                                             (n === void 0 && (n = !1),
                                             !(
@@ -910,46 +910,46 @@ var $e = ft((Ae, Ye) => {
                                                 this._isSelectOneElement
                                             ))
                                         ) {
-                                            var g = t.dataset.id;
+                                            var v = t.dataset.id;
                                             e.forEach(function (P) {
-                                                P.id === parseInt(''.concat(g), 10) &&
+                                                P.id === parseInt(''.concat(v), 10) &&
                                                 !P.highlighted
-                                                    ? l.highlightItem(P)
-                                                    : !n && P.highlighted && l.unhighlightItem(P);
+                                                    ? s.highlightItem(P)
+                                                    : !n && P.highlighted && s.unhighlightItem(P);
                                             }),
                                                 this.input.focus();
                                         }
                                     }),
-                                    (d.prototype._handleChoiceAction = function (e, t) {
+                                    (g.prototype._handleChoiceAction = function (e, t) {
                                         if (!(!e || !t)) {
                                             var n = t.dataset.id,
-                                                l = n && this._store.getChoiceById(n);
-                                            if (l) {
-                                                var g =
+                                                s = n && this._store.getChoiceById(n);
+                                            if (s) {
+                                                var v =
                                                         e[0] && e[0].keyCode
                                                             ? e[0].keyCode
                                                             : void 0,
                                                     P = this.dropdown.isActive;
                                                 if (
-                                                    ((l.keyCode = g),
+                                                    ((s.keyCode = v),
                                                     this.passedElement.triggerEvent(
                                                         y.EVENTS.choice,
-                                                        { choice: l },
+                                                        { choice: s },
                                                     ),
-                                                    !l.selected && !l.disabled)
+                                                    !s.selected && !s.disabled)
                                                 ) {
-                                                    var M = this._canAddItem(e, l.value);
+                                                    var M = this._canAddItem(e, s.value);
                                                     M.response &&
                                                         (this._addItem({
-                                                            value: l.value,
-                                                            label: l.label,
-                                                            choiceId: l.id,
-                                                            groupId: l.groupId,
-                                                            customProperties: l.customProperties,
-                                                            placeholder: l.placeholder,
-                                                            keyCode: l.keyCode,
+                                                            value: s.value,
+                                                            label: s.label,
+                                                            choiceId: s.id,
+                                                            groupId: s.groupId,
+                                                            customProperties: s.customProperties,
+                                                            placeholder: s.placeholder,
+                                                            keyCode: s.keyCode,
                                                         }),
-                                                        this._triggerChange(l.value));
+                                                        this._triggerChange(s.value));
                                                 }
                                                 this.clearInput(),
                                                     P &&
@@ -959,11 +959,11 @@ var $e = ft((Ae, Ye) => {
                                             }
                                         }
                                     }),
-                                    (d.prototype._handleBackspace = function (e) {
+                                    (g.prototype._handleBackspace = function (e) {
                                         if (!(!this.config.removeItems || !e)) {
                                             var t = e[e.length - 1],
-                                                n = e.some(function (l) {
-                                                    return l.highlighted;
+                                                n = e.some(function (s) {
+                                                    return s.highlighted;
                                                 });
                                             this.config.editItems && !n && t
                                                 ? ((this.input.value = t.value),
@@ -974,13 +974,13 @@ var $e = ft((Ae, Ye) => {
                                                   this.removeHighlightedItems(!0));
                                         }
                                     }),
-                                    (d.prototype._startLoading = function () {
+                                    (g.prototype._startLoading = function () {
                                         this._store.dispatch((0, O.setIsLoading)(!0));
                                     }),
-                                    (d.prototype._stopLoading = function () {
+                                    (g.prototype._stopLoading = function () {
                                         this._store.dispatch((0, O.setIsLoading)(!1));
                                     }),
-                                    (d.prototype._handleLoadingState = function (e) {
+                                    (g.prototype._handleLoadingState = function (e) {
                                         e === void 0 && (e = !0);
                                         var t = this.itemList.getChild(
                                             '.'.concat(this.config.classNames.placeholder),
@@ -1006,17 +1006,17 @@ var $e = ft((Ae, Ye) => {
                                                   : (this.input.placeholder =
                                                         this._placeholderValue || ''));
                                     }),
-                                    (d.prototype._handleSearch = function (e) {
+                                    (g.prototype._handleSearch = function (e) {
                                         if (this.input.isFocussed) {
                                             var t = this._store.choices,
                                                 n = this.config,
-                                                l = n.searchFloor,
-                                                g = n.searchChoices,
+                                                s = n.searchFloor,
+                                                v = n.searchChoices,
                                                 P = t.some(function (K) {
                                                     return !K.active;
                                                 });
-                                            if (e !== null && typeof e < 'u' && e.length >= l) {
-                                                var M = g ? this._searchChoices(e) : 0;
+                                            if (e !== null && typeof e < 'u' && e.length >= s) {
+                                                var M = v ? this._searchChoices(e) : 0;
                                                 this.passedElement.triggerEvent(y.EVENTS.search, {
                                                     value: e,
                                                     resultCount: M,
@@ -1029,28 +1029,28 @@ var $e = ft((Ae, Ye) => {
                                                     ));
                                         }
                                     }),
-                                    (d.prototype._canAddItem = function (e, t) {
+                                    (g.prototype._canAddItem = function (e, t) {
                                         var n = !0,
-                                            l =
+                                            s =
                                                 typeof this.config.addItemText == 'function'
                                                     ? this.config.addItemText(t)
                                                     : this.config.addItemText;
                                         if (!this._isSelectOneElement) {
-                                            var g = (0, k.existsInArray)(e, t);
+                                            var v = (0, k.existsInArray)(e, t);
                                             this.config.maxItemCount > 0 &&
                                                 this.config.maxItemCount <= e.length &&
                                                 ((n = !1),
-                                                (l =
+                                                (s =
                                                     typeof this.config.maxItemText == 'function'
                                                         ? this.config.maxItemText(
                                                               this.config.maxItemCount,
                                                           )
                                                         : this.config.maxItemText)),
                                                 !this.config.duplicateItemsAllowed &&
-                                                    g &&
+                                                    v &&
                                                     n &&
                                                     ((n = !1),
-                                                    (l =
+                                                    (s =
                                                         typeof this.config.uniqueItemText ==
                                                         'function'
                                                             ? this.config.uniqueItemText(t)
@@ -1062,29 +1062,29 @@ var $e = ft((Ae, Ye) => {
                                                         'function' &&
                                                     !this.config.addItemFilter(t) &&
                                                     ((n = !1),
-                                                    (l =
+                                                    (s =
                                                         typeof this.config.customAddItemText ==
                                                         'function'
                                                             ? this.config.customAddItemText(t)
                                                             : this.config.customAddItemText));
                                         }
-                                        return { response: n, notice: l };
+                                        return { response: n, notice: s };
                                     }),
-                                    (d.prototype._searchChoices = function (e) {
+                                    (g.prototype._searchChoices = function (e) {
                                         var t = typeof e == 'string' ? e.trim() : e,
                                             n =
                                                 typeof this._currentValue == 'string'
                                                     ? this._currentValue.trim()
                                                     : this._currentValue;
                                         if (t.length < 1 && t === ''.concat(n, ' ')) return 0;
-                                        var l = this._store.searchableChoices,
-                                            g = t,
+                                        var s = this._store.searchableChoices,
+                                            v = t,
                                             P = Object.assign(this.config.fuseOptions, {
                                                 keys: _([], this.config.searchFields, !0),
                                                 includeMatches: !0,
                                             }),
-                                            M = new o.default(l, P),
-                                            K = M.search(g);
+                                            M = new a.default(s, P),
+                                            K = M.search(v);
                                         return (
                                             (this._currentValue = t),
                                             (this._highlightPosition = 0),
@@ -1093,7 +1093,7 @@ var $e = ft((Ae, Ye) => {
                                             K.length
                                         );
                                     }),
-                                    (d.prototype._addEventListeners = function () {
+                                    (g.prototype._addEventListeners = function () {
                                         var e = document.documentElement;
                                         e.addEventListener('touchend', this._onTouchEnd, !0),
                                             this.containerOuter.element.addEventListener(
@@ -1151,7 +1151,7 @@ var $e = ft((Ae, Ye) => {
                                                 ),
                                             this.input.addEventListeners();
                                     }),
-                                    (d.prototype._removeEventListeners = function () {
+                                    (g.prototype._removeEventListeners = function () {
                                         var e = document.documentElement;
                                         e.removeEventListener('touchend', this._onTouchEnd, !0),
                                             this.containerOuter.element.removeEventListener(
@@ -1198,15 +1198,15 @@ var $e = ft((Ae, Ye) => {
                                                 ),
                                             this.input.removeEventListeners();
                                     }),
-                                    (d.prototype._onKeyDown = function (e) {
+                                    (g.prototype._onKeyDown = function (e) {
                                         var t = e.keyCode,
                                             n = this._store.activeItems,
-                                            l = this.input.isFocussed,
-                                            g = this.dropdown.isActive,
+                                            s = this.input.isFocussed,
+                                            v = this.dropdown.isActive,
                                             P = this.itemList.hasChildren(),
                                             M = String.fromCharCode(t),
                                             K = /[^\x00-\x1F]/.test(M),
-                                            p = y.KEY_CODES.BACK_KEY,
+                                            f = y.KEY_CODES.BACK_KEY,
                                             u = y.KEY_CODES.DELETE_KEY,
                                             C = y.KEY_CODES.ENTER_KEY,
                                             Y = y.KEY_CODES.A_KEY,
@@ -1217,7 +1217,7 @@ var $e = ft((Ae, Ye) => {
                                             J = y.KEY_CODES.PAGE_DOWN_KEY;
                                         switch (
                                             (!this._isTextElement &&
-                                                !g &&
+                                                !v &&
                                                 K &&
                                                 (this.showDropdown(),
                                                 this.input.isFocussed ||
@@ -1227,31 +1227,31 @@ var $e = ft((Ae, Ye) => {
                                             case Y:
                                                 return this._onSelectKey(e, P);
                                             case C:
-                                                return this._onEnterKey(e, n, g);
+                                                return this._onEnterKey(e, n, v);
                                             case V:
-                                                return this._onEscapeKey(g);
+                                                return this._onEscapeKey(v);
                                             case U:
                                             case W:
                                             case $:
                                             case J:
-                                                return this._onDirectionKey(e, g);
+                                                return this._onDirectionKey(e, v);
                                             case u:
-                                            case p:
-                                                return this._onDeleteKey(e, n, l);
+                                            case f:
+                                                return this._onDeleteKey(e, n, s);
                                             default:
                                         }
                                     }),
-                                    (d.prototype._onKeyUp = function (e) {
+                                    (g.prototype._onKeyUp = function (e) {
                                         var t = e.target,
                                             n = e.keyCode,
-                                            l = this.input.value,
-                                            g = this._store.activeItems,
-                                            P = this._canAddItem(g, l),
+                                            s = this.input.value,
+                                            v = this._store.activeItems,
+                                            P = this._canAddItem(v, s),
                                             M = y.KEY_CODES.BACK_KEY,
                                             K = y.KEY_CODES.DELETE_KEY;
                                         if (this._isTextElement) {
-                                            var p = P.notice && l;
-                                            if (p) {
+                                            var f = P.notice && s;
+                                            if (f) {
                                                 var u = this._getTemplate('notice', P.notice);
                                                 (this.dropdown.element.innerHTML = u.outerHTML),
                                                     this.showDropdown(!0);
@@ -1268,11 +1268,11 @@ var $e = ft((Ae, Ye) => {
                                         }
                                         this._canSearch = this.config.searchEnabled;
                                     }),
-                                    (d.prototype._onSelectKey = function (e, t) {
+                                    (g.prototype._onSelectKey = function (e, t) {
                                         var n = e.ctrlKey,
-                                            l = e.metaKey,
-                                            g = n || l;
-                                        if (g && t) {
+                                            s = e.metaKey,
+                                            v = n || s;
+                                        if (v && t) {
                                             this._canSearch = !1;
                                             var P =
                                                 this.config.removeItems &&
@@ -1281,11 +1281,11 @@ var $e = ft((Ae, Ye) => {
                                             P && this.highlightAll();
                                         }
                                     }),
-                                    (d.prototype._onEnterKey = function (e, t, n) {
-                                        var l = e.target,
-                                            g = y.KEY_CODES.ENTER_KEY,
-                                            P = l && l.hasAttribute('data-button');
-                                        if (this._isTextElement && l && l.value) {
+                                    (g.prototype._onEnterKey = function (e, t, n) {
+                                        var s = e.target,
+                                            v = y.KEY_CODES.ENTER_KEY,
+                                            P = s && s.hasAttribute('data-button');
+                                        if (this._isTextElement && s && s.value) {
                                             var M = this.input.value,
                                                 K = this._canAddItem(t, M);
                                             K.response &&
@@ -1296,37 +1296,37 @@ var $e = ft((Ae, Ye) => {
                                         }
                                         if (
                                             (P &&
-                                                (this._handleButtonAction(t, l),
+                                                (this._handleButtonAction(t, s),
                                                 e.preventDefault()),
                                             n)
                                         ) {
-                                            var p = this.dropdown.getChild(
+                                            var f = this.dropdown.getChild(
                                                 '.'.concat(this.config.classNames.highlightedState),
                                             );
-                                            p &&
-                                                (t[0] && (t[0].keyCode = g),
-                                                this._handleChoiceAction(t, p)),
+                                            f &&
+                                                (t[0] && (t[0].keyCode = v),
+                                                this._handleChoiceAction(t, f)),
                                                 e.preventDefault();
                                         } else
                                             this._isSelectOneElement &&
                                                 (this.showDropdown(), e.preventDefault());
                                     }),
-                                    (d.prototype._onEscapeKey = function (e) {
+                                    (g.prototype._onEscapeKey = function (e) {
                                         e && (this.hideDropdown(!0), this.containerOuter.focus());
                                     }),
-                                    (d.prototype._onDirectionKey = function (e, t) {
+                                    (g.prototype._onDirectionKey = function (e, t) {
                                         var n = e.keyCode,
-                                            l = e.metaKey,
-                                            g = y.KEY_CODES.DOWN_KEY,
+                                            s = e.metaKey,
+                                            v = y.KEY_CODES.DOWN_KEY,
                                             P = y.KEY_CODES.PAGE_UP_KEY,
                                             M = y.KEY_CODES.PAGE_DOWN_KEY;
                                         if (t || this._isSelectOneElement) {
                                             this.showDropdown(), (this._canSearch = !1);
-                                            var K = n === g || n === M ? 1 : -1,
-                                                p = l || n === M || n === P,
+                                            var K = n === v || n === M ? 1 : -1,
+                                                f = s || n === M || n === P,
                                                 u = '[data-choice-selectable]',
                                                 C = void 0;
-                                            if (p)
+                                            if (f)
                                                 K > 0
                                                     ? (C = this.dropdown.element.querySelector(
                                                           ''.concat(u, ':last-of-type'),
@@ -1352,26 +1352,26 @@ var $e = ft((Ae, Ye) => {
                                                 e.preventDefault();
                                         }
                                     }),
-                                    (d.prototype._onDeleteKey = function (e, t, n) {
-                                        var l = e.target;
+                                    (g.prototype._onDeleteKey = function (e, t, n) {
+                                        var s = e.target;
                                         !this._isSelectOneElement &&
-                                            !l.value &&
+                                            !s.value &&
                                             n &&
                                             (this._handleBackspace(t), e.preventDefault());
                                     }),
-                                    (d.prototype._onTouchMove = function () {
+                                    (g.prototype._onTouchMove = function () {
                                         this._wasTap && (this._wasTap = !1);
                                     }),
-                                    (d.prototype._onTouchEnd = function (e) {
+                                    (g.prototype._onTouchEnd = function (e) {
                                         var t = (e || e.touches[0]).target,
                                             n =
                                                 this._wasTap &&
                                                 this.containerOuter.element.contains(t);
                                         if (n) {
-                                            var l =
+                                            var s =
                                                 t === this.containerOuter.element ||
                                                 t === this.containerInner.element;
-                                            l &&
+                                            s &&
                                                 (this._isTextElement
                                                     ? this.input.focus()
                                                     : this._isSelectMultipleElement &&
@@ -1380,43 +1380,43 @@ var $e = ft((Ae, Ye) => {
                                         }
                                         this._wasTap = !0;
                                     }),
-                                    (d.prototype._onMouseDown = function (e) {
+                                    (g.prototype._onMouseDown = function (e) {
                                         var t = e.target;
                                         if (t instanceof HTMLElement) {
                                             if (E && this.choiceList.element.contains(t)) {
                                                 var n = this.choiceList.element.firstElementChild,
-                                                    l =
+                                                    s =
                                                         this._direction === 'ltr'
                                                             ? e.offsetX >= n.offsetWidth
                                                             : e.offsetX < n.offsetLeft;
-                                                this._isScrollingOnIe = l;
+                                                this._isScrollingOnIe = s;
                                             }
                                             if (t !== this.input.element) {
-                                                var g = t.closest(
+                                                var v = t.closest(
                                                     '[data-button],[data-item],[data-choice]',
                                                 );
-                                                if (g instanceof HTMLElement) {
+                                                if (v instanceof HTMLElement) {
                                                     var P = e.shiftKey,
                                                         M = this._store.activeItems,
-                                                        K = g.dataset;
+                                                        K = v.dataset;
                                                     'button' in K
-                                                        ? this._handleButtonAction(M, g)
+                                                        ? this._handleButtonAction(M, v)
                                                         : 'item' in K
-                                                          ? this._handleItemAction(M, g, P)
+                                                          ? this._handleItemAction(M, v, P)
                                                           : 'choice' in K &&
-                                                            this._handleChoiceAction(M, g);
+                                                            this._handleChoiceAction(M, v);
                                                 }
                                                 e.preventDefault();
                                             }
                                         }
                                     }),
-                                    (d.prototype._onMouseOver = function (e) {
+                                    (g.prototype._onMouseOver = function (e) {
                                         var t = e.target;
                                         t instanceof HTMLElement &&
                                             'choice' in t.dataset &&
                                             this._highlightChoice(t);
                                     }),
-                                    (d.prototype._onClick = function (e) {
+                                    (g.prototype._onClick = function (e) {
                                         var t = e.target,
                                             n = this.containerOuter.element.contains(t);
                                         if (n)
@@ -1432,30 +1432,30 @@ var $e = ft((Ae, Ye) => {
                                                   !this.dropdown.element.contains(t) &&
                                                   this.hideDropdown();
                                         else {
-                                            var l = this._store.highlightedActiveItems.length > 0;
-                                            l && this.unhighlightAll(),
+                                            var s = this._store.highlightedActiveItems.length > 0;
+                                            s && this.unhighlightAll(),
                                                 this.containerOuter.removeFocusState(),
                                                 this.hideDropdown(!0);
                                         }
                                     }),
-                                    (d.prototype._onFocus = function (e) {
+                                    (g.prototype._onFocus = function (e) {
                                         var t,
                                             n = this,
-                                            l = e.target,
-                                            g = l && this.containerOuter.element.contains(l);
-                                        if (g) {
+                                            s = e.target,
+                                            v = s && this.containerOuter.element.contains(s);
+                                        if (v) {
                                             var P =
                                                 ((t = {}),
                                                 (t[y.TEXT_TYPE] = function () {
-                                                    l === n.input.element &&
+                                                    s === n.input.element &&
                                                         n.containerOuter.addFocusState();
                                                 }),
                                                 (t[y.SELECT_ONE_TYPE] = function () {
                                                     n.containerOuter.addFocusState(),
-                                                        l === n.input.element && n.showDropdown(!0);
+                                                        s === n.input.element && n.showDropdown(!0);
                                                 }),
                                                 (t[y.SELECT_MULTIPLE_TYPE] = function () {
-                                                    l === n.input.element &&
+                                                    s === n.input.element &&
                                                         (n.showDropdown(!0),
                                                         n.containerOuter.addFocusState());
                                                 }),
@@ -1463,33 +1463,33 @@ var $e = ft((Ae, Ye) => {
                                             P[this.passedElement.element.type]();
                                         }
                                     }),
-                                    (d.prototype._onBlur = function (e) {
+                                    (g.prototype._onBlur = function (e) {
                                         var t,
                                             n = this,
-                                            l = e.target,
-                                            g = l && this.containerOuter.element.contains(l);
-                                        if (g && !this._isScrollingOnIe) {
+                                            s = e.target,
+                                            v = s && this.containerOuter.element.contains(s);
+                                        if (v && !this._isScrollingOnIe) {
                                             var P = this._store.activeItems,
-                                                M = P.some(function (p) {
-                                                    return p.highlighted;
+                                                M = P.some(function (f) {
+                                                    return f.highlighted;
                                                 }),
                                                 K =
                                                     ((t = {}),
                                                     (t[y.TEXT_TYPE] = function () {
-                                                        l === n.input.element &&
+                                                        s === n.input.element &&
                                                             (n.containerOuter.removeFocusState(),
                                                             M && n.unhighlightAll(),
                                                             n.hideDropdown(!0));
                                                     }),
                                                     (t[y.SELECT_ONE_TYPE] = function () {
                                                         n.containerOuter.removeFocusState(),
-                                                            (l === n.input.element ||
-                                                                (l === n.containerOuter.element &&
+                                                            (s === n.input.element ||
+                                                                (s === n.containerOuter.element &&
                                                                     !n._canSearch)) &&
                                                                 n.hideDropdown(!0);
                                                     }),
                                                     (t[y.SELECT_MULTIPLE_TYPE] = function () {
-                                                        l === n.input.element &&
+                                                        s === n.input.element &&
                                                             (n.containerOuter.removeFocusState(),
                                                             n.hideDropdown(!0),
                                                             M && n.unhighlightAll());
@@ -1500,10 +1500,10 @@ var $e = ft((Ae, Ye) => {
                                             (this._isScrollingOnIe = !1),
                                                 this.input.element.focus();
                                     }),
-                                    (d.prototype._onFormReset = function () {
+                                    (g.prototype._onFormReset = function () {
                                         this._store.dispatch((0, O.resetTo)(this._initialState));
                                     }),
-                                    (d.prototype._highlightChoice = function (e) {
+                                    (g.prototype._highlightChoice = function (e) {
                                         var t = this;
                                         e === void 0 && (e = null);
                                         var n = Array.from(
@@ -1512,56 +1512,56 @@ var $e = ft((Ae, Ye) => {
                                             ),
                                         );
                                         if (n.length) {
-                                            var l = e,
-                                                g = Array.from(
+                                            var s = e,
+                                                v = Array.from(
                                                     this.dropdown.element.querySelectorAll(
                                                         '.'.concat(
                                                             this.config.classNames.highlightedState,
                                                         ),
                                                     ),
                                                 );
-                                            g.forEach(function (P) {
+                                            v.forEach(function (P) {
                                                 P.classList.remove(
                                                     t.config.classNames.highlightedState,
                                                 ),
                                                     P.setAttribute('aria-selected', 'false');
                                             }),
-                                                l
-                                                    ? (this._highlightPosition = n.indexOf(l))
+                                                s
+                                                    ? (this._highlightPosition = n.indexOf(s))
                                                     : (n.length > this._highlightPosition
-                                                          ? (l = n[this._highlightPosition])
-                                                          : (l = n[n.length - 1]),
-                                                      l || (l = n[0])),
-                                                l.classList.add(
+                                                          ? (s = n[this._highlightPosition])
+                                                          : (s = n[n.length - 1]),
+                                                      s || (s = n[0])),
+                                                s.classList.add(
                                                     this.config.classNames.highlightedState,
                                                 ),
-                                                l.setAttribute('aria-selected', 'true'),
+                                                s.setAttribute('aria-selected', 'true'),
                                                 this.passedElement.triggerEvent(
                                                     y.EVENTS.highlightChoice,
-                                                    { el: l },
+                                                    { el: s },
                                                 ),
                                                 this.dropdown.isActive &&
-                                                    (this.input.setActiveDescendant(l.id),
-                                                    this.containerOuter.setActiveDescendant(l.id));
+                                                    (this.input.setActiveDescendant(s.id),
+                                                    this.containerOuter.setActiveDescendant(s.id));
                                         }
                                     }),
-                                    (d.prototype._addItem = function (e) {
+                                    (g.prototype._addItem = function (e) {
                                         var t = e.value,
                                             n = e.label,
-                                            l = n === void 0 ? null : n,
-                                            g = e.choiceId,
-                                            P = g === void 0 ? -1 : g,
+                                            s = n === void 0 ? null : n,
+                                            v = e.choiceId,
+                                            P = v === void 0 ? -1 : v,
                                             M = e.groupId,
                                             K = M === void 0 ? -1 : M,
-                                            p = e.customProperties,
-                                            u = p === void 0 ? {} : p,
+                                            f = e.customProperties,
+                                            u = f === void 0 ? {} : f,
                                             C = e.placeholder,
                                             Y = C === void 0 ? !1 : C,
                                             V = e.keyCode,
                                             U = V === void 0 ? -1 : V,
                                             $ = typeof t == 'string' ? t.trim() : t,
                                             W = this._store.items,
-                                            J = l || $,
+                                            J = s || $,
                                             z = P || -1,
                                             ee = K >= 0 ? this._store.getGroupById(K) : null,
                                             ae = W ? W.length + 1 : 1;
@@ -1570,7 +1570,7 @@ var $e = ft((Ae, Ye) => {
                                             this.config.appendValue &&
                                                 ($ += this.config.appendValue.toString()),
                                             this._store.dispatch(
-                                                (0, a.addItem)({
+                                                (0, l.addItem)({
                                                     value: $,
                                                     label: J,
                                                     id: ae,
@@ -1591,35 +1591,35 @@ var $e = ft((Ae, Ye) => {
                                                 keyCode: U,
                                             });
                                     }),
-                                    (d.prototype._removeItem = function (e) {
+                                    (g.prototype._removeItem = function (e) {
                                         var t = e.id,
                                             n = e.value,
-                                            l = e.label,
-                                            g = e.customProperties,
+                                            s = e.label,
+                                            v = e.customProperties,
                                             P = e.choiceId,
                                             M = e.groupId,
                                             K = M && M >= 0 ? this._store.getGroupById(M) : null;
                                         !t ||
                                             !P ||
-                                            (this._store.dispatch((0, a.removeItem)(t, P)),
+                                            (this._store.dispatch((0, l.removeItem)(t, P)),
                                             this.passedElement.triggerEvent(y.EVENTS.removeItem, {
                                                 id: t,
                                                 value: n,
-                                                label: l,
-                                                customProperties: g,
+                                                label: s,
+                                                customProperties: v,
                                                 groupValue: K && K.value ? K.value : null,
                                             }));
                                     }),
-                                    (d.prototype._addChoice = function (e) {
+                                    (g.prototype._addChoice = function (e) {
                                         var t = e.value,
                                             n = e.label,
-                                            l = n === void 0 ? null : n,
-                                            g = e.isSelected,
-                                            P = g === void 0 ? !1 : g,
+                                            s = n === void 0 ? null : n,
+                                            v = e.isSelected,
+                                            P = v === void 0 ? !1 : v,
                                             M = e.isDisabled,
                                             K = M === void 0 ? !1 : M,
-                                            p = e.groupId,
-                                            u = p === void 0 ? -1 : p,
+                                            f = e.groupId,
+                                            u = f === void 0 ? -1 : f,
                                             C = e.customProperties,
                                             Y = C === void 0 ? {} : C,
                                             V = e.placeholder,
@@ -1628,7 +1628,7 @@ var $e = ft((Ae, Ye) => {
                                             W = $ === void 0 ? -1 : $;
                                         if (!(typeof t > 'u' || t === null)) {
                                             var J = this._store.choices,
-                                                z = l || t,
+                                                z = s || t,
                                                 ee = J ? J.length + 1 : 1,
                                                 ae = ''
                                                     .concat(this._baseId, '-')
@@ -1658,22 +1658,22 @@ var $e = ft((Ae, Ye) => {
                                                     });
                                         }
                                     }),
-                                    (d.prototype._addGroup = function (e) {
+                                    (g.prototype._addGroup = function (e) {
                                         var t = this,
                                             n = e.group,
-                                            l = e.id,
-                                            g = e.valueKey,
-                                            P = g === void 0 ? 'value' : g,
+                                            s = e.id,
+                                            v = e.valueKey,
+                                            P = v === void 0 ? 'value' : v,
                                             M = e.labelKey,
                                             K = M === void 0 ? 'label' : M,
-                                            p = (0, k.isType)('Object', n)
+                                            f = (0, k.isType)('Object', n)
                                                 ? n.choices
                                                 : Array.from(n.getElementsByTagName('OPTION')),
                                             u =
-                                                l ||
+                                                s ||
                                                 Math.floor(new Date().valueOf() * Math.random()),
                                             C = n.disabled ? n.disabled : !1;
-                                        if (p) {
+                                        if (f) {
                                             this._store.dispatch(
                                                 (0, c.addGroup)({
                                                     value: n.label,
@@ -1698,7 +1698,7 @@ var $e = ft((Ae, Ye) => {
                                                     placeholder: V.placeholder,
                                                 });
                                             };
-                                            p.forEach(Y);
+                                            f.forEach(Y);
                                         } else
                                             this._store.dispatch(
                                                 (0, c.addGroup)({
@@ -1709,23 +1709,23 @@ var $e = ft((Ae, Ye) => {
                                                 }),
                                             );
                                     }),
-                                    (d.prototype._getTemplate = function (e) {
-                                        for (var t, n = [], l = 1; l < arguments.length; l++)
-                                            n[l - 1] = arguments[l];
+                                    (g.prototype._getTemplate = function (e) {
+                                        for (var t, n = [], s = 1; s < arguments.length; s++)
+                                            n[s - 1] = arguments[s];
                                         return (t = this._templates[e]).call.apply(
                                             t,
                                             _([this, this.config], n, !1),
                                         );
                                     }),
-                                    (d.prototype._createTemplates = function () {
+                                    (g.prototype._createTemplates = function () {
                                         var e = this.config.callbackOnCreateTemplates,
                                             t = {};
                                         e &&
                                             typeof e == 'function' &&
                                             (t = e.call(this, k.strToEl)),
-                                            (this._templates = (0, f.default)(ne.default, t));
+                                            (this._templates = (0, d.default)(ne.default, t));
                                     }),
-                                    (d.prototype._createElements = function () {
+                                    (g.prototype._createElements = function () {
                                         (this.containerOuter = new L.Container({
                                             element: this._getTemplate(
                                                 'containerOuter',
@@ -1773,7 +1773,7 @@ var $e = ft((Ae, Ye) => {
                                                 type: this.passedElement.element.type,
                                             }));
                                     }),
-                                    (d.prototype._createStructure = function () {
+                                    (g.prototype._createStructure = function () {
                                         this.passedElement.conceal(),
                                             this.containerInner.wrap(this.passedElement.element),
                                             this.containerOuter.wrap(this.containerInner.element),
@@ -1819,7 +1819,7 @@ var $e = ft((Ae, Ye) => {
                                             this._isTextElement &&
                                                 this._addPredefinedItems(this._presetItems);
                                     }),
-                                    (d.prototype._addPredefinedGroups = function (e) {
+                                    (g.prototype._addPredefinedGroups = function (e) {
                                         var t = this,
                                             n = this.passedElement.placeholderOption;
                                         n &&
@@ -1832,35 +1832,35 @@ var $e = ft((Ae, Ye) => {
                                                 isDisabled: n.disabled,
                                                 placeholder: !0,
                                             }),
-                                            e.forEach(function (l) {
-                                                return t._addGroup({ group: l, id: l.id || null });
+                                            e.forEach(function (s) {
+                                                return t._addGroup({ group: s, id: s.id || null });
                                             });
                                     }),
-                                    (d.prototype._addPredefinedChoices = function (e) {
+                                    (g.prototype._addPredefinedChoices = function (e) {
                                         var t = this;
                                         this.config.shouldSort && e.sort(this.config.sorter);
-                                        var n = e.some(function (g) {
-                                                return g.selected;
+                                        var n = e.some(function (v) {
+                                                return v.selected;
                                             }),
-                                            l = e.findIndex(function (g) {
-                                                return g.disabled === void 0 || !g.disabled;
+                                            s = e.findIndex(function (v) {
+                                                return v.disabled === void 0 || !v.disabled;
                                             });
-                                        e.forEach(function (g, P) {
-                                            var M = g.value,
+                                        e.forEach(function (v, P) {
+                                            var M = v.value,
                                                 K = M === void 0 ? '' : M,
-                                                p = g.label,
-                                                u = g.customProperties,
-                                                C = g.placeholder;
+                                                f = v.label,
+                                                u = v.customProperties,
+                                                C = v.placeholder;
                                             if (t._isSelectElement)
-                                                if (g.choices)
-                                                    t._addGroup({ group: g, id: g.id || null });
+                                                if (v.choices)
+                                                    t._addGroup({ group: v, id: v.id || null });
                                                 else {
-                                                    var Y = t._isSelectOneElement && !n && P === l,
-                                                        V = Y ? !0 : g.selected,
-                                                        U = g.disabled;
+                                                    var Y = t._isSelectOneElement && !n && P === s,
+                                                        V = Y ? !0 : v.selected,
+                                                        U = v.disabled;
                                                     t._addChoice({
                                                         value: K,
-                                                        label: p,
+                                                        label: f,
                                                         isSelected: !!V,
                                                         isDisabled: !!U,
                                                         placeholder: !!C,
@@ -1870,15 +1870,15 @@ var $e = ft((Ae, Ye) => {
                                             else
                                                 t._addChoice({
                                                     value: K,
-                                                    label: p,
-                                                    isSelected: !!g.selected,
-                                                    isDisabled: !!g.disabled,
-                                                    placeholder: !!g.placeholder,
+                                                    label: f,
+                                                    isSelected: !!v.selected,
+                                                    isDisabled: !!v.disabled,
+                                                    placeholder: !!v.placeholder,
                                                     customProperties: u,
                                                 });
                                         });
                                     }),
-                                    (d.prototype._addPredefinedItems = function (e) {
+                                    (g.prototype._addPredefinedItems = function (e) {
                                         var t = this;
                                         e.forEach(function (n) {
                                             typeof n == 'object' &&
@@ -1893,10 +1893,10 @@ var $e = ft((Ae, Ye) => {
                                                 typeof n == 'string' && t._addItem({ value: n });
                                         });
                                     }),
-                                    (d.prototype._setChoiceOrItem = function (e) {
+                                    (g.prototype._setChoiceOrItem = function (e) {
                                         var t = this,
                                             n = (0, k.getType)(e).toLowerCase(),
-                                            l = {
+                                            s = {
                                                 object: function () {
                                                     e.value &&
                                                         (t._isTextElement
@@ -1929,27 +1929,27 @@ var $e = ft((Ae, Ye) => {
                                                           });
                                                 },
                                             };
-                                        l[n]();
+                                        s[n]();
                                     }),
-                                    (d.prototype._findAndSelectChoiceByValue = function (e) {
+                                    (g.prototype._findAndSelectChoiceByValue = function (e) {
                                         var t = this,
                                             n = this._store.choices,
-                                            l = n.find(function (g) {
-                                                return t.config.valueComparer(g.value, e);
+                                            s = n.find(function (v) {
+                                                return t.config.valueComparer(v.value, e);
                                             });
-                                        l &&
-                                            !l.selected &&
+                                        s &&
+                                            !s.selected &&
                                             this._addItem({
-                                                value: l.value,
-                                                label: l.label,
-                                                choiceId: l.id,
-                                                groupId: l.groupId,
-                                                customProperties: l.customProperties,
-                                                placeholder: l.placeholder,
-                                                keyCode: l.keyCode,
+                                                value: s.value,
+                                                label: s.label,
+                                                choiceId: s.id,
+                                                groupId: s.groupId,
+                                                customProperties: s.customProperties,
+                                                placeholder: s.placeholder,
+                                                keyCode: s.keyCode,
                                             });
                                     }),
-                                    (d.prototype._generatePlaceholderValue = function () {
+                                    (g.prototype._generatePlaceholderValue = function () {
                                         if (
                                             this._isSelectElement &&
                                             this.passedElement.placeholderOption
@@ -1959,15 +1959,15 @@ var $e = ft((Ae, Ye) => {
                                         }
                                         var t = this.config,
                                             n = t.placeholder,
-                                            l = t.placeholderValue,
-                                            g = this.passedElement.element.dataset;
+                                            s = t.placeholderValue,
+                                            v = this.passedElement.element.dataset;
                                         if (n) {
-                                            if (l) return l;
-                                            if (g.placeholder) return g.placeholder;
+                                            if (s) return s;
+                                            if (v.placeholder) return v.placeholder;
                                         }
                                         return null;
                                     }),
-                                    d
+                                    g
                                 );
                             })();
                         i.default = N;
@@ -1976,15 +1976,15 @@ var $e = ft((Ae, Ye) => {
                         Object.defineProperty(i, '__esModule', { value: !0 });
                         var _ = b(799),
                             h = b(883),
-                            f = (function () {
-                                function o(r) {
+                            d = (function () {
+                                function a(r) {
                                     var c = r.element,
-                                        a = r.type,
+                                        l = r.type,
                                         O = r.classNames,
                                         L = r.position;
                                     (this.element = c),
                                         (this.classNames = O),
-                                        (this.type = a),
+                                        (this.type = l),
                                         (this.position = L),
                                         (this.isOpen = !1),
                                         (this.isFlipped = !1),
@@ -1995,15 +1995,15 @@ var $e = ft((Ae, Ye) => {
                                         (this._onBlur = this._onBlur.bind(this));
                                 }
                                 return (
-                                    (o.prototype.addEventListeners = function () {
+                                    (a.prototype.addEventListeners = function () {
                                         this.element.addEventListener('focus', this._onFocus),
                                             this.element.addEventListener('blur', this._onBlur);
                                     }),
-                                    (o.prototype.removeEventListeners = function () {
+                                    (a.prototype.removeEventListeners = function () {
                                         this.element.removeEventListener('focus', this._onFocus),
                                             this.element.removeEventListener('blur', this._onBlur);
                                     }),
-                                    (o.prototype.shouldFlip = function (r) {
+                                    (a.prototype.shouldFlip = function (r) {
                                         if (typeof r != 'number') return !1;
                                         var c = !1;
                                         return (
@@ -2015,13 +2015,13 @@ var $e = ft((Ae, Ye) => {
                                             c
                                         );
                                     }),
-                                    (o.prototype.setActiveDescendant = function (r) {
+                                    (a.prototype.setActiveDescendant = function (r) {
                                         this.element.setAttribute('aria-activedescendant', r);
                                     }),
-                                    (o.prototype.removeActiveDescendant = function () {
+                                    (a.prototype.removeActiveDescendant = function () {
                                         this.element.removeAttribute('aria-activedescendant');
                                     }),
-                                    (o.prototype.open = function (r) {
+                                    (a.prototype.open = function (r) {
                                         this.element.classList.add(this.classNames.openState),
                                             this.element.setAttribute('aria-expanded', 'true'),
                                             (this.isOpen = !0),
@@ -2031,7 +2031,7 @@ var $e = ft((Ae, Ye) => {
                                                 ),
                                                 (this.isFlipped = !0));
                                     }),
-                                    (o.prototype.close = function () {
+                                    (a.prototype.close = function () {
                                         this.element.classList.remove(this.classNames.openState),
                                             this.element.setAttribute('aria-expanded', 'false'),
                                             this.removeActiveDescendant(),
@@ -2042,16 +2042,16 @@ var $e = ft((Ae, Ye) => {
                                                 ),
                                                 (this.isFlipped = !1));
                                     }),
-                                    (o.prototype.focus = function () {
+                                    (a.prototype.focus = function () {
                                         this.isFocussed || this.element.focus();
                                     }),
-                                    (o.prototype.addFocusState = function () {
+                                    (a.prototype.addFocusState = function () {
                                         this.element.classList.add(this.classNames.focusState);
                                     }),
-                                    (o.prototype.removeFocusState = function () {
+                                    (a.prototype.removeFocusState = function () {
                                         this.element.classList.remove(this.classNames.focusState);
                                     }),
-                                    (o.prototype.enable = function () {
+                                    (a.prototype.enable = function () {
                                         this.element.classList.remove(
                                             this.classNames.disabledState,
                                         ),
@@ -2060,52 +2060,52 @@ var $e = ft((Ae, Ye) => {
                                                 this.element.setAttribute('tabindex', '0'),
                                             (this.isDisabled = !1);
                                     }),
-                                    (o.prototype.disable = function () {
+                                    (a.prototype.disable = function () {
                                         this.element.classList.add(this.classNames.disabledState),
                                             this.element.setAttribute('aria-disabled', 'true'),
                                             this.type === h.SELECT_ONE_TYPE &&
                                                 this.element.setAttribute('tabindex', '-1'),
                                             (this.isDisabled = !0);
                                     }),
-                                    (o.prototype.wrap = function (r) {
+                                    (a.prototype.wrap = function (r) {
                                         (0, _.wrap)(r, this.element);
                                     }),
-                                    (o.prototype.unwrap = function (r) {
+                                    (a.prototype.unwrap = function (r) {
                                         this.element.parentNode &&
                                             (this.element.parentNode.insertBefore(r, this.element),
                                             this.element.parentNode.removeChild(this.element));
                                     }),
-                                    (o.prototype.addLoadingState = function () {
+                                    (a.prototype.addLoadingState = function () {
                                         this.element.classList.add(this.classNames.loadingState),
                                             this.element.setAttribute('aria-busy', 'true'),
                                             (this.isLoading = !0);
                                     }),
-                                    (o.prototype.removeLoadingState = function () {
+                                    (a.prototype.removeLoadingState = function () {
                                         this.element.classList.remove(this.classNames.loadingState),
                                             this.element.removeAttribute('aria-busy'),
                                             (this.isLoading = !1);
                                     }),
-                                    (o.prototype._onFocus = function () {
+                                    (a.prototype._onFocus = function () {
                                         this.isFocussed = !0;
                                     }),
-                                    (o.prototype._onBlur = function () {
+                                    (a.prototype._onBlur = function () {
                                         this.isFocussed = !1;
                                     }),
-                                    o
+                                    a
                                 );
                             })();
-                        i.default = f;
+                        i.default = d;
                     },
                     217: function (j, i) {
                         Object.defineProperty(i, '__esModule', { value: !0 });
                         var b = (function () {
                             function _(h) {
-                                var f = h.element,
-                                    o = h.type,
+                                var d = h.element,
+                                    a = h.type,
                                     r = h.classNames;
-                                (this.element = f),
+                                (this.element = d),
                                     (this.classNames = r),
-                                    (this.type = o),
+                                    (this.type = a),
                                     (this.isActive = !1);
                             }
                             return (
@@ -2156,29 +2156,29 @@ var $e = ft((Ae, Ye) => {
                                     void 0);
                         var h = _(b(217));
                         i.Dropdown = h.default;
-                        var f = _(b(613));
-                        i.Container = f.default;
-                        var o = _(b(11));
-                        i.Input = o.default;
+                        var d = _(b(613));
+                        i.Container = d.default;
+                        var a = _(b(11));
+                        i.Input = a.default;
                         var r = _(b(624));
                         i.List = r.default;
                         var c = _(b(541));
                         i.WrappedInput = c.default;
-                        var a = _(b(982));
-                        i.WrappedSelect = a.default;
+                        var l = _(b(982));
+                        i.WrappedSelect = l.default;
                     },
                     11: function (j, i, b) {
                         Object.defineProperty(i, '__esModule', { value: !0 });
                         var _ = b(799),
                             h = b(883),
-                            f = (function () {
-                                function o(r) {
+                            d = (function () {
+                                function a(r) {
                                     var c = r.element,
-                                        a = r.type,
+                                        l = r.type,
                                         O = r.classNames,
                                         L = r.preventPaste;
                                     (this.element = c),
-                                        (this.type = a),
+                                        (this.type = l),
                                         (this.classNames = O),
                                         (this.preventPaste = L),
                                         (this.isFocussed = this.element.isEqualNode(
@@ -2191,14 +2191,14 @@ var $e = ft((Ae, Ye) => {
                                         (this._onBlur = this._onBlur.bind(this));
                                 }
                                 return (
-                                    Object.defineProperty(o.prototype, 'placeholder', {
+                                    Object.defineProperty(a.prototype, 'placeholder', {
                                         set: function (r) {
                                             this.element.placeholder = r;
                                         },
                                         enumerable: !1,
                                         configurable: !0,
                                     }),
-                                    Object.defineProperty(o.prototype, 'value', {
+                                    Object.defineProperty(a.prototype, 'value', {
                                         get: function () {
                                             return (0, _.sanitise)(this.element.value);
                                         },
@@ -2208,14 +2208,14 @@ var $e = ft((Ae, Ye) => {
                                         enumerable: !1,
                                         configurable: !0,
                                     }),
-                                    Object.defineProperty(o.prototype, 'rawValue', {
+                                    Object.defineProperty(a.prototype, 'rawValue', {
                                         get: function () {
                                             return this.element.value;
                                         },
                                         enumerable: !1,
                                         configurable: !0,
                                     }),
-                                    (o.prototype.addEventListeners = function () {
+                                    (a.prototype.addEventListeners = function () {
                                         this.element.addEventListener('paste', this._onPaste),
                                             this.element.addEventListener('input', this._onInput, {
                                                 passive: !0,
@@ -2227,7 +2227,7 @@ var $e = ft((Ae, Ye) => {
                                                 passive: !0,
                                             });
                                     }),
-                                    (o.prototype.removeEventListeners = function () {
+                                    (a.prototype.removeEventListeners = function () {
                                         this.element.removeEventListener('input', this._onInput),
                                             this.element.removeEventListener(
                                                 'paste',
@@ -2239,21 +2239,21 @@ var $e = ft((Ae, Ye) => {
                                             ),
                                             this.element.removeEventListener('blur', this._onBlur);
                                     }),
-                                    (o.prototype.enable = function () {
+                                    (a.prototype.enable = function () {
                                         this.element.removeAttribute('disabled'),
                                             (this.isDisabled = !1);
                                     }),
-                                    (o.prototype.disable = function () {
+                                    (a.prototype.disable = function () {
                                         this.element.setAttribute('disabled', ''),
                                             (this.isDisabled = !0);
                                     }),
-                                    (o.prototype.focus = function () {
+                                    (a.prototype.focus = function () {
                                         this.isFocussed || this.element.focus();
                                     }),
-                                    (o.prototype.blur = function () {
+                                    (a.prototype.blur = function () {
                                         this.isFocussed && this.element.blur();
                                     }),
-                                    (o.prototype.clear = function (r) {
+                                    (a.prototype.clear = function (r) {
                                         return (
                                             r === void 0 && (r = !0),
                                             this.element.value && (this.element.value = ''),
@@ -2261,103 +2261,103 @@ var $e = ft((Ae, Ye) => {
                                             this
                                         );
                                     }),
-                                    (o.prototype.setWidth = function () {
+                                    (a.prototype.setWidth = function () {
                                         var r = this.element,
                                             c = r.style,
-                                            a = r.value,
+                                            l = r.value,
                                             O = r.placeholder;
                                         (c.minWidth = ''.concat(O.length + 1, 'ch')),
-                                            (c.width = ''.concat(a.length + 1, 'ch'));
+                                            (c.width = ''.concat(l.length + 1, 'ch'));
                                     }),
-                                    (o.prototype.setActiveDescendant = function (r) {
+                                    (a.prototype.setActiveDescendant = function (r) {
                                         this.element.setAttribute('aria-activedescendant', r);
                                     }),
-                                    (o.prototype.removeActiveDescendant = function () {
+                                    (a.prototype.removeActiveDescendant = function () {
                                         this.element.removeAttribute('aria-activedescendant');
                                     }),
-                                    (o.prototype._onInput = function () {
+                                    (a.prototype._onInput = function () {
                                         this.type !== h.SELECT_ONE_TYPE && this.setWidth();
                                     }),
-                                    (o.prototype._onPaste = function (r) {
+                                    (a.prototype._onPaste = function (r) {
                                         this.preventPaste && r.preventDefault();
                                     }),
-                                    (o.prototype._onFocus = function () {
+                                    (a.prototype._onFocus = function () {
                                         this.isFocussed = !0;
                                     }),
-                                    (o.prototype._onBlur = function () {
+                                    (a.prototype._onBlur = function () {
                                         this.isFocussed = !1;
                                     }),
-                                    o
+                                    a
                                 );
                             })();
-                        i.default = f;
+                        i.default = d;
                     },
                     624: function (j, i, b) {
                         Object.defineProperty(i, '__esModule', { value: !0 });
                         var _ = b(883),
                             h = (function () {
-                                function f(o) {
-                                    var r = o.element;
+                                function d(a) {
+                                    var r = a.element;
                                     (this.element = r),
                                         (this.scrollPos = this.element.scrollTop),
                                         (this.height = this.element.offsetHeight);
                                 }
                                 return (
-                                    (f.prototype.clear = function () {
+                                    (d.prototype.clear = function () {
                                         this.element.innerHTML = '';
                                     }),
-                                    (f.prototype.append = function (o) {
-                                        this.element.appendChild(o);
+                                    (d.prototype.append = function (a) {
+                                        this.element.appendChild(a);
                                     }),
-                                    (f.prototype.getChild = function (o) {
-                                        return this.element.querySelector(o);
+                                    (d.prototype.getChild = function (a) {
+                                        return this.element.querySelector(a);
                                     }),
-                                    (f.prototype.hasChildren = function () {
+                                    (d.prototype.hasChildren = function () {
                                         return this.element.hasChildNodes();
                                     }),
-                                    (f.prototype.scrollToTop = function () {
+                                    (d.prototype.scrollToTop = function () {
                                         this.element.scrollTop = 0;
                                     }),
-                                    (f.prototype.scrollToChildElement = function (o, r) {
+                                    (d.prototype.scrollToChildElement = function (a, r) {
                                         var c = this;
-                                        if (o) {
-                                            var a = this.element.offsetHeight,
-                                                O = this.element.scrollTop + a,
-                                                L = o.offsetHeight,
-                                                y = o.offsetTop + L,
+                                        if (a) {
+                                            var l = this.element.offsetHeight,
+                                                O = this.element.scrollTop + l,
+                                                L = a.offsetHeight,
+                                                y = a.offsetTop + L,
                                                 D =
                                                     r > 0
                                                         ? this.element.scrollTop + y - O
-                                                        : o.offsetTop;
+                                                        : a.offsetTop;
                                             requestAnimationFrame(function () {
                                                 c._animateScroll(D, r);
                                             });
                                         }
                                     }),
-                                    (f.prototype._scrollDown = function (o, r, c) {
-                                        var a = (c - o) / r,
-                                            O = a > 1 ? a : 1;
-                                        this.element.scrollTop = o + O;
+                                    (d.prototype._scrollDown = function (a, r, c) {
+                                        var l = (c - a) / r,
+                                            O = l > 1 ? l : 1;
+                                        this.element.scrollTop = a + O;
                                     }),
-                                    (f.prototype._scrollUp = function (o, r, c) {
-                                        var a = (o - c) / r,
-                                            O = a > 1 ? a : 1;
-                                        this.element.scrollTop = o - O;
+                                    (d.prototype._scrollUp = function (a, r, c) {
+                                        var l = (a - c) / r,
+                                            O = l > 1 ? l : 1;
+                                        this.element.scrollTop = a - O;
                                     }),
-                                    (f.prototype._animateScroll = function (o, r) {
+                                    (d.prototype._animateScroll = function (a, r) {
                                         var c = this,
-                                            a = _.SCROLLING_SPEED,
+                                            l = _.SCROLLING_SPEED,
                                             O = this.element.scrollTop,
                                             L = !1;
                                         r > 0
-                                            ? (this._scrollDown(O, a, o), O < o && (L = !0))
-                                            : (this._scrollUp(O, a, o), O > o && (L = !0)),
+                                            ? (this._scrollDown(O, l, a), O < a && (L = !0))
+                                            : (this._scrollUp(O, l, a), O > a && (L = !0)),
                                             L &&
                                                 requestAnimationFrame(function () {
-                                                    c._animateScroll(o, r);
+                                                    c._animateScroll(a, r);
                                                 });
                                     }),
-                                    f
+                                    d
                                 );
                             })();
                         i.default = h;
@@ -2366,9 +2366,9 @@ var $e = ft((Ae, Ye) => {
                         Object.defineProperty(i, '__esModule', { value: !0 });
                         var _ = b(799),
                             h = (function () {
-                                function f(o) {
-                                    var r = o.element,
-                                        c = o.classNames;
+                                function d(a) {
+                                    var r = a.element,
+                                        c = a.classNames;
                                     if (
                                         ((this.element = r),
                                         (this.classNames = c),
@@ -2379,66 +2379,66 @@ var $e = ft((Ae, Ye) => {
                                     this.isDisabled = !1;
                                 }
                                 return (
-                                    Object.defineProperty(f.prototype, 'isActive', {
+                                    Object.defineProperty(d.prototype, 'isActive', {
                                         get: function () {
                                             return this.element.dataset.choice === 'active';
                                         },
                                         enumerable: !1,
                                         configurable: !0,
                                     }),
-                                    Object.defineProperty(f.prototype, 'dir', {
+                                    Object.defineProperty(d.prototype, 'dir', {
                                         get: function () {
                                             return this.element.dir;
                                         },
                                         enumerable: !1,
                                         configurable: !0,
                                     }),
-                                    Object.defineProperty(f.prototype, 'value', {
+                                    Object.defineProperty(d.prototype, 'value', {
                                         get: function () {
                                             return this.element.value;
                                         },
-                                        set: function (o) {
-                                            this.element.value = o;
+                                        set: function (a) {
+                                            this.element.value = a;
                                         },
                                         enumerable: !1,
                                         configurable: !0,
                                     }),
-                                    (f.prototype.conceal = function () {
+                                    (d.prototype.conceal = function () {
                                         this.element.classList.add(this.classNames.input),
                                             (this.element.hidden = !0),
                                             (this.element.tabIndex = -1);
-                                        var o = this.element.getAttribute('style');
-                                        o && this.element.setAttribute('data-choice-orig-style', o),
+                                        var a = this.element.getAttribute('style');
+                                        a && this.element.setAttribute('data-choice-orig-style', a),
                                             this.element.setAttribute('data-choice', 'active');
                                     }),
-                                    (f.prototype.reveal = function () {
+                                    (d.prototype.reveal = function () {
                                         this.element.classList.remove(this.classNames.input),
                                             (this.element.hidden = !1),
                                             this.element.removeAttribute('tabindex');
-                                        var o = this.element.getAttribute('data-choice-orig-style');
-                                        o
+                                        var a = this.element.getAttribute('data-choice-orig-style');
+                                        a
                                             ? (this.element.removeAttribute(
                                                   'data-choice-orig-style',
                                               ),
-                                              this.element.setAttribute('style', o))
+                                              this.element.setAttribute('style', a))
                                             : this.element.removeAttribute('style'),
                                             this.element.removeAttribute('data-choice'),
                                             (this.element.value = this.element.value);
                                     }),
-                                    (f.prototype.enable = function () {
+                                    (d.prototype.enable = function () {
                                         this.element.removeAttribute('disabled'),
                                             (this.element.disabled = !1),
                                             (this.isDisabled = !1);
                                     }),
-                                    (f.prototype.disable = function () {
+                                    (d.prototype.disable = function () {
                                         this.element.setAttribute('disabled', ''),
                                             (this.element.disabled = !0),
                                             (this.isDisabled = !0);
                                     }),
-                                    (f.prototype.triggerEvent = function (o, r) {
-                                        (0, _.dispatchEvent)(this.element, o, r);
+                                    (d.prototype.triggerEvent = function (a, r) {
+                                        (0, _.dispatchEvent)(this.element, a, r);
                                     }),
-                                    f
+                                    d
                                 );
                             })();
                         i.default = h;
@@ -2447,7 +2447,7 @@ var $e = ft((Ae, Ye) => {
                         var _ =
                                 (this && this.__extends) ||
                                 (function () {
-                                    var r = function (c, a) {
+                                    var r = function (c, l) {
                                         return (
                                             (r =
                                                 Object.setPrototypeOf ||
@@ -2462,24 +2462,24 @@ var $e = ft((Ae, Ye) => {
                                                             y,
                                                         ) && (O[y] = L[y]);
                                                 }),
-                                            r(c, a)
+                                            r(c, l)
                                         );
                                     };
-                                    return function (c, a) {
-                                        if (typeof a != 'function' && a !== null)
+                                    return function (c, l) {
+                                        if (typeof l != 'function' && l !== null)
                                             throw new TypeError(
                                                 'Class extends value ' +
-                                                    String(a) +
+                                                    String(l) +
                                                     ' is not a constructor or null',
                                             );
-                                        r(c, a);
+                                        r(c, l);
                                         function O() {
                                             this.constructor = c;
                                         }
                                         c.prototype =
-                                            a === null
-                                                ? Object.create(a)
-                                                : ((O.prototype = a.prototype), new O());
+                                            l === null
+                                                ? Object.create(l)
+                                                : ((O.prototype = l.prototype), new O());
                                     };
                                 })(),
                             h =
@@ -2488,13 +2488,13 @@ var $e = ft((Ae, Ye) => {
                                     return r && r.__esModule ? r : { default: r };
                                 };
                         Object.defineProperty(i, '__esModule', { value: !0 });
-                        var f = h(b(730)),
-                            o = (function (r) {
+                        var d = h(b(730)),
+                            a = (function (r) {
                                 _(c, r);
-                                function c(a) {
-                                    var O = a.element,
-                                        L = a.classNames,
-                                        y = a.delimiter,
+                                function c(l) {
+                                    var O = l.element,
+                                        L = l.classNames,
+                                        y = l.delimiter,
                                         D = r.call(this, { element: O, classNames: L }) || this;
                                     return (D.delimiter = y), D;
                                 }
@@ -2503,23 +2503,23 @@ var $e = ft((Ae, Ye) => {
                                         get: function () {
                                             return this.element.value;
                                         },
-                                        set: function (a) {
-                                            this.element.setAttribute('value', a),
-                                                (this.element.value = a);
+                                        set: function (l) {
+                                            this.element.setAttribute('value', l),
+                                                (this.element.value = l);
                                         },
                                         enumerable: !1,
                                         configurable: !0,
                                     }),
                                     c
                                 );
-                            })(f.default);
-                        i.default = o;
+                            })(d.default);
+                        i.default = a;
                     },
                     982: function (j, i, b) {
                         var _ =
                                 (this && this.__extends) ||
                                 (function () {
-                                    var r = function (c, a) {
+                                    var r = function (c, l) {
                                         return (
                                             (r =
                                                 Object.setPrototypeOf ||
@@ -2534,24 +2534,24 @@ var $e = ft((Ae, Ye) => {
                                                             y,
                                                         ) && (O[y] = L[y]);
                                                 }),
-                                            r(c, a)
+                                            r(c, l)
                                         );
                                     };
-                                    return function (c, a) {
-                                        if (typeof a != 'function' && a !== null)
+                                    return function (c, l) {
+                                        if (typeof l != 'function' && l !== null)
                                             throw new TypeError(
                                                 'Class extends value ' +
-                                                    String(a) +
+                                                    String(l) +
                                                     ' is not a constructor or null',
                                             );
-                                        r(c, a);
+                                        r(c, l);
                                         function O() {
                                             this.constructor = c;
                                         }
                                         c.prototype =
-                                            a === null
-                                                ? Object.create(a)
-                                                : ((O.prototype = a.prototype), new O());
+                                            l === null
+                                                ? Object.create(l)
+                                                : ((O.prototype = l.prototype), new O());
                                     };
                                 })(),
                             h =
@@ -2560,13 +2560,13 @@ var $e = ft((Ae, Ye) => {
                                     return r && r.__esModule ? r : { default: r };
                                 };
                         Object.defineProperty(i, '__esModule', { value: !0 });
-                        var f = h(b(730)),
-                            o = (function (r) {
+                        var d = h(b(730)),
+                            a = (function (r) {
                                 _(c, r);
-                                function c(a) {
-                                    var O = a.element,
-                                        L = a.classNames,
-                                        y = a.template,
+                                function c(l) {
+                                    var O = l.element,
+                                        L = l.classNames,
+                                        y = l.template,
                                         D = r.call(this, { element: O, classNames: L }) || this;
                                     return (D.template = y), D;
                                 }
@@ -2594,14 +2594,14 @@ var $e = ft((Ae, Ye) => {
                                         get: function () {
                                             return Array.from(this.element.options);
                                         },
-                                        set: function (a) {
+                                        set: function (l) {
                                             var O = this,
                                                 L = document.createDocumentFragment(),
                                                 y = function (D) {
                                                     var k = O.template(D);
                                                     L.appendChild(k);
                                                 };
-                                            a.forEach(function (D) {
+                                            l.forEach(function (D) {
                                                 return y(D);
                                             }),
                                                 this.appendDocFragment(L);
@@ -2609,13 +2609,13 @@ var $e = ft((Ae, Ye) => {
                                         enumerable: !1,
                                         configurable: !0,
                                     }),
-                                    (c.prototype.appendDocFragment = function (a) {
-                                        (this.element.innerHTML = ''), this.element.appendChild(a);
+                                    (c.prototype.appendDocFragment = function (l) {
+                                        (this.element.innerHTML = ''), this.element.appendChild(l);
                                     }),
                                     c
                                 );
-                            })(f.default);
-                        i.default = o;
+                            })(d.default);
+                        i.default = a;
                     },
                     883: function (j, i) {
                         Object.defineProperty(i, '__esModule', { value: !0 }),
@@ -2747,8 +2747,8 @@ var $e = ft((Ae, Ye) => {
                                 maxItemText: function (h) {
                                     return 'Only '.concat(h, ' values can be added');
                                 },
-                                valueComparer: function (h, f) {
-                                    return h === f;
+                                valueComparer: function (h, d) {
+                                    return h === d;
                                 },
                                 fuseOptions: { includeScore: !0 },
                                 labelId: '',
@@ -2779,31 +2779,31 @@ var $e = ft((Ae, Ye) => {
                         var _ =
                                 (this && this.__createBinding) ||
                                 (Object.create
-                                    ? function (f, o, r, c) {
+                                    ? function (d, a, r, c) {
                                           c === void 0 && (c = r);
-                                          var a = Object.getOwnPropertyDescriptor(o, r);
-                                          (!a ||
-                                              ('get' in a
-                                                  ? !o.__esModule
-                                                  : a.writable || a.configurable)) &&
-                                              (a = {
+                                          var l = Object.getOwnPropertyDescriptor(a, r);
+                                          (!l ||
+                                              ('get' in l
+                                                  ? !a.__esModule
+                                                  : l.writable || l.configurable)) &&
+                                              (l = {
                                                   enumerable: !0,
                                                   get: function () {
-                                                      return o[r];
+                                                      return a[r];
                                                   },
                                               }),
-                                              Object.defineProperty(f, c, a);
+                                              Object.defineProperty(d, c, l);
                                       }
-                                    : function (f, o, r, c) {
-                                          c === void 0 && (c = r), (f[c] = o[r]);
+                                    : function (d, a, r, c) {
+                                          c === void 0 && (c = r), (d[c] = a[r]);
                                       }),
                             h =
                                 (this && this.__exportStar) ||
-                                function (f, o) {
-                                    for (var r in f)
+                                function (d, a) {
+                                    for (var r in d)
                                         r !== 'default' &&
-                                            !Object.prototype.hasOwnProperty.call(o, r) &&
-                                            _(o, f, r);
+                                            !Object.prototype.hasOwnProperty.call(a, r) &&
+                                            _(a, d, r);
                                 };
                         Object.defineProperty(i, '__esModule', { value: !0 }),
                             h(b(18), i),
@@ -2892,14 +2892,14 @@ var $e = ft((Ae, Ye) => {
                             );
                         };
                         i.generateId = h;
-                        var f = function (E) {
+                        var d = function (E) {
                             return Object.prototype.toString.call(E).slice(8, -1);
                         };
-                        i.getType = f;
-                        var o = function (E, w) {
+                        i.getType = d;
+                        var a = function (E, w) {
                             return w != null && (0, i.getType)(w) === E;
                         };
-                        i.isType = o;
+                        i.isType = a;
                         var r = function (E, w) {
                             return (
                                 w === void 0 && (w = document.createElement('div')),
@@ -2914,30 +2914,30 @@ var $e = ft((Ae, Ye) => {
                         var c = function (E, w, N) {
                             N === void 0 && (N = 1);
                             for (
-                                var d = ''.concat(N > 0 ? 'next' : 'previous', 'ElementSibling'),
-                                    e = E[d];
+                                var g = ''.concat(N > 0 ? 'next' : 'previous', 'ElementSibling'),
+                                    e = E[g];
                                 e;
 
                             ) {
                                 if (e.matches(w)) return e;
-                                e = e[d];
+                                e = e[g];
                             }
                             return e;
                         };
                         i.getAdjacentEl = c;
-                        var a = function (E, w, N) {
+                        var l = function (E, w, N) {
                             if ((N === void 0 && (N = 1), !E)) return !1;
-                            var d;
+                            var g;
                             return (
                                 N > 0
-                                    ? (d =
+                                    ? (g =
                                           w.scrollTop + w.offsetHeight >=
                                           E.offsetTop + E.offsetHeight)
-                                    : (d = E.offsetTop >= w.scrollTop),
-                                d
+                                    : (g = E.offsetTop >= w.scrollTop),
+                                g
                             );
                         };
-                        i.isScrolledIntoView = a;
+                        i.isScrolledIntoView = l;
                         var O = function (E) {
                             return typeof E != 'string'
                                 ? E
@@ -2952,19 +2952,19 @@ var $e = ft((Ae, Ye) => {
                                 return function (w) {
                                     var N = w.trim();
                                     E.innerHTML = N;
-                                    for (var d = E.children[0]; E.firstChild; )
+                                    for (var g = E.children[0]; E.firstChild; )
                                         E.removeChild(E.firstChild);
-                                    return d;
+                                    return g;
                                 };
                             })());
                         var L = function (E, w) {
                             var N = E.value,
-                                d = E.label,
-                                e = d === void 0 ? N : d,
+                                g = E.label,
+                                e = g === void 0 ? N : g,
                                 t = w.value,
                                 n = w.label,
-                                l = n === void 0 ? t : n;
-                            return e.localeCompare(l, [], {
+                                s = n === void 0 ? t : n;
+                            return e.localeCompare(s, [], {
                                 sensitivity: 'base',
                                 ignorePunctuation: !0,
                                 numeric: !0,
@@ -2973,23 +2973,23 @@ var $e = ft((Ae, Ye) => {
                         i.sortByAlpha = L;
                         var y = function (E, w) {
                             var N = E.score,
-                                d = N === void 0 ? 0 : N,
+                                g = N === void 0 ? 0 : N,
                                 e = w.score,
                                 t = e === void 0 ? 0 : e;
-                            return d - t;
+                            return g - t;
                         };
                         i.sortByScore = y;
                         var D = function (E, w, N) {
                             N === void 0 && (N = null);
-                            var d = new CustomEvent(w, { detail: N, bubbles: !0, cancelable: !0 });
-                            return E.dispatchEvent(d);
+                            var g = new CustomEvent(w, { detail: N, bubbles: !0, cancelable: !0 });
+                            return E.dispatchEvent(g);
                         };
                         i.dispatchEvent = D;
                         var k = function (E, w, N) {
                             return (
                                 N === void 0 && (N = 'value'),
-                                E.some(function (d) {
-                                    return typeof w == 'string' ? d[N] === w.trim() : d[N] === w;
+                                E.some(function (g) {
+                                    return typeof w == 'string' ? g[N] === w.trim() : g[N] === w;
                                 })
                             );
                         };
@@ -3000,9 +3000,9 @@ var $e = ft((Ae, Ye) => {
                         i.cloneObject = Q;
                         var Z = function (E, w) {
                             var N = Object.keys(E).sort(),
-                                d = Object.keys(w).sort();
+                                g = Object.keys(w).sort();
                             return N.filter(function (e) {
-                                return d.indexOf(e) < 0;
+                                return g.indexOf(e) < 0;
                             });
                         };
                         i.diff = Z;
@@ -3020,42 +3020,42 @@ var $e = ft((Ae, Ye) => {
                     273: function (j, i) {
                         var b =
                             (this && this.__spreadArray) ||
-                            function (h, f, o) {
-                                if (o || arguments.length === 2)
-                                    for (var r = 0, c = f.length, a; r < c; r++)
-                                        (a || !(r in f)) &&
-                                            (a || (a = Array.prototype.slice.call(f, 0, r)),
-                                            (a[r] = f[r]));
-                                return h.concat(a || Array.prototype.slice.call(f));
+                            function (h, d, a) {
+                                if (a || arguments.length === 2)
+                                    for (var r = 0, c = d.length, l; r < c; r++)
+                                        (l || !(r in d)) &&
+                                            (l || (l = Array.prototype.slice.call(d, 0, r)),
+                                            (l[r] = d[r]));
+                                return h.concat(l || Array.prototype.slice.call(d));
                             };
                         Object.defineProperty(i, '__esModule', { value: !0 }),
                             (i.defaultState = void 0),
                             (i.defaultState = []);
-                        function _(h, f) {
+                        function _(h, d) {
                             switch (
                                 (h === void 0 && (h = i.defaultState),
-                                f === void 0 && (f = {}),
-                                f.type)
+                                d === void 0 && (d = {}),
+                                d.type)
                             ) {
                                 case 'ADD_CHOICE': {
-                                    var o = f,
+                                    var a = d,
                                         r = {
-                                            id: o.id,
-                                            elementId: o.elementId,
-                                            groupId: o.groupId,
-                                            value: o.value,
-                                            label: o.label || o.value,
-                                            disabled: o.disabled || !1,
+                                            id: a.id,
+                                            elementId: a.elementId,
+                                            groupId: a.groupId,
+                                            value: a.value,
+                                            label: a.label || a.value,
+                                            disabled: a.disabled || !1,
                                             selected: !1,
                                             active: !0,
                                             score: 9999,
-                                            customProperties: o.customProperties,
-                                            placeholder: o.placeholder || !1,
+                                            customProperties: a.customProperties,
+                                            placeholder: a.placeholder || !1,
                                         };
                                     return b(b([], h, !0), [r], !1);
                                 }
                                 case 'ADD_ITEM': {
-                                    var c = f;
+                                    var c = d;
                                     return c.choiceId > -1
                                         ? h.map(function (y) {
                                               var D = y;
@@ -3068,12 +3068,12 @@ var $e = ft((Ae, Ye) => {
                                         : h;
                                 }
                                 case 'REMOVE_ITEM': {
-                                    var a = f;
-                                    return a.choiceId && a.choiceId > -1
+                                    var l = d;
+                                    return l.choiceId && l.choiceId > -1
                                         ? h.map(function (y) {
                                               var D = y;
                                               return (
-                                                  D.id === parseInt(''.concat(a.choiceId), 10) &&
+                                                  D.id === parseInt(''.concat(l.choiceId), 10) &&
                                                       (D.selected = !1),
                                                   D
                                               );
@@ -3081,7 +3081,7 @@ var $e = ft((Ae, Ye) => {
                                         : h;
                                 }
                                 case 'FILTER_CHOICES': {
-                                    var O = f;
+                                    var O = d;
                                     return h.map(function (y) {
                                         var D = y;
                                         return (
@@ -3095,7 +3095,7 @@ var $e = ft((Ae, Ye) => {
                                     });
                                 }
                                 case 'ACTIVATE_CHOICES': {
-                                    var L = f;
+                                    var L = d;
                                     return h.map(function (y) {
                                         var D = y;
                                         return (D.active = L.active), D;
@@ -3112,33 +3112,33 @@ var $e = ft((Ae, Ye) => {
                     871: function (j, i) {
                         var b =
                             (this && this.__spreadArray) ||
-                            function (h, f, o) {
-                                if (o || arguments.length === 2)
-                                    for (var r = 0, c = f.length, a; r < c; r++)
-                                        (a || !(r in f)) &&
-                                            (a || (a = Array.prototype.slice.call(f, 0, r)),
-                                            (a[r] = f[r]));
-                                return h.concat(a || Array.prototype.slice.call(f));
+                            function (h, d, a) {
+                                if (a || arguments.length === 2)
+                                    for (var r = 0, c = d.length, l; r < c; r++)
+                                        (l || !(r in d)) &&
+                                            (l || (l = Array.prototype.slice.call(d, 0, r)),
+                                            (l[r] = d[r]));
+                                return h.concat(l || Array.prototype.slice.call(d));
                             };
                         Object.defineProperty(i, '__esModule', { value: !0 }),
                             (i.defaultState = void 0),
                             (i.defaultState = []);
-                        function _(h, f) {
+                        function _(h, d) {
                             switch (
                                 (h === void 0 && (h = i.defaultState),
-                                f === void 0 && (f = {}),
-                                f.type)
+                                d === void 0 && (d = {}),
+                                d.type)
                             ) {
                                 case 'ADD_GROUP': {
-                                    var o = f;
+                                    var a = d;
                                     return b(
                                         b([], h, !0),
                                         [
                                             {
-                                                id: o.id,
-                                                value: o.value,
-                                                active: o.active,
-                                                disabled: o.disabled,
+                                                id: a.id,
+                                                value: a.value,
+                                                active: a.active,
+                                                disabled: a.disabled,
                                             },
                                         ],
                                         !1,
@@ -3161,22 +3161,22 @@ var $e = ft((Ae, Ye) => {
                         Object.defineProperty(i, '__esModule', { value: !0 }),
                             (i.defaultState = void 0);
                         var h = b(791),
-                            f = _(b(52)),
-                            o = _(b(871)),
+                            d = _(b(52)),
+                            a = _(b(871)),
                             r = _(b(273)),
                             c = _(b(502)),
-                            a = b(799);
+                            l = b(799);
                         i.defaultState = { groups: [], items: [], choices: [], loading: !1 };
                         var O = (0, h.combineReducers)({
-                                items: f.default,
-                                groups: o.default,
+                                items: d.default,
+                                groups: a.default,
                                 choices: r.default,
                                 loading: c.default,
                             }),
                             L = function (y, D) {
                                 var k = y;
                                 if (D.type === 'CLEAR_ALL') k = i.defaultState;
-                                else if (D.type === 'RESET_TO') return (0, a.cloneObject)(D.state);
+                                else if (D.type === 'RESET_TO') return (0, l.cloneObject)(D.state);
                                 return O(k, D);
                             };
                         i.default = L;
@@ -3184,57 +3184,57 @@ var $e = ft((Ae, Ye) => {
                     52: function (j, i) {
                         var b =
                             (this && this.__spreadArray) ||
-                            function (h, f, o) {
-                                if (o || arguments.length === 2)
-                                    for (var r = 0, c = f.length, a; r < c; r++)
-                                        (a || !(r in f)) &&
-                                            (a || (a = Array.prototype.slice.call(f, 0, r)),
-                                            (a[r] = f[r]));
-                                return h.concat(a || Array.prototype.slice.call(f));
+                            function (h, d, a) {
+                                if (a || arguments.length === 2)
+                                    for (var r = 0, c = d.length, l; r < c; r++)
+                                        (l || !(r in d)) &&
+                                            (l || (l = Array.prototype.slice.call(d, 0, r)),
+                                            (l[r] = d[r]));
+                                return h.concat(l || Array.prototype.slice.call(d));
                             };
                         Object.defineProperty(i, '__esModule', { value: !0 }),
                             (i.defaultState = void 0),
                             (i.defaultState = []);
-                        function _(h, f) {
+                        function _(h, d) {
                             switch (
                                 (h === void 0 && (h = i.defaultState),
-                                f === void 0 && (f = {}),
-                                f.type)
+                                d === void 0 && (d = {}),
+                                d.type)
                             ) {
                                 case 'ADD_ITEM': {
-                                    var o = f,
+                                    var a = d,
                                         r = b(
                                             b([], h, !0),
                                             [
                                                 {
-                                                    id: o.id,
-                                                    choiceId: o.choiceId,
-                                                    groupId: o.groupId,
-                                                    value: o.value,
-                                                    label: o.label,
+                                                    id: a.id,
+                                                    choiceId: a.choiceId,
+                                                    groupId: a.groupId,
+                                                    value: a.value,
+                                                    label: a.label,
                                                     active: !0,
                                                     highlighted: !1,
-                                                    customProperties: o.customProperties,
-                                                    placeholder: o.placeholder || !1,
+                                                    customProperties: a.customProperties,
+                                                    placeholder: a.placeholder || !1,
                                                     keyCode: null,
                                                 },
                                             ],
                                             !1,
                                         );
-                                    return r.map(function (a) {
-                                        var O = a;
+                                    return r.map(function (l) {
+                                        var O = l;
                                         return (O.highlighted = !1), O;
                                     });
                                 }
                                 case 'REMOVE_ITEM':
-                                    return h.map(function (a) {
-                                        var O = a;
-                                        return O.id === f.id && (O.active = !1), O;
+                                    return h.map(function (l) {
+                                        var O = l;
+                                        return O.id === d.id && (O.active = !1), O;
                                     });
                                 case 'HIGHLIGHT_ITEM': {
-                                    var c = f;
-                                    return h.map(function (a) {
-                                        var O = a;
+                                    var c = d;
+                                    return h.map(function (l) {
+                                        var O = l;
                                         return O.id === c.id && (O.highlighted = c.highlighted), O;
                                     });
                                 }
@@ -3265,13 +3265,13 @@ var $e = ft((Ae, Ye) => {
                     744: function (j, i, b) {
                         var _ =
                                 (this && this.__spreadArray) ||
-                                function (c, a, O) {
+                                function (c, l, O) {
                                     if (O || arguments.length === 2)
-                                        for (var L = 0, y = a.length, D; L < y; L++)
-                                            (D || !(L in a)) &&
-                                                (D || (D = Array.prototype.slice.call(a, 0, L)),
-                                                (D[L] = a[L]));
-                                    return c.concat(D || Array.prototype.slice.call(a));
+                                        for (var L = 0, y = l.length, D; L < y; L++)
+                                            (D || !(L in l)) &&
+                                                (D || (D = Array.prototype.slice.call(l, 0, L)),
+                                                (D[L] = l[L]));
+                                    return c.concat(D || Array.prototype.slice.call(l));
                                 },
                             h =
                                 (this && this.__importDefault) ||
@@ -3279,22 +3279,22 @@ var $e = ft((Ae, Ye) => {
                                     return c && c.__esModule ? c : { default: c };
                                 };
                         Object.defineProperty(i, '__esModule', { value: !0 });
-                        var f = b(791),
-                            o = h(b(655)),
+                        var d = b(791),
+                            a = h(b(655)),
                             r = (function () {
                                 function c() {
-                                    this._store = (0, f.createStore)(
-                                        o.default,
+                                    this._store = (0, d.createStore)(
+                                        a.default,
                                         window.__REDUX_DEVTOOLS_EXTENSION__ &&
                                             window.__REDUX_DEVTOOLS_EXTENSION__(),
                                     );
                                 }
                                 return (
-                                    (c.prototype.subscribe = function (a) {
-                                        this._store.subscribe(a);
+                                    (c.prototype.subscribe = function (l) {
+                                        this._store.subscribe(l);
                                     }),
-                                    (c.prototype.dispatch = function (a) {
-                                        this._store.dispatch(a);
+                                    (c.prototype.dispatch = function (l) {
+                                        this._store.dispatch(l);
                                     }),
                                     Object.defineProperty(c.prototype, 'state', {
                                         get: function () {
@@ -3312,8 +3312,8 @@ var $e = ft((Ae, Ye) => {
                                     }),
                                     Object.defineProperty(c.prototype, 'activeItems', {
                                         get: function () {
-                                            return this.items.filter(function (a) {
-                                                return a.active === !0;
+                                            return this.items.filter(function (l) {
+                                                return l.active === !0;
                                             });
                                         },
                                         enumerable: !1,
@@ -3321,8 +3321,8 @@ var $e = ft((Ae, Ye) => {
                                     }),
                                     Object.defineProperty(c.prototype, 'highlightedActiveItems', {
                                         get: function () {
-                                            return this.items.filter(function (a) {
-                                                return a.active && a.highlighted;
+                                            return this.items.filter(function (l) {
+                                                return l.active && l.highlighted;
                                             });
                                         },
                                         enumerable: !1,
@@ -3337,8 +3337,8 @@ var $e = ft((Ae, Ye) => {
                                     }),
                                     Object.defineProperty(c.prototype, 'activeChoices', {
                                         get: function () {
-                                            return this.choices.filter(function (a) {
-                                                return a.active === !0;
+                                            return this.choices.filter(function (l) {
+                                                return l.active === !0;
                                             });
                                         },
                                         enumerable: !1,
@@ -3346,8 +3346,8 @@ var $e = ft((Ae, Ye) => {
                                     }),
                                     Object.defineProperty(c.prototype, 'selectableChoices', {
                                         get: function () {
-                                            return this.choices.filter(function (a) {
-                                                return a.disabled !== !0;
+                                            return this.choices.filter(function (l) {
+                                                return l.disabled !== !0;
                                             });
                                         },
                                         enumerable: !1,
@@ -3355,8 +3355,8 @@ var $e = ft((Ae, Ye) => {
                                     }),
                                     Object.defineProperty(c.prototype, 'searchableChoices', {
                                         get: function () {
-                                            return this.selectableChoices.filter(function (a) {
-                                                return a.placeholder !== !0;
+                                            return this.selectableChoices.filter(function (l) {
+                                                return l.placeholder !== !0;
                                             });
                                         },
                                         enumerable: !1,
@@ -3366,8 +3366,8 @@ var $e = ft((Ae, Ye) => {
                                         get: function () {
                                             return _([], this.choices, !0)
                                                 .reverse()
-                                                .find(function (a) {
-                                                    return a.placeholder === !0;
+                                                .find(function (l) {
+                                                    return l.placeholder === !0;
                                                 });
                                         },
                                         enumerable: !1,
@@ -3382,9 +3382,9 @@ var $e = ft((Ae, Ye) => {
                                     }),
                                     Object.defineProperty(c.prototype, 'activeGroups', {
                                         get: function () {
-                                            var a = this,
-                                                O = a.groups,
-                                                L = a.choices;
+                                            var l = this,
+                                                O = l.groups,
+                                                L = l.choices;
                                             return O.filter(function (y) {
                                                 var D = y.active === !0 && y.disabled === !1,
                                                     k = L.some(function (Q) {
@@ -3399,14 +3399,14 @@ var $e = ft((Ae, Ye) => {
                                     (c.prototype.isLoading = function () {
                                         return this.state.loading;
                                     }),
-                                    (c.prototype.getChoiceById = function (a) {
+                                    (c.prototype.getChoiceById = function (l) {
                                         return this.activeChoices.find(function (O) {
-                                            return O.id === parseInt(a, 10);
+                                            return O.id === parseInt(l, 10);
                                         });
                                     }),
-                                    (c.prototype.getGroupById = function (a) {
+                                    (c.prototype.getGroupById = function (l) {
                                         return this.groups.find(function (O) {
-                                            return O.id === a;
+                                            return O.id === l;
                                         });
                                     }),
                                     c
@@ -3417,7 +3417,7 @@ var $e = ft((Ae, Ye) => {
                     686: function (j, i) {
                         Object.defineProperty(i, '__esModule', { value: !0 });
                         var b = {
-                            containerOuter: function (_, h, f, o, r, c, a) {
+                            containerOuter: function (_, h, d, a, r, c, l) {
                                 var O = _.classNames.containerOuter,
                                     L = Object.assign(document.createElement('div'), {
                                         className: O,
@@ -3425,13 +3425,13 @@ var $e = ft((Ae, Ye) => {
                                 return (
                                     (L.dataset.type = c),
                                     h && (L.dir = h),
-                                    o && (L.tabIndex = 0),
-                                    f &&
+                                    a && (L.tabIndex = 0),
+                                    d &&
                                         (L.setAttribute('role', r ? 'combobox' : 'listbox'),
                                         r && L.setAttribute('aria-autocomplete', 'list')),
                                     L.setAttribute('aria-haspopup', 'true'),
                                     L.setAttribute('aria-expanded', 'false'),
-                                    a && L.setAttribute('aria-labelledby', a),
+                                    l && L.setAttribute('aria-labelledby', l),
                                     L
                                 );
                             },
@@ -3442,48 +3442,48 @@ var $e = ft((Ae, Ye) => {
                                 });
                             },
                             itemList: function (_, h) {
-                                var f = _.classNames,
-                                    o = f.list,
-                                    r = f.listSingle,
-                                    c = f.listItems;
+                                var d = _.classNames,
+                                    a = d.list,
+                                    r = d.listSingle,
+                                    c = d.listItems;
                                 return Object.assign(document.createElement('div'), {
-                                    className: ''.concat(o, ' ').concat(h ? r : c),
+                                    className: ''.concat(a, ' ').concat(h ? r : c),
                                 });
                             },
                             placeholder: function (_, h) {
-                                var f,
-                                    o = _.allowHTML,
+                                var d,
+                                    a = _.allowHTML,
                                     r = _.classNames.placeholder;
                                 return Object.assign(
                                     document.createElement('div'),
-                                    ((f = { className: r }),
-                                    (f[o ? 'innerHTML' : 'innerText'] = h),
-                                    f),
+                                    ((d = { className: r }),
+                                    (d[a ? 'innerHTML' : 'innerText'] = h),
+                                    d),
                                 );
                             },
-                            item: function (_, h, f) {
-                                var o,
+                            item: function (_, h, d) {
+                                var a,
                                     r,
                                     c = _.allowHTML,
-                                    a = _.classNames,
-                                    O = a.item,
-                                    L = a.button,
-                                    y = a.highlightedState,
-                                    D = a.itemSelectable,
-                                    k = a.placeholder,
+                                    l = _.classNames,
+                                    O = l.item,
+                                    L = l.button,
+                                    y = l.highlightedState,
+                                    D = l.itemSelectable,
+                                    k = l.placeholder,
                                     Q = h.id,
                                     Z = h.value,
                                     ne = h.label,
                                     E = h.customProperties,
                                     w = h.active,
                                     N = h.disabled,
-                                    d = h.highlighted,
+                                    g = h.highlighted,
                                     e = h.placeholder,
                                     t = Object.assign(
                                         document.createElement('div'),
-                                        ((o = { className: O }),
-                                        (o[c ? 'innerHTML' : 'innerText'] = ne),
-                                        o),
+                                        ((a = { className: O }),
+                                        (a[c ? 'innerHTML' : 'innerText'] = ne),
+                                        a),
                                     );
                                 if (
                                     (Object.assign(t.dataset, {
@@ -3495,43 +3495,43 @@ var $e = ft((Ae, Ye) => {
                                     w && t.setAttribute('aria-selected', 'true'),
                                     N && t.setAttribute('aria-disabled', 'true'),
                                     e && t.classList.add(k),
-                                    t.classList.add(d ? y : D),
-                                    f)
+                                    t.classList.add(g ? y : D),
+                                    d)
                                 ) {
                                     N && t.classList.remove(D), (t.dataset.deletable = '');
                                     var n = 'Remove item',
-                                        l = Object.assign(
+                                        s = Object.assign(
                                             document.createElement('button'),
                                             ((r = { type: 'button', className: L }),
                                             (r[c ? 'innerHTML' : 'innerText'] = n),
                                             r),
                                         );
-                                    l.setAttribute(
+                                    s.setAttribute(
                                         'aria-label',
                                         ''.concat(n, ": '").concat(Z, "'"),
                                     ),
-                                        (l.dataset.button = ''),
-                                        t.appendChild(l);
+                                        (s.dataset.button = ''),
+                                        t.appendChild(s);
                                 }
                                 return t;
                             },
                             choiceList: function (_, h) {
-                                var f = _.classNames.list,
-                                    o = Object.assign(document.createElement('div'), {
-                                        className: f,
+                                var d = _.classNames.list,
+                                    a = Object.assign(document.createElement('div'), {
+                                        className: d,
                                     });
                                 return (
-                                    h || o.setAttribute('aria-multiselectable', 'true'),
-                                    o.setAttribute('role', 'listbox'),
-                                    o
+                                    h || a.setAttribute('aria-multiselectable', 'true'),
+                                    a.setAttribute('role', 'listbox'),
+                                    a
                                 );
                             },
                             choiceGroup: function (_, h) {
-                                var f,
-                                    o = _.allowHTML,
+                                var d,
+                                    a = _.allowHTML,
                                     r = _.classNames,
                                     c = r.group,
-                                    a = r.groupHeading,
+                                    l = r.groupHeading,
                                     O = r.itemDisabled,
                                     L = h.id,
                                     y = h.value,
@@ -3546,19 +3546,19 @@ var $e = ft((Ae, Ye) => {
                                     k.appendChild(
                                         Object.assign(
                                             document.createElement('div'),
-                                            ((f = { className: a }),
-                                            (f[o ? 'innerHTML' : 'innerText'] = y),
-                                            f),
+                                            ((d = { className: l }),
+                                            (d[a ? 'innerHTML' : 'innerText'] = y),
+                                            d),
                                         ),
                                     ),
                                     k
                                 );
                             },
-                            choice: function (_, h, f) {
-                                var o,
+                            choice: function (_, h, d) {
+                                var a,
                                     r = _.allowHTML,
                                     c = _.classNames,
-                                    a = c.item,
+                                    l = c.item,
                                     O = c.itemChoice,
                                     L = c.itemSelectable,
                                     y = c.selectedState,
@@ -3570,24 +3570,24 @@ var $e = ft((Ae, Ye) => {
                                     E = h.groupId,
                                     w = h.elementId,
                                     N = h.disabled,
-                                    d = h.selected,
+                                    g = h.selected,
                                     e = h.placeholder,
                                     t = Object.assign(
                                         document.createElement('div'),
-                                        ((o = { id: w }),
-                                        (o[r ? 'innerHTML' : 'innerText'] = ne),
-                                        (o.className = ''.concat(a, ' ').concat(O)),
-                                        o),
+                                        ((a = { id: w }),
+                                        (a[r ? 'innerHTML' : 'innerText'] = ne),
+                                        (a.className = ''.concat(l, ' ').concat(O)),
+                                        a),
                                     );
                                 return (
-                                    d && t.classList.add(y),
+                                    g && t.classList.add(y),
                                     e && t.classList.add(k),
                                     t.setAttribute('role', E && E > 0 ? 'treeitem' : 'option'),
                                     Object.assign(t.dataset, {
                                         choice: '',
                                         id: Q,
                                         value: Z,
-                                        selectText: f,
+                                        selectText: d,
                                     }),
                                     N
                                         ? (t.classList.add(D),
@@ -3598,13 +3598,13 @@ var $e = ft((Ae, Ye) => {
                                 );
                             },
                             input: function (_, h) {
-                                var f = _.classNames,
-                                    o = f.input,
-                                    r = f.inputCloned,
+                                var d = _.classNames,
+                                    a = d.input,
+                                    r = d.inputCloned,
                                     c = Object.assign(document.createElement('input'), {
                                         type: 'search',
                                         name: 'search_terms',
-                                        className: ''.concat(o, ' ').concat(r),
+                                        className: ''.concat(a, ' ').concat(r),
                                         autocomplete: 'off',
                                         autocapitalize: 'off',
                                         spellcheck: !1,
@@ -3618,49 +3618,49 @@ var $e = ft((Ae, Ye) => {
                             },
                             dropdown: function (_) {
                                 var h = _.classNames,
-                                    f = h.list,
-                                    o = h.listDropdown,
+                                    d = h.list,
+                                    a = h.listDropdown,
                                     r = document.createElement('div');
                                 return (
-                                    r.classList.add(f, o),
+                                    r.classList.add(d, a),
                                     r.setAttribute('aria-expanded', 'false'),
                                     r
                                 );
                             },
-                            notice: function (_, h, f) {
-                                var o,
+                            notice: function (_, h, d) {
+                                var a,
                                     r = _.allowHTML,
                                     c = _.classNames,
-                                    a = c.item,
+                                    l = c.item,
                                     O = c.itemChoice,
                                     L = c.noResults,
                                     y = c.noChoices;
-                                f === void 0 && (f = '');
-                                var D = [a, O];
+                                d === void 0 && (d = '');
+                                var D = [l, O];
                                 return (
-                                    f === 'no-choices'
+                                    d === 'no-choices'
                                         ? D.push(y)
-                                        : f === 'no-results' && D.push(L),
+                                        : d === 'no-results' && D.push(L),
                                     Object.assign(
                                         document.createElement('div'),
-                                        ((o = {}),
-                                        (o[r ? 'innerHTML' : 'innerText'] = h),
-                                        (o.className = D.join(' ')),
-                                        o),
+                                        ((a = {}),
+                                        (a[r ? 'innerHTML' : 'innerText'] = h),
+                                        (a.className = D.join(' ')),
+                                        a),
                                     )
                                 );
                             },
                             option: function (_) {
                                 var h = _.label,
-                                    f = _.value,
-                                    o = _.customProperties,
+                                    d = _.value,
+                                    a = _.customProperties,
                                     r = _.active,
                                     c = _.disabled,
-                                    a = new Option(h, f, !1, r);
+                                    l = new Option(h, d, !1, r);
                                 return (
-                                    o && (a.dataset.customProperties = ''.concat(o)),
-                                    (a.disabled = !!c),
-                                    a
+                                    a && (l.dataset.customProperties = ''.concat(a)),
+                                    (l.disabled = !!c),
+                                    l
                                 );
                             },
                         };
@@ -3675,12 +3675,12 @@ var $e = ft((Ae, Ye) => {
                         }
                         function _(E) {
                             var w = Object.prototype.toString.call(E);
-                            return w === '[object RegExp]' || w === '[object Date]' || o(E);
+                            return w === '[object RegExp]' || w === '[object Date]' || a(E);
                         }
                         var h = typeof Symbol == 'function' && Symbol.for,
-                            f = h ? Symbol.for('react.element') : 60103;
-                        function o(E) {
-                            return E.$$typeof === f;
+                            d = h ? Symbol.for('react.element') : 60103;
+                        function a(E) {
+                            return E.$$typeof === d;
                         }
                         function r(E) {
                             return Array.isArray(E) ? [] : {};
@@ -3688,9 +3688,9 @@ var $e = ft((Ae, Ye) => {
                         function c(E, w) {
                             return w.clone !== !1 && w.isMergeableObject(E) ? Z(r(E), E, w) : E;
                         }
-                        function a(E, w, N) {
-                            return E.concat(w).map(function (d) {
-                                return c(d, N);
+                        function l(E, w, N) {
+                            return E.concat(w).map(function (g) {
+                                return c(g, N);
                             });
                         }
                         function O(E, w) {
@@ -3725,36 +3725,36 @@ var $e = ft((Ae, Ye) => {
                             );
                         }
                         function Q(E, w, N) {
-                            var d = {};
+                            var g = {};
                             return (
                                 N.isMergeableObject(E) &&
                                     y(E).forEach(function (e) {
-                                        d[e] = c(E[e], N);
+                                        g[e] = c(E[e], N);
                                     }),
                                 y(w).forEach(function (e) {
                                     k(E, e) ||
                                         (D(E, e) && N.isMergeableObject(w[e])
-                                            ? (d[e] = O(e, N)(E[e], w[e], N))
-                                            : (d[e] = c(w[e], N)));
+                                            ? (g[e] = O(e, N)(E[e], w[e], N))
+                                            : (g[e] = c(w[e], N)));
                                 }),
-                                d
+                                g
                             );
                         }
                         function Z(E, w, N) {
                             (N = N || {}),
-                                (N.arrayMerge = N.arrayMerge || a),
+                                (N.arrayMerge = N.arrayMerge || l),
                                 (N.isMergeableObject = N.isMergeableObject || i),
                                 (N.cloneUnlessOtherwiseSpecified = c);
-                            var d = Array.isArray(w),
+                            var g = Array.isArray(w),
                                 e = Array.isArray(E),
-                                t = d === e;
-                            return t ? (d ? N.arrayMerge(E, w, N) : Q(E, w, N)) : c(w, N);
+                                t = g === e;
+                            return t ? (g ? N.arrayMerge(E, w, N) : Q(E, w, N)) : c(w, N);
                         }
                         Z.all = function (w, N) {
                             if (!Array.isArray(w))
                                 throw new Error('first argument should be an array');
-                            return w.reduce(function (d, e) {
-                                return Z(d, e, N);
+                            return w.reduce(function (g, e) {
+                                return Z(g, e, N);
                             }, {});
                         };
                         var ne = Z;
@@ -3767,70 +3767,70 @@ var $e = ft((Ae, Ye) => {
                                     return Se;
                                 },
                             });
-                        function _(m) {
-                            return Array.isArray ? Array.isArray(m) : k(m) === '[object Array]';
+                        function _(p) {
+                            return Array.isArray ? Array.isArray(p) : k(p) === '[object Array]';
                         }
                         let h = 1 / 0;
-                        function f(m) {
-                            if (typeof m == 'string') return m;
-                            let s = m + '';
-                            return s == '0' && 1 / m == -h ? '-0' : s;
+                        function d(p) {
+                            if (typeof p == 'string') return p;
+                            let o = p + '';
+                            return o == '0' && 1 / p == -h ? '-0' : o;
                         }
-                        function o(m) {
-                            return m == null ? '' : f(m);
+                        function a(p) {
+                            return p == null ? '' : d(p);
                         }
-                        function r(m) {
-                            return typeof m == 'string';
+                        function r(p) {
+                            return typeof p == 'string';
                         }
-                        function c(m) {
-                            return typeof m == 'number';
+                        function c(p) {
+                            return typeof p == 'number';
                         }
-                        function a(m) {
-                            return m === !0 || m === !1 || (L(m) && k(m) == '[object Boolean]');
+                        function l(p) {
+                            return p === !0 || p === !1 || (L(p) && k(p) == '[object Boolean]');
                         }
-                        function O(m) {
-                            return typeof m == 'object';
+                        function O(p) {
+                            return typeof p == 'object';
                         }
-                        function L(m) {
-                            return O(m) && m !== null;
+                        function L(p) {
+                            return O(p) && p !== null;
                         }
-                        function y(m) {
-                            return m != null;
+                        function y(p) {
+                            return p != null;
                         }
-                        function D(m) {
-                            return !m.trim().length;
+                        function D(p) {
+                            return !p.trim().length;
                         }
-                        function k(m) {
-                            return m == null
-                                ? m === void 0
+                        function k(p) {
+                            return p == null
+                                ? p === void 0
                                     ? '[object Undefined]'
                                     : '[object Null]'
-                                : Object.prototype.toString.call(m);
+                                : Object.prototype.toString.call(p);
                         }
                         let Q = 'Extended search is not available',
                             Z = "Incorrect 'index' type",
-                            ne = (m) => `Invalid value for key ${m}`,
-                            E = (m) => `Pattern length exceeds max of ${m}.`,
-                            w = (m) => `Missing ${m} property in key`,
-                            N = (m) => `Property 'weight' in key '${m}' must be a positive integer`,
-                            d = Object.prototype.hasOwnProperty;
+                            ne = (p) => `Invalid value for key ${p}`,
+                            E = (p) => `Pattern length exceeds max of ${p}.`,
+                            w = (p) => `Missing ${p} property in key`,
+                            N = (p) => `Property 'weight' in key '${p}' must be a positive integer`,
+                            g = Object.prototype.hasOwnProperty;
                         class e {
-                            constructor(s) {
+                            constructor(o) {
                                 (this._keys = []), (this._keyMap = {});
-                                let v = 0;
-                                s.forEach((S) => {
+                                let m = 0;
+                                o.forEach((S) => {
                                     let I = t(S);
-                                    (v += I.weight),
+                                    (m += I.weight),
                                         this._keys.push(I),
                                         (this._keyMap[I.id] = I),
-                                        (v += I.weight);
+                                        (m += I.weight);
                                 }),
                                     this._keys.forEach((S) => {
-                                        S.weight /= v;
+                                        S.weight /= m;
                                     });
                             }
-                            get(s) {
-                                return this._keyMap[s];
+                            get(o) {
+                                return this._keyMap[o];
                             }
                             keys() {
                                 return this._keys;
@@ -3839,40 +3839,40 @@ var $e = ft((Ae, Ye) => {
                                 return JSON.stringify(this._keys);
                             }
                         }
-                        function t(m) {
-                            let s = null,
-                                v = null,
+                        function t(p) {
+                            let o = null,
+                                m = null,
                                 S = null,
                                 I = 1,
                                 T = null;
-                            if (r(m) || _(m)) (S = m), (s = n(m)), (v = l(m));
+                            if (r(p) || _(p)) (S = p), (o = n(p)), (m = s(p));
                             else {
-                                if (!d.call(m, 'name')) throw new Error(w('name'));
-                                let A = m.name;
-                                if (((S = A), d.call(m, 'weight') && ((I = m.weight), I <= 0)))
+                                if (!g.call(p, 'name')) throw new Error(w('name'));
+                                let A = p.name;
+                                if (((S = A), g.call(p, 'weight') && ((I = p.weight), I <= 0)))
                                     throw new Error(N(A));
-                                (s = n(A)), (v = l(A)), (T = m.getFn);
+                                (o = n(A)), (m = s(A)), (T = p.getFn);
                             }
-                            return { path: s, id: v, weight: I, src: S, getFn: T };
+                            return { path: o, id: m, weight: I, src: S, getFn: T };
                         }
-                        function n(m) {
-                            return _(m) ? m : m.split('.');
+                        function n(p) {
+                            return _(p) ? p : p.split('.');
                         }
-                        function l(m) {
-                            return _(m) ? m.join('.') : m;
+                        function s(p) {
+                            return _(p) ? p.join('.') : p;
                         }
-                        function g(m, s) {
-                            let v = [],
+                        function v(p, o) {
+                            let m = [],
                                 S = !1,
                                 I = (T, A, R) => {
                                     if (y(T))
-                                        if (!A[R]) v.push(T);
+                                        if (!A[R]) m.push(T);
                                         else {
                                             let F = A[R],
                                                 H = T[F];
                                             if (!y(H)) return;
-                                            if (R === A.length - 1 && (r(H) || c(H) || a(H)))
-                                                v.push(o(H));
+                                            if (R === A.length - 1 && (r(H) || c(H) || l(H)))
+                                                m.push(a(H));
                                             else if (_(H)) {
                                                 S = !0;
                                                 for (let B = 0, x = H.length; B < x; B += 1)
@@ -3880,7 +3880,7 @@ var $e = ft((Ae, Ye) => {
                                             } else A.length && I(H, A, R + 1);
                                         }
                                 };
-                            return I(m, r(s) ? s.split('.') : s, 0), S ? v : v[0];
+                            return I(p, r(o) ? o.split('.') : o, 0), S ? m : m[0];
                         }
                         var u = {
                             ...{
@@ -3888,12 +3888,12 @@ var $e = ft((Ae, Ye) => {
                                 includeScore: !1,
                                 keys: [],
                                 shouldSort: !0,
-                                sortFn: (m, s) =>
-                                    m.score === s.score
-                                        ? m.idx < s.idx
+                                sortFn: (p, o) =>
+                                    p.score === o.score
+                                        ? p.idx < o.idx
                                             ? -1
                                             : 1
-                                        : m.score < s.score
+                                        : p.score < o.score
                                           ? -1
                                           : 1,
                             },
@@ -3901,50 +3901,50 @@ var $e = ft((Ae, Ye) => {
                             ...{ location: 0, threshold: 0.6, distance: 100 },
                             ...{
                                 useExtendedSearch: !1,
-                                getFn: g,
+                                getFn: v,
                                 ignoreLocation: !1,
                                 ignoreFieldNorm: !1,
                                 fieldNormWeight: 1,
                             },
                         };
                         let C = /[^ ]+/g;
-                        function Y(m = 1, s = 3) {
-                            let v = new Map(),
-                                S = Math.pow(10, s);
+                        function Y(p = 1, o = 3) {
+                            let m = new Map(),
+                                S = Math.pow(10, o);
                             return {
                                 get(I) {
                                     let T = I.match(C).length;
-                                    if (v.has(T)) return v.get(T);
-                                    let A = 1 / Math.pow(T, 0.5 * m),
+                                    if (m.has(T)) return m.get(T);
+                                    let A = 1 / Math.pow(T, 0.5 * p),
                                         R = parseFloat(Math.round(A * S) / S);
-                                    return v.set(T, R), R;
+                                    return m.set(T, R), R;
                                 },
                                 clear() {
-                                    v.clear();
+                                    m.clear();
                                 },
                             };
                         }
                         class V {
                             constructor({
-                                getFn: s = u.getFn,
-                                fieldNormWeight: v = u.fieldNormWeight,
+                                getFn: o = u.getFn,
+                                fieldNormWeight: m = u.fieldNormWeight,
                             } = {}) {
-                                (this.norm = Y(v, 3)),
-                                    (this.getFn = s),
+                                (this.norm = Y(m, 3)),
+                                    (this.getFn = o),
                                     (this.isCreated = !1),
                                     this.setIndexRecords();
                             }
-                            setSources(s = []) {
-                                this.docs = s;
+                            setSources(o = []) {
+                                this.docs = o;
                             }
-                            setIndexRecords(s = []) {
-                                this.records = s;
+                            setIndexRecords(o = []) {
+                                this.records = o;
                             }
-                            setKeys(s = []) {
-                                (this.keys = s),
+                            setKeys(o = []) {
+                                (this.keys = o),
                                     (this._keysMap = {}),
-                                    s.forEach((v, S) => {
-                                        this._keysMap[v.id] = S;
+                                    o.forEach((m, S) => {
+                                        this._keysMap[m.id] = S;
                                     });
                             }
                             create() {
@@ -3952,38 +3952,38 @@ var $e = ft((Ae, Ye) => {
                                     !this.docs.length ||
                                     ((this.isCreated = !0),
                                     r(this.docs[0])
-                                        ? this.docs.forEach((s, v) => {
-                                              this._addString(s, v);
+                                        ? this.docs.forEach((o, m) => {
+                                              this._addString(o, m);
                                           })
-                                        : this.docs.forEach((s, v) => {
-                                              this._addObject(s, v);
+                                        : this.docs.forEach((o, m) => {
+                                              this._addObject(o, m);
                                           }),
                                     this.norm.clear());
                             }
-                            add(s) {
-                                let v = this.size();
-                                r(s) ? this._addString(s, v) : this._addObject(s, v);
+                            add(o) {
+                                let m = this.size();
+                                r(o) ? this._addString(o, m) : this._addObject(o, m);
                             }
-                            removeAt(s) {
-                                this.records.splice(s, 1);
-                                for (let v = s, S = this.size(); v < S; v += 1)
-                                    this.records[v].i -= 1;
+                            removeAt(o) {
+                                this.records.splice(o, 1);
+                                for (let m = o, S = this.size(); m < S; m += 1)
+                                    this.records[m].i -= 1;
                             }
-                            getValueForItemAtKeyId(s, v) {
-                                return s[this._keysMap[v]];
+                            getValueForItemAtKeyId(o, m) {
+                                return o[this._keysMap[m]];
                             }
                             size() {
                                 return this.records.length;
                             }
-                            _addString(s, v) {
-                                if (!y(s) || D(s)) return;
-                                let S = { v: s, i: v, n: this.norm.get(s) };
+                            _addString(o, m) {
+                                if (!y(o) || D(o)) return;
+                                let S = { v: o, i: m, n: this.norm.get(o) };
                                 this.records.push(S);
                             }
-                            _addObject(s, v) {
-                                let S = { i: v, $: {} };
+                            _addObject(o, m) {
+                                let S = { i: m, $: {} };
                                 this.keys.forEach((I, T) => {
-                                    let A = I.getFn ? I.getFn(s) : this.getFn(s, I.path);
+                                    let A = I.getFn ? I.getFn(o) : this.getFn(o, I.path);
                                     if (y(A)) {
                                         if (_(A)) {
                                             let R = [],
@@ -4017,56 +4017,56 @@ var $e = ft((Ae, Ye) => {
                             }
                         }
                         function U(
-                            m,
-                            s,
-                            { getFn: v = u.getFn, fieldNormWeight: S = u.fieldNormWeight } = {},
+                            p,
+                            o,
+                            { getFn: m = u.getFn, fieldNormWeight: S = u.fieldNormWeight } = {},
                         ) {
-                            let I = new V({ getFn: v, fieldNormWeight: S });
-                            return I.setKeys(m.map(t)), I.setSources(s), I.create(), I;
+                            let I = new V({ getFn: m, fieldNormWeight: S });
+                            return I.setKeys(p.map(t)), I.setSources(o), I.create(), I;
                         }
                         function $(
-                            m,
-                            { getFn: s = u.getFn, fieldNormWeight: v = u.fieldNormWeight } = {},
+                            p,
+                            { getFn: o = u.getFn, fieldNormWeight: m = u.fieldNormWeight } = {},
                         ) {
-                            let { keys: S, records: I } = m,
-                                T = new V({ getFn: s, fieldNormWeight: v });
+                            let { keys: S, records: I } = p,
+                                T = new V({ getFn: o, fieldNormWeight: m });
                             return T.setKeys(S), T.setIndexRecords(I), T;
                         }
                         function W(
-                            m,
+                            p,
                             {
-                                errors: s = 0,
-                                currentLocation: v = 0,
+                                errors: o = 0,
+                                currentLocation: m = 0,
                                 expectedLocation: S = 0,
                                 distance: I = u.distance,
                                 ignoreLocation: T = u.ignoreLocation,
                             } = {},
                         ) {
-                            let A = s / m.length;
+                            let A = o / p.length;
                             if (T) return A;
-                            let R = Math.abs(S - v);
+                            let R = Math.abs(S - m);
                             return I ? A + R / I : R ? 1 : A;
                         }
-                        function J(m = [], s = u.minMatchCharLength) {
-                            let v = [],
+                        function J(p = [], o = u.minMatchCharLength) {
+                            let m = [],
                                 S = -1,
                                 I = -1,
                                 T = 0;
-                            for (let A = m.length; T < A; T += 1) {
-                                let R = m[T];
+                            for (let A = p.length; T < A; T += 1) {
+                                let R = p[T];
                                 R && S === -1
                                     ? (S = T)
                                     : !R &&
                                       S !== -1 &&
-                                      ((I = T - 1), I - S + 1 >= s && v.push([S, I]), (S = -1));
+                                      ((I = T - 1), I - S + 1 >= o && m.push([S, I]), (S = -1));
                             }
-                            return m[T - 1] && T - S >= s && v.push([S, T - 1]), v;
+                            return p[T - 1] && T - S >= o && m.push([S, T - 1]), m;
                         }
                         let z = 32;
                         function ee(
+                            p,
+                            o,
                             m,
-                            s,
-                            v,
                             {
                                 location: S = u.location,
                                 distance: I = u.distance,
@@ -4077,17 +4077,17 @@ var $e = ft((Ae, Ye) => {
                                 ignoreLocation: H = u.ignoreLocation,
                             } = {},
                         ) {
-                            if (s.length > z) throw new Error(E(z));
-                            let B = s.length,
-                                x = m.length,
+                            if (o.length > z) throw new Error(E(z));
+                            let B = o.length,
+                                x = p.length,
                                 G = Math.max(0, Math.min(S, x)),
                                 q = T,
                                 re = G,
                                 ue = R > 1 || F,
                                 Ee = ue ? Array(x) : [],
                                 ve;
-                            for (; (ve = m.indexOf(s, re)) > -1; ) {
-                                let he = W(s, {
+                            for (; (ve = p.indexOf(o, re)) > -1; ) {
+                                let he = W(o, {
                                     currentLocation: ve,
                                     expectedLocation: G,
                                     distance: I,
@@ -4107,7 +4107,7 @@ var $e = ft((Ae, Ye) => {
                                 let ge = 0,
                                     ye = we;
                                 for (; ge < ye; )
-                                    W(s, {
+                                    W(o, {
                                         errors: he,
                                         currentLocation: G + ye,
                                         expectedLocation: G,
@@ -4124,7 +4124,7 @@ var $e = ft((Ae, Ye) => {
                                 Oe[Fe + 1] = (1 << he) - 1;
                                 for (let fe = Fe; fe >= Ue; fe -= 1) {
                                     let Le = fe - 1,
-                                        We = v[m.charAt(Le)];
+                                        We = m[p.charAt(Le)];
                                     if (
                                         (ue && (Ee[Le] = +!!We),
                                         (Oe[fe] = ((Oe[fe + 1] << 1) | 1) & We),
@@ -4132,7 +4132,7 @@ var $e = ft((Ae, Ye) => {
                                             (Oe[fe] |=
                                                 ((Ie[fe + 1] | Ie[fe]) << 1) | 1 | Ie[fe + 1]),
                                         Oe[fe] & at &&
-                                            ((be = W(s, {
+                                            ((be = W(o, {
                                                 errors: he,
                                                 currentLocation: Le,
                                                 expectedLocation: G,
@@ -4146,7 +4146,7 @@ var $e = ft((Ae, Ye) => {
                                     }
                                 }
                                 if (
-                                    W(s, {
+                                    W(o, {
                                         errors: he + 1,
                                         currentLocation: G,
                                         expectedLocation: G,
@@ -4164,19 +4164,19 @@ var $e = ft((Ae, Ye) => {
                             }
                             return Ke;
                         }
-                        function ae(m) {
-                            let s = {};
-                            for (let v = 0, S = m.length; v < S; v += 1) {
-                                let I = m.charAt(v);
-                                s[I] = (s[I] || 0) | (1 << (S - v - 1));
+                        function ae(p) {
+                            let o = {};
+                            for (let m = 0, S = p.length; m < S; m += 1) {
+                                let I = p.charAt(m);
+                                o[I] = (o[I] || 0) | (1 << (S - m - 1));
                             }
-                            return s;
+                            return o;
                         }
                         class ce {
                             constructor(
-                                s,
+                                o,
                                 {
-                                    location: v = u.location,
+                                    location: m = u.location,
                                     threshold: S = u.threshold,
                                     distance: I = u.distance,
                                     includeMatches: T = u.includeMatches,
@@ -4188,7 +4188,7 @@ var $e = ft((Ae, Ye) => {
                             ) {
                                 if (
                                     ((this.options = {
-                                        location: v,
+                                        location: m,
                                         threshold: S,
                                         distance: I,
                                         includeMatches: T,
@@ -4197,7 +4197,7 @@ var $e = ft((Ae, Ye) => {
                                         isCaseSensitive: F,
                                         ignoreLocation: H,
                                     }),
-                                    (this.pattern = F ? s : s.toLowerCase()),
+                                    (this.pattern = F ? o : o.toLowerCase()),
                                     (this.chunks = []),
                                     !this.pattern.length)
                                 )
@@ -4221,11 +4221,11 @@ var $e = ft((Ae, Ye) => {
                                     }
                                 } else B(this.pattern, 0);
                             }
-                            searchIn(s) {
-                                let { isCaseSensitive: v, includeMatches: S } = this.options;
-                                if ((v || (s = s.toLowerCase()), this.pattern === s)) {
+                            searchIn(o) {
+                                let { isCaseSensitive: m, includeMatches: S } = this.options;
+                                if ((m || (o = o.toLowerCase()), this.pattern === o)) {
                                     let re = { isMatch: !0, score: 0 };
-                                    return S && (re.indices = [[0, s.length - 1]]), re;
+                                    return S && (re.indices = [[0, o.length - 1]]), re;
                                 }
                                 let {
                                         location: I,
@@ -4244,7 +4244,7 @@ var $e = ft((Ae, Ye) => {
                                             isMatch: ve,
                                             score: Ie,
                                             indices: be,
-                                        } = ee(s, re, ue, {
+                                        } = ee(o, re, ue, {
                                             location: I + Ee,
                                             distance: T,
                                             threshold: A,
@@ -4261,24 +4261,24 @@ var $e = ft((Ae, Ye) => {
                             }
                         }
                         class le {
-                            constructor(s) {
-                                this.pattern = s;
+                            constructor(o) {
+                                this.pattern = o;
                             }
-                            static isMultiMatch(s) {
-                                return _e(s, this.multiRegex);
+                            static isMultiMatch(o) {
+                                return _e(o, this.multiRegex);
                             }
-                            static isSingleMatch(s) {
-                                return _e(s, this.singleRegex);
+                            static isSingleMatch(o) {
+                                return _e(o, this.singleRegex);
                             }
                             search() {}
                         }
-                        function _e(m, s) {
-                            let v = m.match(s);
-                            return v ? v[1] : null;
+                        function _e(p, o) {
+                            let m = p.match(o);
+                            return m ? m[1] : null;
                         }
                         class te extends le {
-                            constructor(s) {
-                                super(s);
+                            constructor(o) {
+                                super(o);
                             }
                             static get type() {
                                 return 'exact';
@@ -4289,18 +4289,18 @@ var $e = ft((Ae, Ye) => {
                             static get singleRegex() {
                                 return /^=(.*)$/;
                             }
-                            search(s) {
-                                let v = s === this.pattern;
+                            search(o) {
+                                let m = o === this.pattern;
                                 return {
-                                    isMatch: v,
-                                    score: v ? 0 : 1,
+                                    isMatch: m,
+                                    score: m ? 0 : 1,
                                     indices: [0, this.pattern.length - 1],
                                 };
                             }
                         }
                         class de extends le {
-                            constructor(s) {
-                                super(s);
+                            constructor(o) {
+                                super(o);
                             }
                             static get type() {
                                 return 'inverse-exact';
@@ -4311,14 +4311,14 @@ var $e = ft((Ae, Ye) => {
                             static get singleRegex() {
                                 return /^!(.*)$/;
                             }
-                            search(s) {
-                                let S = s.indexOf(this.pattern) === -1;
-                                return { isMatch: S, score: S ? 0 : 1, indices: [0, s.length - 1] };
+                            search(o) {
+                                let S = o.indexOf(this.pattern) === -1;
+                                return { isMatch: S, score: S ? 0 : 1, indices: [0, o.length - 1] };
                             }
                         }
                         class pe extends le {
-                            constructor(s) {
-                                super(s);
+                            constructor(o) {
+                                super(o);
                             }
                             static get type() {
                                 return 'prefix-exact';
@@ -4329,18 +4329,18 @@ var $e = ft((Ae, Ye) => {
                             static get singleRegex() {
                                 return /^\^(.*)$/;
                             }
-                            search(s) {
-                                let v = s.startsWith(this.pattern);
+                            search(o) {
+                                let m = o.startsWith(this.pattern);
                                 return {
-                                    isMatch: v,
-                                    score: v ? 0 : 1,
+                                    isMatch: m,
+                                    score: m ? 0 : 1,
                                     indices: [0, this.pattern.length - 1],
                                 };
                             }
                         }
                         class oe extends le {
-                            constructor(s) {
-                                super(s);
+                            constructor(o) {
+                                super(o);
                             }
                             static get type() {
                                 return 'inverse-prefix-exact';
@@ -4351,14 +4351,14 @@ var $e = ft((Ae, Ye) => {
                             static get singleRegex() {
                                 return /^!\^(.*)$/;
                             }
-                            search(s) {
-                                let v = !s.startsWith(this.pattern);
-                                return { isMatch: v, score: v ? 0 : 1, indices: [0, s.length - 1] };
+                            search(o) {
+                                let m = !o.startsWith(this.pattern);
+                                return { isMatch: m, score: m ? 0 : 1, indices: [0, o.length - 1] };
                             }
                         }
                         class Te extends le {
-                            constructor(s) {
-                                super(s);
+                            constructor(o) {
+                                super(o);
                             }
                             static get type() {
                                 return 'suffix-exact';
@@ -4369,18 +4369,18 @@ var $e = ft((Ae, Ye) => {
                             static get singleRegex() {
                                 return /^(.*)\$$/;
                             }
-                            search(s) {
-                                let v = s.endsWith(this.pattern);
+                            search(o) {
+                                let m = o.endsWith(this.pattern);
                                 return {
-                                    isMatch: v,
-                                    score: v ? 0 : 1,
-                                    indices: [s.length - this.pattern.length, s.length - 1],
+                                    isMatch: m,
+                                    score: m ? 0 : 1,
+                                    indices: [o.length - this.pattern.length, o.length - 1],
                                 };
                             }
                         }
                         class Pe extends le {
-                            constructor(s) {
-                                super(s);
+                            constructor(o) {
+                                super(o);
                             }
                             static get type() {
                                 return 'inverse-suffix-exact';
@@ -4391,16 +4391,16 @@ var $e = ft((Ae, Ye) => {
                             static get singleRegex() {
                                 return /^!(.*)\$$/;
                             }
-                            search(s) {
-                                let v = !s.endsWith(this.pattern);
-                                return { isMatch: v, score: v ? 0 : 1, indices: [0, s.length - 1] };
+                            search(o) {
+                                let m = !o.endsWith(this.pattern);
+                                return { isMatch: m, score: m ? 0 : 1, indices: [0, o.length - 1] };
                             }
                         }
                         class He extends le {
                             constructor(
-                                s,
+                                o,
                                 {
-                                    location: v = u.location,
+                                    location: m = u.location,
                                     threshold: S = u.threshold,
                                     distance: I = u.distance,
                                     includeMatches: T = u.includeMatches,
@@ -4410,9 +4410,9 @@ var $e = ft((Ae, Ye) => {
                                     ignoreLocation: H = u.ignoreLocation,
                                 } = {},
                             ) {
-                                super(s),
-                                    (this._bitapSearch = new ce(s, {
-                                        location: v,
+                                super(o),
+                                    (this._bitapSearch = new ce(o, {
+                                        location: m,
                                         threshold: S,
                                         distance: I,
                                         includeMatches: T,
@@ -4431,13 +4431,13 @@ var $e = ft((Ae, Ye) => {
                             static get singleRegex() {
                                 return /^(.*)$/;
                             }
-                            search(s) {
-                                return this._bitapSearch.searchIn(s);
+                            search(o) {
+                                return this._bitapSearch.searchIn(o);
                             }
                         }
                         class Be extends le {
-                            constructor(s) {
-                                super(s);
+                            constructor(o) {
+                                super(o);
                             }
                             static get type() {
                                 return 'include';
@@ -4448,13 +4448,13 @@ var $e = ft((Ae, Ye) => {
                             static get singleRegex() {
                                 return /^'(.*)$/;
                             }
-                            search(s) {
-                                let v = 0,
+                            search(o) {
+                                let m = 0,
                                     S,
                                     I = [],
                                     T = this.pattern.length;
-                                for (; (S = s.indexOf(this.pattern, v)) > -1; )
-                                    (v = S + T), I.push([S, v - 1]);
+                                for (; (S = o.indexOf(this.pattern, m)) > -1; )
+                                    (m = S + T), I.push([S, m - 1]);
                                 let A = !!I.length;
                                 return { isMatch: A, score: A ? 0 : 1, indices: I };
                             }
@@ -4463,9 +4463,9 @@ var $e = ft((Ae, Ye) => {
                             Ve = Me.length,
                             Xe = / +(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)/,
                             Je = '|';
-                        function Qe(m, s = {}) {
-                            return m.split(Je).map((v) => {
-                                let S = v
+                        function Qe(p, o = {}) {
+                            return p.split(Je).map((m) => {
+                                let S = m
                                         .trim()
                                         .split(Xe)
                                         .filter((T) => T && !!T.trim()),
@@ -4477,14 +4477,14 @@ var $e = ft((Ae, Ye) => {
                                     for (; !F && ++H < Ve; ) {
                                         let B = Me[H],
                                             x = B.isMultiMatch(R);
-                                        x && (I.push(new B(x, s)), (F = !0));
+                                        x && (I.push(new B(x, o)), (F = !0));
                                     }
                                     if (!F)
                                         for (H = -1; ++H < Ve; ) {
                                             let B = Me[H],
                                                 x = B.isSingleMatch(R);
                                             if (x) {
-                                                I.push(new B(x, s));
+                                                I.push(new B(x, o));
                                                 break;
                                             }
                                         }
@@ -4495,9 +4495,9 @@ var $e = ft((Ae, Ye) => {
                         let Ze = new Set([He.type, Be.type]);
                         class qe {
                             constructor(
-                                s,
+                                o,
                                 {
-                                    isCaseSensitive: v = u.isCaseSensitive,
+                                    isCaseSensitive: m = u.isCaseSensitive,
                                     includeMatches: S = u.includeMatches,
                                     minMatchCharLength: I = u.minMatchCharLength,
                                     ignoreLocation: T = u.ignoreLocation,
@@ -4509,7 +4509,7 @@ var $e = ft((Ae, Ye) => {
                             ) {
                                 (this.query = null),
                                     (this.options = {
-                                        isCaseSensitive: v,
+                                        isCaseSensitive: m,
                                         includeMatches: S,
                                         minMatchCharLength: I,
                                         findAllMatches: A,
@@ -4518,26 +4518,26 @@ var $e = ft((Ae, Ye) => {
                                         threshold: F,
                                         distance: H,
                                     }),
-                                    (this.pattern = v ? s : s.toLowerCase()),
+                                    (this.pattern = m ? o : o.toLowerCase()),
                                     (this.query = Qe(this.pattern, this.options));
                             }
-                            static condition(s, v) {
-                                return v.useExtendedSearch;
+                            static condition(o, m) {
+                                return m.useExtendedSearch;
                             }
-                            searchIn(s) {
-                                let v = this.query;
-                                if (!v) return { isMatch: !1, score: 1 };
+                            searchIn(o) {
+                                let m = this.query;
+                                if (!m) return { isMatch: !1, score: 1 };
                                 let { includeMatches: S, isCaseSensitive: I } = this.options;
-                                s = I ? s : s.toLowerCase();
+                                o = I ? o : o.toLowerCase();
                                 let T = 0,
                                     A = [],
                                     R = 0;
-                                for (let F = 0, H = v.length; F < H; F += 1) {
-                                    let B = v[F];
+                                for (let F = 0, H = m.length; F < H; F += 1) {
+                                    let B = m[F];
                                     (A.length = 0), (T = 0);
                                     for (let x = 0, G = B.length; x < G; x += 1) {
                                         let q = B[x],
-                                            { isMatch: re, indices: ue, score: Ee } = q.search(s);
+                                            { isMatch: re, indices: ue, score: Ee } = q.search(o);
                                         if (re) {
                                             if (((T += 1), (R += Ee), S)) {
                                                 let ve = q.constructor.type;
@@ -4557,23 +4557,23 @@ var $e = ft((Ae, Ye) => {
                             }
                         }
                         let De = [];
-                        function et(...m) {
-                            De.push(...m);
+                        function et(...p) {
+                            De.push(...p);
                         }
-                        function Ne(m, s) {
-                            for (let v = 0, S = De.length; v < S; v += 1) {
-                                let I = De[v];
-                                if (I.condition(m, s)) return new I(m, s);
+                        function Ne(p, o) {
+                            for (let m = 0, S = De.length; m < S; m += 1) {
+                                let I = De[m];
+                                if (I.condition(p, o)) return new I(p, o);
                             }
-                            return new ce(m, s);
+                            return new ce(p, o);
                         }
                         let Ce = { AND: '$and', OR: '$or' },
                             je = { PATH: '$path', PATTERN: '$val' },
-                            Re = (m) => !!(m[Ce.AND] || m[Ce.OR]),
-                            tt = (m) => !!m[je.PATH],
-                            it = (m) => !_(m) && O(m) && !Re(m),
-                            ke = (m) => ({ [Ce.AND]: Object.keys(m).map((s) => ({ [s]: m[s] })) });
-                        function xe(m, s, { auto: v = !0 } = {}) {
+                            Re = (p) => !!(p[Ce.AND] || p[Ce.OR]),
+                            tt = (p) => !!p[je.PATH],
+                            it = (p) => !_(p) && O(p) && !Re(p),
+                            ke = (p) => ({ [Ce.AND]: Object.keys(p).map((o) => ({ [o]: p[o] })) });
+                        function xe(p, o, { auto: m = !0 } = {}) {
                             let S = (I) => {
                                 let T = Object.keys(I),
                                     A = tt(I);
@@ -4582,8 +4582,8 @@ var $e = ft((Ae, Ye) => {
                                     let F = A ? I[je.PATH] : T[0],
                                         H = A ? I[je.PATTERN] : I[F];
                                     if (!r(H)) throw new Error(ne(F));
-                                    let B = { keyId: l(F), pattern: H };
-                                    return v && (B.searcher = Ne(H, s)), B;
+                                    let B = { keyId: s(F), pattern: H };
+                                    return m && (B.searcher = Ne(H, o)), B;
                                 }
                                 let R = { children: [], operator: T[0] };
                                 return (
@@ -4597,52 +4597,52 @@ var $e = ft((Ae, Ye) => {
                                     R
                                 );
                             };
-                            return Re(m) || (m = ke(m)), S(m);
+                            return Re(p) || (p = ke(p)), S(p);
                         }
-                        function nt(m, { ignoreFieldNorm: s = u.ignoreFieldNorm }) {
-                            m.forEach((v) => {
+                        function nt(p, { ignoreFieldNorm: o = u.ignoreFieldNorm }) {
+                            p.forEach((m) => {
                                 let S = 1;
-                                v.matches.forEach(({ key: I, norm: T, score: A }) => {
+                                m.matches.forEach(({ key: I, norm: T, score: A }) => {
                                     let R = I ? I.weight : null;
                                     S *= Math.pow(
                                         A === 0 && R ? Number.EPSILON : A,
-                                        (R || 1) * (s ? 1 : T),
+                                        (R || 1) * (o ? 1 : T),
                                     );
                                 }),
-                                    (v.score = S);
+                                    (m.score = S);
                             });
                         }
-                        function rt(m, s) {
-                            let v = m.matches;
-                            (s.matches = []),
-                                y(v) &&
-                                    v.forEach((S) => {
+                        function rt(p, o) {
+                            let m = p.matches;
+                            (o.matches = []),
+                                y(m) &&
+                                    m.forEach((S) => {
                                         if (!y(S.indices) || !S.indices.length) return;
                                         let { indices: I, value: T } = S,
                                             A = { indices: I, value: T };
                                         S.key && (A.key = S.key.src),
                                             S.idx > -1 && (A.refIndex = S.idx),
-                                            s.matches.push(A);
+                                            o.matches.push(A);
                                     });
                         }
-                        function st(m, s) {
-                            s.score = m.score;
+                        function st(p, o) {
+                            o.score = p.score;
                         }
                         function ot(
-                            m,
-                            s,
+                            p,
+                            o,
                             {
-                                includeMatches: v = u.includeMatches,
+                                includeMatches: m = u.includeMatches,
                                 includeScore: S = u.includeScore,
                             } = {},
                         ) {
                             let I = [];
                             return (
-                                v && I.push(rt),
+                                m && I.push(rt),
                                 S && I.push(st),
-                                m.map((T) => {
+                                p.map((T) => {
                                     let { idx: A } = T,
-                                        R = { item: s[A], refIndex: A };
+                                        R = { item: o[A], refIndex: A };
                                     return (
                                         I.length &&
                                             I.forEach((F) => {
@@ -4654,39 +4654,39 @@ var $e = ft((Ae, Ye) => {
                             );
                         }
                         class Se {
-                            constructor(s, v = {}, S) {
-                                (this.options = { ...u, ...v }),
+                            constructor(o, m = {}, S) {
+                                (this.options = { ...u, ...m }),
                                     this.options.useExtendedSearch,
                                     (this._keyStore = new e(this.options.keys)),
-                                    this.setCollection(s, S);
+                                    this.setCollection(o, S);
                             }
-                            setCollection(s, v) {
-                                if (((this._docs = s), v && !(v instanceof V))) throw new Error(Z);
+                            setCollection(o, m) {
+                                if (((this._docs = o), m && !(m instanceof V))) throw new Error(Z);
                                 this._myIndex =
-                                    v ||
+                                    m ||
                                     U(this.options.keys, this._docs, {
                                         getFn: this.options.getFn,
                                         fieldNormWeight: this.options.fieldNormWeight,
                                     });
                             }
-                            add(s) {
-                                y(s) && (this._docs.push(s), this._myIndex.add(s));
+                            add(o) {
+                                y(o) && (this._docs.push(o), this._myIndex.add(o));
                             }
-                            remove(s = () => !1) {
-                                let v = [];
+                            remove(o = () => !1) {
+                                let m = [];
                                 for (let S = 0, I = this._docs.length; S < I; S += 1) {
                                     let T = this._docs[S];
-                                    s(T, S) && (this.removeAt(S), (S -= 1), (I -= 1), v.push(T));
+                                    o(T, S) && (this.removeAt(S), (S -= 1), (I -= 1), m.push(T));
                                 }
-                                return v;
+                                return m;
                             }
-                            removeAt(s) {
-                                this._docs.splice(s, 1), this._myIndex.removeAt(s);
+                            removeAt(o) {
+                                this._docs.splice(o, 1), this._myIndex.removeAt(o);
                             }
                             getIndex() {
                                 return this._myIndex;
                             }
-                            search(s, { limit: v = -1 } = {}) {
+                            search(o, { limit: m = -1 } = {}) {
                                 let {
                                         includeMatches: S,
                                         includeScore: I,
@@ -4694,26 +4694,26 @@ var $e = ft((Ae, Ye) => {
                                         sortFn: A,
                                         ignoreFieldNorm: R,
                                     } = this.options,
-                                    F = r(s)
+                                    F = r(o)
                                         ? r(this._docs[0])
-                                            ? this._searchStringList(s)
-                                            : this._searchObjectList(s)
-                                        : this._searchLogical(s);
+                                            ? this._searchStringList(o)
+                                            : this._searchObjectList(o)
+                                        : this._searchLogical(o);
                                 return (
                                     nt(F, { ignoreFieldNorm: R }),
                                     T && F.sort(A),
-                                    c(v) && v > -1 && (F = F.slice(0, v)),
+                                    c(m) && m > -1 && (F = F.slice(0, m)),
                                     ot(F, this._docs, { includeMatches: S, includeScore: I })
                                 );
                             }
-                            _searchStringList(s) {
-                                let v = Ne(s, this.options),
+                            _searchStringList(o) {
+                                let m = Ne(o, this.options),
                                     { records: S } = this._myIndex,
                                     I = [];
                                 return (
                                     S.forEach(({ v: T, i: A, n: R }) => {
                                         if (!y(T)) return;
-                                        let { isMatch: F, score: H, indices: B } = v.searchIn(T);
+                                        let { isMatch: F, score: H, indices: B } = m.searchIn(T);
                                         F &&
                                             I.push({
                                                 item: T,
@@ -4726,8 +4726,8 @@ var $e = ft((Ae, Ye) => {
                                     I
                                 );
                             }
-                            _searchLogical(s) {
-                                let v = xe(s, this.options),
+                            _searchLogical(o) {
+                                let m = xe(o, this.options),
                                     S = (R, F, H) => {
                                         if (!R.children) {
                                             let { keyId: x, searcher: G } = R,
@@ -4758,7 +4758,7 @@ var $e = ft((Ae, Ye) => {
                                 return (
                                     I.forEach(({ $: R, i: F }) => {
                                         if (y(R)) {
-                                            let H = S(v, R, F);
+                                            let H = S(m, R, F);
                                             H.length &&
                                                 (T[F] ||
                                                     ((T[F] = { idx: F, item: R, matches: [] }),
@@ -4771,8 +4771,8 @@ var $e = ft((Ae, Ye) => {
                                     A
                                 );
                             }
-                            _searchObjectList(s) {
-                                let v = Ne(s, this.options),
+                            _searchObjectList(o) {
+                                let m = Ne(o, this.options),
                                     { keys: S, records: I } = this._myIndex,
                                     T = [];
                                 return (
@@ -4784,7 +4784,7 @@ var $e = ft((Ae, Ye) => {
                                                 ...this._findMatches({
                                                     key: H,
                                                     value: A[B],
-                                                    searcher: v,
+                                                    searcher: m,
                                                 }),
                                             );
                                         }),
@@ -4793,17 +4793,17 @@ var $e = ft((Ae, Ye) => {
                                     T
                                 );
                             }
-                            _findMatches({ key: s, value: v, searcher: S }) {
-                                if (!y(v)) return [];
+                            _findMatches({ key: o, value: m, searcher: S }) {
+                                if (!y(m)) return [];
                                 let I = [];
-                                if (_(v))
-                                    v.forEach(({ v: T, i: A, n: R }) => {
+                                if (_(m))
+                                    m.forEach(({ v: T, i: A, n: R }) => {
                                         if (!y(T)) return;
                                         let { isMatch: F, score: H, indices: B } = S.searchIn(T);
                                         F &&
                                             I.push({
                                                 score: H,
-                                                key: s,
+                                                key: o,
                                                 value: T,
                                                 idx: A,
                                                 norm: R,
@@ -4811,10 +4811,10 @@ var $e = ft((Ae, Ye) => {
                                             });
                                     });
                                 else {
-                                    let { v: T, n: A } = v,
+                                    let { v: T, n: A } = m,
                                         { isMatch: R, score: F, indices: H } = S.searchIn(T);
                                     R &&
-                                        I.push({ score: F, key: s, value: T, norm: A, indices: H });
+                                        I.push({ score: F, key: o, value: T, norm: A, indices: H });
                                 }
                                 return I;
                             }
@@ -4836,7 +4836,7 @@ var $e = ft((Ae, Ye) => {
                                     return M;
                                 },
                                 bindActionCreators: function () {
-                                    return g;
+                                    return v;
                                 },
                                 combineReducers: function () {
                                     return n;
@@ -4851,7 +4851,7 @@ var $e = ft((Ae, Ye) => {
                                     return N;
                                 },
                             });
-                        function _(p) {
+                        function _(f) {
                             '@babel/helpers - typeof';
                             return (
                                 (_ =
@@ -4868,77 +4868,77 @@ var $e = ft((Ae, Ye) => {
                                                   ? 'symbol'
                                                   : typeof u;
                                           }),
-                                _(p)
+                                _(f)
                             );
                         }
-                        function h(p, u) {
-                            if (_(p) !== 'object' || p === null) return p;
-                            var C = p[Symbol.toPrimitive];
+                        function h(f, u) {
+                            if (_(f) !== 'object' || f === null) return f;
+                            var C = f[Symbol.toPrimitive];
                             if (C !== void 0) {
-                                var Y = C.call(p, u || 'default');
+                                var Y = C.call(f, u || 'default');
                                 if (_(Y) !== 'object') return Y;
                                 throw new TypeError('@@toPrimitive must return a primitive value.');
                             }
-                            return (u === 'string' ? String : Number)(p);
+                            return (u === 'string' ? String : Number)(f);
                         }
-                        function f(p) {
-                            var u = h(p, 'string');
+                        function d(f) {
+                            var u = h(f, 'string');
                             return _(u) === 'symbol' ? u : String(u);
                         }
-                        function o(p, u, C) {
+                        function a(f, u, C) {
                             return (
-                                (u = f(u)),
-                                u in p
-                                    ? Object.defineProperty(p, u, {
+                                (u = d(u)),
+                                u in f
+                                    ? Object.defineProperty(f, u, {
                                           value: C,
                                           enumerable: !0,
                                           configurable: !0,
                                           writable: !0,
                                       })
-                                    : (p[u] = C),
-                                p
+                                    : (f[u] = C),
+                                f
                             );
                         }
-                        function r(p, u) {
-                            var C = Object.keys(p);
+                        function r(f, u) {
+                            var C = Object.keys(f);
                             if (Object.getOwnPropertySymbols) {
-                                var Y = Object.getOwnPropertySymbols(p);
+                                var Y = Object.getOwnPropertySymbols(f);
                                 u &&
                                     (Y = Y.filter(function (V) {
-                                        return Object.getOwnPropertyDescriptor(p, V).enumerable;
+                                        return Object.getOwnPropertyDescriptor(f, V).enumerable;
                                     })),
                                     C.push.apply(C, Y);
                             }
                             return C;
                         }
-                        function c(p) {
+                        function c(f) {
                             for (var u = 1; u < arguments.length; u++) {
                                 var C = arguments[u] != null ? arguments[u] : {};
                                 u % 2
                                     ? r(Object(C), !0).forEach(function (Y) {
-                                          o(p, Y, C[Y]);
+                                          a(f, Y, C[Y]);
                                       })
                                     : Object.getOwnPropertyDescriptors
                                       ? Object.defineProperties(
-                                            p,
+                                            f,
                                             Object.getOwnPropertyDescriptors(C),
                                         )
                                       : r(Object(C)).forEach(function (Y) {
                                             Object.defineProperty(
-                                                p,
+                                                f,
                                                 Y,
                                                 Object.getOwnPropertyDescriptor(C, Y),
                                             );
                                         });
                             }
-                            return p;
+                            return f;
                         }
-                        function a(p) {
+                        function l(f) {
                             return (
                                 'Minified Redux error #' +
-                                p +
+                                f +
                                 '; visit https://redux.js.org/Errors?code=' +
-                                p +
+                                f +
                                 ' for the full message or use the non-minified dev environment for full errors. '
                             );
                         }
@@ -4958,16 +4958,16 @@ var $e = ft((Ae, Ye) => {
                                     return '@@redux/PROBE_UNKNOWN_ACTION' + L();
                                 },
                             };
-                        function D(p) {
-                            if (typeof p != 'object' || p === null) return !1;
-                            for (var u = p; Object.getPrototypeOf(u) !== null; )
+                        function D(f) {
+                            if (typeof f != 'object' || f === null) return !1;
+                            for (var u = f; Object.getPrototypeOf(u) !== null; )
                                 u = Object.getPrototypeOf(u);
-                            return Object.getPrototypeOf(p) === u;
+                            return Object.getPrototypeOf(f) === u;
                         }
-                        function k(p) {
-                            if (p === void 0) return 'undefined';
-                            if (p === null) return 'null';
-                            var u = typeof p;
+                        function k(f) {
+                            if (f === void 0) return 'undefined';
+                            if (f === null) return 'null';
+                            var u = typeof f;
                             switch (u) {
                                 case 'boolean':
                                 case 'string':
@@ -4976,10 +4976,10 @@ var $e = ft((Ae, Ye) => {
                                 case 'function':
                                     return u;
                             }
-                            if (Array.isArray(p)) return 'array';
-                            if (ne(p)) return 'date';
-                            if (Z(p)) return 'error';
-                            var C = Q(p);
+                            if (Array.isArray(f)) return 'array';
+                            if (ne(f)) return 'date';
+                            if (Z(f)) return 'error';
+                            var C = Q(f);
                             switch (C) {
                                 case 'Symbol':
                                 case 'Promise':
@@ -4991,46 +4991,46 @@ var $e = ft((Ae, Ye) => {
                             }
                             return u.slice(8, -1).toLowerCase().replace(/\s/g, '');
                         }
-                        function Q(p) {
-                            return typeof p.constructor == 'function' ? p.constructor.name : null;
+                        function Q(f) {
+                            return typeof f.constructor == 'function' ? f.constructor.name : null;
                         }
-                        function Z(p) {
+                        function Z(f) {
                             return (
-                                p instanceof Error ||
-                                (typeof p.message == 'string' &&
-                                    p.constructor &&
-                                    typeof p.constructor.stackTraceLimit == 'number')
+                                f instanceof Error ||
+                                (typeof f.message == 'string' &&
+                                    f.constructor &&
+                                    typeof f.constructor.stackTraceLimit == 'number')
                             );
                         }
-                        function ne(p) {
-                            return p instanceof Date
+                        function ne(f) {
+                            return f instanceof Date
                                 ? !0
-                                : typeof p.toDateString == 'function' &&
-                                      typeof p.getDate == 'function' &&
-                                      typeof p.setDate == 'function';
+                                : typeof f.toDateString == 'function' &&
+                                      typeof f.getDate == 'function' &&
+                                      typeof f.setDate == 'function';
                         }
-                        function E(p) {
-                            var u = typeof p;
+                        function E(f) {
+                            var u = typeof f;
                             return u;
                         }
-                        function w(p, u, C) {
+                        function w(f, u, C) {
                             var Y;
                             if (
                                 (typeof u == 'function' && typeof C == 'function') ||
                                 (typeof C == 'function' && typeof arguments[3] == 'function')
                             )
-                                throw new Error(a(0));
+                                throw new Error(l(0));
                             if (
                                 (typeof u == 'function' &&
                                     typeof C > 'u' &&
                                     ((C = u), (u = void 0)),
                                 typeof C < 'u')
                             ) {
-                                if (typeof C != 'function') throw new Error(a(1));
-                                return C(w)(p, u);
+                                if (typeof C != 'function') throw new Error(l(1));
+                                return C(w)(f, u);
                             }
-                            if (typeof p != 'function') throw new Error(a(2));
-                            var V = p,
+                            if (typeof f != 'function') throw new Error(l(2));
+                            var V = f,
                                 U = u,
                                 $ = [],
                                 W = $,
@@ -5039,19 +5039,19 @@ var $e = ft((Ae, Ye) => {
                                 W === $ && (W = $.slice());
                             }
                             function ee() {
-                                if (J) throw new Error(a(3));
+                                if (J) throw new Error(l(3));
                                 return U;
                             }
                             function ae(te) {
-                                if (typeof te != 'function') throw new Error(a(4));
-                                if (J) throw new Error(a(5));
+                                if (typeof te != 'function') throw new Error(l(4));
+                                if (J) throw new Error(l(5));
                                 var de = !0;
                                 return (
                                     z(),
                                     W.push(te),
                                     function () {
                                         if (de) {
-                                            if (J) throw new Error(a(6));
+                                            if (J) throw new Error(l(6));
                                             (de = !1), z();
                                             var oe = W.indexOf(te);
                                             W.splice(oe, 1), ($ = null);
@@ -5060,9 +5060,9 @@ var $e = ft((Ae, Ye) => {
                                 );
                             }
                             function ce(te) {
-                                if (!D(te)) throw new Error(a(7));
-                                if (typeof te.type > 'u') throw new Error(a(8));
-                                if (J) throw new Error(a(9));
+                                if (!D(te)) throw new Error(l(7));
+                                if (typeof te.type > 'u') throw new Error(l(8));
+                                if (J) throw new Error(l(9));
                                 try {
                                     (J = !0), (U = V(U, te));
                                 } finally {
@@ -5075,7 +5075,7 @@ var $e = ft((Ae, Ye) => {
                                 return te;
                             }
                             function le(te) {
-                                if (typeof te != 'function') throw new Error(a(10));
+                                if (typeof te != 'function') throw new Error(l(10));
                                 (V = te), ce({ type: y.REPLACE });
                             }
                             function _e() {
@@ -5085,7 +5085,7 @@ var $e = ft((Ae, Ye) => {
                                     (te = {
                                         subscribe: function (oe) {
                                             if (typeof oe != 'object' || oe === null)
-                                                throw new Error(a(11));
+                                                throw new Error(l(11));
                                             function Te() {
                                                 oe.next && oe.next(ee());
                                             }
@@ -5113,15 +5113,15 @@ var $e = ft((Ae, Ye) => {
                             );
                         }
                         var N = w;
-                        function d(p) {
+                        function g(f) {
                             typeof console < 'u' &&
                                 typeof console.error == 'function' &&
-                                console.error(p);
+                                console.error(f);
                             try {
-                                throw new Error(p);
+                                throw new Error(f);
                             } catch {}
                         }
-                        function e(p, u, C, Y) {
+                        function e(f, u, C, Y) {
                             var V = Object.keys(u),
                                 U =
                                     C && C.type === y.INIT
@@ -5129,16 +5129,16 @@ var $e = ft((Ae, Ye) => {
                                         : 'previous state received by the reducer';
                             if (V.length === 0)
                                 return 'Store does not have a valid reducer. Make sure the argument passed to combineReducers is an object whose values are reducers.';
-                            if (!D(p))
+                            if (!D(f))
                                 return (
                                     'The ' +
                                     U +
                                     ' has unexpected type of "' +
-                                    E(p) +
+                                    E(f) +
                                     '". Expected argument to be an object with the following ' +
                                     ('keys: "' + V.join('", "') + '"')
                                 );
-                            var $ = Object.keys(p).filter(function (W) {
+                            var $ = Object.keys(f).filter(function (W) {
                                 return !u.hasOwnProperty(W) && !Y[W];
                             });
                             if (
@@ -5156,19 +5156,19 @@ var $e = ft((Ae, Ye) => {
                                     ('"' + V.join('", "') + '". Unexpected keys will be ignored.')
                                 );
                         }
-                        function t(p) {
-                            Object.keys(p).forEach(function (u) {
-                                var C = p[u],
+                        function t(f) {
+                            Object.keys(f).forEach(function (u) {
+                                var C = f[u],
                                     Y = C(void 0, { type: y.INIT });
-                                if (typeof Y > 'u') throw new Error(a(12));
+                                if (typeof Y > 'u') throw new Error(l(12));
                                 if (typeof C(void 0, { type: y.PROBE_UNKNOWN_ACTION() }) > 'u')
-                                    throw new Error(a(13));
+                                    throw new Error(l(13));
                             });
                         }
-                        function n(p) {
-                            for (var u = Object.keys(p), C = {}, Y = 0; Y < u.length; Y++) {
+                        function n(f) {
+                            for (var u = Object.keys(f), C = {}, Y = 0; Y < u.length; Y++) {
                                 var V = u[Y];
-                                typeof p[V] == 'function' && (C[V] = p[V]);
+                                typeof f[V] == 'function' && (C[V] = f[V]);
                             }
                             var U = Object.keys(C),
                                 $,
@@ -5188,30 +5188,30 @@ var $e = ft((Ae, Ye) => {
                                         oe = de(pe, ee);
                                     if (typeof oe > 'u') {
                                         var Te = ee && ee.type;
-                                        throw new Error(a(14));
+                                        throw new Error(l(14));
                                     }
                                     (le[te] = oe), (ce = ce || oe !== pe);
                                 }
                                 return (ce = ce || U.length !== Object.keys(z).length), ce ? le : z;
                             };
                         }
-                        function l(p, u) {
+                        function s(f, u) {
                             return function () {
-                                return u(p.apply(this, arguments));
+                                return u(f.apply(this, arguments));
                             };
                         }
-                        function g(p, u) {
-                            if (typeof p == 'function') return l(p, u);
-                            if (typeof p != 'object' || p === null) throw new Error(a(16));
+                        function v(f, u) {
+                            if (typeof f == 'function') return s(f, u);
+                            if (typeof f != 'object' || f === null) throw new Error(l(16));
                             var C = {};
-                            for (var Y in p) {
-                                var V = p[Y];
-                                typeof V == 'function' && (C[Y] = l(V, u));
+                            for (var Y in f) {
+                                var V = f[Y];
+                                typeof V == 'function' && (C[Y] = s(V, u));
                             }
                             return C;
                         }
                         function P() {
-                            for (var p = arguments.length, u = new Array(p), C = 0; C < p; C++)
+                            for (var f = arguments.length, u = new Array(f), C = 0; C < f; C++)
                                 u[C] = arguments[C];
                             return u.length === 0
                                 ? function (Y) {
@@ -5226,13 +5226,13 @@ var $e = ft((Ae, Ye) => {
                                     });
                         }
                         function M() {
-                            for (var p = arguments.length, u = new Array(p), C = 0; C < p; C++)
+                            for (var f = arguments.length, u = new Array(f), C = 0; C < f; C++)
                                 u[C] = arguments[C];
                             return function (Y) {
                                 return function () {
                                     var V = Y.apply(void 0, arguments),
                                         U = function () {
-                                            throw new Error(a(15));
+                                            throw new Error(l(15));
                                         },
                                         $ = {
                                             getState: V.getState,
@@ -5302,8 +5302,8 @@ var $e = ft((Ae, Ye) => {
                         b = X(187),
                         _ = X.n(b),
                         h = X(883),
-                        f = X(789),
-                        o = X(686);
+                        d = X(789),
+                        a = X(686);
                     me.default = i();
                 })(),
                 (me = me.default),
@@ -5322,49 +5322,51 @@ function vt({
     getSearchResultsUsing: i,
     isAutofocused: b,
     isMultiple: _,
-    hasDynamicOptions: h,
-    hasDynamicSearchResults: f,
-    livewireId: o,
-    loadingMessage: r,
-    maxItems: c,
-    maxItemsMessage: a,
-    noSearchResultsMessage: O,
-    options: L,
-    optionsLimit: y,
-    placeholder: D,
-    position: k,
-    searchDebounce: Q,
-    searchingMessage: Z,
-    searchPrompt: ne,
-    searchableOptionFields: E,
-    state: w,
-    statePath: N,
+    isSearchable: h,
+    hasDynamicOptions: d,
+    hasDynamicSearchResults: a,
+    livewireId: r,
+    loadingMessage: c,
+    maxItems: l,
+    maxItemsMessage: O,
+    noSearchResultsMessage: L,
+    options: y,
+    optionsLimit: D,
+    placeholder: k,
+    position: Q,
+    searchDebounce: Z,
+    searchingMessage: ne,
+    searchPrompt: E,
+    searchableOptionFields: w,
+    state: N,
+    statePath: g,
 }) {
     return {
         isSearching: !1,
         select: null,
         selectedOptions: [],
         isStateBeingUpdated: !1,
-        state: w,
+        state: N,
         init: async function () {
             (this.select = new ze.default(this.$refs.input, {
                 allowHTML: ie,
                 duplicateItemsAllowed: !1,
                 itemSelectText: '',
-                loadingText: r,
-                maxItemCount: c ?? -1,
-                maxItemText: (d) => window.pluralize(a, d, { count: d }),
-                noChoicesText: ne,
-                noResultsText: O,
-                placeholderValue: D,
-                position: k ?? 'auto',
+                loadingText: c,
+                maxItemCount: l ?? -1,
+                maxItemText: (e) => window.pluralize(O, e, { count: e }),
+                noChoicesText: E,
+                noResultsText: L,
+                placeholderValue: k,
+                position: Q ?? 'auto',
                 removeItemButton: se,
-                renderChoiceLimit: y,
-                searchFields: E ?? ['label'],
-                searchPlaceholderValue: ne,
-                searchResultLimit: y,
+                renderChoiceLimit: D,
+                searchEnabled: h,
+                searchFields: w ?? ['label'],
+                searchPlaceholderValue: E,
+                searchResultLimit: D,
                 shouldSort: !1,
-                searchFloor: f ? 0 : 1,
+                searchFloor: a ? 0 : 1,
             })),
                 await this.refreshChoices({ withInitialOptions: !0 }),
                 [null, void 0, ''].includes(this.state) ||
@@ -5378,20 +5380,20 @@ function vt({
                             (this.state = this.select.getValue(!0) ?? null),
                             this.$nextTick(() => (this.isStateBeingUpdated = !1)));
                 }),
-                h &&
+                d &&
                     this.$refs.input.addEventListener('showDropdown', async () => {
                         this.select.clearChoices(),
-                            await this.select.setChoices([{ label: r, value: '', disabled: !0 }]),
+                            await this.select.setChoices([{ label: c, value: '', disabled: !0 }]),
                             await this.refreshChoices();
                     }),
-                f &&
-                    (this.$refs.input.addEventListener('search', async (d) => {
-                        let e = d.detail.value?.trim();
+                a &&
+                    (this.$refs.input.addEventListener('search', async (e) => {
+                        let t = e.detail.value?.trim();
                         (this.isSearching = !0),
                             this.select.clearChoices(),
                             await this.select.setChoices([
                                 {
-                                    label: [null, void 0, ''].includes(e) ? r : Z,
+                                    label: [null, void 0, ''].includes(t) ? c : ne,
                                     value: '',
                                     disabled: !0,
                                 },
@@ -5399,54 +5401,65 @@ function vt({
                     }),
                     this.$refs.input.addEventListener(
                         'search',
-                        Alpine.debounce(async (d) => {
-                            await this.refreshChoices({ search: d.detail.value?.trim() }),
+                        Alpine.debounce(async (e) => {
+                            await this.refreshChoices({ search: e.detail.value?.trim() }),
                                 (this.isSearching = !1);
-                        }, Q),
+                        }, Z),
                     )),
                 _ ||
                     window.addEventListener(
                         'filament-forms::select.refreshSelectedOptionLabel',
-                        async (d) => {
-                            d.detail.livewireId === o &&
-                                d.detail.statePath === N &&
-                                (await this.refreshChoices({ withInitialOptions: !h }));
+                        async (e) => {
+                            e.detail.livewireId === r &&
+                                e.detail.statePath === g &&
+                                (await this.refreshChoices({ withInitialOptions: !d }));
                         },
                     ),
                 this.$watch('state', async () => {
                     this.select &&
                         (this.refreshPlaceholder(),
                         !this.isStateBeingUpdated &&
-                            (await this.refreshChoices({ withInitialOptions: !h })));
+                            (await this.refreshChoices({ withInitialOptions: !d })));
                 });
         },
         destroy: function () {
             this.select.destroy(), (this.select = null);
         },
-        refreshChoices: async function (d = {}) {
-            let e = await this.getChoices(d);
+        refreshChoices: async function (e = {}) {
+            let t = await this.getChoices(e);
             this.select.clearStore(),
                 this.refreshPlaceholder(),
-                this.setChoices(e),
+                this.setChoices(t),
                 [null, void 0, ''].includes(this.state) ||
                     this.select.setChoiceByValue(this.formatState(this.state));
         },
-        setChoices: function (d) {
-            this.select.setChoices(d, 'value', 'label', !0);
+        setChoices: function (e) {
+            this.select.setChoices(e, 'value', 'label', !0);
         },
-        getChoices: async function (d = {}) {
-            let e = await this.getExistingOptions(d);
-            return e.concat(await this.getMissingOptions(e));
+        getChoices: async function (e = {}) {
+            let t = await this.getExistingOptions(e);
+            return t.concat(await this.getMissingOptions(t));
         },
-        getExistingOptions: async function ({ search: d, withInitialOptions: e }) {
-            if (e) return L;
-            let t = [];
+        getExistingOptions: async function ({ search: e, withInitialOptions: t }) {
+            if (t) return y;
+            let n = [];
             return (
-                d !== '' && d !== null && d !== void 0 ? (t = await i(d)) : (t = await j()),
-                t.map((n) =>
-                    Array.isArray(this.state) && this.state.includes(n.value)
-                        ? ((l) => ((l.selected = !0), l))(n)
-                        : n,
+                e !== '' && e !== null && e !== void 0 ? (n = await i(e)) : (n = await j()),
+                n.map((s) =>
+                    s.choices
+                        ? ((s.choices = s.choices.map(
+                              (v) => (
+                                  (v.selected = Array.isArray(this.state)
+                                      ? this.state.includes(v.value)
+                                      : this.state === v.value),
+                                  v
+                              ),
+                          )),
+                          s)
+                        : ((s.selected = Array.isArray(this.state)
+                              ? this.state.includes(s.value)
+                              : this.state === s.value),
+                          s),
                 )
             );
         },
@@ -5455,22 +5468,33 @@ function vt({
                 (this.select._renderItems(),
                 [null, void 0, ''].includes(this.state) &&
                     (this.$el.querySelector('.choices__list--single').innerHTML =
-                        `<div class="choices__placeholder choices__item">${D ?? ''}</div>`));
+                        `<div class="choices__placeholder choices__item">${k ?? ''}</div>`));
         },
-        formatState: function (d) {
-            return _ ? (d ?? []).map((e) => e?.toString()) : d?.toString();
+        formatState: function (e) {
+            return _ ? (e ?? []).map((t) => t?.toString()) : e?.toString();
         },
-        getMissingOptions: async function (d) {
-            let e = this.formatState(this.state);
-            if ([null, void 0, '', [], {}].includes(e)) return {};
-            let t = new Set(d.length ? d.map((n) => n.value) : []);
-            return _
-                ? e.every((n) => t.has(n))
-                    ? {}
-                    : (await me()).filter((n) => !t.has(n.value)).map((n) => ((n.selected = !0), n))
-                : t.has(e)
-                  ? t
-                  : [{ label: await X(), value: e, selected: !0 }];
+        getMissingOptions: async function (e) {
+            let t = this.formatState(this.state);
+            if ([null, void 0, '', [], {}].includes(t)) return {};
+            let n = new Set();
+            return (
+                e.forEach((s) => {
+                    if (s.choices) {
+                        s.choices.forEach((v) => n.add(v.value));
+                        return;
+                    }
+                    n.add(s.value);
+                }),
+                _
+                    ? t.every((s) => n.has(s))
+                        ? {}
+                        : (await me())
+                              .filter((s) => !n.has(s.value))
+                              .map((s) => ((s.selected = !0), s))
+                    : n.has(t)
+                      ? n
+                      : [{ label: await X(), value: t, selected: !0 }]
+            );
         },
     };
 }
